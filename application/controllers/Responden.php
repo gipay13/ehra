@@ -44,6 +44,27 @@ class Responden extends CI_Controller {
 	}
 
 	public function store() {
+		$data = [
+			'provinsi' => $this->input->post('provinsi'),
+			'kabupaten' => $this->input->post('kabupaten'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'kelurahan' => $this->input->post('kelurahan'),
+			'koordinator' => $this->input->post('koordinator'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'tanggalSurvey' => $this->input->post('tanggalSurvey'),
+			'waktu' => $this->input->post('waktu'),
+			'pewawancara' => $this->input->post('pewawancara'),
+			'supervisor' => $this->input->post('supervisor'),
+			'kepalaRumah' => $this->input->post('kepalaRumah'),
+			'jumlahJiwaLaki' => $this->input->post('jumlahJiwaLaki'),
+			'jumlahJiwaPr' => $this->input->post('jumlahJiwaPr'),
+			'jumlahJiwaLaki' => $this->input->post('jumlahJiwaLaki'),
+			'hubungan' => $this->input->post('hubungan'),
+			'alamat' => $this->input->post('alamat'),
+		];
 
+		echo '<pre>';
+		print_r($data);
+		die;
 	}
 }

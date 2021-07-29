@@ -1,7 +1,7 @@
 <div class="container my-5">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <form action="" method="post">
+                <form action="<?= base_url('responden/store'); ?>" method="post">
                     <div class="card">
                         <div class="my-3 mx-4">
 

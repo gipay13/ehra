@@ -33,7 +33,7 @@
 
 							<div class="form-group">
 								<label for="kelurahan">Desa/Kelurahan</label>
-								<select name="kelurahan" id="keluahan" class="form-control">
+								<select name="kelurahan" id="kelurahan" class="form-control">
 									<option value="">--Pilih Kelurahan--</option>
 								</select>
 							</div>
@@ -87,9 +87,11 @@
                             <div class="form-group">
                                 <label for="supervisor">Nama Supervisor</label>
                                 <select name="supervisor" id="supervisor" class="form-control">
-                                    
-                                        <option value="{{$item->id}}">{{$item->nama_supervisor}}</option>
-                                    
+									<?php 
+										foreach ($supervisor as $s) {
+											echo '<option value="'.$s->id.'">'.$s->nama_supervisor.'</option>';
+										}
+									?>	
                                 </select>
                             </div>
                             <div class="form-group">

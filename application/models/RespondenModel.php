@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class RespondenModel extends CI_Model {
 	function provinces() {

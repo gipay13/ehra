@@ -13,6 +13,7 @@ class Responden extends CI_Controller {
 	public function index() {
 		$data['provinces'] = $this->RespondenModel->provinces();
 		$data['supervisor'] = $this->RespondenModel->supevisor();
+		
 		$this->load->view('layouts/head');
 		$this->load->view('layouts/nav');
 		$this->load->view('pages/responden-page', $data);

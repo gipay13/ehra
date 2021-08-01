@@ -13,6 +13,8 @@ class Pertanyaan extends CI_Controller
 
 	public function index()
 	{
+		// $kategori = $this->uri->segment(3);
+
 		$data['kategori'] = $this->PertanyaanModel->kategoriPertanyaan();
 
 		// echo '<pre>';
@@ -23,5 +25,12 @@ class Pertanyaan extends CI_Controller
 		$this->load->view('layouts/nav');
 		$this->load->view('pages/pertanyaan-page', $data);
 		$this->load->view('layouts/footer');
+	}
+
+	public function save_pertanyaan()
+	{
+		// Koding Save
+
+		redirect('responden')
 	}
 }

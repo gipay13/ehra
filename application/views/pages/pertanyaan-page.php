@@ -25,7 +25,13 @@
                                     <tr>
                                         <td class="col-md-5"><?= $k->pertanyaan ?></td>
                                         <td class="col-md-1"></td>
-                                        <td class="col-md-5"></td>
+                                        <td class="col-md-5">
+                                            <?php if ($k->id_pertanyaan == 1) { ?>
+                                                <div class="ml-1">
+                                                    <input type="text" class="col-md-8 form-control" name="<?= $k->id_pertanyaan ?>" placeholder="Tahun">
+                                                </div>
+                                            <?php } ?>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -34,5 +40,8 @@
                 </div>
             <?php } ?>
         </form>
+        <div>
+            <button class="btn btn-sm btn-primary">Next</button>
+        </div>
     </div>
 </div>

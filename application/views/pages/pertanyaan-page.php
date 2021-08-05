@@ -225,21 +225,21 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang" class="col-sm-5 col-form-label">2-5 tahun</label>
+																	<label for="2-5th" class="col-sm-5 col-form-label">2-5 tahun</label>
 																	<div class="col-sm-7">
-																	<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>B">
+																	<input type="text" class="form-control" id="2-5th" name="answer<?= $p->id_pertanyaan; ?>B">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang" class="col-sm-5 col-form-label">6-12 tahun</label>
+																	<label for="6-12th" class="col-sm-5 col-form-label">6-12 tahun</label>
 																	<div class="col-sm-7">
-																	<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>C">
+																	<input type="text" class="form-control" id="6-12th" name="answer<?= $p->id_pertanyaan; ?>C">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
+																	<label for=">12th" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
 																	<div class="col-sm-7">
-																	<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>D">
+																	<input type="text" class="form-control" id=">12th" name="answer<?= $p->id_pertanyaan; ?>D">
 																	</div>
 																</div>
 															</div>
@@ -253,21 +253,21 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-5 col-form-label">2-5 tahun</label>
+																	<label for="2-5" class="col-sm-5 col-form-label">2-5 tahun</label>
 																	<div class="col-sm-7">
-																		<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>B">
+																		<input type="text" class="form-control" id="2-5" name="answer<?= $p->id_pertanyaan; ?>B">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang" class="col-sm-5 col-form-label">6-12 tahun</label>
+																	<label for="6-12" class="col-sm-5 col-form-label">6-12 tahun</label>
 																	<div class="col-sm-7">
-																		<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>C">
+																		<input type="text" class="form-control" id="6-12" name="answer<?= $p->id_pertanyaan; ?>C">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
+																	<label for=">12" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
 																	<div class="col-sm-7">
-																		<input type="text" class="form-control" id="kurang" name="answer<?= $p->id_pertanyaan; ?>D">
+																		<input type="text" class="form-control" id=">12" name="answer<?= $p->id_pertanyaan; ?>D">
 																	</div>
 																</div>
 															</div>
@@ -281,7 +281,7 @@
 														<?php if($p->id_pertanyaan == 16) { ?>
 															<div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Banyak sampah berserakan atau bertumpuk di sekitar lingkungan</label>
+																	<label class="col-sm-8 col-form-label">Banyak sampah berserakan atau bertumpuk di sekitar lingkungan</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
@@ -294,7 +294,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Banyak lalat di sekitar tumpukan sampah</label>
+																	<label class="col-sm-8 col-form-label">Banyak lalat di sekitar tumpukan sampah</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y2" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
@@ -307,7 +307,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Banyak tikus berkeliaran</label>
+																	<label class="col-sm-8 col-form-label">Banyak tikus berkeliaran</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y3" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
@@ -320,7 +320,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Banyak nyamuk</label>
+																	<label class="col-sm-8 col-form-label">Banyak nyamuk</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y4" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
@@ -333,7 +333,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
+																	<label class="col-sm-8 col-form-label">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y5" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
@@ -346,7 +346,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Bau busuk yang mengganggu</label>
+																	<label class="col-sm-8 col-form-label">Bau busuk yang mengganggu</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y6" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
@@ -359,7 +359,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Menyumbat saluran drainase</label>
+																	<label class="col-sm-8 col-form-label">Menyumbat saluran drainase</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y7" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
@@ -451,7 +451,7 @@
 														<?php if($p->id_pertanyaan == 19) { ?>
 															<div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
+																	<label class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y9" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
@@ -464,7 +464,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Plastik</label>
+																	<label class="col-sm-8 col-form-label">Plastik</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y10" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
@@ -477,7 +477,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Gelas atau kaca</label>
+																	<label class="col-sm-8 col-form-label">Gelas atau kaca</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y11" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
@@ -490,7 +490,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Kertas</label>
+																	<label class="col-sm-8 col-form-label">Kertas</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y12" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
@@ -503,7 +503,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Besi/logam</label>
+																	<label class="col-sm-8 col-form-label">Besi/logam</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y13" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
@@ -516,7 +516,7 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Bahan berbahaya dan beracun (B3)</label>
+																	<label class="col-sm-8 col-form-label">Bahan berbahaya dan beracun (B3)</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y14" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
@@ -529,13 +529,13 @@
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
+																	<label for="lain" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
 																	<div class="col-sm-7">
-																		<input type="text" class="form-control" id="kurang2" name="answer<?= $p->id_pertanyaan; ?>G">
+																		<input type="text" class="form-control" id="lain" name="answer<?= $p->id_pertanyaan; ?>G">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label for="kurang2" class="col-sm-8 col-form-label">Tidak tahu</label>
+																	<label class="col-sm-8 col-form-label">Tidak tahu</label>
 																	<div class="col-sm-4">
 																		<div class="custom-control custom-radio">
 																			<input type="radio" id="y15" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
@@ -682,7 +682,7 @@
 															</div>
 														<?php } ?>
 														<?php if($p->id_pertanyaan == 26) { ?>
-															<div class="bg-primary">
+															<div>
 																<div class="form-group row">
 																	<label for="kurang2" class="col-sm-8 col-form-label">Anak laki-laki umur 5 – 12 tahun</label>
 																	<div class="col-sm-4">

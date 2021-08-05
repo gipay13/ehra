@@ -39,13 +39,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="koordinator">Koordinator Kecamatan</label>
-                            <select name="koordinator" id="koordinator" class="form-control">
-                                <option value="">--Pilih Koordinator--</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label for="strata">Strata Desa/Kelurahan</label>
                             <div class="custom-control custom-radio">
                                 <input type="radio" id="0" name="strata" class="custom-control-input" value="0">
@@ -87,6 +80,7 @@
                         <div class="form-group">
                             <label for="supervisor">Nama Supervisor</label>
                             <select name="supervisor" id="supervisor" class="form-control">
+								<option value="">--Pilih Supervisor--</option>
                                 <?php
                                 foreach ($supervisor as $s) {
                                     echo '<option value="'. $s->id .'">'. $s->nama_supervisor.'</option>';
@@ -94,22 +88,28 @@
                                 ?>
                             </select>
                         </div>
+						<div class="form-group">
+                            <label for="koordinator">Koordinator Kecamatan</label>
+                            <select name="koordinator" id="koordinator" class="form-control">
+                                <option value="">--Pilih Koordinator--</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="kepalaRumah">Nama Kepala Rumah Tangga</label>
                             <input type="text" class="form-control" name="kepalaRumah" id="kepalaRumah">
                         </div>
 						<div class="form-group">Jumlah Keluarga Dalam Rumah</label>
-                            <input type="text" class="form-control" name="jumlahKeluarga" id="kepalaRumah">
+                            <input type="number" class="form-control" name="jumlahKeluarga" id="kepalaRumah">
                         </div>
                         <div class="form-group">
                             <label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
                             <div class="row">
                                 <div class="col-md-3">Laki</div>
-                                <input type="text" class="form-control col-md-4" name="jumlahJiwaLaki" id="jumlahJiwa">
+                                <input type="number" class="form-control col-md-4" name="jumlahJiwaLaki" id="jumlahJiwa">
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-3">Perempuan</div>
-                                <input type="text" class="form-control col-md-4" name="jumlahJiwaPr" id="jumlahJiwa">
+                                <input type="number" class="form-control col-md-4" name="jumlahJiwaPr" id="jumlahJiwa">
                             </div>
                         </div>
                         <div class="form-group">

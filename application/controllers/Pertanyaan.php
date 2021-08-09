@@ -32,12 +32,6 @@ class Pertanyaan extends CI_Controller {
 		
 		return $data;
 	}
-	public function penutup(){
-		$this->load->view('layouts/head');
-		$this->load->view('layouts/nav');
-		$this->load->view('pages/penutup-page');
-		$this->load->view('layouts/footer');	
-	}
 
 	public function store() {
 		$kode_kategori = $this->input->post('kode_kategori');

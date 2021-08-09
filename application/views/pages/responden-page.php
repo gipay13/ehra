@@ -94,9 +94,13 @@
                                 <option value="">--Pilih Koordinator--</option>
                             </select>
                         </div>
+						<div class="form-group">
+                            <label for="nikkepalaRumah">NIK Kepala Rumah Tangga</label>
+                            <input type="number" class="form-control" name="nikKepalaRumah" id="nikkepalaRumah">
+                        </div>
                         <div class="form-group">
-                            <label for="kepalaRumah">Nama Kepala Rumah Tangga</label>
-                            <input type="text" class="form-control" name="kepalaRumah" id="kepalaRumah">
+                            <label for="namakepalaRumah">Nama Kepala Rumah Tangga</label>
+                            <input type="text" class="form-control" name="namaKepalaRumah" id="namakepalaRumah">
                         </div>
 						<div class="form-group">Jumlah Keluarga Dalam Rumah</label>
                             <input type="number" class="form-control" name="jumlahKeluarga" id="kepalaRumah">

@@ -74,35 +74,39 @@
                             <input type="time" name="waktu" id="waktu" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="pewawancara">Nama Pewawancara/Enumerator</label>
-                            <input type="text" name="pewawancara" id="pewawancara" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
+                            <label>Nama Pewawancara/Enumerator</label>
+                            <input type="hidden" name="pewawancara" id="pewawancara" value="<?= $this->session->userdata("id"); ?>">
+                            <input type="text" name="pewawancara2" id="pewawancara2" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="supervisor">Nama Supervisor</label>
                             <select name="supervisor" id="supervisor" class="form-control">
-								<option value="">--Pilih Supervisor--</option>
+                                <option value="">--Pilih Supervisor--</option>
                                 <?php
                                 foreach ($supervisor as $s) {
-                                    echo '<option value="'. $s->id .'">'. $s->nama_supervisor.'</option>';
+                                    echo '<option value="' . $s->id . '">' . $s->nama_supervisor . '</option>';
                                 }
                                 ?>
                             </select>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="koordinator">Koordinator Kecamatan</label>
                             <select name="koordinator" id="koordinator" class="form-control">
                                 <option value="">--Pilih Koordinator--</option>
+                                <?php foreach ($koordinator->result_array() as $k) { ?>
+                                    <option value="<?= $k['id'] ?>"><?= $k['nama_koordinator'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="nikkepalaRumah">NIK Kepala Rumah Tangga</label>
                             <input type="number" class="form-control" name="nikKepalaRumah" id="nikkepalaRumah">
                         </div>
                         <div class="form-group">
                             <label for="namakepalaRumah">Nama Kepala Rumah Tangga</label>
-                            <input type="text" class="form-control" name="namaKepalaRumah" id="namakepalaRumah">
+                            <input type="text" class="form-control" name="namaKepalaRumah" id="namakepalaRumah" autocomplete="off">
                         </div>
-						<div class="form-group">Jumlah Keluarga Dalam Rumah</label>
+                        <div class="form-group">Jumlah Keluarga Dalam Rumah</label>
                             <input type="number" class="form-control" name="jumlahKeluarga" id="kepalaRumah">
                         </div>
                         <div class="form-group">
@@ -118,7 +122,7 @@
                         </div>
                         <div class="form-group">
                             <label for="responden">Nama Responden</label>
-                            <input type="text" class="form-control" name="responden" id="responden">
+                            <input type="text" class="form-control" name="responden" id="responden" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="hubungan">Hubungan Responden dengan Kepala Keluarga</label>
@@ -137,41 +141,41 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat/Telepon</label>
-                            <input type="text" class="form-control" name="alamat" id="alamat">
+                            <input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
                         </div>
                     </div>
                 </div>
-               	<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
-				Next
-				</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
+                    Next
+                </button>
 
-				<!-- Central Modal large -->
-				<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title w-100 text-center" id="myModalLabel"><b>PERNYATAAN KESEDIAAN</b></h4>
-							</div>
-							<div class="modal-body">
-								<p class="text-center">(WAJIB DIBACAKAN PADA CALON RESPONDEN; BOLEH MENGGUNAKAN BAHASA DAERAH SETEMPAT)</p>
-								<p class="text-center">Selamat pagi/siang/sore Ibu, saya <?= $this->session->userdata("name"); ?> mewakili tim survey Penilaian Resiko Kesehatan Lingkungan, Program Percepatan
-									Pembangunan Sanitasi Permukiman (PPSP) di Kabupaten/Kota _____________. Kami sedang melakukan survei rumah tangga dan
-									Ibu terpilih untuk diwawancarai. Kami ingin menanyakan dan mengamati hal-hal yang berkaitan dengan lingkungan rumah.
-									Informasi yang ibu berikan akan membantu pemerintah kab/kota merencanakan program lingkungan. Informasi yang ibu berikan
-									akan terjaga kerahasiaannya dan tidak akan ditunjukkan pada orang lain. Lama wawancara ini sekitar 30 menit. Wawancara ini
-									sifatnya sukarela, Ibu boleh menolak atau tidak menjawab pertanyaan tertentu atau tidak melanjutkan wawancara. Kami harap Ibu
-									bersedia berpartisipasi karena jawaban Ibu sangat penting bagi pembangunan lingkungan. <b>(Jika Calon Responden Tidak
-									bersedia, ucapkan terima kasih kepada calon responden tersebut dan selanjutnya anda pindah ke calon responden lain yang ada
-									dalam daftar calon responden)</b></p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
-								<button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-							</div>
-						</div>
-					</div>
-				</div>
+                <!-- Central Modal large -->
+                <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title w-100 text-center" id="myModalLabel"><b>PERNYATAAN KESEDIAAN</b></h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">(WAJIB DIBACAKAN PADA CALON RESPONDEN; BOLEH MENGGUNAKAN BAHASA DAERAH SETEMPAT)</p>
+                                <p class="text-center">Selamat pagi/siang/sore Ibu, saya <?= $this->session->userdata("name"); ?> mewakili tim survey Penilaian Resiko Kesehatan Lingkungan, Program Percepatan
+                                    Pembangunan Sanitasi Permukiman (PPSP) di Kabupaten/Kota _____________. Kami sedang melakukan survei rumah tangga dan
+                                    Ibu terpilih untuk diwawancarai. Kami ingin menanyakan dan mengamati hal-hal yang berkaitan dengan lingkungan rumah.
+                                    Informasi yang ibu berikan akan membantu pemerintah kab/kota merencanakan program lingkungan. Informasi yang ibu berikan
+                                    akan terjaga kerahasiaannya dan tidak akan ditunjukkan pada orang lain. Lama wawancara ini sekitar 30 menit. Wawancara ini
+                                    sifatnya sukarela, Ibu boleh menolak atau tidak menjawab pertanyaan tertentu atau tidak melanjutkan wawancara. Kami harap Ibu
+                                    bersedia berpartisipasi karena jawaban Ibu sangat penting bagi pembangunan lingkungan. <b>(Jika Calon Responden Tidak
+                                        bersedia, ucapkan terima kasih kepada calon responden tersebut dan selanjutnya anda pindah ke calon responden lain yang ada
+                                        dalam daftar calon responden)</b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

@@ -87,6 +87,10 @@
                                 <?php } ?>
                             </select>
                         </div>
+						<div class="form-group">
+                            <label for="nokk">No KK</label>
+                            <input type="number" class="form-control" name="nokk" id="nokk">
+                        </div>
                         <div class="form-group">
                             <label for="nikkepalaRumah">NIK Kepala Rumah Tangga</label>
                             <input type="number" class="form-control" name="nikKepalaRumah" id="nikkepalaRumah">

@@ -18,9 +18,9 @@ class Auth extends CI_Controller
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 			if ($this->form_validation->run() == false) {
-				$this->load->view('layouts/head');
+				$this->load->view('layouts/survey_layouts/head');
 				$this->load->view('auth/login-page');
-				$this->load->view('layouts/footer');
+				$this->load->view('layouts/survey_layouts/footer');
 			} else {
 				// Validasi Success
 				$this->_login();
@@ -43,7 +43,7 @@ class Auth extends CI_Controller
 					'id'		=> $user['id']
 				];
 				$this->session->set_userdata($data);
-				redirect('responden');
+				redirect('admin');
 			} else {
 				$this->session->set_flashdata(
 					'message',

@@ -29,10 +29,10 @@ class Pertanyaan extends CI_Controller
 		$data['kategoriDO'] = $this->PertanyaanModel->kategoriPertanyaan('DO');
 		$data['kategoriEO'] = $this->PertanyaanModel->kategoriPertanyaan('EO');
 
-		$this->load->view('layouts/head');
-		$this->load->view('layouts/nav');
-		$this->load->view('pages/pertanyaan-page', $data);
-		$this->load->view('layouts/footer');
+		$this->load->view('layouts/survey_layouts/head');
+		$this->load->view('layouts/survey_layouts/nav');
+		$this->load->view('survey_pages/pertanyaan-page', $data);
+		$this->load->view('layouts/survey_layouts/footer');
 	}
 
 	public function pertanyaan($value)

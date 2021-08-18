@@ -3,31 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class RespondenModel extends CI_Model
 {
-	function provinces()
+	function regencies()
 	{
-		$this->db->order_by('name', 'asc');
-		$query = $this->db->get('provinces');
-		return $query->result();
-	}
-
-	public function get_data()
-	{
-		$sql = "SELECT id_survey FROM responden LIMIT 1";
-		return $this->db->query($sql);
-	}
-
-	function regencies($id)
-	{
-		$this->db->where('province_id', $id);
+		$this->db->like('name', 'SUKABUMI');
 		$this->db->order_by('name', 'asc');
 		$query = $this->db->get('regencies');
 
-		$output = '<option value="">--Pilih Kabupaten--</option>';
-		foreach ($query->result() as $r) {
-			$output .= '<option value="' . $r->id . '">' . $r->name . '</option>';
-		}
-
-		return $output;
+		return $query->result();
 	}
 
 	function district($id)

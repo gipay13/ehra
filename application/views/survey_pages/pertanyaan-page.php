@@ -1,7 +1,7 @@
 <div class="container my-5">
 	<div class="col-md-12">
 		<form action="<?= base_url('pertanyaan/store'); ?>" method="POST">
-			<!-- <input type="submit" value="Next"> -->
+			<input type="hidden" name="no_survey" value="<?= $this->uri->segment(4) ?>">
 			<div id="accordion">
 				<?php
 				foreach ($kategoriB as $k) { ?>
@@ -140,7 +140,7 @@
 														<div class="form-group row">
 															<label for="rp" class="col-sm-2 col-form-label">Rp.</label>
 															<div class="col-sm-10">
-																<input type="text" class="form-control" id="rp" name="answer<?= $p->id_pertanyaan; ?>">
+																<input type="text" class="form-control currency" id="rp" name="answer<?= $p->id_pertanyaan; ?>">
 															</div>
 														</div>
 													<?php } ?>
@@ -693,6 +693,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-b" class="btn btn-warning">Back</button>
 								<button type="button" id="to-d" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -1395,6 +1396,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-c" class="btn btn-warning">Back</button>
 								<button type="button" id="to-e" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -1588,6 +1590,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-d" class="btn btn-warning">Back</button>
 								<button type="button" id="to-f" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -1977,6 +1980,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-e" class="btn btn-warning">Back</button>
 								<button type="button" id="to-g" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -2396,6 +2400,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-f" class="btn btn-warning">Back</button>
 								<button type="button" id="to-h" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -2553,6 +2558,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-g" class="btn btn-warning">Back</button>
 								<button type="button" id="to-ao" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -2606,11 +2612,11 @@
 																<label for="kurang2" class="col-sm-8 col-form-label">Air isi ulang – membeli dari penjual air isi ulang</label>
 																<div class="col-sm-4">
 																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y60" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
+																		<input type="radio" id="y60" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
 																		<label class="custom-control-label" for="y60">Ya</label>
 																	</div>
 																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t60" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
+																		<input type="radio" id="t60" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
 																		<label class="custom-control-label" for="t60">Tidak</label>
 																	</div>
 																</div>
@@ -3009,6 +3015,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-h" class="btn btn-warning">Back</button>
 								<button type="button" id="to-bo" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -3121,6 +3128,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-ao" class="btn btn-warning">Back</button>
 								<button type="button" id="to-co" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -3321,6 +3329,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-bo" class="btn btn-warning">Back</button>
 								<button type="button" id="to-do" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -3544,6 +3553,7 @@
 										<?php } ?>
 									</tbody>
 								</table>
+								<button type="button" id="to-co" class="btn btn-warning">Back</button>
 								<button type="button" id="to-eo" class="btn btn-info">Next</button>
 							</div>
 						</div>
@@ -4092,7 +4102,8 @@
 										<?php } ?>
 									</tbody>
 								</table>
-								<button type="button" class="btn btn-info">Next</button>
+								<button type="button" id="to-do" class="btn btn-warning">Back</button>
+								<button type="submit" class="btn btn-info">Submit</button>
 							</div>
 						</div>
 					</div>

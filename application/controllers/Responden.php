@@ -46,10 +46,58 @@ class Responden extends CI_Controller
 		}
 	}
 
+	public function get_last_no_survey()
+	{
+		$tahun = date("y");
+		$bulan = date("m");
+		$survey_last_id = $this->RespondenModel->get_last_no_survey($bulan, date("Y"));
+
+		if ($survey_last_id->num_rows()) {
+			$row_last_id   = $survey_last_id->row_array();
+			$last_id       = substr($row_last_id['id'], 4) + 1;
+			$id_survey = $tahun . $bulan . sprintf("%05d", $last_id);
+		} else {
+			$id_survey = $tahun . $bulan . sprintf("%05d", 1);
+		}
+
+		return $id_survey;
+	}
+
 	public function store()
 	{
-		// $id = $this->input->post('id_survey');
+		$no_survey = $this->get_last_no_survey();
 
+		$responden = array(
+			'nokk'					=> $this->input->post('nokk'),
+			'nik'					=> $this->input->post('nik'),
+			'nama_kepala'			=> $this->input->post('namakepala'),
+			'jml_keluarga'			=> $this->input->post('jumlahkeluarga'),
+			'jml_laki'				=> $this->input->post('jumlahlaki'),
+			'jml_pr'				=> $this->input->post('jumlahpr'),
+			'nama_responden'		=> $this->input->post('responden'),
+			'hubungan_responden'	=> $this->input->post('hubungan'),
+			'id_kecamatan'			=> $this->input->post('kecamatan'),
+			'alamat'				=> $this->input->post('alamat'),
+			'rt'					=> $this->input->post('rt'),
+			'rw'					=> $this->input->post('rw'),
+			'no_rmh'				=> $this->input->post('normh'),
+		);
+
+		$this->db->insert('responden', $responden);
+
+		$survey = array(
+			'id'					=> $no_survey,
+			'nik'					=> $this->input->post('nik'),
+			'tgl_survey'			=> $this->input->post('tanggalSurvey'),
+			'jam_survey'			=> $this->input->post('waktu'),
+			'id_pewawancara'		=> $this->input->post('pewawancara'),
+			'id_supervisor'			=> $this->input->post('supervisor'),
+			'id_koordinator'		=> $this->input->post('koordinator'),
+		);
+
+		$this->db->insert('survey', $survey);
+
+		redirect('pertanyaan/p/b/' . $no_survey);
 		// $wilayah_survey = array(
 		// 	'id_provinsi'		=> $this->input->post('provinsi'),
 		// 	'id_kabupaten'		=> $this->input->post('kabupaten'),

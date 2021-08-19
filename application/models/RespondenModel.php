@@ -53,4 +53,14 @@ class RespondenModel extends CI_Model
 		$query = $this->db->get('supervisor');
 		return $query->result();
 	}
+
+	public function get_last_no_survey($month, $year)
+	{
+		$sql = "SELECT id FROM survey 
+                WHERE MONTH(tgl_survey) = ? 
+                AND YEAR(tgl_survey) = ?
+                ORDER BY id DESC 
+                LIMIT 1";
+		return $this->db->query($sql, array($month, $year));
+	}
 }

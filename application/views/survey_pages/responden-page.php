@@ -7,7 +7,7 @@
                         <div class="form-group">
                             <label for="kabupaten">Kabupaten/Kota</label>
                             <select name="kabupaten" id="kabupaten" class="form-control">
-							<option value="">--Pilih Kabupaten--</option>
+                                <option value="">--Pilih Kabupaten--</option>
                                 <?php
                                 foreach ($regencies as $r) {
                                     echo '<option value="' . $r->id . '">' . $r->name . '</option>';
@@ -32,26 +32,26 @@
 
                     </div>
                 </div>
-				<div class="card my-5">
-					<div class="my-3 mx-4">
-						<div class="form-group">
-							<label for="alamat">Alamat</label>
-							<input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="rt">RT</label>
-							<input type="number" class="form-control" name="rt" id="rt" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="rw">RW</label>
-							<input type="number" class="form-control" name="rw" id="rw" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="normh">No Rumah</label>
-							<input type="number" class="form-control" name="normh" id="normh" autocomplete="off">
-						</div>
-					</div>
-				</div>
+                <div class="card my-5">
+                    <div class="my-3 mx-4">
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="rt">RT</label>
+                            <input type="number" class="form-control" name="rt" id="rt" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="rw">RW</label>
+                            <input type="number" class="form-control" name="rw" id="rw" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="normh">No Rumah</label>
+                            <input type="text" class="form-control" name="normh" id="normh" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
                 <div class="card my-5">
                     <div class="my-3 mx-4">
                         <div class="form-group">
@@ -87,30 +87,30 @@
                                 <?php } ?>
                             </select>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="nokk">No KK</label>
-                            <input type="number" class="form-control" name="nokk" id="nokk">
+                            <input type="text" class="form-control" name="nokk" id="nokk">
                         </div>
                         <div class="form-group">
                             <label for="nikkepalaRumah">NIK Kepala Rumah Tangga</label>
-                            <input type="number" class="form-control" name="nikKepalaRumah" id="nikkepalaRumah">
+                            <input type="text" class="form-control" name="nik" id="nik">
                         </div>
                         <div class="form-group">
                             <label for="namakepalaRumah">Nama Kepala Rumah Tangga</label>
-                            <input type="text" class="form-control" name="namaKepalaRumah" id="namakepalaRumah" autocomplete="off">
+                            <input type="text" class="form-control" name="namakepala" id="namakepala" autocomplete="off">
                         </div>
                         <div class="form-group">Jumlah Keluarga Dalam Rumah</label>
-                            <input type="number" class="form-control" name="jumlahKeluarga" id="kepalaRumah">
+                            <input type="number" class="form-control" name="jumlahkeluarga" id="jumlahkeluarga">
                         </div>
                         <div class="form-group">
                             <label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
                             <div class="row">
                                 <div class="col-md-3">Laki</div>
-                                <input type="number" class="form-control col-md-4" name="jumlahJiwaLaki" id="jumlahJiwa">
+                                <input type="number" class="form-control col-md-4" name="jumlahlaki" id="jumlahlaki">
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-3">Perempuan</div>
-                                <input type="number" class="form-control col-md-4" name="jumlahJiwaPr" id="jumlahJiwa">
+                                <input type="number" class="form-control col-md-4" name="jumlahpr" id="jumlahpr">
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,7 +132,7 @@
                                 <label class="custom-control-label" for="kepala">Kepala keluarga</label>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <!-- Button trigger modal -->

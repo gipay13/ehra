@@ -319,7 +319,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 16) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label class="col-sm-8 col-form-label">Banyak sampah berserakan atau bertumpuk di sekitar lingkungan</label>
 																<div class="col-sm-4">
@@ -490,7 +490,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 19) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
 																<div class="col-sm-4">
@@ -774,7 +774,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 26) { ?>
-														<div>
+														<div class="bg-primarry">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Anak laki-laki umur 5 – 12 tahun</label>
 																<div class="col-sm-4">
@@ -2028,7 +2028,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 79) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Mandi</label>
 																<div class="col-sm-4">
@@ -2142,7 +2142,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 80) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Di kamar mandi</label>
 																<div class="col-sm-4">
@@ -2269,7 +2269,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 81) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum ke toilet</label>
 																<div class="col-sm-4">
@@ -2472,7 +2472,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 83) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Anak-anak balita</label>
 																<div class="col-sm-4">
@@ -2594,7 +2594,7 @@
 												<td class="col-md-1"></td>
 												<td class="col-md-5">
 													<?php if ($p->id_pertanyaan == 84) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Air kemasan bermerk</label>
 																<div class="col-sm-4">
@@ -3377,7 +3377,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 105) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Air Ledeng PDAM/proyek - berfungsi/mengalir</label>
 																<div class="col-sm-4">
@@ -3715,7 +3715,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 113) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
 																<div class="col-sm-4">
@@ -3827,7 +3827,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 116) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Pupuk tanaman hias</label>
 																<div class="col-sm-4">
@@ -3895,7 +3895,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 118) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Di halaman/pekarangan rumah</label>
 																<div class="col-sm-4">
@@ -3957,7 +3957,7 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 119) { ?>
-														<div>
+														<div class="bg-primary">
 															<div class="form-group row">
 																<label for="kurang2" class="col-sm-8 col-form-label">Hujan</label>
 																<div class="col-sm-4">

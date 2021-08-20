@@ -1,7 +1,7 @@
 <div class="container my-5">
 	<div class="col-md-12">
 		<form action="<?= base_url('pertanyaan/store'); ?>" method="POST">
-			<input type="hidden" name="no_survey" value="<?= $this->uri->segment(4) ?>">
+			<input type="hidden" name="no_survey" value="<?= $this->uri->segment(3) ?>">
 			<div id="accordion">
 				<?php
 				foreach ($kategoriB as $k) { ?>
@@ -319,117 +319,43 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 16) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Banyak sampah berserakan atau bertumpuk di sekitar lingkungan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak sampah" value="1">
+																	<label class="custom-control-label" for="Banyak sampah">Banyak sampah berserakan atau bertumpuk disekitar lingkungan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Banyak lalat di sekitar tumpukan sampah</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y2" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y2">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t2" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t2">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak lalat" value="2">
+																	<label class="custom-control-label" for="Banyak lalat">Banyak lalat di sekitar tumpukan sampah</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Banyak tikus berkeliaran</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y3" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y3">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t3" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t3">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak tikus" value="3">
+																	<label class="custom-control-label" for="Banyak tikus">Banyak tikus berkeliaran</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Banyak nyamuk</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y4" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y4">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t4" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t4">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak nyamuk" value="4">
+																	<label class="custom-control-label" for="Banyak nyamuk">Banyak nyamuk</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y5" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y5">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t5" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t5">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak kucing" value="5">
+																	<label class="custom-control-label" for="Banyak kucing">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Bau busuk yang mengganggu</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y6" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y6">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t6" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t6">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Bau busuk" value="6">
+																	<label class="custom-control-label" for="Bau busuk">Bau busuk yang mengganggu</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Menyumbat saluran drainase</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y7" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y7">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t7" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t7">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Menyumbat" value="7">
+																	<label class="custom-control-label" for="Menyumbat">Menyumbat saluran drainase</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Ada anak-anak yang bermain di sekitarnya</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y8" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y8">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t8" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t8">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ada anak-anak" value="8">
+																	<label class="custom-control-label" for="Ada anak-anak">Ada anak-anak yang bermain di sekitarnya</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" id="kurang2" name="answer<?= $p->id_pertanyaan; ?>I">
-																</div>
-															</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnya," value="9">
+																	<label class="custom-control-label" for="Lainnya,">Lainnya, sebutkan:</label>
+																</div>		
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 17) { ?>
@@ -490,105 +416,40 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 19) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y9" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y9">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t9" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t9">Tidak</label>
-																	</div>
+															<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampah organik" value="1">
+																	<label class="custom-control-label" for="Sampah organik">Sampah organik/sampah basah</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Plastik</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y10" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y10">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t10" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t10">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Plastik" value="2">
+																	<label class="custom-control-label" for="Plastik">Plastik</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Gelas atau kaca</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y11" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y11">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t11" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t11">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas atau kaca" value="3">
+																	<label class="custom-control-label" for="Gelas atau kaca">Gelas atau kaca</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Kertas</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y12" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y12">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t12" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t12">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Kertas" value="4">
+																	<label class="custom-control-label" for="Kertas">Kertas</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Besi/logam</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y13" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y13">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t13" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t13">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi/logam" value="5">
+																	<label class="custom-control-label" for="Besi/logam">Besi/logam</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Bahan berbahaya dan beracun (B3)</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y14" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y14">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t14" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t14">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="B3" value="6">
+																	<label class="custom-control-label" for="B3">Bahan Berbahaya dan Beracun (B3)</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="lain" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" id="lain" name="answer<?= $p->id_pertanyaan; ?>G">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa" value="7">
+																	<label class="custom-control-label" for="Lainnyaa">Lainnya, sebutkan:</label>
 																</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu" value="8">
+																	<label class="custom-control-label" for="tidaktahu">Tidak tahu</label>
+																</div>	
 															</div>
-															<div class="form-group row">
-																<label class="col-sm-8 col-form-label">Tidak tahu</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y15" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y15">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t15" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t15">Tidak</label>
-																	</div>
-																</div>
-															</div>
-														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 20) { ?>
 														<div>
@@ -678,8 +539,8 @@
 													<?php if ($p->id_pertanyaan == 24) { ?>
 														<div>
 															<div class="custom-control custom-radio">
-																<input type="radio" id="rp" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="1">
-																<label class="custom-control-label" for="rp">Rp.</label>
+																<input type="radio" id="rpah" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="1">
+																<label class="custom-control-label" for="rpah">Rp.</label>
 																<input type="number" name="answer<?= $p->id_pertanyaan; ?>tf1" class="form-control">
 															</div>
 															<div class="custom-control custom-radio">
@@ -774,143 +635,51 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 26) { ?>
-														<div class="bg-primarry">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak laki-laki umur 5 – 12 tahun</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y16" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y16">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t16" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t16">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="laki512" value="1">
+																	<label class="custom-control-label" for="laki512">Anak laki-laki umur 5 – 12 tahun</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak perempuan umur 5 – 12 tahun</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y17" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y17">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t17" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t17">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pr512" value="2">
+																	<label class="custom-control-label" for="pr512">Anak perempuan umur 5 – 12 tahun</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Remaja laki-laki</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y18" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y18">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t18" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t18">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rlaki" value="3">
+																	<label class="custom-control-label" for="rlaki">Remaja laki-laki</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Remaja perempuan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y19" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y19">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t19" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t19">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rpr" value="4">
+																	<label class="custom-control-label" for="rpr">Remaja perempuan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Laki-laki dewasa</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y20" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y20">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t20" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t20">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakid" value="5">
+																	<label class="custom-control-label" for="lakid">Laki-laki dewasa</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Perempuan dewasa</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y21" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y21">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t21" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t21">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prd" value="6">
+																	<label class="custom-control-label" for="prd">Perempuan dewasa</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Laki-laki tua</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y23" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y23">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t23" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t23">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakit" value="7">
+																	<label class="custom-control-label" for="lakit">Laki-laki tua</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Perempuan tua</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y24" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y24">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t24" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t24">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prt" value="8">
+																	<label class="custom-control-label" for="prt">Perempuan tua</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Masih ada tapi tidak tahu/jelas siapa</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y25" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y25">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t25" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t25">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tjelas" value="9">
+																	<label class="custom-control-label" for="tjelas">Masih ada tapi tidak tahu/jelas siapa</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>J">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain" value="10">
+																	<label class="custom-control-label" for="lain">Lainnya, sebutkan:</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Tidak ada</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y26" name="answer<?= $p->id_pertanyaan; ?>K" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y26">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t26" name="answer<?= $p->id_pertanyaan; ?>K" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t26">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="ta" value="11">
+																	<label class="custom-control-label" for="ta">Tidak ada</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 27) { ?>
@@ -2028,371 +1797,131 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 79) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y27" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y27">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t27" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t27">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Mandi" value="1">
+																	<label class="custom-control-label" for="Mandi">Mandi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Memandikan anak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y28" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y28">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t28" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t28">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mandiin" value="2">
+																	<label class="custom-control-label" for="mandiin">Memandikan anak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Menceboki anak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y29" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y29">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t29" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t29">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebok" value="3">
+																	<label class="custom-control-label" for="cebok">Menceboki anak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Mencuci tangan sendiri</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y30" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y30">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t30" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t30">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cts" value="4">
+																	<label class="custom-control-label" for="cts">Mencuci tangan sendiri</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Mencuci tangan anak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y31" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y31">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t31" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t31">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cta" value="5">
+																	<label class="custom-control-label" for="cta">Mencuci tangan anak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Mencuci peralatan minum, makan dan masak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y32" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y32">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t32" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t32">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cp" value="6">
+																	<label class="custom-control-label" for="cp">Mencuci peralatan minum, makan dan masak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Mencuci pakaian</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y33" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y33">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t33" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t33">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cpa" value="7">
+																	<label class="custom-control-label" for="cpa">Mencuci pakaian</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Tidak tahu</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y34" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y34">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t34" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t34">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu1" value="8">
+																	<label class="custom-control-label" for="tidaktahu1">Tidak tahu</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>I">
-																</div>
-															</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa2" value="9">
+																	<label class="custom-control-label" for="lainnyaa2">Lainnya, sebutkan:</label>
+																</div>	
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 80) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di kamar mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y35" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y35">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t35" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t35">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km" value="1">
+																	<label class="custom-control-label" for="km">Di kamar mandi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dekat kamar mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y36" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y36">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t36" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t36">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dkm" value="2">
+																	<label class="custom-control-label" for="dkm">Di dekat kamar mandi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di jamban</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y37" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y37">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t37" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t37">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="jamban" value="3">
+																	<label class="custom-control-label" for="jamban">Di jamban</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dekat jamban</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y38" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y38">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t38" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t38">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dj" value="4">
+																	<label class="custom-control-label" for="dj">Di dekat jamban</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di sumur</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y39" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y39">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t39" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t39">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumur" value="5">
+																	<label class="custom-control-label" for="sumur">Di sumur</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di sekitar bak penampungan air hujan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y40" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y40">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t40" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t40">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bak" value="6">
+																	<label class="custom-control-label" for="bak">Di sekitar bak penampungan air hujan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di tempat cuci piring</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y41" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y41">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t41" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t41">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tcp" value="7">
+																	<label class="custom-control-label" for="tcp">Di tempat cuci piring</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dapur</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y42" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y42">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t42" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t42">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur" value="8">
+																	<label class="custom-control-label" for="dapur">Di dapur</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Tidak tahu</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y43" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y43">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t43" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t43">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tita" value="9">
+																	<label class="custom-control-label" for="tita">Tidak tahu</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>J">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain2" value="10">
+																	<label class="custom-control-label" for="lain2">Lainnya, sebutkan:</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 81) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum ke toilet</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y44" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y44">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t44" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t44">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebelumtoilet" value="1">
+																	<label class="custom-control-label" for="sebelumtoilet">Sebelum ke toilet</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Setelah menceboki bayi/anak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y45" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y45">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t45" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t45">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebokbayi" value="2">
+																	<label class="custom-control-label" for="cebokbayi">Setelah menceboki bayi/anak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Setelah dari buang air besar</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y46" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y46">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t46" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t46">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sbab" value="3">
+																	<label class="custom-control-label" for="sbab">Setelah dari buang air besar</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum makan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y47" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y47">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t47" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t47">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmakan" value="4">
+																	<label class="custom-control-label" for="sebmakan">Sebelum makan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Setelah makan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y48" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y48">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t48" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t48">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="setmakan" value="5">
+																	<label class="custom-control-label" for="setmakan">Setelah makan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum menyuapi/menyusui anak</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y49" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y49">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t49" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t49">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="susuanak" value="6">
+																	<label class="custom-control-label" for="susuanak">Sebelum menyuapi/menyusui anak</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum menyiapkan masakan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y50" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y50">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t50" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t50">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmasak" value="7">
+																	<label class="custom-control-label" for="sebmasak">Sebelum menyiapkan masakan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Setelah memegang hewan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y51" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y51">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t51" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t51">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mhewan" value="8">
+																	<label class="custom-control-label" for="mhewan">Setelah memegang hewan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sebelum sholat</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y52" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y52">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t52" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t52">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebsholat" value="9">
+																	<label class="custom-control-label" for="sebsholat">Sebelum sholat</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>J">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain3" value="10">
+																	<label class="custom-control-label" for="lain3">Lainnya, sebutkan:</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 												</td>
@@ -2472,85 +2001,31 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 83) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak-anak balita</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y53" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y53">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t53" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t53">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="balita" value="1">
+																	<label class="custom-control-label" for="balita">Anak-anak balita</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak-anak non balita</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y54" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y54">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t54" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t54">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="nonbalita" value="2">
+																	<label class="custom-control-label" for="nonbalita">Anak-anak non balita</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak remaja laki-laki</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y55" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y55">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t55" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t55">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajalaki" value="3">
+																	<label class="custom-control-label" for="remajalaki">Anak remaja laki-laki</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Anak remaja perempuan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y56" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y56">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t56" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t56">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajapr" value="4">
+																	<label class="custom-control-label" for="remajapr">Anak remaja perempuan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Orang dewasa laki-laki</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y57" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y57">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t57" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t57">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasalaki" value="5">
+																	<label class="custom-control-label" for="dewasalaki">Orang dewasa laki-laki</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Orang dewasa laki-laki</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y58" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y58">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t58" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t58">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasapr" value="6">
+																	<label class="custom-control-label" for="dewasapr">Orang dewasa perempuan</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 												</td>
@@ -2594,260 +2069,87 @@
 												<td class="col-md-1"></td>
 												<td class="col-md-5">
 													<?php if ($p->id_pertanyaan == 84) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air kemasan bermerk</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y59" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y59">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t59" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t59">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmerk" value="1">
+																	<label class="custom-control-label" for="airmerk">Air kemasan bermerk</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air isi ulang – membeli dari penjual air isi ulang</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y60" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y60">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t60" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t60">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airisi" value="2">
+																	<label class="custom-control-label" for="airisi">Air isi ulang – membeli dari penjual air isi ulang</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air Ledeng dari PDAM/Proyek/HIPPAM sendiri</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y77" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y77">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t77" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t77">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng" value="3">
+																	<label class="custom-control-label" for="airledeng">Air Ledeng dari PDAM/Proyek/HIPPAM sendiri</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air ledeng dari PDAM/Proyek/HIPPAM tetangga</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y61" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y61">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t61" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t61">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam" value="4">
+																	<label class="custom-control-label" for="airpdam">Air ledeng dari PDAM/Proyek/HIPPAM tetangga</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air ledeng eceran dari PDAM/Proyek/HIPPAM</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y62" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y62">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t62" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t62">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="aireceran" value="5">
+																	<label class="custom-control-label" for="aireceran">Air ledeng eceran dari PDAM/Proyek/HIPPAM</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y63" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y63">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t63" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t63">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran" value="6">
+																	<label class="custom-control-label" for="airhidran">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y64" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y64">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t64" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t64">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum" value="7">
+																	<label class="custom-control-label" for="airkranumum">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari terminal air_PDAM/HIPPAM/Proyek</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y65" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y65">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t65" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t65">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airterminal" value="8">
+																	<label class="custom-control-label" for="airterminal">Air dari terminal air_PDAM/HIPPAM/Proyek</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari kapal air</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y66" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y66">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t66" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t66">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkapal" value="9">
+																	<label class="custom-control-label" for="airkapal">Air dari kapal air</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sumur bor dengan pompa tangan/listrik/mesin</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y67" name="answer<?= $p->id_pertanyaan; ?>J" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y67">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t67" name="answer<?= $p->id_pertanyaan; ?>J" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t67">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor" value="10">
+																	<label class="custom-control-label" for="airsumurbor">Air dari sumur bor dng pompa tangan/listrik/mesin</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sumur gali terlindungi sendiri</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y68" name="answer<?= $p->id_pertanyaan; ?>K" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y68">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t68" name="answer<?= $p->id_pertanyaan; ?>K" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t68">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri" value="11">
+																	<label class="custom-control-label" for="airgalisendiri">Air dari sumur gali terlindungi sendiri</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sumur gali terlindungi tetangga</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y69" name="answer<?= $p->id_pertanyaan; ?>L" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y69">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t69" name="answer<?= $p->id_pertanyaan; ?>L" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t69">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalitetangga" value="12">
+																	<label class="custom-control-label" for="airgalitetangga">Air dari sumur gali terlindungi tetangga</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sumur gali tidak terlindungi sendiri</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y70" name="answer<?= $p->id_pertanyaan; ?>M" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y70">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t70" name="answer<?= $p->id_pertanyaan; ?>M" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t70">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri" value="13">
+																	<label class="custom-control-label" for="airtidaksendiri">Air dari sumur gali tidak terlindungi sendiri</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sumur gali tidak terlindungi tetangga</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y71" name="answer<?= $p->id_pertanyaan; ?>N" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y71">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t71" name="answer<?= $p->id_pertanyaan; ?>N" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t71">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaktetangga" value="14">
+																	<label class="custom-control-label" for="airtidaktetangga">Air dari sumur gali tidak terlindungi tetangga</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari Mata air terlindungi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y72" name="answer<?= $p->id_pertanyaan; ?>O" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y72">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t72" name="answer<?= $p->id_pertanyaan; ?>O" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t72">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmata" value="15">
+																	<label class="custom-control-label" for="airmata">Air dari Mata air terlindungi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari Mata air tidak terlindungi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y73" name="answer<?= $p->id_pertanyaan; ?>P" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y73">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t73" name="answer<?= $p->id_pertanyaan; ?>P" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t73">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmatatidak" value="16">
+																	<label class="custom-control-label" for="airmatatidak">Air dari Mata air tidak terlindungi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air hujan (PAH/Penampungan Air Hujan)</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y74" name="answer<?= $p->id_pertanyaan; ?>Q" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y74">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t74" name="answer<?= $p->id_pertanyaan; ?>Q" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t74">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airujan" value="17">
+																	<label class="custom-control-label" for="airujan">Air hujan (PAH/Penampungan Air Hujan)</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari sungai</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y75" name="answer<?= $p->id_pertanyaan; ?>R" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y75">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t75" name="answer<?= $p->id_pertanyaan; ?>R" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t75">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsungai" value="18">
+																	<label class="custom-control-label" for="airsungai">Air dari sungai</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air dari waduk/danau</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y76" name="answer<?= $p->id_pertanyaan; ?>S" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y76">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t76" name="answer<?= $p->id_pertanyaan; ?>S" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t76">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airdanau" value="19">
+																	<label class="custom-control-label" for="airdanau">Air dari waduk/danau</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>T">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain4" value="20">
+																	<label class="custom-control-label" for="lain4">Lainnya, sebutkan:</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 85) { ?>
@@ -2955,13 +2257,13 @@
 																<label class="custom-control-label" for="tstertutup">Ya, tempat sampah tertutup</label>
 															</div>
 															<div class="custom-control custom-radio">
-																<input type="radio" id="lain" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="5">
-																<label class="custom-control-label" for="lain">Lainnya, sebutkan:</label>
+																<input type="radio" id="lainnyaa3" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="5">
+																<label class="custom-control-label" for="lainnyaa3">Lainnya, sebutkan:</label>
 																<input type="text" name="answer<?= $p->id_pertanyaan; ?>tf1" class="form-control">
 															</div>
 															<div class="custom-control custom-radio">
-																<input type="radio" id="ta" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="6">
-																<label class="custom-control-label" for="ta">Tidak ada</label>
+																<input type="radio" id="ta2" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="6">
+																<label class="custom-control-label" for="ta2">Tidak ada</label>
 															</div>
 														</div>
 													<?php } ?>
@@ -2988,8 +2290,8 @@
 																<label class="custom-control-label" for="riool">Saluran tertutup ke riool, selokan, sungai</label>
 															</div>
 															<div class="custom-control custom-radio">
-																<input type="radio" id="sumur" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="6">
-																<label class="custom-control-label" for="sumur">Lubang galian/sumur resapan</label>
+																<input type="radio" id="lg" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="6">
+																<label class="custom-control-label" for="lg">Lubang galian/sumur resapan</label>
 															</div>
 															<div class="custom-control custom-radio">
 																<input type="radio" id="septik" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="7">
@@ -3166,8 +2468,8 @@
 													<?php if ($p->id_pertanyaan == 95) { ?>
 														<div>
 															<div class="custom-control custom-radio">
-																<input type="radio" id="bak" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="1">
-																<label class="custom-control-label" for="bak">Ya, dalam bak air/ember</label>
+																<input type="radio" id="bakair2" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="1">
+																<label class="custom-control-label" for="bakair2">Ya, dalam bak air/ember</label>
 															</div>
 															<div class="custom-control custom-radio">
 																<input type="radio" id="kran" name="answer<?= $p->id_pertanyaan; ?>" class="custom-control-input" value="2">
@@ -3377,130 +2679,47 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 105) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air Ledeng PDAM/proyek - berfungsi/mengalir</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y78" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y78">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t78" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t78">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng2" value="1">
+																	<label class="custom-control-label" for="airledeng2">Air Ledeng dari PDAM/Proyek/HIPPAM berfungsi/mengalir</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air Ledeng PDAM/proyek, tidak berfungsi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y79" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y79">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t79" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t79">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam2" value="2">
+																	<label class="custom-control-label" for="airpdam2">Air ledeng dari PDAM/Proyek/HIPPAM tidak berfungsi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sumur Gali yang terlindungi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y80" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y80">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t80" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t80">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri2" value="3">
+																	<label class="custom-control-label" for="airgalisendiri2">Air dari sumur gali terlindungi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sumur Gali yang tidak terlindungi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y81" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y81">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t81" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t81">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri2" value="4">
+																	<label class="custom-control-label" for="airtidaksendiri2">Air dari sumur gali tidak terlindungi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sumur Bor dengan Pompa Tangan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y82" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y82">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t82" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t82">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor2" value="5">
+																	<label class="custom-control-label" for="airsumurbor2">Air dari sumur bor dng pompa tangan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sumur Bor dengan Pompa Mesin/Listrik</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y83" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y83">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t83" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t83">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurborlistrik2" value="6">
+																	<label class="custom-control-label" for="airsumurborlistrik2">Air dari sumur bor dng pompa listrik/mesin</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Hidran Umum- PDAM/Proyek/HIPPAM</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y84" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y84">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t84" name="answer<?= $p->id_pertanyaan; ?>G" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t84">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran2" value="6">
+																	<label class="custom-control-label" for="airhidran2">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Kran Umum – PDAM/Proyek/HIPPAM</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y85" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y85">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t85" name="answer<?= $p->id_pertanyaan; ?>H" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t85">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum2" value="7">
+																	<label class="custom-control-label" for="airkranumum2">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Penjual air keliling</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y86" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y86">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t86" name="answer<?= $p->id_pertanyaan; ?>I" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t86">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkeliling2" value="7">
+																	<label class="custom-control-label" for="airkeliling2">Penjual air keliling</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>J">
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa4" value="20">
+																	<label class="custom-control-label" for="lainnyaa4">Lainnya, sebutkan:</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 106) { ?>
@@ -3715,91 +2934,35 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 113) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Sampah organik/sampah basah</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y87" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y87">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t87" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t87">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampahorganik" value="1">
+																	<label class="custom-control-label" for="Sampahorganik">Sampah organik/sampah basah</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Plastik</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y88" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y88">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t88" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t88">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Platik" value="2">
+																	<label class="custom-control-label" for="Platik">Plastik</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Gelas/kaca</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y89" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y89">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t89" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t89">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas" value="3">
+																	<label class="custom-control-label" for="Gelas">Gelas/kaca</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Kertas/kardus</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y90" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y90">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t90" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t90">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ketas" value="4">
+																	<label class="custom-control-label" for="Ketas">Kertas/kardus</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Besi/logam</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y91" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y91">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t91" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t91">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi" value="5">
+																	<label class="custom-control-label" for="Besi">Besi/logam</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Bahan Berbahaya dan Beracun (B3)</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y92" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y92">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t92" name="answer<?= $p->id_pertanyaan; ?>F" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t92">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="b3" value="6">
+																	<label class="custom-control-label" for="b3">Bahan Berbahaya dan Beracun (B3)</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>G">
-																</div>
-															</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa4" value="7">
+																	<label class="custom-control-label" for="Lainnyaa4">Lainnya, sebutkan:</label>
+																</div>	
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 114) { ?>
@@ -3827,59 +2990,23 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 116) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Pupuk tanaman hias</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y93" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y93">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t93" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t93">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukhias" value="1">
+																	<label class="custom-control-label" for="pupukhias">Pupuk tanaman hias</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Pupuk tanaman buah, sayur, obat</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y94" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y94">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t94" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t94">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukbuah" value="2">
+																	<label class="custom-control-label" for="pupukbuah">Pupuk tanaman buah, sayur, obat</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Dijual</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y95" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y95">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t95" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t95">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Dijual" value="3">
+																	<label class="custom-control-label" for="Dijual">Dijual</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Tidak dimanfaatkan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y96" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y96">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t96" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t96">Tidak</label>
-																	</div>
-																</div>
-															</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="td" value="4">
+																	<label class="custom-control-label" for="td">Tidak dimanfaatkan</label>
+																</div>	
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 117) { ?>
@@ -3895,134 +3022,51 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 118) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di halaman/pekarangan rumah</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y97" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y97">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t97" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t97">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pekarangan2" value="1">
+																	<label class="custom-control-label" for="pekarangan2">Di halaman/pekarangan rumah</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dekat dapur</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y98" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y98">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t98" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t98">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur2" value="2">
+																	<label class="custom-control-label" for="dapur2">Di dekat dapur</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dekat kamar mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y99" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y99">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t99" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t99">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km2" value="3">
+																	<label class="custom-control-label" for="km2">Di dekat kamar mandi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Di dekat bak penampungan air hujan.</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y100" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y100">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t100" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t100">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bakair" value="4">
+																	<label class="custom-control-label" for="bakair">Di dekat bak penampungan air hujan.</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-5 col-form-label">Di tempat lainnya, sebutkan:</label>
-																<div class="col-sm-7">
-																	<input type="text" class="form-control" name="answer<?= $p->id_pertanyaan; ?>E">
-																</div>
-															</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa5" value="5">
+																	<label class="custom-control-label" for="lainnyaa5">Di tempat lainnya, sebutkan:</label>
+																</div>	
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 119) { ?>
-														<div class="bg-primary">
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Hujan</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y101" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y101">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t101" name="answer<?= $p->id_pertanyaan; ?>A" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t101">Tidak</label>
-																	</div>
+														<div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Hujan" value="1">
+																	<label class="custom-control-label" for="Hujan">Hujan</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air limbah dapur</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y102" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y102">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t102" name="answer<?= $p->id_pertanyaan; ?>B" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t102">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahdapur" value="2">
+																	<label class="custom-control-label" for="limbahdapur">Air limbah dapur</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air limbah kamar mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y103" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y103">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t103" name="answer<?= $p->id_pertanyaan; ?>C" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t103">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahkm" value="3">
+																	<label class="custom-control-label" for="limbahkm">Air limbah kamar mandi</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Air limbah kamar mandi</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y104" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y104">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t104" name="answer<?= $p->id_pertanyaan; ?>D" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t104">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumberlain" value="4">
+																	<label class="custom-control-label" for="sumberlain">Air limbah dari sumber lain, sebutkan:</label>
 																</div>
-															</div>
-															<div class="form-group row">
-																<label for="kurang2" class="col-sm-8 col-form-label">Tidak tahu/tidak pasti.</label>
-																<div class="col-sm-4">
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="y105" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="1">
-																		<label class="custom-control-label" for="y105">Ya</label>
-																	</div>
-																	<div class="custom-control custom-radio">
-																		<input type="radio" id="t105" name="answer<?= $p->id_pertanyaan; ?>E" class="custom-control-input" value="2">
-																		<label class="custom-control-label" for="t105">Tidak</label>
-																	</div>
+																<div class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidakpasti" value="5">
+																	<label class="custom-control-label" for="tidakpasti">Tidak tahu/tidak pasti.</label>
 																</div>
-															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 120) { ?>

@@ -23,6 +23,7 @@ class Responden extends CI_Controller
 		$this->load->view('layouts/survey_layouts/nav');
 		$this->load->view('survey_pages/responden-page', $data);
 		$this->load->view('layouts/survey_layouts/footer');
+		
 	}
 
 	public function fetch_district()
@@ -97,44 +98,6 @@ class Responden extends CI_Controller
 
 		$this->db->insert('survey', $survey);
 
-		redirect('pertanyaan/p/b/' . $no_survey);
-		// $wilayah_survey = array(
-		// 	'id_provinsi'		=> $this->input->post('provinsi'),
-		// 	'id_kabupaten'		=> $this->input->post('kabupaten'),
-		// 	'id_kecamatan' 		=> $this->input->post('kecamatan'),
-		// 	'id_kelurahan' 		=> $this->input->post('kelurahan'),
-		// 	'strata' 			=> $this->input->post('strata'),
-		// );
-
-		// $this->db->insert('wilayah_survey', $wilayah_survey);
-		// $get_id = $this->db->insert_id();
-
-
-
-		// $surfey = array(
-		// 	'tgl_survey' 			=> $this->input->post('tanggalSurvey'),
-		// 	'jam_survey' 			=> $this->input->post('waktu'),
-		// 	'id_pewawancara' 		=> $this->input->post('pewawancara'),
-		// 	'id_supervisor' 		=> $this->input->post('supervisor'),
-		// 	'id_koordinator' 		=> $this->input->post('koordinator'),
-		// );
-
-		// $this->db->insert('surfey', $surfey);
-
-		// $responden = array(
-		// 	'id_survey'				=> $get_id,
-		// 	'nik'					=> $this->input->post('nikKepalaRumah'),
-		// 	'nama_kepala'			=> $this->input->post('namaKepalaRumah'),
-		// 	'jml_keluarga'			=> $this->input->post('jumlahKeluarga'),
-		// 	'jml_laki'				=> $this->input->post('jumlahJiwaLaki'),
-		// 	'jml_pr'				=> $this->input->post('jumlahJiwaPr'),
-		// 	'nama_responden'		=> $this->input->post('responden'),
-		// 	'hubungan_responden'	=> $this->input->post('hubungan'),
-		// 	'alamat'				=> $this->input->post('alamat'),
-		// );
-
-		// $this->db->insert('responden', $responden);
-
-		// redirect('pertanyaan/p/b/' . $get_id);
+		redirect('pertanyaan/p/' . $no_survey);
 	}
 }

@@ -19,4 +19,5 @@ class PertanyaanModel extends CI_Model
 		$query = $this->db->get('grup_pertanyaan');
 		return $query->result();
 	}
+
 }

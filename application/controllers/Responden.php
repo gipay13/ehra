@@ -7,6 +7,7 @@ class Responden extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('RespondenModel');
+		$this->load->model('SurveyModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -84,7 +85,7 @@ class Responden extends CI_Controller
 			'no_rmh'				=> $this->input->post('normh'),
 		);
 
-		$this->db->insert('responden', $responden);
+		$this->SurveyModel->insert_responden($responden);
 
 		$survey = array(
 			'id'					=> $no_survey,
@@ -96,7 +97,7 @@ class Responden extends CI_Controller
 			'id_koordinator'		=> $this->input->post('koordinator'),
 		);
 
-		$this->db->insert('survey', $survey);
+		$this->SurveyModel->insert_survey($survey);
 
 		redirect('pertanyaan/p/' . $no_survey);
 	}

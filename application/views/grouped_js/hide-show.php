@@ -1,6 +1,6 @@
 <script>
 	$(document).ready(function($) {
-	$('#card-c').hide();
+		$('#card-c').hide();
 		$('#card-d').hide();
 		$('#card-e').hide();
 		$('#card-f').hide();

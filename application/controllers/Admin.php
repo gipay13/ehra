@@ -7,6 +7,7 @@ class Admin extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('AdminModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -22,19 +23,28 @@ class Admin extends CI_Controller
 
 	public function pertanyaan()
 	{
+		$data = array(
+			'pertanyaan' => $this->AdminModel->pertanyaan(),
+			'kategori' => $this->AdminModel->Kategori_pertanyaan(),
+		);
+
 		$this->load->view('layouts/admin_layouts/head');
 		$this->load->view('layouts/admin_layouts/nav');
 		$this->load->view('layouts/admin_layouts/sidenav');
-		$this->load->view('admin_pages/pertanyaan-page');
+		$this->load->view('admin_pages/pertanyaan-page', $data);
 		$this->load->view('layouts/admin_layouts/footer');
 	}
 
 	public function kategori()
 	{
+		$data = array(
+			'kategori' => $this->AdminModel->Kategori_pertanyaan(),
+		);
+
 		$this->load->view('layouts/admin_layouts/head');
 		$this->load->view('layouts/admin_layouts/nav');
 		$this->load->view('layouts/admin_layouts/sidenav');
-		$this->load->view('admin_pages/kategori-page');
+		$this->load->view('admin_pages/kategori-page', $data);
 		$this->load->view('layouts/admin_layouts/footer');
 	}
 

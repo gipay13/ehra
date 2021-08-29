@@ -1,23 +1,21 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class PertanyaanModel extends CI_Model
+class AdminModel extends CI_Model
 {
-	function kategori_pertanyaan($kode)
+	function kategori_pertanyaan()
 	{
-		$this->db->where('kode_kategori', $kode);
 		$query = $this->db->get('kategori_pertanyaan');
 		return $query->result();
 	}
 
-	function pertanyaan($kdkategori)
+	function pertanyaan()
 	{
+		$this->db->join('grup_pertanyaan', 'grup_pertanyaan.kode_kategori = kategori_pertanyaan.kode_kategori');
 		$this->db->join('pertanyaan', 'pertanyaan.id = grup_pertanyaan.id_pertanyaan');
-		$this->db->where('grup_pertanyaan.kode_kategori', $kdkategori);
 		$this->db->order_by('grup_pertanyaan.id', 'asc');
 
-		$query = $this->db->get('grup_pertanyaan');
+		$query = $this->db->get('kategori_pertanyaan');
 		return $query->result();
 	}
-
 }

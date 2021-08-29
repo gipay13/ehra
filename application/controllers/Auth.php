@@ -12,15 +12,13 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('name')) {
-			redirect('responden');
+			redirect('admin');
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 			if ($this->form_validation->run() == false) {
-				$this->load->view('layouts/survey_layouts/head');
 				$this->load->view('auth/login-page');
-				$this->load->view('layouts/survey_layouts/footer');
 			} else {
 				// Validasi Success
 				$this->_login();
@@ -47,14 +45,20 @@ class Auth extends CI_Controller
 			} else {
 				$this->session->set_flashdata(
 					'message',
-					'<div class="alert alert-danger" role="alert">Username atau Password Salah</div>'
+					'<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span>Username atau Password salah</span>
+					</div>'
 				);
 				redirect('auth');
 			}
 		} else {
 			$this->session->set_flashdata(
 				'message',
-				'<div class="alert alert-danger" role="alert">Username atau Password Salah</div>'
+				'<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span>Username atau Password salah</span>
+				</div>'
 			);
 			redirect('auth');
 		}

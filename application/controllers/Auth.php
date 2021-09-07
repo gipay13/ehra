@@ -12,13 +12,13 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('name')) {
-			redirect('admin');
+			redirect('admin/dashboard');
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 			if ($this->form_validation->run() == false) {
-				$this->load->view('auth/login-page');
+				$this->load->view('auth_pages/login-page');
 			} else {
 				// Validasi Success
 				$this->_login();
@@ -41,7 +41,7 @@ class Auth extends CI_Controller
 					'id'		=> $user['id']
 				];
 				$this->session->set_userdata($data);
-				redirect('admin');
+				redirect('admin/dashboard');
 			} else {
 				$this->session->set_flashdata(
 					'message',

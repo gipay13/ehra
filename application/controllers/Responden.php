@@ -20,11 +20,8 @@ class Responden extends CI_Controller
 			"koordinator" 	=> $this->RespondenModel->koordinator(),
 		);
 
-		$this->load->view('layouts/survey_layouts/head');
-		$this->load->view('layouts/survey_layouts/nav');
-		$this->load->view('survey_pages/responden-page', $data);
-		$this->load->view('layouts/survey_layouts/footer');
-		
+		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
+			
 	}
 
 	public function fetch_district()

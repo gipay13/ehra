@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
@@ -49,7 +49,7 @@
 									</tr>
 								</tfoot>
 							</table>
-						</div>
+						</div>		
             		</div>
 				</div>
 			</div>		
@@ -93,4 +93,3 @@
           </div>
         </div>
     </div>
-</div>

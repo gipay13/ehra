@@ -5,7 +5,7 @@
 			<div id="accordion">
 				<?php
 				foreach ($kategoriB as $k) { ?>
-					<div class="card mt-2" id="card-b">
+					<div class="card mt-2">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -320,42 +320,42 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 16) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak sampah" value="1">
-																	<label class="custom-control-label" for="Banyak sampah">Banyak sampah berserakan atau bertumpuk disekitar lingkungan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak lalat" value="2">
-																	<label class="custom-control-label" for="Banyak lalat">Banyak lalat di sekitar tumpukan sampah</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak tikus" value="3">
-																	<label class="custom-control-label" for="Banyak tikus">Banyak tikus berkeliaran</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak nyamuk" value="4">
-																	<label class="custom-control-label" for="Banyak nyamuk">Banyak nyamuk</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak kucing" value="5">
-																	<label class="custom-control-label" for="Banyak kucing">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Bau busuk" value="6">
-																	<label class="custom-control-label" for="Bau busuk">Bau busuk yang mengganggu</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Menyumbat" value="7">
-																	<label class="custom-control-label" for="Menyumbat">Menyumbat saluran drainase</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ada anak-anak" value="8">
-																	<label class="custom-control-label" for="Ada anak-anak">Ada anak-anak yang bermain di sekitarnya</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnya," value="9">
-																	<label class="custom-control-label" for="Lainnya,">Lainnya, sebutkan:</label>
-																</div>		
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak sampah" value="1">
+																<label class="custom-control-label" for="Banyak sampah">Banyak sampah berserakan atau bertumpuk disekitar lingkungan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak lalat" value="2">
+																<label class="custom-control-label" for="Banyak lalat">Banyak lalat di sekitar tumpukan sampah</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak tikus" value="3">
+																<label class="custom-control-label" for="Banyak tikus">Banyak tikus berkeliaran</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak nyamuk" value="4">
+																<label class="custom-control-label" for="Banyak nyamuk">Banyak nyamuk</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Banyak kucing" value="5">
+																<label class="custom-control-label" for="Banyak kucing">Banyak kucing dan anjing mendatangi tumpukan sampah</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Bau busuk" value="6">
+																<label class="custom-control-label" for="Bau busuk">Bau busuk yang mengganggu</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Menyumbat" value="7">
+																<label class="custom-control-label" for="Menyumbat">Menyumbat saluran drainase</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ada anak-anak" value="8">
+																<label class="custom-control-label" for="Ada anak-anak">Ada anak-anak yang bermain di sekitarnya</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnya," value="9">
+																<label class="custom-control-label" for="Lainnya,">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 17) { ?>
@@ -416,40 +416,40 @@
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 19) { ?>
-															<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampah organik" value="1">
-																	<label class="custom-control-label" for="Sampah organik">Sampah organik/sampah basah</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Plastik" value="2">
-																	<label class="custom-control-label" for="Plastik">Plastik</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas atau kaca" value="3">
-																	<label class="custom-control-label" for="Gelas atau kaca">Gelas atau kaca</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Kertas" value="4">
-																	<label class="custom-control-label" for="Kertas">Kertas</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi/logam" value="5">
-																	<label class="custom-control-label" for="Besi/logam">Besi/logam</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="B3" value="6">
-																	<label class="custom-control-label" for="B3">Bahan Berbahaya dan Beracun (B3)</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa" value="7">
-																	<label class="custom-control-label" for="Lainnyaa">Lainnya, sebutkan:</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu" value="8">
-																	<label class="custom-control-label" for="tidaktahu">Tidak tahu</label>
-																</div>	
+														<div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampah organik" value="1">
+																<label class="custom-control-label" for="Sampah organik">Sampah organik/sampah basah</label>
 															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Plastik" value="2">
+																<label class="custom-control-label" for="Plastik">Plastik</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas atau kaca" value="3">
+																<label class="custom-control-label" for="Gelas atau kaca">Gelas atau kaca</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Kertas" value="4">
+																<label class="custom-control-label" for="Kertas">Kertas</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi/logam" value="5">
+																<label class="custom-control-label" for="Besi/logam">Besi/logam</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="B3" value="6">
+																<label class="custom-control-label" for="B3">Bahan Berbahaya dan Beracun (B3)</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa" value="7">
+																<label class="custom-control-label" for="Lainnyaa">Lainnya, sebutkan:</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu" value="8">
+																<label class="custom-control-label" for="tidaktahu">Tidak tahu</label>
+															</div>
+														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 20) { ?>
 														<div>
@@ -562,7 +562,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriD as $k) { ?>
-					<div class="card mt-2" id="card-d">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -636,50 +636,50 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 26) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="laki512" value="1">
-																	<label class="custom-control-label" for="laki512">Anak laki-laki umur 5 – 12 tahun</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pr512" value="2">
-																	<label class="custom-control-label" for="pr512">Anak perempuan umur 5 – 12 tahun</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rlaki" value="3">
-																	<label class="custom-control-label" for="rlaki">Remaja laki-laki</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rpr" value="4">
-																	<label class="custom-control-label" for="rpr">Remaja perempuan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakid" value="5">
-																	<label class="custom-control-label" for="lakid">Laki-laki dewasa</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prd" value="6">
-																	<label class="custom-control-label" for="prd">Perempuan dewasa</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakit" value="7">
-																	<label class="custom-control-label" for="lakit">Laki-laki tua</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prt" value="8">
-																	<label class="custom-control-label" for="prt">Perempuan tua</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tjelas" value="9">
-																	<label class="custom-control-label" for="tjelas">Masih ada tapi tidak tahu/jelas siapa</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain" value="10">
-																	<label class="custom-control-label" for="lain">Lainnya, sebutkan:</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="ta" value="11">
-																	<label class="custom-control-label" for="ta">Tidak ada</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="laki512" value="1">
+																<label class="custom-control-label" for="laki512">Anak laki-laki umur 5 – 12 tahun</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pr512" value="2">
+																<label class="custom-control-label" for="pr512">Anak perempuan umur 5 – 12 tahun</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rlaki" value="3">
+																<label class="custom-control-label" for="rlaki">Remaja laki-laki</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="rpr" value="4">
+																<label class="custom-control-label" for="rpr">Remaja perempuan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakid" value="5">
+																<label class="custom-control-label" for="lakid">Laki-laki dewasa</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prd" value="6">
+																<label class="custom-control-label" for="prd">Perempuan dewasa</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lakit" value="7">
+																<label class="custom-control-label" for="lakit">Laki-laki tua</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="prt" value="8">
+																<label class="custom-control-label" for="prt">Perempuan tua</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tjelas" value="9">
+																<label class="custom-control-label" for="tjelas">Masih ada tapi tidak tahu/jelas siapa</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain" value="10">
+																<label class="custom-control-label" for="lain">Lainnya, sebutkan:</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="ta" value="11">
+																<label class="custom-control-label" for="ta">Tidak ada</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 27) { ?>
@@ -1173,7 +1173,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriE as $k) { ?>
-					<div class="card mt-2" id="card-e">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -1367,7 +1367,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriF as $k) { ?>
-					<div class="card mt-2" id="card-f">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -1757,7 +1757,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriG as $k) { ?>
-					<div class="card mt-2" id="card-g">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -1798,130 +1798,130 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 79) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Mandi" value="1">
-																	<label class="custom-control-label" for="Mandi">Mandi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mandiin" value="2">
-																	<label class="custom-control-label" for="mandiin">Memandikan anak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebok" value="3">
-																	<label class="custom-control-label" for="cebok">Menceboki anak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cts" value="4">
-																	<label class="custom-control-label" for="cts">Mencuci tangan sendiri</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cta" value="5">
-																	<label class="custom-control-label" for="cta">Mencuci tangan anak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cp" value="6">
-																	<label class="custom-control-label" for="cp">Mencuci peralatan minum, makan dan masak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cpa" value="7">
-																	<label class="custom-control-label" for="cpa">Mencuci pakaian</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu1" value="8">
-																	<label class="custom-control-label" for="tidaktahu1">Tidak tahu</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa2" value="9">
-																	<label class="custom-control-label" for="lainnyaa2">Lainnya, sebutkan:</label>
-																</div>	
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Mandi" value="1">
+																<label class="custom-control-label" for="Mandi">Mandi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mandiin" value="2">
+																<label class="custom-control-label" for="mandiin">Memandikan anak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebok" value="3">
+																<label class="custom-control-label" for="cebok">Menceboki anak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cts" value="4">
+																<label class="custom-control-label" for="cts">Mencuci tangan sendiri</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cta" value="5">
+																<label class="custom-control-label" for="cta">Mencuci tangan anak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cp" value="6">
+																<label class="custom-control-label" for="cp">Mencuci peralatan minum, makan dan masak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cpa" value="7">
+																<label class="custom-control-label" for="cpa">Mencuci pakaian</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidaktahu1" value="8">
+																<label class="custom-control-label" for="tidaktahu1">Tidak tahu</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa2" value="9">
+																<label class="custom-control-label" for="lainnyaa2">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 80) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km" value="1">
-																	<label class="custom-control-label" for="km">Di kamar mandi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dkm" value="2">
-																	<label class="custom-control-label" for="dkm">Di dekat kamar mandi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="jamban" value="3">
-																	<label class="custom-control-label" for="jamban">Di jamban</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dj" value="4">
-																	<label class="custom-control-label" for="dj">Di dekat jamban</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumur" value="5">
-																	<label class="custom-control-label" for="sumur">Di sumur</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bak" value="6">
-																	<label class="custom-control-label" for="bak">Di sekitar bak penampungan air hujan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tcp" value="7">
-																	<label class="custom-control-label" for="tcp">Di tempat cuci piring</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur" value="8">
-																	<label class="custom-control-label" for="dapur">Di dapur</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tita" value="9">
-																	<label class="custom-control-label" for="tita">Tidak tahu</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain2" value="10">
-																	<label class="custom-control-label" for="lain2">Lainnya, sebutkan:</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km" value="1">
+																<label class="custom-control-label" for="km">Di kamar mandi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dkm" value="2">
+																<label class="custom-control-label" for="dkm">Di dekat kamar mandi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="jamban" value="3">
+																<label class="custom-control-label" for="jamban">Di jamban</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dj" value="4">
+																<label class="custom-control-label" for="dj">Di dekat jamban</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumur" value="5">
+																<label class="custom-control-label" for="sumur">Di sumur</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bak" value="6">
+																<label class="custom-control-label" for="bak">Di sekitar bak penampungan air hujan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tcp" value="7">
+																<label class="custom-control-label" for="tcp">Di tempat cuci piring</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur" value="8">
+																<label class="custom-control-label" for="dapur">Di dapur</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tita" value="9">
+																<label class="custom-control-label" for="tita">Tidak tahu</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain2" value="10">
+																<label class="custom-control-label" for="lain2">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 81) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebelumtoilet" value="1">
-																	<label class="custom-control-label" for="sebelumtoilet">Sebelum ke toilet</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebokbayi" value="2">
-																	<label class="custom-control-label" for="cebokbayi">Setelah menceboki bayi/anak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sbab" value="3">
-																	<label class="custom-control-label" for="sbab">Setelah dari buang air besar</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmakan" value="4">
-																	<label class="custom-control-label" for="sebmakan">Sebelum makan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="setmakan" value="5">
-																	<label class="custom-control-label" for="setmakan">Setelah makan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="susuanak" value="6">
-																	<label class="custom-control-label" for="susuanak">Sebelum menyuapi/menyusui anak</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmasak" value="7">
-																	<label class="custom-control-label" for="sebmasak">Sebelum menyiapkan masakan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mhewan" value="8">
-																	<label class="custom-control-label" for="mhewan">Setelah memegang hewan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebsholat" value="9">
-																	<label class="custom-control-label" for="sebsholat">Sebelum sholat</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain3" value="10">
-																	<label class="custom-control-label" for="lain3">Lainnya, sebutkan:</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebelumtoilet" value="1">
+																<label class="custom-control-label" for="sebelumtoilet">Sebelum ke toilet</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="cebokbayi" value="2">
+																<label class="custom-control-label" for="cebokbayi">Setelah menceboki bayi/anak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sbab" value="3">
+																<label class="custom-control-label" for="sbab">Setelah dari buang air besar</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmakan" value="4">
+																<label class="custom-control-label" for="sebmakan">Sebelum makan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="setmakan" value="5">
+																<label class="custom-control-label" for="setmakan">Setelah makan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="susuanak" value="6">
+																<label class="custom-control-label" for="susuanak">Sebelum menyuapi/menyusui anak</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebmasak" value="7">
+																<label class="custom-control-label" for="sebmasak">Sebelum menyiapkan masakan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="mhewan" value="8">
+																<label class="custom-control-label" for="mhewan">Setelah memegang hewan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sebsholat" value="9">
+																<label class="custom-control-label" for="sebsholat">Sebelum sholat</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain3" value="10">
+																<label class="custom-control-label" for="lain3">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 												</td>
@@ -1937,7 +1937,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriH as $k) { ?>
-					<div class="card mt-2" id="card-h">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2002,30 +2002,30 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 83) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="balita" value="1">
-																	<label class="custom-control-label" for="balita">Anak-anak balita</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="nonbalita" value="2">
-																	<label class="custom-control-label" for="nonbalita">Anak-anak non balita</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajalaki" value="3">
-																	<label class="custom-control-label" for="remajalaki">Anak remaja laki-laki</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajapr" value="4">
-																	<label class="custom-control-label" for="remajapr">Anak remaja perempuan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasalaki" value="5">
-																	<label class="custom-control-label" for="dewasalaki">Orang dewasa laki-laki</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasapr" value="6">
-																	<label class="custom-control-label" for="dewasapr">Orang dewasa perempuan</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="balita" value="1">
+																<label class="custom-control-label" for="balita">Anak-anak balita</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="nonbalita" value="2">
+																<label class="custom-control-label" for="nonbalita">Anak-anak non balita</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajalaki" value="3">
+																<label class="custom-control-label" for="remajalaki">Anak remaja laki-laki</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="remajapr" value="4">
+																<label class="custom-control-label" for="remajapr">Anak remaja perempuan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasalaki" value="5">
+																<label class="custom-control-label" for="dewasalaki">Orang dewasa laki-laki</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dewasapr" value="6">
+																<label class="custom-control-label" for="dewasapr">Orang dewasa perempuan</label>
+															</div>
 														</div>
 													<?php } ?>
 												</td>
@@ -2041,7 +2041,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriAO as $k) { ?>
-					<div class="card mt-2" id="card-ao">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2070,86 +2070,86 @@
 												<td class="col-md-5">
 													<?php if ($p->id_pertanyaan == 84) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmerk" value="1">
-																	<label class="custom-control-label" for="airmerk">Air kemasan bermerk</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airisi" value="2">
-																	<label class="custom-control-label" for="airisi">Air isi ulang – membeli dari penjual air isi ulang</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng" value="3">
-																	<label class="custom-control-label" for="airledeng">Air Ledeng dari PDAM/Proyek/HIPPAM sendiri</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam" value="4">
-																	<label class="custom-control-label" for="airpdam">Air ledeng dari PDAM/Proyek/HIPPAM tetangga</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="aireceran" value="5">
-																	<label class="custom-control-label" for="aireceran">Air ledeng eceran dari PDAM/Proyek/HIPPAM</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran" value="6">
-																	<label class="custom-control-label" for="airhidran">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum" value="7">
-																	<label class="custom-control-label" for="airkranumum">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airterminal" value="8">
-																	<label class="custom-control-label" for="airterminal">Air dari terminal air_PDAM/HIPPAM/Proyek</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkapal" value="9">
-																	<label class="custom-control-label" for="airkapal">Air dari kapal air</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor" value="10">
-																	<label class="custom-control-label" for="airsumurbor">Air dari sumur bor dng pompa tangan/listrik/mesin</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri" value="11">
-																	<label class="custom-control-label" for="airgalisendiri">Air dari sumur gali terlindungi sendiri</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalitetangga" value="12">
-																	<label class="custom-control-label" for="airgalitetangga">Air dari sumur gali terlindungi tetangga</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri" value="13">
-																	<label class="custom-control-label" for="airtidaksendiri">Air dari sumur gali tidak terlindungi sendiri</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaktetangga" value="14">
-																	<label class="custom-control-label" for="airtidaktetangga">Air dari sumur gali tidak terlindungi tetangga</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmata" value="15">
-																	<label class="custom-control-label" for="airmata">Air dari Mata air terlindungi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmatatidak" value="16">
-																	<label class="custom-control-label" for="airmatatidak">Air dari Mata air tidak terlindungi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airujan" value="17">
-																	<label class="custom-control-label" for="airujan">Air hujan (PAH/Penampungan Air Hujan)</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsungai" value="18">
-																	<label class="custom-control-label" for="airsungai">Air dari sungai</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airdanau" value="19">
-																	<label class="custom-control-label" for="airdanau">Air dari waduk/danau</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain4" value="20">
-																	<label class="custom-control-label" for="lain4">Lainnya, sebutkan:</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmerk" value="1">
+																<label class="custom-control-label" for="airmerk">Air kemasan bermerk</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airisi" value="2">
+																<label class="custom-control-label" for="airisi">Air isi ulang – membeli dari penjual air isi ulang</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng" value="3">
+																<label class="custom-control-label" for="airledeng">Air Ledeng dari PDAM/Proyek/HIPPAM sendiri</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam" value="4">
+																<label class="custom-control-label" for="airpdam">Air ledeng dari PDAM/Proyek/HIPPAM tetangga</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="aireceran" value="5">
+																<label class="custom-control-label" for="aireceran">Air ledeng eceran dari PDAM/Proyek/HIPPAM</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran" value="6">
+																<label class="custom-control-label" for="airhidran">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum" value="7">
+																<label class="custom-control-label" for="airkranumum">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airterminal" value="8">
+																<label class="custom-control-label" for="airterminal">Air dari terminal air_PDAM/HIPPAM/Proyek</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkapal" value="9">
+																<label class="custom-control-label" for="airkapal">Air dari kapal air</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor" value="10">
+																<label class="custom-control-label" for="airsumurbor">Air dari sumur bor dng pompa tangan/listrik/mesin</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri" value="11">
+																<label class="custom-control-label" for="airgalisendiri">Air dari sumur gali terlindungi sendiri</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalitetangga" value="12">
+																<label class="custom-control-label" for="airgalitetangga">Air dari sumur gali terlindungi tetangga</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri" value="13">
+																<label class="custom-control-label" for="airtidaksendiri">Air dari sumur gali tidak terlindungi sendiri</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaktetangga" value="14">
+																<label class="custom-control-label" for="airtidaktetangga">Air dari sumur gali tidak terlindungi tetangga</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmata" value="15">
+																<label class="custom-control-label" for="airmata">Air dari Mata air terlindungi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airmatatidak" value="16">
+																<label class="custom-control-label" for="airmatatidak">Air dari Mata air tidak terlindungi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airujan" value="17">
+																<label class="custom-control-label" for="airujan">Air hujan (PAH/Penampungan Air Hujan)</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsungai" value="18">
+																<label class="custom-control-label" for="airsungai">Air dari sungai</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airdanau" value="19">
+																<label class="custom-control-label" for="airdanau">Air dari waduk/danau</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lain4" value="20">
+																<label class="custom-control-label" for="lain4">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 85) { ?>
@@ -2325,7 +2325,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriBO as $k) { ?>
-					<div class="card mt-2" id="card-bo">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2438,7 +2438,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriCO as $k) { ?>
-					<div class="card mt-2" id="card-co">
+					<div class="card mt-2">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2639,7 +2639,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriDO as $k) { ?>
-					<div class="card mt-2" id="card-do">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2680,46 +2680,46 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 105) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng2" value="1">
-																	<label class="custom-control-label" for="airledeng2">Air Ledeng dari PDAM/Proyek/HIPPAM berfungsi/mengalir</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam2" value="2">
-																	<label class="custom-control-label" for="airpdam2">Air ledeng dari PDAM/Proyek/HIPPAM tidak berfungsi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri2" value="3">
-																	<label class="custom-control-label" for="airgalisendiri2">Air dari sumur gali terlindungi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri2" value="4">
-																	<label class="custom-control-label" for="airtidaksendiri2">Air dari sumur gali tidak terlindungi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor2" value="5">
-																	<label class="custom-control-label" for="airsumurbor2">Air dari sumur bor dng pompa tangan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurborlistrik2" value="6">
-																	<label class="custom-control-label" for="airsumurborlistrik2">Air dari sumur bor dng pompa listrik/mesin</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran2" value="6">
-																	<label class="custom-control-label" for="airhidran2">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum2" value="7">
-																	<label class="custom-control-label" for="airkranumum2">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkeliling2" value="7">
-																	<label class="custom-control-label" for="airkeliling2">Penjual air keliling</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa4" value="20">
-																	<label class="custom-control-label" for="lainnyaa4">Lainnya, sebutkan:</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airledeng2" value="1">
+																<label class="custom-control-label" for="airledeng2">Air Ledeng dari PDAM/Proyek/HIPPAM berfungsi/mengalir</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airpdam2" value="2">
+																<label class="custom-control-label" for="airpdam2">Air ledeng dari PDAM/Proyek/HIPPAM tidak berfungsi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airgalisendiri2" value="3">
+																<label class="custom-control-label" for="airgalisendiri2">Air dari sumur gali terlindungi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airtidaksendiri2" value="4">
+																<label class="custom-control-label" for="airtidaksendiri2">Air dari sumur gali tidak terlindungi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurbor2" value="5">
+																<label class="custom-control-label" for="airsumurbor2">Air dari sumur bor dng pompa tangan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airsumurborlistrik2" value="6">
+																<label class="custom-control-label" for="airsumurborlistrik2">Air dari sumur bor dng pompa listrik/mesin</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airhidran2" value="6">
+																<label class="custom-control-label" for="airhidran2">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkranumum2" value="7">
+																<label class="custom-control-label" for="airkranumum2">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="airkeliling2" value="7">
+																<label class="custom-control-label" for="airkeliling2">Penjual air keliling</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa4" value="20">
+																<label class="custom-control-label" for="lainnyaa4">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 106) { ?>
@@ -2780,7 +2780,7 @@
 				<?php } ?>
 				<?php
 				foreach ($kategoriEO as $k) { ?>
-					<div class="card mt-2" id="card-eo">
+					<div class="card mt-2" id="">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
 								<button class="btn btn-link" data-toggle="collapse" data-target="#<?= $k->kode_kategori ?>'" aria-expanded="true" aria-controls="<?= $k->kode_kategori ?>">
@@ -2935,34 +2935,34 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 113) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampahorganik" value="1">
-																	<label class="custom-control-label" for="Sampahorganik">Sampah organik/sampah basah</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Platik" value="2">
-																	<label class="custom-control-label" for="Platik">Plastik</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas" value="3">
-																	<label class="custom-control-label" for="Gelas">Gelas/kaca</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ketas" value="4">
-																	<label class="custom-control-label" for="Ketas">Kertas/kardus</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi" value="5">
-																	<label class="custom-control-label" for="Besi">Besi/logam</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="b3" value="6">
-																	<label class="custom-control-label" for="b3">Bahan Berbahaya dan Beracun (B3)</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa4" value="7">
-																	<label class="custom-control-label" for="Lainnyaa4">Lainnya, sebutkan:</label>
-																</div>	
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Sampahorganik" value="1">
+																<label class="custom-control-label" for="Sampahorganik">Sampah organik/sampah basah</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Platik" value="2">
+																<label class="custom-control-label" for="Platik">Plastik</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Gelas" value="3">
+																<label class="custom-control-label" for="Gelas">Gelas/kaca</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Ketas" value="4">
+																<label class="custom-control-label" for="Ketas">Kertas/kardus</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Besi" value="5">
+																<label class="custom-control-label" for="Besi">Besi/logam</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="b3" value="6">
+																<label class="custom-control-label" for="b3">Bahan Berbahaya dan Beracun (B3)</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Lainnyaa4" value="7">
+																<label class="custom-control-label" for="Lainnyaa4">Lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 114) { ?>
@@ -2991,22 +2991,22 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 116) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukhias" value="1">
-																	<label class="custom-control-label" for="pupukhias">Pupuk tanaman hias</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukbuah" value="2">
-																	<label class="custom-control-label" for="pupukbuah">Pupuk tanaman buah, sayur, obat</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Dijual" value="3">
-																	<label class="custom-control-label" for="Dijual">Dijual</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="td" value="4">
-																	<label class="custom-control-label" for="td">Tidak dimanfaatkan</label>
-																</div>	
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukhias" value="1">
+																<label class="custom-control-label" for="pupukhias">Pupuk tanaman hias</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pupukbuah" value="2">
+																<label class="custom-control-label" for="pupukbuah">Pupuk tanaman buah, sayur, obat</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Dijual" value="3">
+																<label class="custom-control-label" for="Dijual">Dijual</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="td" value="4">
+																<label class="custom-control-label" for="td">Tidak dimanfaatkan</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 117) { ?>
@@ -3023,50 +3023,50 @@
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 118) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pekarangan2" value="1">
-																	<label class="custom-control-label" for="pekarangan2">Di halaman/pekarangan rumah</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur2" value="2">
-																	<label class="custom-control-label" for="dapur2">Di dekat dapur</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km2" value="3">
-																	<label class="custom-control-label" for="km2">Di dekat kamar mandi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bakair" value="4">
-																	<label class="custom-control-label" for="bakair">Di dekat bak penampungan air hujan.</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa5" value="5">
-																	<label class="custom-control-label" for="lainnyaa5">Di tempat lainnya, sebutkan:</label>
-																</div>	
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="pekarangan2" value="1">
+																<label class="custom-control-label" for="pekarangan2">Di halaman/pekarangan rumah</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="dapur2" value="2">
+																<label class="custom-control-label" for="dapur2">Di dekat dapur</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="km2" value="3">
+																<label class="custom-control-label" for="km2">Di dekat kamar mandi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="bakair" value="4">
+																<label class="custom-control-label" for="bakair">Di dekat bak penampungan air hujan.</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="lainnyaa5" value="5">
+																<label class="custom-control-label" for="lainnyaa5">Di tempat lainnya, sebutkan:</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 119) { ?>
 														<div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Hujan" value="1">
-																	<label class="custom-control-label" for="Hujan">Hujan</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahdapur" value="2">
-																	<label class="custom-control-label" for="limbahdapur">Air limbah dapur</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahkm" value="3">
-																	<label class="custom-control-label" for="limbahkm">Air limbah kamar mandi</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumberlain" value="4">
-																	<label class="custom-control-label" for="sumberlain">Air limbah dari sumber lain, sebutkan:</label>
-																</div>
-																<div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidakpasti" value="5">
-																	<label class="custom-control-label" for="tidakpasti">Tidak tahu/tidak pasti.</label>
-																</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="Hujan" value="1">
+																<label class="custom-control-label" for="Hujan">Hujan</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahdapur" value="2">
+																<label class="custom-control-label" for="limbahdapur">Air limbah dapur</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="limbahkm" value="3">
+																<label class="custom-control-label" for="limbahkm">Air limbah kamar mandi</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="sumberlain" value="4">
+																<label class="custom-control-label" for="sumberlain">Air limbah dari sumber lain, sebutkan:</label>
+															</div>
+															<div class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="answer<?= $p->id_pertanyaan; ?>[]" id="tidakpasti" value="5">
+																<label class="custom-control-label" for="tidakpasti">Tidak tahu/tidak pasti.</label>
+															</div>
 														</div>
 													<?php } ?>
 													<?php if ($p->id_pertanyaan == 120) { ?>

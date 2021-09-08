@@ -47,7 +47,7 @@ class Responden extends CI_Controller
 
 	public function process()
 	{
-		$process = $this->input->post(null, FALSE);
+		$process = $this->input->post(null, TRUE);
 
 		//print_r($process);
 

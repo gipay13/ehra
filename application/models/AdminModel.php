@@ -5,7 +5,7 @@ class AdminModel extends CI_Model
 {
 	function get_pertanyaan()
 	{
-		$query = $this->db->get('pertanyaan');
+		$query = $this->db->get('question');
 		return $query->result();
 	}
 
@@ -33,18 +33,18 @@ class AdminModel extends CI_Model
 	function get_kategori()
 	{
 		$this->db->order_by('created_at', 'asc');
-		$query = $this->db->get('kategori_pertanyaan');
+		$query = $this->db->get('question_category');
 		return $query->result();
 	}
 
-	public function validate_kategori($kode_kategori, $id = null)
+	public function validate_kategori($category_code, $id = null)
 	{
 		$this->db->select('*');
-		$this->db->where('kode_kategori', $kode_kategori);
+		$this->db->where('category_code', $category_code);
 		if ($id != null) {
-			$this->db->where('kategori_pertanyaan.id !=', $id);
+			$this->db->where('question_category.id !=', $id);
 		}
-		$query = $this->db->get('kategori_pertanyaan');
+		$query = $this->db->get('question_category');
 
 		return $query->num_rows();
 	}
@@ -52,31 +52,31 @@ class AdminModel extends CI_Model
 	public function insert_kategori($insert)
 	{
 		$data = [
-			'kode_kategori' => $insert['kode_kategori'],
-			'nama_kategori' => $insert['nama_kategori'],
+			'category_code' => $insert['kode_kategori'],
+			'category_name' => $insert['nama_kategori'],
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s'),
 		];
 
-		$this->db->insert('kategori_pertanyaan', $data);
+		$this->db->insert('question_category', $data);
 	}
 
 	public function delete_kategori($id)
 	{
 		$this->db->where('id', $id);
-		$this->db->delete('kategori_pertanyaan');
+		$this->db->delete('question_category');
 	}
 
 	public function update_kategori($update)
 	{
 		$data = [
-			'kode_kategori' => $update['kode_kategori'],
-			'nama_kategori' => $update['nama_kategori'],
+			'category_code' => $update['kode_kategori'],
+			'category_name' => $update['nama_kategori'],
 			'updated_at' => date('Y-m-d H:i:s'),
 		];
 
 		$this->db->where('id', $update['id']);
-		$this->db->update('kategori_pertanyaan', $data);
+		$this->db->update('question_category', $data);
 	}
 
 

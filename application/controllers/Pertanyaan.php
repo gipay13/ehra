@@ -15,7 +15,7 @@ class Pertanyaan extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'kategori' => $this->AdminModel->get_kategori_pertanyaan(),
+			'kategori' => $this->AdminModel->get_kategori(),
 			'pertanyaan' => $this->AdminModel->get_pertanyaan(),
 		);
 

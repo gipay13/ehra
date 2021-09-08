@@ -42,14 +42,14 @@ class RespondenModel extends CI_Model
 
 	public function koordinator()
 	{
-		$sql = "SELECT * FROM koordinator";
+		$sql = "SELECT * FROM coordinator";
 
 		return $this->db->query($sql);
 	}
 
 	function supevisor()
 	{
-		$this->db->order_by('nama_supervisor', 'asc');
+		$this->db->order_by('supervisor_name', 'asc');
 		$query = $this->db->get('supervisor');
 		return $query->result();
 	}
@@ -57,10 +57,26 @@ class RespondenModel extends CI_Model
 	public function get_last_no_survey($month, $year)
 	{
 		$sql = "SELECT id FROM survey 
-                WHERE MONTH(tgl_survey) = ? 
-                AND YEAR(tgl_survey) = ?
+                WHERE MONTH(survey_date) = ? 
+                AND YEAR(survey_date) = ?
                 ORDER BY id DESC 
                 LIMIT 1";
 		return $this->db->query($sql, array($month, $year));
+	}
+
+	public function no_survey()
+	{
+		$query = $this->db->query("SELECT MAX(MID(invoice,9,4)) AS invoice_number FROM sales WHERE MID(invoice,3,6) = DATE_FORMAT(CURDATE(), '%y%m%d')");
+
+		if ($query->num_rows() > 0) {
+			$row = $query->row();
+			$n = ((int)$row->invoice_number) + 1;
+			$no = sprintf("%'.04d", $n);
+		} else {
+			$no = "0001";
+		}
+
+		$invoice = "SK" . date('ymd') . $no;
+		return $invoice;
 	}
 }

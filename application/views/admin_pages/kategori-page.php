@@ -36,10 +36,10 @@
 								<?php foreach ($kategori as $k) { ?>
 									<tr>
 										<td><?= $index++ ?></td>
-										<td><?= $k->kode_kategori ?></td>
-										<td><?= $k->nama_kategori ?></td>
+										<td><?= $k->category_code ?></td>
+										<td><?= $k->category_name ?></td>
 										<td>
-											<a href="" id="edit" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal-default" data-id="<?= $k->id ?>" data-kode="<?= $k->kode_kategori ?>" data-nama="<?= $k->nama_kategori ?>">
+											<a href="" id="edit" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal-default" data-id="<?= $k->id ?>" data-kode="<?= $k->category_code ?>" data-nama="<?= $k->category_name ?>">
 												<i class="fas fa-edit mx-1"></i>
 											</a>
 											<a href="<?= base_url('kategori/delete/' . $k->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>

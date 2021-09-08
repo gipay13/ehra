@@ -33,8 +33,8 @@
 								<?php foreach ($pertanyaan as $p) { ?>
 									<tr>
 										<td><?= $index++ ?></td>
-										<td><?= $p->kode_kategori ?></td>
-										<td><?= $p->pertanyaan ?></td>
+										<td><?= $p->category_code ?></td>
+										<td><?= $p->question ?></td>
 										<td>edit</td>
 									</tr>
 								<?php } ?>
@@ -72,7 +72,7 @@
 							<select name="kode_kategori" id="kode_kategori" class="form-control" required>
 								<option value="">--Pilih Kategori--</option>
 								<?php foreach ($kategori as $k) { ?>
-									<option value="<?= $k->kode_kategori ?>"><?= $k->kode_kategori ?></option>
+									<option value="<?= $k->category_code ?>"><?= $k->category_code ?></option>
 								<?php } ?>
 							</select>
 						</div>

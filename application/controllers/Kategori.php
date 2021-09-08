@@ -16,7 +16,7 @@ class Kategori extends CI_Controller
 	{
 
 		$data = array(
-			'kategori' => $this->AdminModel->get_Kategori(),
+			'kategori' => $this->AdminModel->get_kategori(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/kategori-page', $data);

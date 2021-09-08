@@ -10,6 +10,12 @@ class User extends CI_Controller
 		$this->load->model('AdminModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
+		if (
+			$this->session->userdata('level') == 2 ||
+			$this->session->userdata('level') == 3 ||
+			$this->session->userdata('level') == 4
+		)
+			redirect('admin/dashboard');
 	}
 
 	public function index()

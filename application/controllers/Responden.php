@@ -6,8 +6,7 @@ class Responden extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('RespondenModel');
-		$this->load->model('SurveyModel');
+		$this->load->model(['RespondenModel', 'SurveyModel']);
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -21,7 +20,6 @@ class Responden extends CI_Controller
 		);
 
 		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
-			
 	}
 
 	public function fetch_district()
@@ -62,39 +60,15 @@ class Responden extends CI_Controller
 		return $id_survey;
 	}
 
-	public function store()
+	public function process()
 	{
+		$process = $this->input->post(null, TRUE);
+
 		$no_survey = $this->get_last_no_survey();
 
-		$responden = array(
-			'nokk'					=> $this->input->post('nokk'),
-			'nik'					=> $this->input->post('nik'),
-			'nama_kepala'			=> $this->input->post('namakepala'),
-			'jml_keluarga'			=> $this->input->post('jumlahkeluarga'),
-			'jml_laki'				=> $this->input->post('jumlahlaki'),
-			'jml_pr'				=> $this->input->post('jumlahpr'),
-			'nama_responden'		=> $this->input->post('responden'),
-			'hubungan_responden'	=> $this->input->post('hubungan'),
-			'id_kecamatan'			=> $this->input->post('kecamatan'),
-			'alamat'				=> $this->input->post('alamat'),
-			'rt'					=> $this->input->post('rt'),
-			'rw'					=> $this->input->post('rw'),
-			'no_rmh'				=> $this->input->post('normh'),
-		);
+		$this->SurveyModel->insert_responden($process);
 
-		$this->SurveyModel->insert_responden($responden);
-
-		$survey = array(
-			'id'					=> $no_survey,
-			'nik'					=> $this->input->post('nik'),
-			'tgl_survey'			=> $this->input->post('tanggalSurvey'),
-			'jam_survey'			=> $this->input->post('waktu'),
-			'id_pewawancara'		=> $this->input->post('pewawancara'),
-			'id_supervisor'			=> $this->input->post('supervisor'),
-			'id_koordinator'		=> $this->input->post('koordinator'),
-		);
-
-		$this->SurveyModel->insert_survey($survey);
+		$this->SurveyModel->insert_survey($process, $no_survey);
 
 		redirect('pertanyaan/p/' . $no_survey);
 	}

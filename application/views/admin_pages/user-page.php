@@ -9,6 +9,9 @@
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i> Tambah User</button>
 				</ol>
 			</div>
+			<div class="col-sm-12 mt-3">
+				<?= $this->session->flashdata('message'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -80,19 +83,19 @@
 					<div class="card-body">
 						<div class="form-group">
 							<label for="username">Username</label>
-							<input type="text" name="username" class="form-control" id="username">
+							<input type="text" name="username" class="form-control" id="username" required>
 						</div>
 						<div class="form-group">
 							<label for="name">Nama</label>
-							<input type="text" name="name" class="form-control" id="name">
+							<input type="text" name="name" class="form-control" id="name" required>
 						</div>
 						<div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" name="password" class="form-control" id="password">
+							<input type="password" name="password" class="form-control" id="password" required>
 						</div>
 						<div class="form-group">
 							<label for="level">Akses</label>
-							<select name="level" id="level" class="form-control">
+							<select name="level" id="level" class="form-control" required>
 								<option value="">--Pilih Akses--</option>
 								<?php foreach ($level as $l) { ?>
 									<option value="<?= $l->id ?>"><?= $l->name ?></option>
@@ -101,7 +104,7 @@
 						</div>
 						<div class="form-group">
 							<label for="puskesmas">Puskesmas</label>
-							<select name="puskesmas" id="puskesmas" class="form-control">
+							<select name="puskesmas" id="puskesmas" class="form-control" required>
 								<option value="">--Pilih Puskesmas--</option>
 								<?php foreach ($puskesmas as $p) { ?>
 									<option value="<?= $p->id ?>"><?= $p->nm_puskesmas ?></option>

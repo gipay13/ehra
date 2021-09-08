@@ -39,6 +39,7 @@ class Auth extends CI_Controller
 					'username' 	=> $user['username'],
 					'name' 		=> $user['name'],
 					'level'		=> $user['level_id'],
+					'id'		=> $user['id']
 				];
 				$this->session->set_userdata($data);
 				redirect('admin/dashboard');

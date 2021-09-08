@@ -6,11 +6,11 @@
 					<div class="my-3 mx-4">
 						<div class="form-group">
 							<label for="no_survey">Nomor Survey</label>
-							<input type="text" class="form-control" name="no_survey" id="no_survey">
+							<input type="text" class="form-control" name="no_survey" id="no_survey" value="<?= $survey ?>" readonly>
 						</div>
 						<div class="form-group">
 							<label for="tanggal_survey">Tanggal Survey</label>
-							<input type="date" class="form-control" name="tanggal_survey" id="tanggal_survey">
+							<input type="date" class="form-control" name="tanggal_survey" id="tanggal_survey" value="<?= date('Y-m-d') ?>">
 						</div>
 						<div class="form-group">
 							<label for="jam_survey">Jam Survey</label>
@@ -18,7 +18,7 @@
 						</div>
 						<div class="form-group">
 							<label for="username">Nama Pewawancara/Enumerator</label>
-							<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata("id"); ?>">
+							<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
 							<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
 						</div>
 						<div class="form-group">
@@ -27,7 +27,7 @@
 								<option value="">--Pilih Supervisor--</option>
 								<?php
 								foreach ($supervisor as $s) {
-									echo '<option value="' . $s->id . '">' . $s->nama_supervisor . '</option>';
+									echo '<option value="' . $s->id . '">' . $s->supervisor_name . '</option>';
 								}
 								?>
 							</select>
@@ -37,7 +37,7 @@
 							<select name="koordinator" id="koordinator" class="form-control">
 								<option value="">--Pilih Koordinator--</option>
 								<?php foreach ($koordinator->result_array() as $k) { ?>
-									<option value="<?= $k['id'] ?>"><?= $k['nama_koordinator'] ?></option>
+									<option value="<?= $k['id'] ?>"><?= $k['coordinator_name'] ?></option>
 								<?php } ?>
 							</select>
 						</div>

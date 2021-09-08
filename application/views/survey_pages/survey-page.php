@@ -5,7 +5,7 @@
 			<div id="toggle-cards">
 				<?php foreach ($kategoriB as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -17,10 +17,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<!-- B -->
@@ -277,7 +277,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriC as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -289,10 +289,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 15) { ?>
@@ -545,7 +545,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriD as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -557,10 +557,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 25) { ?>
@@ -1148,7 +1148,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriE as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -1160,10 +1160,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 49) { ?>
@@ -1334,7 +1334,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriF as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -1346,10 +1346,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 58) { ?>
@@ -1716,7 +1716,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriG as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -1728,10 +1728,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 78) { ?>
@@ -1888,7 +1888,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriH as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -1900,10 +1900,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 82) { ?>
@@ -1984,7 +1984,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriAO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -1996,10 +1996,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 84) { ?>
@@ -2260,7 +2260,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriBO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -2272,10 +2272,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 92) { ?>
@@ -2365,7 +2365,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriCO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -2377,10 +2377,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 95) { ?>
@@ -2558,7 +2558,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriDO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -2570,10 +2570,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 104) { ?>
@@ -2691,7 +2691,7 @@
 				<?php } ?>
 				<?php foreach ($kategoriEO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->kode_kategori ?>. <?= $k->nama_kategori ?></div>
+						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
 						<div class="card-body">
 							<table class="table table-sm">
 								<thead>
@@ -2703,10 +2703,10 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->kode_kategori);
+									$data = $this->CI->pertanyaan($k->category_code);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->pertanyaan; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 107) { ?>

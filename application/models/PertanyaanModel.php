@@ -5,15 +5,15 @@ class PertanyaanModel extends CI_Model
 {
 	function kategori_pertanyaan($kode)
 	{
-		$this->db->where('kode_kategori', $kode);
-		$query = $this->db->get('kategori_pertanyaan');
+		$this->db->where('category_code', $kode);
+		$query = $this->db->get('question_category');
 		return $query->result();
 	}
 
 	function pertanyaan($kode_kategori)
 	{
-		$this->db->where('kode_kategori', $kode_kategori);
-		$query = $this->db->get('pertanyaan');
+		$this->db->where('category_code', $kode_kategori);
+		$query = $this->db->get('question');
 		return $query->result();
 	}
 }

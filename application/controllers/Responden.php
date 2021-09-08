@@ -6,7 +6,8 @@ class Responden extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['RespondenModel', 'SurveyModel']);
+		$this->load->model('RespondenModel');
+		$this->load->model('SurveyModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -17,6 +18,7 @@ class Responden extends CI_Controller
 			"regencies"		=> $this->RespondenModel->regencies(),
 			"supervisor" 	=> $this->RespondenModel->supevisor(),
 			"koordinator" 	=> $this->RespondenModel->koordinator(),
+			"survey"		=> $this->RespondenModel->no_survey()
 		);
 
 		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
@@ -43,33 +45,15 @@ class Responden extends CI_Controller
 		}
 	}
 
-	public function get_last_no_survey()
-	{
-		$tahun = date("y");
-		$bulan = date("m");
-		$survey_last_id = $this->RespondenModel->get_last_no_survey($bulan, date("Y"));
-
-		if ($survey_last_id->num_rows()) {
-			$row_last_id   = $survey_last_id->row_array();
-			$last_id       = substr($row_last_id['id'], 4) + 1;
-			$id_survey = $tahun . $bulan . sprintf("%05d", $last_id);
-		} else {
-			$id_survey = $tahun . $bulan . sprintf("%05d", 1);
-		}
-
-		return $id_survey;
-	}
-
 	public function process()
 	{
-		$process = $this->input->post(null, TRUE);
+		$process = $this->input->post(null, FALSE);
 
-		$no_survey = $this->get_last_no_survey();
+		//print_r($process);
 
 		$this->SurveyModel->insert_responden($process);
+		$this->SurveyModel->insert_survey($process);
 
-		$this->SurveyModel->insert_survey($process, $no_survey);
-
-		redirect('pertanyaan/p/' . $no_survey);
+		redirect('pertanyaan/p/' . $process['no_survey']);
 	}
 }

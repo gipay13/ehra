@@ -54,29 +54,19 @@ class RespondenModel extends CI_Model
 		return $query->result();
 	}
 
-	public function get_last_no_survey($month, $year)
-	{
-		$sql = "SELECT id FROM survey 
-                WHERE MONTH(survey_date) = ? 
-                AND YEAR(survey_date) = ?
-                ORDER BY id DESC 
-                LIMIT 1";
-		return $this->db->query($sql, array($month, $year));
-	}
-
 	public function no_survey()
 	{
-		$query = $this->db->query("SELECT MAX(MID(invoice,9,4)) AS invoice_number FROM sales WHERE MID(invoice,3,6) = DATE_FORMAT(CURDATE(), '%y%m%d')");
+		$query = $this->db->query("SELECT MAX(MID(no_survey,12,4)) AS survey FROM survey WHERE MID(no_survey,5,6) = DATE_FORMAT(CURDATE(), '%y%m%d')");
 
 		if ($query->num_rows() > 0) {
 			$row = $query->row();
-			$n = ((int)$row->invoice_number) + 1;
+			$n = ((int)$row->survey) + 1;
 			$no = sprintf("%'.04d", $n);
 		} else {
 			$no = "0001";
 		}
 
-		$invoice = "SK" . date('ymd') . $no;
-		return $invoice;
+		$no_survey = "EHRA" . date('ymd') . $no;
+		return $no_survey;
 	}
 }

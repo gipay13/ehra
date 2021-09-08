@@ -33,13 +33,13 @@ class SurveyModel extends CI_Model
 			'no_rmh'				=> $responden['no_rmh'],
 		];
 
-		$this->db->insert('respondent', $data);
+		$this->db->insert('respondent', $responden);
 	}
 
-	function insert_survey($survey, $no_survey)
+	function insert_survey($survey)
 	{
 		$data = [
-			'no_survey'				=> $no_survey,
+			'no_survey'				=> $survey['no_survey'],
 			'nik'					=> $survey['nik'],
 			'survey_date'			=> $survey['tanggal_survey'],
 			'survey_time'			=> $survey['jam_survey'],

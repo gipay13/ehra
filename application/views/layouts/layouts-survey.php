@@ -56,8 +56,139 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-<?php $this->load->view('grouped_js/dependent-dropdown') ?>
-<?php $this->load->view('grouped_js/hide-show') ?>
-<?php $this->load->view('grouped_js/unchecked') ?>
+<script>
+	$(document).ready(function($) {
+		$('#kabupaten').change(function() {
+			var id = $('#kabupaten').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_district'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#kecamatan').html(data);
+					}
+				})
+			}
+		});
+
+		$('#kecamatan').change(function() {
+			var id = $('#kecamatan').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_village'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#kelurahan').html(data);
+					}
+				})
+			}
+		});
+
+		$('#kecamatan').change(function() {
+			var id = $('#kecamatan').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_koordinator'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#koordinator').html(data);
+					}
+				})
+			}
+		});
+	});
+	$('.btn-next, .btn-prev').click(function() {
+		const $btn = $(this),
+			isNext = $btn.hasClass('btn-next'),
+			$card = $btn.closest('.card').hide();
+
+
+		const $nextCard = isNext ? $card.next() : $card.prev();
+		$nextCard.show()
+
+	});
+	$(document).ready(function($) {
+		var $jwbn19 = $('input[name="answer19[]"]').not('#tidaktahu')
+		$('#tidaktahu').change(function() {
+			if (this.checked) {
+				$jwbn19.prop('checked', false)
+			}
+		});
+		$jwbn19.change(function() {
+			if (this.checked) {
+				$('#tidaktahu').prop('checked', false)
+			}
+		})
+
+		var $jwbn26 = $('input[name="answer26[]"]').not('#ta')
+		$('#ta').change(function() {
+			if (this.checked) {
+				$jwbn26.prop('checked', false)
+			}
+		});
+		$jwbn26.change(function() {
+			if (this.checked) {
+				$('#ta').prop('checked', false)
+			}
+		})
+
+		var $jwbn79 = $('input[name="answer79[]"]').not('#tidaktahu1')
+		$('#tidaktahu1').change(function() {
+			if (this.checked) {
+				$jwbn79.prop('checked', false)
+			}
+		});
+		$jwbn79.change(function() {
+			if (this.checked) {
+				$('#tidaktahu1').prop('checked', false)
+			}
+		})
+
+		var $jwbn80 = $('input[name="answer80[]"]').not('#tita')
+		$('#tita').change(function() {
+			if (this.checked) {
+				$jwbn80.prop('checked', false)
+			}
+		});
+		$jwbn80.change(function() {
+			if (this.checked) {
+				$('#tita').prop('checked', false)
+			}
+		})
+
+		var $jwbn116 = $('input[name="answer116[]"]').not('#td')
+		$('#td').change(function() {
+			if (this.checked) {
+				$jwbn116.prop('checked', false)
+			}
+		});
+		$jwbn116.change(function() {
+			if (this.checked) {
+				$('#td').prop('checked', false)
+			}
+		})
+
+		var $jwbn119 = $('input[name="answer119[]"]').not('#tidakpasti')
+		$('#tidakpasti').change(function() {
+			if (this.checked) {
+				$jwbn119.prop('checked', false)
+			}
+		});
+		$jwbn119.change(function() {
+			if (this.checked) {
+				$('#tidakpasti').prop('checked', false)
+			}
+		})
+	});
+</script>
 
 </html>

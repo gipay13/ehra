@@ -10,9 +10,9 @@ class PertanyaanModel extends CI_Model
 		return $query->result();
 	}
 
-	function pertanyaan($kdkategori)
+	function pertanyaan($kode_kategori)
 	{
-		$this->db->where('kode_kategori', $kdkategori);
+		$this->db->where('kode_kategori', $kode_kategori);
 		$query = $this->db->get('pertanyaan');
 		return $query->result();
 	}

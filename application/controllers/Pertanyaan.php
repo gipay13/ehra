@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Adminpertanyaan extends CI_Controller
+class Pertanyaan extends CI_Controller
 {
 
 	function __construct()
@@ -15,11 +15,10 @@ class Adminpertanyaan extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'pertanyaan' => $this->AdminModel->pertanyaan(),
-			'kategori' => $this->AdminModel->Kategori_pertanyaan(),
+			'kategori' => $this->AdminModel->get_kategori_pertanyaan(),
+			'pertanyaan' => $this->AdminModel->get_pertanyaan(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/pertanyaan-page', $data);
 	}
-
 }

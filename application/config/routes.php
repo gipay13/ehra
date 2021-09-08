@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['pertanyaan/p/(:any)'] = 'survey/index/$1';
 
 $route['admin/dashboard'] = 'dashboard';
-$route['admin/pertanyaan'] = 'adminpertanyaan';
+$route['admin/pertanyaan'] = 'pertanyaan';
 $route['admin/kategori'] = 'kategori';
 $route['admin/hasil'] = 'hasil';
+$route['admin/user'] = 'user';

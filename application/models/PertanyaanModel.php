@@ -3,16 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class PertanyaanModel extends CI_Model
 {
-	function kategori_pertanyaan($kode)
+	function get_pertanyaan()
 	{
-		$this->db->where('category_code', $kode);
-		$query = $this->db->get('question_category');
-		return $query->result();
-	}
-
-	function pertanyaan($kode_kategori)
-	{
-		$this->db->where('category_code', $kode_kategori);
+		$this->db->select('question.*, question_category.category_code as qcategory_code');
+		$this->db->join('question_category', 'question_category.id = question.qcategory_id');
 		$query = $this->db->get('question');
 		return $query->result();
 	}

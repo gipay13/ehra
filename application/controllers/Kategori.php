@@ -7,7 +7,7 @@ class Kategori extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('AdminModel');
+		$this->load->model('KategoriModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -16,7 +16,7 @@ class Kategori extends CI_Controller
 	{
 
 		$data = array(
-			'kategori' => $this->AdminModel->get_kategori(),
+			'kategori' => $this->KategoriModel->get_kategori(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/kategori-page', $data);
@@ -27,7 +27,7 @@ class Kategori extends CI_Controller
 		$process = $this->input->post(null, TRUE);
 
 		if (isset($_POST['add'])) {
-			$kode_kategori = $this->AdminModel->validate_kategori($process['kode_kategori']);
+			$kode_kategori = $this->KategoriModel->validate_kategori($process['kode_kategori']);
 			if ($kode_kategori > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -38,10 +38,10 @@ class Kategori extends CI_Controller
 				);
 				redirect('admin/kategori');
 			} else {
-				$this->AdminModel->insert_kategori($process);
+				$this->KategoriModel->insert_kategori($process);
 			}
 		} else if (isset($_POST['edit'])) {
-			$kode_kategori = $this->AdminModel->validate_kategori($process['kode_kategori'], $process['id']);
+			$kode_kategori = $this->KategoriModel->validate_kategori($process['kode_kategori'], $process['id']);
 			if ($kode_kategori > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -52,7 +52,7 @@ class Kategori extends CI_Controller
 				);
 				redirect('admin/kategori');
 			} else {
-				$this->AdminModel->update_kategori($process);
+				$this->KategoriModel->update_kategori($process);
 			}
 		}
 
@@ -70,7 +70,7 @@ class Kategori extends CI_Controller
 
 	public function delete($id)
 	{
-		$this->AdminModel->delete_kategori($id);
+		$this->KategoriModel->delete_kategori($id);
 
 		$error = $this->db->error();
 

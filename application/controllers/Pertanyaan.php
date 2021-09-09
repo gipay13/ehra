@@ -7,7 +7,7 @@ class Pertanyaan extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('AdminModel');
+		$this->load->model(['PertanyaanModel', 'KategoriModel']);
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -15,8 +15,8 @@ class Pertanyaan extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'kategori' => $this->AdminModel->get_kategori(),
-			'pertanyaan' => $this->AdminModel->get_pertanyaan(),
+			'kategori' => $this->KategoriModel->get_kategori(),
+			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/pertanyaan-page', $data);

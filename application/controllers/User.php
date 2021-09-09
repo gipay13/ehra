@@ -7,7 +7,7 @@ class User extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('AdminModel');
+		$this->load->model('UserModel');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 		if (
@@ -20,11 +20,10 @@ class User extends CI_Controller
 
 	public function index()
 	{
-
 		$data = [
-			'puskesmas' => $this->AdminModel->get_puskesmas(),
-			'user' => $this->AdminModel->get_user(),
-			'level' => $this->AdminModel->get_level(),
+			'puskesmas' => $this->UserModel->get_puskesmas(),
+			'user' => $this->UserModel->get_user(),
+			'level' => $this->UserModel->get_level(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/user-page', $data);
@@ -35,7 +34,7 @@ class User extends CI_Controller
 		$process = $this->input->post(null, TRUE);
 
 		if (isset($_POST['add'])) {
-			$username = $this->AdminModel->validate_username($process['username']);
+			$username = $this->UserModel->validate_username($process['username']);
 			if ($username > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -46,7 +45,7 @@ class User extends CI_Controller
 				);
 				redirect('admin/user');
 			} else {
-				$this->AdminModel->insert_user($process);
+				$this->UserModel->insert_user($process);
 			}
 		}
 

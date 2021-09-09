@@ -1,6 +1,6 @@
 <div class="container my-5">
 	<div class="col-md-12">
-		<form action="<?= base_url('pertanyaan/store'); ?>" method="POST">
+		<form action="<?= base_url('survey/store'); ?>" method="POST">
 			<input type="hidden" name="no_survey" value="<?= $this->uri->segment(3) ?>">
 			<div id="toggle-cards">
 				<?php foreach ($kategoriB as $k) { ?>
@@ -17,7 +17,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -26,7 +26,7 @@
 												<!-- B -->
 												<?php if ($p->id == 1) { ?>
 													<div class="ml-1">
-														<input type="text" class="col-md-8 form-control" name="answer<?= $p->id; ?>" placeholder="Tahun">
+														<input type="number" class="col-md-8 form-control" name="answer<?= $p->id; ?>" placeholder="Tahun">
 													</div>
 												<?php } ?>
 												<?php if ($p->id == 2) { ?>
@@ -289,7 +289,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -557,7 +557,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -1160,7 +1160,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -1346,7 +1346,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -1728,7 +1728,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -1900,7 +1900,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -1996,7 +1996,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -2272,7 +2272,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -2377,7 +2377,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -2570,7 +2570,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -2703,7 +2703,7 @@
 								</thead>
 								<tbody>
 									<?php
-									$data = $this->CI->pertanyaan($k->category_code);
+									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
 											<td class="col-md-5"><?= $p->question; ?></td>
@@ -3051,7 +3051,7 @@
 						</div>
 						<div class="card-footer">
 							<button type="button" class="btn btn-default btn-prev">Prev</button>
-							<button type="button" class="btn btn-info btn-next">Next</button>
+							<button type="submit" class="btn btn-info btn-next">Submit</button>
 						</div>
 					</div>
 				<?php } ?>

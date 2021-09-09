@@ -45,7 +45,7 @@
 										<td><?= $u->level_name ?></td>
 										<td><?= $u->created_at ?></td>
 										<td>
-											<a href="<?= base_url('user/delete/' . $u->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+											<a href="<?= base_url('user/delete/' . $u->user_id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
 										</td>
 									</tr>
 								<?php } ?>
@@ -104,7 +104,7 @@
 						</div>
 						<div class="form-group">
 							<label for="puskesmas">Puskesmas</label>
-							<select name="puskesmas" id="puskesmas" class="form-control" required>
+							<select name="puskesmas" id="puskesmas" class="form-control">
 								<option value="">--Pilih Puskesmas--</option>
 								<?php foreach ($puskesmas as $p) { ?>
 									<option value="<?= $p->id ?>"><?= $p->nm_puskesmas ?></option>

@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Route Pertanyaan
-$route['pertanyaan/p/(:any)'] = 'survey/index/$1';
+$route['survey/p/(:any)'] = 'survey/index/$1';
 
 $route['admin/dashboard'] = 'dashboard';
 $route['admin/pertanyaan'] = 'pertanyaan';

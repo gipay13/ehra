@@ -33,7 +33,7 @@
 								<?php foreach ($pertanyaan as $p) { ?>
 									<tr>
 										<td><?= $index++ ?></td>
-										<td><?= $p->category_code ?></td>
+										<td><?= $p->qcategory_code ?></td>
 										<td><?= $p->question ?></td>
 										<td>edit</td>
 									</tr>

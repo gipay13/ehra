@@ -20,39 +20,12 @@ class RespondenModel extends CI_Model
 
 		$output = '<option value="">--Pilih Kecamatan--</option>';
 		foreach ($query->result() as $d) {
-			$output .= '<option value="' . $d->id . '">' . $d->name . '</option>';
+			$output .= '<option value="' . $d->name . '">' . $d->name . '</option>';
 		}
 
 		return $output;
 	}
 
-	function village($id)
-	{
-		$this->db->where('district_id', $id);
-		$this->db->order_by('name', 'asc');
-		$query = $this->db->get('villages');
-
-		$output = '<option value="">--Pilih Kelurahan--</option>';
-		foreach ($query->result() as $v) {
-			$output .= '<option value="' . $v->id . '">' . $v->name . '</option>';
-		}
-
-		return $output;
-	}
-
-	public function koordinator()
-	{
-		$sql = "SELECT * FROM coordinator";
-
-		return $this->db->query($sql);
-	}
-
-	function supevisor()
-	{
-		$this->db->order_by('supervisor_name', 'asc');
-		$query = $this->db->get('supervisor');
-		return $query->result();
-	}
 
 	public function no_survey()
 	{
@@ -68,5 +41,41 @@ class RespondenModel extends CI_Model
 
 		$no_survey = "EHRA" . date('ymd') . $no;
 		return $no_survey;
+	}
+
+	function insert_responden($responden)
+	{
+		$data = [
+			'nkk'					=> $responden['nkk'],
+			'nik'					=> $responden['nik'],
+			'nama_kepala'			=> $responden['nama_kepala'],
+			'jml_keluarga'			=> $responden['jumlah_keluarga'],
+			'jml_laki'				=> $responden['jumlah_laki'],
+			'jml_pr'				=> $responden['jumlah_pr'],
+			'nama_responden'		=> $responden['responden'],
+			'hubungan_responden'	=> $responden['hubungan'],
+			'district_id'			=> $responden['kecamatan'],
+			'alamat'				=> $responden['alamat'],
+			'rt'					=> $responden['rt'],
+			'rw'					=> $responden['rw'],
+			'no_rmh'				=> $responden['no_rmh'],
+		];
+
+		$this->db->insert('respondent', $data);
+	}
+
+	function insert_survey($survey)
+	{
+		$data = [
+			'no_survey'				=> $survey['no_survey'],
+			'nik'					=> $survey['nik'],
+			'survey_date'			=> $survey['tanggal_survey'],
+			'survey_time'			=> $survey['jam_survey'],
+			'user_id'				=> $survey['user_id'],
+			'supervisor_id'			=> $survey['supervisor'],
+			'coordinator_id'		=> $survey['koordinator'],
+		];
+
+		$this->db->insert('survey', $data);
 	}
 }

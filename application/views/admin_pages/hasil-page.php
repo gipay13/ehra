@@ -34,18 +34,27 @@
 									<th>Nama Kepala Keluarga</th>
 									<th>Kecamatan</th>
 									<th>Alamat</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<!-- <?php $index = 1; ?>
-									<?php foreach ($kategori as $k) { ?>
-										<tr>
-											<td><?= $index++ ?></td>
-											<td><?= $k->kode_kategori ?></td>
-											<td><?= $k->nama_kategori ?></td>
-											<td>edit</td>	
-										</tr>	
-									<?php } ?> -->
+								<?php $index = 1; ?>
+								<?php foreach ($survey as $s) { ?>
+									<tr>
+										<td><?= $index++ ?></td>
+										<td><?= $s->no_survey ?></td>
+										<td><?= $s->survey_date ?></td>
+										<td><?= $s->name ?></td>
+										<td><?= $s->nkk ?></td>
+										<td><?= $s->nik ?></td>
+										<td><?= $s->nama_kepala ?></td>
+										<td><?= $s->kecamatan ?></td>
+										<td><?= $s->alamat ?></td>
+										<td>
+											<a href="<?= base_url('hasil/delete/' . $s->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+										</td>
+									</tr>
+								<?php } ?>
 							</tbody>
 							<tfoot>
 								<tr>
@@ -58,6 +67,7 @@
 									<th>Nama Kepala Keluarga</th>
 									<th>Kecamatan</th>
 									<th>Alamat</th>
+									<th>Aksi</th>
 								</tr>
 							</tfoot>
 						</table>

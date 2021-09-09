@@ -6,8 +6,7 @@ class Responden extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('RespondenModel');
-		$this->load->model('SurveyModel');
+		$this->load->model(['RespondenModel', 'UserModel']);
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -16,8 +15,8 @@ class Responden extends CI_Controller
 	{
 		$data = array(
 			"regencies"		=> $this->RespondenModel->regencies(),
-			"supervisor" 	=> $this->RespondenModel->supevisor(),
-			"koordinator" 	=> $this->RespondenModel->koordinator(),
+			"koordinator"	=> $this->UserModel->get_user(4),
+			"supervisor"	=> $this->UserModel->get_user(6),
 			"survey"		=> $this->RespondenModel->no_survey()
 		);
 
@@ -28,13 +27,6 @@ class Responden extends CI_Controller
 	{
 		if ($this->input->post('id')) {
 			echo $this->RespondenModel->district($this->input->post('id'));
-		}
-	}
-
-	public function fetch_village()
-	{
-		if ($this->input->post('id')) {
-			echo $this->RespondenModel->village($this->input->post('id'));
 		}
 	}
 
@@ -51,9 +43,11 @@ class Responden extends CI_Controller
 
 		//print_r($process);
 
-		$this->SurveyModel->insert_responden($process);
-		$this->SurveyModel->insert_survey($process);
+		$this->RespondenModel->insert_responden($process);
+		$this->RespondenModel->insert_survey($process);
 
-		redirect('pertanyaan/p/' . $process['no_survey']);
+		//$this->db->insert_id(); ini untuk alternatif url
+
+		redirect('survey/p/' . $process['no_survey']);
 	}
 }

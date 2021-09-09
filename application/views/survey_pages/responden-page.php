@@ -27,7 +27,7 @@
 								<option value="">--Pilih Supervisor--</option>
 								<?php
 								foreach ($supervisor as $s) {
-									echo '<option value="' . $s->id . '">' . $s->supervisor_name . '</option>';
+									echo '<option value="' . $s->user_id . '">' . $s->name . '</option>';
 								}
 								?>
 							</select>
@@ -36,8 +36,8 @@
 							<label for="koordinator">Koordinator Kecamatan</label>
 							<select name="koordinator" id="koordinator" class="form-control">
 								<option value="">--Pilih Koordinator--</option>
-								<?php foreach ($koordinator->result_array() as $k) { ?>
-									<option value="<?= $k['id'] ?>"><?= $k['coordinator_name'] ?></option>
+								<?php foreach ($koordinator as $k) { ?>
+									<option value="<?= $k->user_id ?>"><?= $k->name ?></option>
 								<?php } ?>
 							</select>
 						</div>
@@ -61,13 +61,6 @@
 							<label for="kecamatan">Kecamatan</label>
 							<select name="kecamatan" id="kecamatan" class="form-control">
 								<option value="">--Pilih Kecamatan--</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<label for="kelurahan">Desa/Kelurahan</label>
-							<select name="kelurahan" id="kelurahan" class="form-control">
-								<option value="">--Pilih Kelurahan--</option>
 							</select>
 						</div>
 
@@ -132,7 +125,7 @@
 						</div>
 						<div class="form-group">
 							<label for="no_rmh">No Rumah</label>
-							<input type="text" class="form-control" name="normh" id="normh" autocomplete="off">
+							<input type="text" class="form-control" name="no_rmh" id="no_rmh" autocomplete="off">
 						</div>
 
 

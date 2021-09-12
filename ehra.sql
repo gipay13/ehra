@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Sep 2021 pada 17.48
+-- Waktu pembuatan: 12 Sep 2021 pada 05.19
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -24,42 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `coordinator`
---
-
-CREATE TABLE `coordinator` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `district_id` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `coordinator_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data untuk tabel `coordinator`
---
-
-INSERT INTO `coordinator` (`id`, `district_id`, `coordinator_name`, `created_at`, `updated_at`) VALUES
-(1, '1101010', 'Budi', '2021-07-16', '2021-07-16'),
-(2, '1101010', 'Asep', '2021-07-16', '2021-07-16');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `districts`
 --
 
 CREATE TABLE `districts` (
   `id` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `regency_id` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `district_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `districts`
 --
 
-INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
 ('1101010', '1101', 'TEUPAH SELATAN'),
 ('1101020', '1101', 'SIMEULUE TIMUR'),
 ('1101021', '1101', 'TEUPAH BARAT'),
@@ -1517,7 +1495,7 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 ('1674011', '1674', 'LUBUK LINGGAU BARAT I'),
 ('1674012', '1674', 'LUBUK LINGGAU BARAT II'),
 ('1674021', '1674', 'LUBUK LINGGAU SELATAN I');
-INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
+INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
 ('1674022', '1674', 'LUBUK LINGGAU SELATAN II'),
 ('1674031', '1674', 'LUBUK LINGGAU TIMUR I'),
 ('1674032', '1674', 'LUBUK LINGGAU TIMUR II'),
@@ -3055,9 +3033,9 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 ('3321050', '3321', 'KARANG TENGAH'),
 ('3321060', '3321', 'BONANG'),
 ('3321070', '3321', 'DEMAK'),
-('3321080', '3321', 'WONOSALAM'),
-('3321090', '3321', 'DEMPET');
-INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
+('3321080', '3321', 'WONOSALAM');
+INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
+('3321090', '3321', 'DEMPET'),
 ('3321091', '3321', 'KEBONAGUNG'),
 ('3321100', '3321', 'GAJAH'),
 ('3321110', '3321', 'KARANGANYAR'),
@@ -4652,9 +4630,9 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 ('6102051', '6102', 'SUTI SEMARANG'),
 ('6102052', '6102', 'LUMAR'),
 ('6102060', '6102', 'SANGGAU LEDO'),
-('6102061', '6102', 'TUJUHBELAS'),
-('6102070', '6102', 'SELUAS');
-INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
+('6102061', '6102', 'TUJUHBELAS');
+INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
+('6102070', '6102', 'SELUAS'),
 ('6102080', '6102', 'JAGOI BABANG'),
 ('6102081', '6102', 'SIDING'),
 ('6103020', '6103', 'SEBANGKI'),
@@ -6164,9 +6142,9 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 ('7504030', '7504', 'SUWAWA'),
 ('7504031', '7504', 'SUWAWA SELATAN'),
 ('7504032', '7504', 'SUWAWA TIMUR'),
-('7504033', '7504', 'SUWAWA TENGAH'),
-('7504034', '7504', 'PINOGU');
-INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
+('7504033', '7504', 'SUWAWA TENGAH');
+INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
+('7504034', '7504', 'PINOGU'),
 ('7504040', '7504', 'BONEPANTAI'),
 ('7504041', '7504', 'KABILA BONE'),
 ('7504042', '7504', 'BONE RAYA'),
@@ -7288,7 +7266,7 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 
 CREATE TABLE `level` (
   `id` int(11) NOT NULL,
-  `name` varchar(40) NOT NULL,
+  `level_name` varchar(40) NOT NULL,
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -7297,31 +7275,13 @@ CREATE TABLE `level` (
 -- Dumping data untuk tabel `level`
 --
 
-INSERT INTO `level` (`id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `level` (`id`, `level_name`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', '2021-09-08', '2021-09-08'),
-(2, 'Petugas', '2021-09-08', '2021-09-08'),
+(2, 'Petugas Puskesmas', '2021-09-08', '2021-09-08'),
 (3, 'Kepala Puskesmas', '2021-09-08', '2021-09-08'),
-(4, 'Koordinator Lapangan', '2021-09-08', '2021-09-08'),
-(5, 'Koordinator Dinas Kesehatan', '2021-09-08', '2021-09-08');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data untuk tabel `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2021_07_16_004622_create_users_table', 1);
+(4, 'Koordinator Kecamatan', '2021-09-08', '2021-09-08'),
+(5, 'Koordinator Dinas Kesehatan', '2021-09-08', '2021-09-08'),
+(6, 'Supervisor', '2021-09-09', '2021-09-09');
 
 -- --------------------------------------------------------
 
@@ -7331,23 +7291,23 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `puskesmas` (
   `id` int(2) NOT NULL,
-  `nm_puskesmas` char(252) DEFAULT NULL,
-  `nm_kepala` char(100) DEFAULT NULL,
-  `alamat` char(200) DEFAULT NULL,
+  `puskesmas_name` char(252) DEFAULT NULL,
+  `chief_name` char(100) DEFAULT NULL,
+  `address` char(200) DEFAULT NULL,
   `register` tinyint(1) NOT NULL DEFAULT 0,
-  `kd_ppk` char(9) DEFAULT NULL,
-  `consid` int(11) DEFAULT NULL,
-  `secretkey` char(11) DEFAULT NULL,
+  `pp_code` char(9) DEFAULT NULL,
+  `cons_id` int(11) DEFAULT NULL,
+  `secret_key` char(11) DEFAULT NULL,
   `ubpjs` char(21) DEFAULT NULL,
   `pbpjs` char(21) DEFAULT NULL,
-  `kdapp` char(4) DEFAULT NULL
+  `app_code` char(4) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=FIXED;
 
 --
 -- Dumping data untuk tabel `puskesmas`
 --
 
-INSERT INTO `puskesmas` (`id`, `nm_puskesmas`, `nm_kepala`, `alamat`, `register`, `kd_ppk`, `consid`, `secretkey`, `ubpjs`, `pbpjs`, `kdapp`) VALUES
+INSERT INTO `puskesmas` (`id`, `puskesmas_name`, `chief_name`, `address`, `register`, `pp_code`, `cons_id`, `secret_key`, `ubpjs`, `pbpjs`, `app_code`) VALUES
 (1, 'Puskesmas Sukabumi', 'Dr. Anjas', 'Jl. Subang Jaya', 0, '10090206', 12561, '0hXB683155', NULL, NULL, '095'),
 (2, 'Puskesmas Cipelang', 'dr. X', 'xxx', 1, '10090102', 31104, '1qQ67EF11E', 'Rissan', 'Cipelang0102&', '095'),
 (3, 'Puskesmas Benteng', 'drg. Erna', NULL, 0, '10090202', 24810, '3sR4E9952E', 'jajang', 'Jajang@1', '095'),
@@ -7373,140 +7333,149 @@ INSERT INTO `puskesmas` (`id`, `nm_puskesmas`, `nm_kepala`, `alamat`, `register`
 
 CREATE TABLE `question` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `category_code` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `qcategory_id` int(11) DEFAULT NULL,
+  `question_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `question`
 --
 
-INSERT INTO `question` (`id`, `category_code`, `question`, `created_at`, `updated_at`) VALUES
-(1, 'B', 'Maaf, berapakah usia Ibu sekarang ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(2, 'B', 'Maaf, apa status rumah yang Ibu tempati saat ini ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(3, 'B', 'Luas lahan (rumah dan pekarangan)', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(4, 'B', 'Jenis bangunan rumah', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(5, 'B', 'Maaf, apa pendidikan terakhir Ibu ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(6, 'B', 'Maaf, apakah Ibu mempunyai Surat Keterangan Tidak Mampu (SKTM) atau sejenisnya dari desa/kelurahan ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(7, 'B', 'Maaf, berapa besar pengeluaran rumah tangga keluarga Ibu setiap bulan ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(8, 'B', 'Maaf, berapa besar pengahasilan rumah tangga keluarga Ibu setiap bulan ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(9, 'B', 'Maaf, apakah Ibu mempunyai Kartu Jaminan Kesehatan(Askeskin, Jamkesmas, Jamkesda, BPJS, JKN) atau sejenisnya?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(10, 'B', 'Bantuan apa yang pernah diterima keluarga untuk sektor air minum dan sanitasi?', '2021-07-04 23:18:12', '2021-07-05 23:18:12'),
-(11, 'B', 'Sudah berapa lama tinggal disini (sejak tahun berapa)?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(12, 'B', 'Maaf, apakah Ibu mempunyai anak ?', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(13, 'B', 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur:', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(14, 'B', 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur :', '2021-07-04 23:18:12', '2021-07-04 23:18:12'),
-(15, 'C', 'Berapa timbulan sampah yang keluarga Ibu hasilkan dalam satu hari? (perkiraan)', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(16, 'C', 'Bagaimana kondisi sampah di sekitar lingkungan RT/RW rumah Ibu ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(17, 'C', 'Bagaimana sampah rumah tangga sebagian besar dikelola ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(18, 'C', 'Apakah Ibu melakukan pemilahan sampah di\r\nrumah sebelum di buang ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(19, 'C', 'Jika mendaur ulang, apa saja jenis sampah yang dipilah/dipisahkan sebelum dibuang ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(20, 'C', 'Seberapa sering petugas mengangkut sampah dari rumah ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(21, 'C', 'Dari pengalaman dalam sebulan terakhir ini, apakah sampah selalu diangkut tepat waktu ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(22, 'C', 'Apakah layanan pengangkutan sampah oleh tukang sampah itu berbayar ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(23, 'C', 'Kepada siapa membayarnya ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(24, 'C', 'Berapa biaya yang dikeluarkan dalam sebulan\r\nuntuk membayar layanan sampah ?', '2021-07-04 23:12:41', '2021-07-04 23:12:41'),
-(25, 'D', 'Dimana anggota keluarga yang sudah dewasa bila ingin buang air besar ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(26, 'D', 'Apakah masih ada orang lain/ tetangga di lingkungan ibu yang buang air besar sembarangan di tempat terbuka (seperti kebun, halaman, sungai, pantai, laut, selokan/got, saluran irigasi)?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(27, 'D', 'Apakah di rumah Ibu mempunyai jamban pribadi?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(28, 'D', 'Jenis kloset apa yang Ibu pakai di rumah ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(29, 'D', 'Kemana tempat penyaluran buangan akhir tinja ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(30, 'D', 'Apakah terdapat lubang udara/ventilasi di tangki septik Ibu?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(31, 'D', 'Apakah terdapat lubang penyedotan di tangki septik Ibu?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(32, 'D', 'Kemanakah pembuangan (overflow/peluap) akhir dari tangki septik Ibu?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(33, 'D', 'Sudah berapa lama tangki septik ini dibuat/dibangun ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(34, 'D', 'Kapan tangki septik terakhir dikosongkan/disedot?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(35, 'D', 'Apakah pengurasan dilakukan berkala (untuk tangki septik umur 10 tahun atau lebih)?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(36, 'D', 'Siapa yang mengosongkan tangki septik Ibu ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(37, 'D', 'Apakah Ibu tahu, ke mana lumpur tinja dibuang pada saat tangki septik dikosongkan/disedot ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(38, 'D', 'Berapa biaya yang pernah dikeluarkan ketika terakhir kali tangki septik disedot/dikosongkan oleh pemda/swasta?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(39, 'D', 'Bagaimana cara penanganan tinja balita/lansia yang menggunakan popok?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(40, 'D', 'Apakah anak balita di rumah Ibu masih terbiasa buang air besar di lantai, di kebun, di jalan, di selokan/got atau di sungai ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(41, 'D', 'Ibu biasanya membuang TINJA anak kemana ?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(42, 'D', 'Apabila ada jaringan/perpipaan pengelolaan air limbah rumah tangga, apakah Bapak/Ibu akan berlangganan?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(43, 'D', 'Apabila ingin berlangganan, berapa Bapak/Ibu bersedia membayar biaya pemasangan?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(44, 'D', 'Berapa Bapak/Ibu sanggup membayar rekening sistem penyaluran air limbah setiap bulannya?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(45, 'D', 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan sambungan rumah?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(46, 'D', 'Apabila ada program layanan lumpur tinja terjadwal, apakah Bapak/Ibu akan berlangganan?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(47, 'D', 'Berapa Bapak/Ibu sanggup membayar biaya penyedotan lumpur tinja?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(48, 'D', 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan penyedotan lumpur tinja?', '2021-07-04 23:31:48', '2021-07-04 23:31:48'),
-(49, 'E', 'Apakah di rumah mempunyai sarana pembuangan air limbah selain tinja (SPAL = Saluran Pembuangan Air Limbah) ?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(50, 'E', 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari :', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(51, 'E', 'Apakah saluran pembuangan air limbah selain diatas lancar?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(52, 'E', 'Apakah rumah yang ditempati saat ini atau lingkungan dan jalan di sekitar rumah pernah terkena banjir ?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(53, 'E', 'Apakah banjir biasa terjadi secara rutin ?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(54, 'E', 'Pada saat banjir terakhir, apakah air memasuki rumah?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(55, 'E', 'Pada saat terakhir kali banjir, berapa tinggi air yang masuk ke dalam rumah Ibu ?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(56, 'E', 'Pada saat terakhir banjir, apakah jamban di rumah ibu juga terendam banjir ?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(57, 'E', 'Pada saat terakhir banjir, berapa lama air banjir mengering?', '2021-07-04 23:49:55', '2021-07-04 23:49:55'),
-(58, 'F', 'Sumber air utama yang Ibu gunakan untuk minum, masak, mencuci piring & gelas dan\r\nmenggosok gigi ?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(59, 'F', 'Berapa jumlah pemakaian air setiap orang per hari dalam rumah Ibu?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(60, 'F', 'Berapa jumlah rata-rata pemakaian air (khusus untuk air minum) setiap orang per hari dalam rumah Ibu ?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(61, 'F', 'Dalam satu tahun terakhir, apakah rumah tangga ibu pernah mengalami kekurangan air minum untuk kebutuhan rumah tangga selama minimal selama 24 jam?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(62, 'F', 'Jika ibu menggunakan air ledeng, apakah dalam satu bulan terakhir rumah ibu pernah mengalami gangguan aliran air ledeng?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(63, 'F', 'Berapa lama waktu yang Ibu habiskan untuk meng-akses sumber air minum utama (pergipulang dan antrian)?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(64, 'F', 'Jika ibu menggunakan sumur/air tanah , apakah sumber air sumur / air tanah di sini pernah mengalami kekeringan diwaktu kemarau.', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(65, 'F', 'Jika ibu menggunakan sumur apakah sumur pernah mengalami kekeringan, berapa lama?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(66, 'F', 'Apakah Ibu puas dengan kualitas air yang digunakan saat ini ?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(67, 'F', 'Jika sumber air minum Ibu berasal dari sumur gali atau sumur bor/pompa tangan/listrik, berapa jarak sumber air tersebut ke tempat penampungan tinja ?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(68, 'F', 'Dimana Lokasi sumber air minum utama ibu tersebut?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(69, 'F', 'Berapa jarak sumber air minum utama dari rumah?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(70, 'F', 'Bagaimana menurut Ibu, kondisi fisik air yang  Ibu ambil dari sarana untuk air minum ? (Jawaban boleh pilih dari satu, kecuali F hanya satu pilihan', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(71, 'F', 'Berapa kedalaman muka air sumur di lingkungan tempat tinggal Ibu (perkiraan)?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(72, 'F', 'Bagaimana biasanya cara ibu memperoleh air minum ?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(73, 'F', 'Berapa biaya rata-rata per bulan yang dikeluarkan untuk kebutuhan air rumah tangga Ibu?', '2021-07-04 23:56:00', '2021-07-04 23:56:00'),
-(74, 'F', 'Apakah Ibu mengolah/menangani air sebelum digunakan untuk minum ? (kecuali air kemasan)', '2021-07-04 23:58:12', '2021-07-04 23:58:12'),
-(75, 'F', 'Apa yang biasa ibu lakukan dalam mengolah air agar lebih aman untuk diminum ?', '2021-07-04 23:58:12', '2021-07-04 23:58:12'),
-(76, 'F', 'Apakah Ibu menyimpan air untuk minum dan untuk masak di wadah yang tertutup rapat, kuat, terbuat dari bahan stainless steel/keramik/ kaca/dan jika terbuat dari plastik terdapat tanda gelas dan garpu?', '2021-07-04 23:58:12', '2021-07-04 23:58:12'),
-(77, 'F', 'Bagaimana Ibu mengambil air untuk minum, dari tempat penyimpanan air ?', '2021-07-04 23:58:12', '2021-07-04 23:58:12'),
-(78, 'G', 'Apakah Ibu memakai sabun pada hari ini atau kemarin?', '2021-07-04 23:59:59', '2021-07-04 23:59:59'),
-(79, 'G', 'Untuk apa saja sabun itu digunakan oleh anggota keluarga ? (Jawaban boleh lebih dari 1)', '2021-07-04 23:59:59', '2021-07-04 23:59:59'),
-(80, 'G', 'Di mana saja anggota keluarga biasanya mencuci tangan ?', '2021-07-04 23:59:59', '2021-07-04 23:59:59'),
-(81, 'G', 'Kapan biasanya anggota keluarga mencuci tangan pakai sabun ? (Jawaban boleh lebih dari 1)', '2021-07-04 23:59:59', '2021-07-04 23:59:59'),
-(82, 'H', 'Kapan waktu paling dekat anggota keluarga terkena diare ?', '2021-07-05 00:01:06', '2021-07-05 00:01:06'),
-(83, 'H', 'Siapa anggota keluarga terakhir yang terkena diare ?', '2021-07-05 00:01:06', '2021-07-05 00:01:06'),
-(84, 'AO', 'Amati: Apakah terlihat sumber air untuk minum, masak dan mencuci peralatan minum, makan dan masak di dapur?', '2021-07-05 00:04:09', '2021-07-05 00:04:09'),
-(85, 'AO', 'Amati : Apa wadah/tempat yang digunakan untuk menyimpan air baku untuk air minum di dapur ?', '2021-07-05 00:06:10', '2021-07-05 00:06:10'),
-(86, 'AO', 'Amati : Bagaimana Ibu mengambil air minum dari wadah penyimpanan air ? (Mintalah responden untuk memperagakan cara yang biasa dilakukan mengambil air)', '2021-07-05 00:06:10', '2021-07-05 00:06:10'),
-(87, 'AO', 'Amati : Apakah tersedia air untuk cuci tangan di dapur ?', '2021-07-05 00:08:34', '2021-07-05 00:08:34'),
-(88, 'AO', 'Amati : Apakah terlihat ada sabun untuk mencuci tangan dan mencuci peralatan memasak, makan dan minum di dapur ?', '2021-07-05 00:08:34', '2021-07-05 00:08:34'),
-(89, 'AO', 'Amati : Apakah makanan ditutup/dilindungi dari lalat, kecoa, cicak, semut dan serangga lainnya ?', '2021-07-05 00:08:34', '2021-07-05 00:08:34'),
-(90, 'AO', 'Amati : Apakah ada wadah/tempat yang dipakai untuk mengumpulkan sampah di dapur dan ruangan lain di dalam rumah ?', '2021-07-05 00:10:44', '2021-07-05 00:10:44'),
-(91, 'AO', 'Amati : Kemana air limbah bekas cuci peralatan minum, makan dan masak dibuang ?', '2021-07-05 00:20:05', '2021-07-05 00:20:05'),
-(92, 'BO', 'Amati: Apakah ada sabun dan shampoo di kamar mandi ?', '2021-07-05 00:21:36', '2021-07-05 00:21:36'),
-(93, 'BO', 'Amati: Kemana air limbah bekas mandi dan cuci\r\ntangan dari wastafel dibuang ?', '2021-07-05 00:21:36', '2021-07-05 00:21:36'),
-(94, 'BO', 'Amati: Bila ada bak penampung air/bakmandi/ember, apakah terlihat ada jentik-jentik nyamuk di dalamnya ?', '2021-07-05 00:21:36', '2021-07-05 00:21:36'),
-(95, 'CO', 'Amati: Apakah tersedia air di dalam ruangan jamban?', '2021-07-05 00:23:14', '2021-07-05 00:23:14'),
-(96, 'CO', 'Amati: Apakah terlihat ada sabun di dalam atau di dekat jamban ?', '2021-07-05 00:23:14', '2021-07-05 00:23:14'),
-(97, 'CO', 'Amati: Apakah terlihat ada jentik-jentik nyamuk dalam bak air/ember ?', '2021-07-05 00:23:14', '2021-07-05 00:23:14'),
-(98, 'CO', 'Amati : Termasuk tipe apakah jamban yang Ibu lihat?', '2021-07-05 00:24:04', '2021-07-05 00:24:04'),
-(99, 'CO', 'Amati : Kemana saluran pembuangan dari kloset disalurkan/terhubungkan ?', '2021-07-05 00:24:04', '2021-07-05 00:24:04'),
-(100, 'CO', 'Amati : Apakah lantai dan dinding jamban bebas dari tinja, bekas tisu yang ada tinja atau bekas pembalut?', '2021-07-05 00:25:30', '2021-07-05 00:25:30'),
-(101, 'CO', 'Amati : Apakah jamban bebas dari kecoa dan lalat ?', '2021-07-05 00:25:30', '2021-07-05 00:25:30'),
-(102, 'CO', 'Amati : Jika ada kloset jongkok atau duduk leher angsa, apakah ada air untuk menyiram/mencebok ?', '2021-07-05 00:25:30', '2021-07-05 00:25:30'),
-(103, 'CO', 'Amati : Jika ada kloset duduk leher angsa, cobalah menekan alat penyiram, apakah dapat berfungsi ?', '2021-07-05 00:25:30', '2021-07-05 00:25:30'),
-(104, 'DO', 'Amati : Apakah ada sabun cuci atau pengganti sabun di tempat cuci pakaian?', '2021-07-05 00:26:56', '2021-07-05 00:26:56'),
-(105, 'DO', 'Amati : Dari mana sumber air untuk mencuci pakaian?', '2021-07-05 00:26:56', '2021-07-05 00:26:56'),
-(106, 'DO', 'Amati : Kemana air limbah bekas mencuci pakaian dibuang ?', '2021-07-05 00:26:56', '2021-07-05 00:26:56'),
-(107, 'EO', 'Amati : Apakah jarak sumur resapan (bila ada septik tank) atau cubluk dengan sumber air terdekat minimal 10 meter ?', '2021-07-05 00:28:00', '2021-07-05 00:28:00'),
-(108, 'EO', 'Dimana letak tangki septik yang digunakan?', '2021-07-05 00:28:00', '2021-07-05 00:28:00'),
-(109, 'EO', 'Amati : Apakah terdapat lubang udara/ventilasi pada septik tank ?', '2021-07-05 00:28:00', '2021-07-05 00:28:00'),
-(110, 'EO', 'Amati : Bagaimana cara mengelola sampah di rumah?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(111, 'EO', 'Amati : Apakah sekeliling halaman bersih dari sampah ?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(112, 'EO', 'Amati : Apakah terlihat bahwa sampah dipilah/dipisahkan?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(113, 'EO', 'Amati : Jika sampah dipilah, apa saja yang terlihat dipilah ?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(114, 'EO', 'Amati : Apakah ada tempat serta kegiatan untuk membuat kompos ?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(115, 'EO', 'Amati : Apakah ada kompos yang sudah bisa dipakai?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(116, 'EO', 'Amati : Untuk apa saja kompos dipakai oleh responden ?', '2021-07-05 00:30:26', '2021-07-05 00:30:26'),
-(117, 'EO', 'Amati : Apakah halaman/bagian depan rumah ada genangan air ?', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(118, 'EO', 'Amati : Dimana air biasanya tergenang ?', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(119, 'EO', 'Amati: Darimana air genangan berasal?', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(120, 'EO', 'Amati : Apakah di halaman ada benda yang dapat menyebabkan air tergenang (seperti ban bekas, kaleng, panci, ember)', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(121, 'EO', 'Amati : Apakah Ibu dapat melihat saluran air hujan atau saluran air limbah di dekat rumah (samping depan, samping belakang, samping kanan-kiri)', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(122, 'EO', 'Amati : Apakah air di saluran dapat mengalir ?', '2021-07-05 01:48:28', '2021-07-05 01:48:28'),
-(123, 'EO', 'Amati : Apakah saluran air, bersih dari sampah ?', '2021-07-05 01:48:28', '2021-07-05 01:48:28');
+INSERT INTO `question` (`id`, `qcategory_id`, `question_name`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Maaf, berapakah usia Ibu sekarang ?', '2021-07-05', '2021-07-05'),
+(2, 2, 'Maaf, apa status rumah yang Ibu tempati saat ini ?', '2021-07-05', '2021-07-05'),
+(3, 2, 'Luas lahan (rumah dan pekarangan)', '2021-07-05', '2021-07-05'),
+(4, 2, 'Jenis bangunan rumah', '2021-07-05', '2021-07-05'),
+(5, 2, 'Maaf, apa pendidikan terakhir Ibu ?', '2021-07-05', '2021-07-05'),
+(6, 2, 'Maaf, apakah Ibu mempunyai Surat Keterangan Tidak Mampu (SKTM) atau sejenisnya dari desa/kelurahan ?', '2021-07-05', '2021-07-05'),
+(7, 2, 'Maaf, berapa besar pengeluaran rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
+(8, 2, 'Maaf, berapa besar pengahasilan rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
+(9, 2, 'Maaf, apakah Ibu mempunyai Kartu Jaminan Kesehatan(Askeskin, Jamkesmas, Jamkesda, BPJS, JKN) atau sejenisnya?', '2021-07-05', '2021-07-05'),
+(10, 2, 'Bantuan apa yang pernah diterima keluarga untuk sektor air minum dan sanitasi?', '2021-07-05', '2021-07-06'),
+(11, 2, 'Sudah berapa lama tinggal disini (sejak tahun berapa)?', '2021-07-05', '2021-07-05'),
+(12, 2, 'Maaf, apakah Ibu mempunyai anak ?', '2021-07-05', '2021-07-05'),
+(15, 4, 'Berapa timbulan sampah yang keluarga Ibu hasilkan dalam satu hari? (perkiraan)', '2021-07-05', '2021-07-05'),
+(16, 4, 'Bagaimana kondisi sampah di sekitar lingkungan RT/RW rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(17, 4, 'Bagaimana sampah rumah tangga sebagian besar dikelola ?', '2021-07-05', '2021-07-05'),
+(18, 4, 'Apakah Ibu melakukan pemilahan sampah di\r\nrumah sebelum di buang ?', '2021-07-05', '2021-07-05'),
+(19, 4, 'Jika mendaur ulang, apa saja jenis sampah yang dipilah/dipisahkan sebelum dibuang ?', '2021-07-05', '2021-07-05'),
+(20, 4, 'Seberapa sering petugas mengangkut sampah dari rumah ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
+(21, 4, 'Dari pengalaman dalam sebulan terakhir ini, apakah sampah selalu diangkut tepat waktu ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
+(22, 4, 'Apakah layanan pengangkutan sampah oleh tukang sampah itu berbayar ?', '2021-07-05', '2021-07-05'),
+(23, 4, 'Kepada siapa membayarnya ?', '2021-07-05', '2021-07-05'),
+(24, 4, 'Berapa biaya yang dikeluarkan dalam sebulan\r\nuntuk membayar layanan sampah ?', '2021-07-05', '2021-07-05'),
+(25, 6, 'Dimana anggota keluarga yang sudah dewasa bila ingin buang air besar ?', '2021-07-05', '2021-07-05'),
+(26, 6, 'Apakah masih ada orang lain/ tetangga di lingkungan ibu yang buang air besar sembarangan di tempat terbuka (seperti kebun, halaman, sungai, pantai, laut, selokan/got, saluran irigasi)?', '2021-07-05', '2021-07-05'),
+(27, 6, 'Apakah di rumah Ibu mempunyai jamban pribadi?', '2021-07-05', '2021-07-05'),
+(28, 6, 'Jenis kloset apa yang Ibu pakai di rumah ?', '2021-07-05', '2021-07-05'),
+(29, 6, 'Kemana tempat penyaluran buangan akhir tinja ?', '2021-07-05', '2021-07-05'),
+(30, 6, 'Apakah terdapat lubang udara/ventilasi di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(31, 6, 'Apakah terdapat lubang penyedotan di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(32, 6, 'Kemanakah pembuangan (overflow/peluap) akhir dari tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(33, 6, 'Sudah berapa lama tangki septik ini dibuat/dibangun ?', '2021-07-05', '2021-07-05'),
+(34, 6, 'Kapan tangki septik terakhir dikosongkan/disedot?', '2021-07-05', '2021-07-05'),
+(35, 6, 'Apakah pengurasan dilakukan berkala (untuk tangki septik umur 10 tahun atau lebih)?', '2021-07-05', '2021-07-05'),
+(36, 6, 'Siapa yang mengosongkan tangki septik Ibu ?', '2021-07-05', '2021-07-05'),
+(37, 6, 'Apakah Ibu tahu, ke mana lumpur tinja dibuang pada saat tangki septik dikosongkan/disedot ?', '2021-07-05', '2021-07-05'),
+(38, 6, 'Berapa biaya yang pernah dikeluarkan ketika terakhir kali tangki septik disedot/dikosongkan oleh pemda/swasta?', '2021-07-05', '2021-07-05'),
+(39, 6, 'Bagaimana cara penanganan tinja balita/lansia yang menggunakan popok?', '2021-07-05', '2021-07-05'),
+(40, 6, 'Apakah anak balita di rumah Ibu masih terbiasa buang air besar di lantai, di kebun, di jalan, di selokan/got atau di sungai ?', '2021-07-05', '2021-07-05'),
+(41, 6, 'Ibu biasanya membuang TINJA anak kemana ?', '2021-07-05', '2021-07-05'),
+(42, 6, 'Apabila ada jaringan/perpipaan pengelolaan air limbah rumah tangga, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
+(43, 6, 'Apabila ingin berlangganan, berapa Bapak/Ibu bersedia membayar biaya pemasangan?', '2021-07-05', '2021-07-05'),
+(44, 6, 'Berapa Bapak/Ibu sanggup membayar rekening sistem penyaluran air limbah setiap bulannya?', '2021-07-05', '2021-07-05'),
+(45, 6, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan sambungan rumah?', '2021-07-05', '2021-07-05'),
+(46, 6, 'Apabila ada program layanan lumpur tinja terjadwal, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
+(47, 6, 'Berapa Bapak/Ibu sanggup membayar biaya penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
+(48, 6, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
+(49, 8, 'Apakah di rumah mempunyai sarana pembuangan air limbah selain tinja (SPAL = Saluran Pembuangan Air Limbah) ?', '2021-07-05', '2021-07-05'),
+(51, 8, 'Apakah saluran pembuangan air limbah selain diatas lancar?', '2021-07-05', '2021-07-05'),
+(52, 8, 'Apakah rumah yang ditempati saat ini atau lingkungan dan jalan di sekitar rumah pernah terkena banjir ?', '2021-07-05', '2021-07-05'),
+(53, 8, 'Apakah banjir biasa terjadi secara rutin ?', '2021-07-05', '2021-07-05'),
+(54, 8, 'Pada saat banjir terakhir, apakah air memasuki rumah?', '2021-07-05', '2021-07-05'),
+(55, 8, 'Pada saat terakhir kali banjir, berapa tinggi air yang masuk ke dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(56, 8, 'Pada saat terakhir banjir, apakah jamban di rumah ibu juga terendam banjir ?', '2021-07-05', '2021-07-05'),
+(57, 8, 'Pada saat terakhir banjir, berapa lama air banjir mengering?', '2021-07-05', '2021-07-05'),
+(58, 10, 'Sumber air utama yang Ibu gunakan untuk minum, masak, mencuci piring & gelas dan\r\nmenggosok gigi ?', '2021-07-05', '2021-07-05'),
+(59, 10, 'Berapa jumlah pemakaian air setiap orang per hari dalam rumah Ibu?', '2021-07-05', '2021-07-05'),
+(60, 10, 'Berapa jumlah rata-rata pemakaian air (khusus untuk air minum) setiap orang per hari dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(61, 10, 'Dalam satu tahun terakhir, apakah rumah tangga ibu pernah mengalami kekurangan air minum untuk kebutuhan rumah tangga selama minimal selama 24 jam?', '2021-07-05', '2021-07-05'),
+(62, 10, 'Jika ibu menggunakan air ledeng, apakah dalam satu bulan terakhir rumah ibu pernah mengalami gangguan aliran air ledeng?', '2021-07-05', '2021-07-05'),
+(63, 10, 'Berapa lama waktu yang Ibu habiskan untuk meng-akses sumber air minum utama (pergipulang dan antrian)?', '2021-07-05', '2021-07-05'),
+(64, 10, 'Jika ibu menggunakan sumur/air tanah , apakah sumber air sumur / air tanah di sini pernah mengalami kekeringan diwaktu kemarau.', '2021-07-05', '2021-07-05'),
+(65, 10, 'Jika ibu menggunakan sumur apakah sumur pernah mengalami kekeringan, berapa lama?', '2021-07-05', '2021-07-05'),
+(66, 10, 'Apakah Ibu puas dengan kualitas air yang digunakan saat ini ?', '2021-07-05', '2021-07-05'),
+(67, 10, 'Jika sumber air minum Ibu berasal dari sumur gali atau sumur bor/pompa tangan/listrik, berapa jarak sumber air tersebut ke tempat penampungan tinja ?', '2021-07-05', '2021-07-05'),
+(68, 10, 'Dimana Lokasi sumber air minum utama ibu tersebut?', '2021-07-05', '2021-07-05'),
+(69, 10, 'Berapa jarak sumber air minum utama dari rumah?', '2021-07-05', '2021-07-05'),
+(70, 10, 'Bagaimana menurut Ibu, kondisi fisik air yang  Ibu ambil dari sarana untuk air minum ? (Jawaban boleh pilih dari satu, kecuali F hanya satu pilihan', '2021-07-05', '2021-07-05'),
+(71, 10, 'Berapa kedalaman muka air sumur di lingkungan tempat tinggal Ibu (perkiraan)?', '2021-07-05', '2021-07-05'),
+(72, 10, 'Bagaimana biasanya cara ibu memperoleh air minum ?', '2021-07-05', '2021-07-05'),
+(73, 10, 'Berapa biaya rata-rata per bulan yang dikeluarkan untuk kebutuhan air rumah tangga Ibu?', '2021-07-05', '2021-07-05'),
+(74, 10, 'Apakah Ibu mengolah/menangani air sebelum digunakan untuk minum ? (kecuali air kemasan)', '2021-07-05', '2021-07-05'),
+(75, 10, 'Apa yang biasa ibu lakukan dalam mengolah air agar lebih aman untuk diminum ?', '2021-07-05', '2021-07-05'),
+(76, 10, 'Apakah Ibu menyimpan air untuk minum dan untuk masak di wadah yang tertutup rapat, kuat, terbuat dari bahan stainless steel/keramik/ kaca/dan jika terbuat dari plastik terdapat tanda gelas dan garpu?', '2021-07-05', '2021-07-05'),
+(77, 10, 'Bagaimana Ibu mengambil air untuk minum, dari tempat penyimpanan air ?', '2021-07-05', '2021-07-05'),
+(78, 11, 'Apakah Ibu memakai sabun pada hari ini atau kemarin?', '2021-07-05', '2021-07-05'),
+(79, 11, 'Untuk apa saja sabun itu digunakan oleh anggota keluarga ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
+(80, 11, 'Di mana saja anggota keluarga biasanya mencuci tangan ?', '2021-07-05', '2021-07-05'),
+(81, 11, 'Kapan biasanya anggota keluarga mencuci tangan pakai sabun ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
+(82, 12, 'Kapan waktu paling dekat anggota keluarga terkena diare ?', '2021-07-05', '2021-07-05'),
+(83, 12, 'Siapa anggota keluarga terakhir yang terkena diare ?', '2021-07-05', '2021-07-05'),
+(84, 1, 'Amati: Apakah terlihat sumber air untuk minum, masak dan mencuci peralatan minum, makan dan masak di dapur?', '2021-07-05', '2021-07-05'),
+(85, 1, 'Amati : Apa wadah/tempat yang digunakan untuk menyimpan air baku untuk air minum di dapur ?', '2021-07-05', '2021-07-05'),
+(86, 1, 'Amati : Bagaimana Ibu mengambil air minum dari wadah penyimpanan air ? (Mintalah responden untuk memperagakan cara yang biasa dilakukan mengambil air)', '2021-07-05', '2021-07-05'),
+(87, 1, 'Amati : Apakah tersedia air untuk cuci tangan di dapur ?', '2021-07-05', '2021-07-05'),
+(88, 1, 'Amati : Apakah terlihat ada sabun untuk mencuci tangan dan mencuci peralatan memasak, makan dan minum di dapur ?', '2021-07-05', '2021-07-05'),
+(89, 1, 'Amati : Apakah makanan ditutup/dilindungi dari lalat, kecoa, cicak, semut dan serangga lainnya ?', '2021-07-05', '2021-07-05'),
+(90, 1, 'Amati : Apakah ada wadah/tempat yang dipakai untuk mengumpulkan sampah di dapur dan ruangan lain di dalam rumah ?', '2021-07-05', '2021-07-05'),
+(91, 1, 'Amati : Kemana air limbah bekas cuci peralatan minum, makan dan masak dibuang ?', '2021-07-05', '2021-07-05'),
+(92, 3, 'Amati: Apakah ada sabun dan shampoo di kamar mandi ?', '2021-07-05', '2021-07-05'),
+(93, 3, 'Amati: Kemana air limbah bekas mandi dan cuci\r\ntangan dari wastafel dibuang ?', '2021-07-05', '2021-07-05'),
+(94, 3, 'Amati: Bila ada bak penampung air/bakmandi/ember, apakah terlihat ada jentik-jentik nyamuk di dalamnya ?', '2021-07-05', '2021-07-05'),
+(95, 5, 'Amati: Apakah tersedia air di dalam ruangan jamban?', '2021-07-05', '2021-07-05'),
+(96, 5, 'Amati: Apakah terlihat ada sabun di dalam atau di dekat jamban ?', '2021-07-05', '2021-07-05'),
+(97, 5, 'Amati: Apakah terlihat ada jentik-jentik nyamuk dalam bak air/ember ?', '2021-07-05', '2021-07-05'),
+(98, 5, 'Amati : Termasuk tipe apakah jamban yang Ibu lihat?', '2021-07-05', '2021-07-05'),
+(99, 5, 'Amati : Kemana saluran pembuangan dari kloset disalurkan/terhubungkan ?', '2021-07-05', '2021-07-05'),
+(100, 5, 'Amati : Apakah lantai dan dinding jamban bebas dari tinja, bekas tisu yang ada tinja atau bekas pembalut?', '2021-07-05', '2021-07-05'),
+(101, 5, 'Amati : Apakah jamban bebas dari kecoa dan lalat ?', '2021-07-05', '2021-07-05'),
+(102, 5, 'Amati : Jika ada kloset jongkok atau duduk leher angsa, apakah ada air untuk menyiram/mencebok ?', '2021-07-05', '2021-07-05'),
+(103, 5, 'Amati : Jika ada kloset duduk leher angsa, cobalah menekan alat penyiram, apakah dapat berfungsi ?', '2021-07-05', '2021-07-05'),
+(104, 7, 'Amati : Apakah ada sabun cuci atau pengganti sabun di tempat cuci pakaian?', '2021-07-05', '2021-07-05'),
+(105, 7, 'Amati : Dari mana sumber air untuk mencuci pakaian?', '2021-07-05', '2021-07-05'),
+(106, 7, 'Amati : Kemana air limbah bekas mencuci pakaian dibuang ?', '2021-07-05', '2021-07-05'),
+(107, 9, 'Amati : Apakah jarak sumur resapan (bila ada septik tank) atau cubluk dengan sumber air terdekat minimal 10 meter ?', '2021-07-05', '2021-07-05'),
+(108, 9, 'Dimana letak tangki septik yang digunakan?', '2021-07-05', '2021-07-05'),
+(109, 9, 'Amati : Apakah terdapat lubang udara/ventilasi pada septik tank ?', '2021-07-05', '2021-07-05'),
+(110, 9, 'Amati : Bagaimana cara mengelola sampah di rumah?', '2021-07-05', '2021-07-05'),
+(111, 9, 'Amati : Apakah sekeliling halaman bersih dari sampah ?', '2021-07-05', '2021-07-05'),
+(112, 9, 'Amati : Apakah terlihat bahwa sampah dipilah/dipisahkan?', '2021-07-05', '2021-07-05'),
+(113, 9, 'Amati : Jika sampah dipilah, apa saja yang terlihat dipilah ?', '2021-07-05', '2021-07-05'),
+(114, 9, 'Amati : Apakah ada tempat serta kegiatan untuk membuat kompos ?', '2021-07-05', '2021-07-05'),
+(115, 9, 'Amati : Apakah ada kompos yang sudah bisa dipakai?', '2021-07-05', '2021-07-05'),
+(116, 9, 'Amati : Untuk apa saja kompos dipakai oleh responden ?', '2021-07-05', '2021-07-05'),
+(117, 9, 'Amati : Apakah halaman/bagian depan rumah ada genangan air ?', '2021-07-05', '2021-07-05'),
+(118, 9, 'Amati : Dimana air biasanya tergenang ?', '2021-07-05', '2021-07-05'),
+(119, 9, 'Amati: Darimana air genangan berasal?', '2021-07-05', '2021-07-05'),
+(120, 9, 'Amati : Apakah di halaman ada benda yang dapat menyebabkan air tergenang (seperti ban bekas, kaleng, panci, ember)', '2021-07-05', '2021-07-05'),
+(121, 9, 'Amati : Apakah Ibu dapat melihat saluran air hujan atau saluran air limbah di dekat rumah (samping depan, samping belakang, samping kanan-kiri)', '2021-07-05', '2021-07-05'),
+(122, 9, 'Amati : Apakah air di saluran dapat mengalir ?', '2021-07-05', '2021-07-05'),
+(123, 9, 'Amati : Apakah saluran air, bersih dari sampah ?', '2021-07-05', '2021-07-05'),
+(128, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: Kurang dari 2 tahun ', '2021-09-10', '2021-09-10'),
+(129, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: 2 - 5 tahun', '2021-09-10', '2021-09-10'),
+(131, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: 6 - 12 tahun', '2021-09-10', '2021-09-10'),
+(132, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: Lebih dari 12 tahun', '2021-09-10', '2021-09-10'),
+(133, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: Kurang dari 2 tahun ', '2021-09-10', '2021-09-10'),
+(134, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: 2 - 5 tahun', '2021-09-10', '2021-09-10'),
+(136, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: 6 - 12 tahun', '2021-09-10', '2021-09-10'),
+(137, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: Lebih dari 12 tahun', '2021-09-10', '2021-09-10'),
+(138, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Dapur', '2021-09-10', '2021-09-10'),
+(139, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Kamar Mandi', '2021-09-10', '2021-09-10'),
+(140, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Tempat cuci pakaian', '2021-09-10', '2021-09-10'),
+(141, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Wastafel', '2021-09-10', '2021-09-10');
 
 -- --------------------------------------------------------
 
@@ -7549,14 +7518,14 @@ INSERT INTO `question_category` (`id`, `category_code`, `category_name`, `create
 CREATE TABLE `regencies` (
   `id` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `province_id` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `regency_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `regencies`
 --
 
-INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
+INSERT INTO `regencies` (`id`, `province_id`, `regency_name`) VALUES
 ('1101', '11', 'KABUPATEN SIMEULUE'),
 ('1102', '11', 'KABUPATEN ACEH SINGKIL'),
 ('1103', '11', 'KABUPATEN ACEH SELATAN'),
@@ -8088,34 +8057,19 @@ CREATE TABLE `respondent` (
   `jml_pr` int(11) NOT NULL,
   `nama_responden` varchar(100) NOT NULL,
   `hubungan_responden` int(11) NOT NULL,
-  `district_id` char(7) NOT NULL,
+  `kecamatan` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `rt` int(4) NOT NULL,
   `rw` int(4) NOT NULL,
   `no_rmh` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `supervisor`
+-- Dumping data untuk tabel `respondent`
 --
 
-CREATE TABLE `supervisor` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `supervisor_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data untuk tabel `supervisor`
---
-
-INSERT INTO `supervisor` (`id`, `supervisor_name`, `created_at`, `updated_at`) VALUES
-(6, 'Jamal', NULL, NULL),
-(7, 'Harsanto', NULL, NULL),
-(8, 'Betania', NULL, NULL);
+INSERT INTO `respondent` (`id`, `nkk`, `nik`, `nama_kepala`, `jml_keluarga`, `jml_laki`, `jml_pr`, `nama_responden`, `hubungan_responden`, `kecamatan`, `alamat`, `rt`, `rw`, `no_rmh`) VALUES
+(1, '867454545343', '64456457456', 'Udin Saripusin', 1, 2, 3, 'Usi Wulan', 1, 'SIMPENAN', 'Perum Sekarapi', 9, 3, 'G23');
 
 -- --------------------------------------------------------
 
@@ -8131,8 +8085,15 @@ CREATE TABLE `survey` (
   `survey_time` time(6) NOT NULL,
   `user_id` int(11) NOT NULL,
   `supervisor_id` int(11) NOT NULL,
-  `coordinatoe_id` int(11) NOT NULL
+  `coordinator_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data untuk tabel `survey`
+--
+
+INSERT INTO `survey` (`id`, `no_survey`, `nik`, `survey_date`, `survey_time`, `user_id`, `supervisor_id`, `coordinator_id`) VALUES
+(1, 'EHRA2109090001', '64456457456', '2021-09-09', '17:12:00.000000', 3, 10, 9);
 
 -- --------------------------------------------------------
 
@@ -8142,11 +8103,146 @@ CREATE TABLE `survey` (
 
 CREATE TABLE `survey_result` (
   `id` int(11) NOT NULL,
-  `survey_id` varchar(15) NOT NULL,
+  `no_survey` varchar(15) NOT NULL,
   `question_id` int(11) NOT NULL,
   `answer` varchar(225) DEFAULT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data untuk tabel `survey_result`
+--
+
+INSERT INTO `survey_result` (`id`, `no_survey`, `question_id`, `answer`, `description`) VALUES
+(1, 'EHRA2109090001', 1, '30 Tahun', NULL),
+(2, 'EHRA2109090001', 2, '1', NULL),
+(3, 'EHRA2109090001', 3, '120 m2', NULL),
+(4, 'EHRA2109090001', 4, '1', NULL),
+(5, 'EHRA2109090001', 5, '3', NULL),
+(6, 'EHRA2109090001', 6, '2', NULL),
+(7, 'EHRA2109090001', 7, 'Rp. 1.500.000', NULL),
+(8, 'EHRA2109090001', 8, '3', NULL),
+(9, 'EHRA2109090001', 9, '1', NULL),
+(10, 'EHRA2109090001', 10, '1', NULL),
+(11, 'EHRA2109090001', 11, 'Tahun 1990', NULL),
+(12, 'EHRA2109090001', 12, '1', NULL),
+(13, 'EHRA2109090001', 128, '1 orang', NULL),
+(14, 'EHRA2109090001', 129, '2 orang', NULL),
+(15, 'EHRA2109090001', 131, '0 orang', NULL),
+(16, 'EHRA2109090001', 132, '1 orang', NULL),
+(17, 'EHRA2109090001', 133, '2 orang', NULL),
+(18, 'EHRA2109090001', 134, '0 orang', NULL),
+(19, 'EHRA2109090001', 136, '0 orang ', NULL),
+(20, 'EHRA2109090001', 137, '2 orang', NULL),
+(21, 'EHRA2109090001', 15, '6 liter', NULL),
+(22, 'EHRA2109090001', 16, '3,5,7', NULL),
+(23, 'EHRA2109090001', 17, '6', NULL),
+(24, 'EHRA2109090001', 18, '2', NULL),
+(25, 'EHRA2109090001', 19, '2,6', NULL),
+(26, 'EHRA2109090001', 20, '3', NULL),
+(27, 'EHRA2109090001', 21, '2', NULL),
+(28, 'EHRA2109090001', 22, '2', NULL),
+(29, 'EHRA2109090001', 23, '2', NULL),
+(30, 'EHRA2109090001', 24, '2', NULL),
+(31, 'EHRA2109090001', 25, '4', NULL),
+(32, 'EHRA2109090001', 26, '4,6', NULL),
+(33, 'EHRA2109090001', 27, '2', NULL),
+(34, 'EHRA2109090001', 28, '2', NULL),
+(35, 'EHRA2109090001', 29, '8', NULL),
+(36, 'EHRA2109090001', 30, '3', NULL),
+(37, 'EHRA2109090001', 31, '3', NULL),
+(38, 'EHRA2109090001', 32, '3', NULL),
+(39, 'EHRA2109090001', 33, '1', NULL),
+(40, 'EHRA2109090001', 34, '3', NULL),
+(41, 'EHRA2109090001', 35, '2', NULL),
+(42, 'EHRA2109090001', 36, '2', NULL),
+(43, 'EHRA2109090001', 37, '1', NULL),
+(44, 'EHRA2109090001', 38, '2', NULL),
+(45, 'EHRA2109090001', 39, '3', NULL),
+(46, 'EHRA2109090001', 40, '4', NULL),
+(47, 'EHRA2109090001', 41, '1', NULL),
+(48, 'EHRA2109090001', 42, '2', NULL),
+(49, 'EHRA2109090001', 43, '3', NULL),
+(50, 'EHRA2109090001', 44, '2', NULL),
+(51, 'EHRA2109090001', 45, '1', NULL),
+(52, 'EHRA2109090001', 46, '2', NULL),
+(53, 'EHRA2109090001', 47, '2', NULL),
+(54, 'EHRA2109090001', 48, '1', NULL),
+(55, 'EHRA2109090001', 49, '2', NULL),
+(56, 'EHRA2109090001', 51, '2', NULL),
+(57, 'EHRA2109090001', 52, '3', NULL),
+(58, 'EHRA2109090001', 53, '2', NULL),
+(59, 'EHRA2109090001', 54, '2', NULL),
+(60, 'EHRA2109090001', 55, '5', NULL),
+(61, 'EHRA2109090001', 56, '2', NULL),
+(62, 'EHRA2109090001', 138, '6', NULL),
+(63, 'EHRA2109090001', 139, '2', NULL),
+(64, 'EHRA2109090001', 140, '6', NULL),
+(65, 'EHRA2109090001', 141, '3', NULL),
+(66, 'EHRA2109090001', 59, '2', NULL),
+(67, 'EHRA2109090001', 60, '2', NULL),
+(68, 'EHRA2109090001', 61, '3', NULL),
+(69, 'EHRA2109090001', 62, '4', NULL),
+(70, 'EHRA2109090001', 63, '2', NULL),
+(71, 'EHRA2109090001', 64, '2', NULL),
+(72, 'EHRA2109090001', 65, '3', NULL),
+(73, 'EHRA2109090001', 66, '2', NULL),
+(74, 'EHRA2109090001', 67, '2', NULL),
+(75, 'EHRA2109090001', 68, '2', NULL),
+(76, 'EHRA2109090001', 69, '2', NULL),
+(77, 'EHRA2109090001', 71, '7', NULL),
+(78, 'EHRA2109090001', 72, '2', NULL),
+(79, 'EHRA2109090001', 73, '2', NULL),
+(80, 'EHRA2109090001', 74, '2', NULL),
+(81, 'EHRA2109090001', 75, '4', NULL),
+(82, 'EHRA2109090001', 76, '2', NULL),
+(83, 'EHRA2109090001', 77, '1', NULL),
+(84, 'EHRA2109090001', 78, '2', NULL),
+(85, 'EHRA2109090001', 79, '3,6', NULL),
+(86, 'EHRA2109090001', 80, '4,7', NULL),
+(87, 'EHRA2109090001', 81, '2,5', NULL),
+(88, 'EHRA2109090001', 82, '6', NULL),
+(89, 'EHRA2109090001', 83, '2,4', NULL),
+(90, 'EHRA2109090001', 84, '2,7,11,14', NULL),
+(91, 'EHRA2109090001', 85, '3', NULL),
+(92, 'EHRA2109090001', 86, '2', NULL),
+(93, 'EHRA2109090001', 87, '2', NULL),
+(94, 'EHRA2109090001', 88, '2', NULL),
+(95, 'EHRA2109090001', 89, '3', NULL),
+(96, 'EHRA2109090001', 90, '3', NULL),
+(97, 'EHRA2109090001', 91, '2', NULL),
+(98, 'EHRA2109090001', 92, '2', NULL),
+(99, 'EHRA2109090001', 93, '4', NULL),
+(100, 'EHRA2109090001', 94, '2', NULL),
+(101, 'EHRA2109090001', 95, '2', NULL),
+(102, 'EHRA2109090001', 96, '2', NULL),
+(103, 'EHRA2109090001', 97, '2', NULL),
+(104, 'EHRA2109090001', 98, '2', NULL),
+(105, 'EHRA2109090001', 99, '2', NULL),
+(106, 'EHRA2109090001', 100, '2', NULL),
+(107, 'EHRA2109090001', 101, '2', NULL),
+(108, 'EHRA2109090001', 102, '2', NULL),
+(109, 'EHRA2109090001', 103, '2', NULL),
+(110, 'EHRA2109090001', 104, '2', NULL),
+(111, 'EHRA2109090001', 105, '4,5,7', NULL),
+(112, 'EHRA2109090001', 106, '7', NULL),
+(113, 'EHRA2109090001', 107, '2', NULL),
+(114, 'EHRA2109090001', 108, '2', NULL),
+(115, 'EHRA2109090001', 109, '2', NULL),
+(116, 'EHRA2109090001', 110, '4', NULL),
+(117, 'EHRA2109090001', 111, '2', NULL),
+(118, 'EHRA2109090001', 112, '2', NULL),
+(119, 'EHRA2109090001', 113, '2,5', NULL),
+(120, 'EHRA2109090001', 114, '2', NULL),
+(121, 'EHRA2109090001', 115, '2', NULL),
+(122, 'EHRA2109090001', 116, '2,3', NULL),
+(123, 'EHRA2109090001', 117, '2', NULL),
+(124, 'EHRA2109090001', 118, '2,4', NULL),
+(125, 'EHRA2109090001', 119, '2,3,4', NULL),
+(126, 'EHRA2109090001', 120, '1', NULL),
+(127, 'EHRA2109090001', 121, '2', NULL),
+(128, 'EHRA2109090001', 122, '2', NULL),
+(129, 'EHRA2109090001', 123, '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -8155,7 +8251,7 @@ CREATE TABLE `survey_result` (
 --
 
 CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -8169,9 +8265,11 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `level_id`, `puskesmas_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`user_id`, `name`, `username`, `password`, `level_id`, `puskesmas_id`, `created_at`, `updated_at`) VALUES
 (3, 'Admin EHRA', 'admin', '$2y$10$4Pw6LN3gdeXgjGX5BjW.AOdtyMOHFlajGsafpEGg06grVC24If4fO', 1, NULL, '2021-07-31', '2021-07-31'),
-(8, 'gipay', 'petugas', '$2y$10$pfLvsUXiPBE.rufTUkjsfeGUm58MIvVNKYU5BoeONTUZN6PZKjIZC', 2, 7, '2021-09-08', '2021-09-08');
+(9, 'Asep', 'koor1', '$2y$10$o8fAZgSPOB3wIk28pkT9.e/IcrAJx6C.zYkFPlhjKcWwoSrjUAhxK', 4, NULL, '2021-09-09', '2021-09-09'),
+(10, 'Udin', 'supervisor1', '$2y$10$ESlXnL4E2cdFGATevxl5zOkdGj28x8/z4EfFE/XNHwRzI701s9952', 6, NULL, '2021-09-09', '2021-09-09'),
+(11, 'Bahlul', 'petugas1', '$2y$10$WEhdYRFB0WefDOD1FccKr.XUPN8A4Sg8/EQwVnkHMsHSQ3Ms3D20m', 2, 7, '2021-09-10', '2021-09-10');
 
 -- --------------------------------------------------------
 
@@ -8182,14 +8280,14 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `level_id`, `puskesma
 CREATE TABLE `villages` (
   `id` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `district_id` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `village_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `villages`
 --
 
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1101010001', '1101010', 'LATIUNG'),
 ('1101010002', '1101010', 'LABUHAN BAJAU'),
 ('1101010003', '1101010', 'SUAK LAMATAN'),
@@ -9424,7 +9522,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1105140030', '1105140', 'BUKET TUALANG'),
 ('1105140031', '1105140', 'BAGOK PANAH IV'),
 ('1105140032', '1105140', 'BAGOK PANAH III');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1105140033', '1105140', 'KEMUNING  V'),
 ('1105140034', '1105140', 'KEMUNING III'),
 ('1105140035', '1105140', 'KEMUNING IV'),
@@ -10682,7 +10780,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1108100027', '1108100', 'LAMTANJONG'),
 ('1108100028', '1108100', 'LAMBIRAH'),
 ('1108100029', '1108100', 'KAYEE ADANG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1108100031', '1108100', 'TAMPOK BLANG'),
 ('1108100049', '1108100', 'LAMGEU BARO'),
 ('1108100050', '1108100', 'LAMGEU TUHA'),
@@ -11932,7 +12030,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1110070029', '1110070', 'JANGKA ALUE U'),
 ('1110070030', '1110070', 'PANTE PEUSANGAN'),
 ('1110070031', '1110070', 'BUGAK KRUENG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1110070032', '1110070', 'BUGAK MESJID'),
 ('1110070033', '1110070', 'BUGAK KRUENG MATE'),
 ('1110070034', '1110070', 'BUGENG'),
@@ -13167,9 +13265,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1112060008', '1112060', 'SIMPANG GADENG'),
 ('1112060009', '1112060', 'TELADAN JAYA'),
 ('1112060010', '1112060', 'BLANG RAJA'),
-('1112060011', '1112060', 'RUKOEN DAMEE'),
-('1112060012', '1112060', 'LHOK GAYO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1112060011', '1112060', 'RUKOEN DAMEE');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1112060012', '1112060', 'LHOK GAYO'),
 ('1112060013', '1112060', 'ALUE DAWAH'),
 ('1112060014', '1112060', 'COT SEUMANTOK'),
 ('1113010001', '1113010', 'BENER'),
@@ -14417,9 +14515,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1171020001', '1171020', 'ATEUK JAWO'),
 ('1171020007', '1171020', 'ATEUK DEAH TANOH'),
 ('1171020008', '1171020', 'ATEUK PAHLAWAN'),
-('1171020009', '1171020', 'ATEUK MUNJENG'),
-('1171020010', '1171020', 'NEUSU ACEH');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1171020009', '1171020', 'ATEUK MUNJENG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1171020010', '1171020', 'NEUSU ACEH'),
 ('1171020011', '1171020', 'SEUTUI'),
 ('1171020012', '1171020', 'SUKARAMAI'),
 ('1171020013', '1171020', 'NEUSU JAYA'),
@@ -15647,9 +15745,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1204060024', '1204060', 'TELUK ROBAN'),
 ('1204060025', '1204060', 'SORKAM KIRI'),
 ('1204060026', '1204060', 'SORKAM TENGAH'),
-('1204060027', '1204060', 'HITE URAT'),
-('1204060028', '1204060', 'PAGARAN JULU');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1204060027', '1204060', 'HITE URAT');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1204060028', '1204060', 'PAGARAN JULU'),
 ('1204060029', '1204060', 'PANANGGAHAN'),
 ('1204060030', '1204060', 'SIHAPAS'),
 ('1204060031', '1204060', 'NAULI'),
@@ -16857,9 +16955,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1209171004', '1209171', 'MEKAR BAHALAT'),
 ('1209171005', '1209171', 'TANJUNG MARAJA'),
 ('1209171006', '1209171', 'JAWA MARAJA'),
-('1209171007', '1209171', 'BAH JOGA'),
-('1209171008', '1209171', 'BAH JAMBI I');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1209171007', '1209171', 'BAH JOGA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1209171008', '1209171', 'BAH JAMBI I'),
 ('1209180004', '1209180', 'PURBA GANDA'),
 ('1209180005', '1209180', 'KERASAAN II'),
 ('1209180006', '1209180', 'KERASAAN I'),
@@ -18099,9 +18197,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1214020040', '1214020', 'BAWOAMAHELATO'),
 ('1214020041', '1214020', 'LOBOI'),
 ('1214020042', '1214020', 'BAWOOMASIO'),
-('1214020043', '1214020', 'BALOGIA'),
-('1214020045', '1214020', 'LASONDE');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1214020043', '1214020', 'BALOGIA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1214020045', '1214020', 'LASONDE'),
 ('1214020051', '1214020', 'KOTO'),
 ('1214020062', '1214020', 'SEBUASI'),
 ('1214020063', '1214020', 'SISARAHILI'),
@@ -19336,9 +19434,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1220030051', '1220030', 'RONDAMAN LOMBANG'),
 ('1220030052', '1220030', 'SIPIROK'),
 ('1220030053', '1220030', 'PARSARMAAN'),
-('1220030054', '1220030', 'HADUNGDUNG'),
-('1220030055', '1220030', 'GUNUNG MANAON I');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1220030054', '1220030', 'HADUNGDUNG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1220030055', '1220030', 'GUNUNG MANAON I'),
 ('1220030056', '1220030', 'GUNUNG BARINGIN'),
 ('1220030057', '1220030', 'AEK HARUAYA'),
 ('1220030058', '1220030', 'LANTOSAN I'),
@@ -20571,9 +20669,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1275170006', '1275170', 'B A N T A N'),
 ('1275170007', '1275170', 'T E M B U N G'),
 ('1275180001', '1275180', 'TANJUNG MULIA'),
-('1275180002', '1275180', 'TANJUNG MULIA HILIR'),
-('1275180003', '1275180', 'MABAR HILIR');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1275180002', '1275180', 'TANJUNG MULIA HILIR');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1275180003', '1275180', 'MABAR HILIR'),
 ('1275180004', '1275180', 'M A B A R'),
 ('1275180005', '1275180', 'KOTA BANGUN'),
 ('1275180006', '1275180', 'TITI PAPAN'),
@@ -21771,9 +21869,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1372010007', '1372010', 'SIMPANG RUMBIO'),
 ('1372020001', '1372020', 'KOTO PANJANG'),
 ('1372020002', '1372020', 'PASAR PANDAN AIR MATI'),
-('1372020003', '1372020', 'TANJUNG PAKU'),
-('1372020004', '1372020', 'NAN BALIMO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1372020003', '1372020', 'TANJUNG PAKU');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1372020004', '1372020', 'NAN BALIMO'),
 ('1372020005', '1372020', 'KAMPUNG JAWA'),
 ('1372020006', '1372020', 'LAING'),
 ('1373010001', '1373010', 'SILUNGKANG OSO'),
@@ -22994,9 +23092,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1406040007', '1406040', 'PANTAI CERMIN'),
 ('1406040008', '1406040', 'SEI PUTIH'),
 ('1406040009', '1406040', 'PAGARUYUNG'),
-('1406040010', '1406040', 'AIR TERBIT'),
-('1406040011', '1406040', 'PANCURAN GADING');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1406040010', '1406040', 'AIR TERBIT');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
+('1406040011', '1406040', 'PANCURAN GADING'),
 ('1406040012', '1406040', 'SARI GALUH'),
 ('1406040013', '1406040', 'TRI MANUNGGAL'),
 ('1406040014', '1406040', 'MUKTI SARI'),
@@ -24212,10 +24310,10 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1502030019', '1502030', 'JELATANG'),
 ('1502030020', '1502030', 'KARANG BERAHI'),
 ('1502030026', '1502030', 'SUNGAI UDANG'),
-('1502030027', '1502030', 'PELAKAR JAYA'),
+('1502030027', '1502030', 'PELAKAR JAYA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1502031001', '1502031', 'MAMPUN BARU'),
-('1502031002', '1502031', 'PINANG MERAH');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1502031002', '1502031', 'PINANG MERAH'),
 ('1502031003', '1502031', 'KARANG ANYAR'),
 ('1502031004', '1502031', 'SIMPANG LIMBUR MERANGIN'),
 ('1502031005', '1502031', 'LIMBUR MERANGIN'),
@@ -25439,10 +25537,10 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1601070003', '1601070', 'TUNGKU JAYA'),
 ('1601070004', '1601070', 'LUBUK BARU'),
 ('1601070005', '1601070', 'BANDAR'),
-('1601070006', '1601070', 'LUBUK LEBAN'),
+('1601070006', '1601070', 'LUBUK LEBAN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1601070007', '1601070', 'PENYANDINGAN'),
-('1601070008', '1601070', 'KUNGKILAN');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1601070008', '1601070', 'KUNGKILAN'),
 ('1601070009', '1601070', 'MEKAR JAYA'),
 ('1601070010', '1601070', 'PENANTIAN'),
 ('1601070011', '1601070', 'MEKAR SARI'),
@@ -26690,10 +26788,10 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1605080001', '1605080', 'PIAN RAYA'),
 ('1605080002', '1605080', 'BUMI MAKMUR'),
 ('1605080003', '1605080', 'SP V TRI ANGGUNJAYA'),
-('1605080004', '1605080', 'HARAPAN MAKMUR'),
+('1605080004', '1605080', 'HARAPAN MAKMUR');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1605080005', '1605080', 'MUKTI KARYA'),
-('1605080006', '1605080', 'SINDANG LAYA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1605080006', '1605080', 'SINDANG LAYA'),
 ('1605080007', '1605080', 'SEMANGUS'),
 ('1605080008', '1605080', 'PENDINGAN'),
 ('1605080009', '1605080', 'ANYAR'),
@@ -27928,10 +28026,10 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1610021003', '1610021', 'RENGAS I'),
 ('1610021004', '1610021', 'PAYA BESAR'),
 ('1610021005', '1610021', 'TALANG SELEMAN'),
-('1610021006', '1610021', 'PAYARAMAN TIMUR'),
+('1610021006', '1610021', 'PAYARAMAN TIMUR');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1610021007', '1610021', 'SERI KEMBANG I'),
-('1610021008', '1610021', 'TANJUNG LALANG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1610021008', '1610021', 'TANJUNG LALANG'),
 ('1610021009', '1610021', 'SERI KEMBANG II'),
 ('1610021010', '1610021', 'SERI KEMBANG III'),
 ('1610021011', '1610021', 'TEBEDAK II'),
@@ -29169,11 +29267,11 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1703091008', '1703091', 'NAPAL PUTIH'),
 ('1703091013', '1703091', 'LEBONG TANDAI'),
 ('1703091014', '1703091', 'AIR TENANG'),
-('1703091015', '1703091', 'TELUK ANGGUNG'),
+('1703091015', '1703091', 'TELUK ANGGUNG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1703091016', '1703091', 'TANJUNG KEMENYAN'),
 ('1703091017', '1703091', 'MUARA SANTAN'),
-('1703091019', '1703091', 'GEMBUNG RAYA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1703091019', '1703091', 'GEMBUNG RAYA'),
 ('1703091020', '1703091', 'KINAL JAYA'),
 ('1703092001', '1703092', 'PAGAR DIN'),
 ('1703092002', '1703092', 'TANJUNG DALAM'),
@@ -30414,11 +30512,11 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1802021005', '1802021', 'GURING'),
 ('1802021006', '1802021', 'BETUNG'),
 ('1802021007', '1802021', 'TANJUNGAN'),
-('1802021011', '1802021', 'TELUK BRAK'),
+('1802021011', '1802021', 'TELUK BRAK');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1802021012', '1802021', 'KARANG BRAK'),
 ('1802021013', '1802021', 'PESANGUAN'),
-('1802021014', '1802021', 'WAY ASAHAN');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1802021014', '1802021', 'WAY ASAHAN'),
 ('1802021015', '1802021', 'TAMPANG MUDA'),
 ('1802021016', '1802021', 'KAMPUNG BARU'),
 ('1802021017', '1802021', 'MATANDA'),
@@ -31660,11 +31758,11 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1806072003', '1806072', 'NEGARA TULANG BAWANG'),
 ('1806072004', '1806072', 'TULANG BAWANG BARU'),
 ('1806072005', '1806072', 'SUKADANA ILIR'),
-('1806072006', '1806072', 'SUKADANA UDIK'),
+('1806072006', '1806072', 'SUKADANA UDIK');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1806072007', '1806072', 'HADUYANG RATU'),
 ('1806072008', '1806072', 'ISOREJO'),
-('1806072009', '1806072', 'MULYO REJO II');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1806072009', '1806072', 'MULYO REJO II'),
 ('1806072010', '1806072', 'MULYO REJO I'),
 ('1806072011', '1806072', 'SUKAMAJU'),
 ('1806073001', '1806073', 'COMOK SINAR JAYA'),
@@ -32898,12 +32996,12 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('1901092008', '1901092', 'MABAT'),
 ('1901092009', '1901092', 'BUKITLAYANG'),
 ('1901130010', '1901130', 'RIDING PANJANG'),
-('1901130011', '1901130', 'GUNUNG MUDA'),
+('1901130011', '1901130', 'GUNUNG MUDA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('1901130012', '1901130', 'KUTO PANJI'),
 ('1901130013', '1901130', 'AIR JUKUNG'),
 ('1901130014', '1901130', 'BUKIT KETOK'),
-('1901130015', '1901130', 'BINTET');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('1901130015', '1901130', 'BINTET'),
 ('1901130016', '1901130', 'GUNUNG PELAWAN'),
 ('1901130017', '1901130', 'BELINYU'),
 ('1901130018', '1901130', 'MANTUNG'),
@@ -34181,12 +34279,12 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3201240009', '3201240', 'IWUL'),
 ('3201240010', '3201240', 'JABON MEKAR'),
 ('3201240011', '3201240', 'PAMAGER SARI'),
-('3201240012', '3201240', 'PARUNG'),
+('3201240012', '3201240', 'PARUNG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3201240013', '3201240', 'WARU'),
 ('3201240014', '3201240', 'WARUJAYA'),
 ('3201240015', '3201240', 'BOJONG SEMPU'),
-('3201240016', '3201240', 'BOJONG INDAH');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3201240016', '3201240', 'BOJONG INDAH'),
 ('3201240017', '3201240', 'COGREG'),
 ('3201241001', '3201241', 'KARIHKIL'),
 ('3201241002', '3201241', 'CIBEUTEUNG UDIK'),
@@ -35487,13 +35585,13 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3205160006', '3205160', 'KARAMATWANGI'),
 ('3205160007', '3205160', 'BALEWANGI'),
 ('3205160008', '3205160', 'TAMBAKBAYA'),
-('3205160009', '3205160', 'SIRNAJAYA'),
+('3205160009', '3205160', 'SIRNAJAYA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3205160010', '3205160', 'SIRNAGALIH'),
 ('3205160011', '3205160', 'PAKUWON'),
 ('3205160012', '3205160', 'SIMPANGSARI'),
 ('3205160013', '3205160', 'PANGAUBAN'),
-('3205160014', '3205160', 'CIPAGANTI');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3205160014', '3205160', 'CIPAGANTI'),
 ('3205160015', '3205160', 'PAMULIHAN'),
 ('3205160016', '3205160', 'SITUSARI'),
 ('3205160017', '3205160', 'CINTAASIH'),
@@ -36790,13 +36888,13 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3209040009', '3209040', 'PAKUSAMBEN'),
 ('3209040010', '3209040', 'KARANGWANGUN'),
 ('3209040011', '3209040', 'BABAKAN GEBANG'),
-('3209040012', '3209040', 'GEMBONGAN'),
+('3209040012', '3209040', 'GEMBONGAN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3209040013', '3209040', 'SERANG KULON'),
 ('3209040014', '3209040', 'GEMBONGAN MEKAR'),
 ('3209041001', '3209041', 'DOMPYONG KULON'),
 ('3209041002', '3209041', 'DOMPYONG WETAN'),
-('3209041003', '3209041', 'KALIMEKAR');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3209041003', '3209041', 'KALIMEKAR'),
 ('3209041004', '3209041', 'KALIMARO'),
 ('3209041005', '3209041', 'GAGASARI'),
 ('3209041006', '3209041', 'KALIPASUNG'),
@@ -38091,14 +38189,14 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3213050006', '3213050', 'SUKAHURIP'),
 ('3213050007', '3213050', 'BANTARSARI'),
 ('3213050008', '3213050', 'TANJUNGWANGI'),
-('3213060002', '3213060', 'SADAWARNA'),
+('3213060002', '3213060', 'SADAWARNA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3213060003', '3213060', 'SUMURBARANG'),
 ('3213060004', '3213060', 'PADAASIH'),
 ('3213060005', '3213060', 'CIBOGO'),
 ('3213060006', '3213060', 'CINANGSI'),
 ('3213060007', '3213060', 'MAJASARI'),
-('3213060008', '3213060', 'CIBALANDONGJAYA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3213060008', '3213060', 'CIBALANDONGJAYA'),
 ('3213060010', '3213060', 'CISAGA'),
 ('3213070001', '3213070', 'PARUNG'),
 ('3213070002', '3213070', 'PASIRKAREUMBI'),
@@ -39382,14 +39480,14 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3273130002', '3273130', 'CISARANTEN BINA HARAPAN'),
 ('3273130003', '3273130', 'SUKAMISKIN'),
 ('3273130005', '3273130', 'CISARANTEN ENDAH'),
-('3273141001', '3273141', 'ANTAPANI KIDUL'),
+('3273141001', '3273141', 'ANTAPANI KIDUL');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3273141002', '3273141', 'ANTAPANI TENGAH'),
 ('3273141003', '3273141', 'ANTAPANI WETAN'),
 ('3273141004', '3273141', 'ANTAPANI KULON'),
 ('3273142001', '3273142', 'JATIHANDAP'),
 ('3273142002', '3273142', 'KARANG PAMULANG'),
-('3273142003', '3273142', 'SINDANG JAYA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3273142003', '3273142', 'SINDANG JAYA'),
 ('3273142004', '3273142', 'PASIR IMPUN'),
 ('3273150001', '3273150', 'KEBON KANGKUNG'),
 ('3273150002', '3273150', 'SUKAPURA'),
@@ -40684,15 +40782,15 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3304120017', '3304120', 'TLAGA'),
 ('3304130001', '3304130', 'SLATRI'),
 ('3304130002', '3304130', 'PAWEDEN'),
-('3304130003', '3304130', 'GUMELAR'),
+('3304130003', '3304130', 'GUMELAR');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3304130004', '3304130', 'PURWODADI'),
 ('3304130005', '3304130', 'SAMPANG'),
 ('3304130006', '3304130', 'AMBAL'),
 ('3304130007', '3304130', 'PAGERPELAH'),
 ('3304130008', '3304130', 'PASURUHAN'),
 ('3304130009', '3304130', 'KARANGGONDANG'),
-('3304130010', '3304130', 'JLEGONG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3304130010', '3304130', 'JLEGONG'),
 ('3304130011', '3304130', 'BINANGUN'),
 ('3304130012', '3304130', 'KARANGKOBAR'),
 ('3304130013', '3304130', 'LEKSANA'),
@@ -41998,15 +42096,15 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3308050007', '3308050', 'KRADENAN'),
 ('3308050008', '3308050', 'BANYUADEM'),
 ('3308050009', '3308050', 'NGABLAK'),
-('3308050011', '3308050', 'BRINGIN'),
+('3308050011', '3308050', 'BRINGIN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3308050012', '3308050', 'MRANGGEN'),
 ('3308050013', '3308050', 'NGARGOSOKO'),
 ('3308050014', '3308050', 'POLENGAN'),
 ('3308050015', '3308050', 'PUCANGANOM'),
 ('3308050016', '3308050', 'PANDANRETNO'),
 ('3308050017', '3308050', 'TEGALRANDU'),
-('3308060002', '3308060', 'NGADIPURO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3308060002', '3308060', 'NGADIPURO'),
 ('3308060003', '3308060', 'WATES'),
 ('3308060004', '3308060', 'KALIBENING'),
 ('3308060005', '3308060', 'NGARGOMULYO'),
@@ -43347,15 +43445,15 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3313050008', '3313050', 'PLOSOREJO'),
 ('3313050009', '3313050', 'GANTIWARNO'),
 ('3313060001', '3313060', 'BANDARDAWUNG'),
-('3313060002', '3313060', 'SEPANJANG'),
+('3313060002', '3313060', 'SEPANJANG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3313060003', '3313060', 'TAWANGMANGU'),
 ('3313060004', '3313060', 'KALISORO'),
 ('3313060005', '3313060', 'BLUMBANG'),
 ('3313060006', '3313060', 'GONDOSULI'),
 ('3313060007', '3313060', 'TENGKLIK'),
 ('3313060008', '3313060', 'NGLEBAK'),
-('3313060009', '3313060', 'KARANGLO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3313060009', '3313060', 'KARANGLO'),
 ('3313060010', '3313060', 'PLUMBON'),
 ('3313070001', '3313070', 'PUNTUKREJO'),
 ('3313070002', '3313070', 'BERJO'),
@@ -44685,15 +44783,15 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3318110019', '3318110', 'KORIPANDRIYO'),
 ('3318110020', '3318110', 'SOKO'),
 ('3318110021', '3318110', 'GEMPOLSARI'),
-('3318110022', '3318110', 'BANJARSARI'),
+('3318110022', '3318110', 'BANJARSARI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3318110023', '3318110', 'MINTOBASUKI'),
 ('3318110024', '3318110', 'KOSEKAN'),
 ('3318120001', '3318120', 'JAMBEAN KIDUL'),
 ('3318120002', '3318120', 'WANGUNREJO'),
 ('3318120003', '3318120', 'BUMIREJO'),
 ('3318120004', '3318120', 'SOKOKULON'),
-('3318120005', '3318120', 'JIMBARAN');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3318120005', '3318120', 'JIMBARAN'),
 ('3318120006', '3318120', 'NGAWEN'),
 ('3318120007', '3318120', 'MARGOREJO'),
 ('3318120008', '3318120', 'PENAMBUHAN'),
@@ -46017,7 +46115,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3324110021', '3324110', 'KROMPAAN'),
 ('3324110022', '3324110', 'SEDAYU'),
 ('3324110023', '3324110', 'GEMUHBLANTEN'),
-('3324110024', '3324110', 'TAMANGEDE'),
+('3324110024', '3324110', 'TAMANGEDE');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3324110025', '3324110', 'LUMANSARI'),
 ('3324110026', '3324110', 'JOHOREJO'),
 ('3324110027', '3324110', 'TLAHAB'),
@@ -46025,8 +46124,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3324111001', '3324111', 'NGERJO'),
 ('3324111002', '3324111', 'KEDUNGASRI'),
 ('3324111003', '3324111', 'KEDUNGGADING'),
-('3324111004', '3324111', 'RINGINARUM');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3324111004', '3324111', 'RINGINARUM'),
 ('3324111005', '3324111', 'TEJOREJO'),
 ('3324111006', '3324111', 'NGAWENSARI'),
 ('3324111007', '3324111', 'WUNGUREJO'),
@@ -47330,7 +47428,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3329140005', '3329140', 'LENGKONG'),
 ('3329140006', '3329140', 'TANJUNGSARI'),
 ('3329140007', '3329140', 'SIWUNGKUK'),
-('3329140008', '3329140', 'DUKUHWRINGIN'),
+('3329140008', '3329140', 'DUKUHWRINGIN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3329140009', '3329140', 'SIGENTONG'),
 ('3329140010', '3329140', 'SIDAMULYA'),
 ('3329140011', '3329140', 'WANASARI'),
@@ -47339,8 +47438,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3329140014', '3329140', 'PEBATAN'),
 ('3329140015', '3329140', 'PESANTUNAN'),
 ('3329140016', '3329140', 'KEBOLEDAN'),
-('3329140018', '3329140', 'DUMELING');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3329140018', '3329140', 'DUMELING'),
 ('3329140019', '3329140', 'KERTABESUKI'),
 ('3329140020', '3329140', 'SAWOJAJAR'),
 ('3329150001', '3329150', 'SONGGOM'),
@@ -48651,7 +48749,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3503090013', '3503090', 'GADOR'),
 ('3503090014', '3503090', 'SUMBEREJO'),
 ('3503100001', '3503100', 'NGADIREJO'),
-('3503100002', '3503100', 'KEDUNGLURAH'),
+('3503100002', '3503100', 'KEDUNGLURAH');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3503100003', '3503100', 'BENDOREJO'),
 ('3503100004', '3503100', 'WONOCOYO'),
 ('3503100005', '3503100', 'NGETAL'),
@@ -48660,8 +48759,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3503100009', '3503100', 'NGULANKULON'),
 ('3503100010', '3503100', 'POGALAN'),
 ('3503110001', '3503110', 'KARANGSOKO'),
-('3503110002', '3503110', 'SAMBIREJO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3503110002', '3503110', 'SAMBIREJO'),
 ('3503110003', '3503110', 'KELUTAN'),
 ('3503110004', '3503110', 'TAMANAN'),
 ('3503110005', '3503110', 'NGANTRU'),
@@ -49982,7 +50080,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3508160010', '3508160', 'BEDAYUTALANG'),
 ('3508160011', '3508160', 'WONOCEPOKOAYU'),
 ('3508160012', '3508160', 'ARGOSARI'),
-('3508160013', '3508160', 'RANUPANE'),
+('3508160013', '3508160', 'RANUPANE');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3508170001', '3508170', 'WONOKERTO'),
 ('3508170002', '3508170', 'PAKEL'),
 ('3508170003', '3508170', 'KENONGO'),
@@ -49992,8 +50091,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3508170009', '3508170', 'SOMBO'),
 ('3508180001', '3508180', 'PANDANSARI'),
 ('3508180002', '3508180', 'KRASAK'),
-('3508180003', '3508180', 'KEDUNGJAJANG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3508180003', '3508180', 'KEDUNGJAJANG'),
 ('3508180004', '3508180', 'WONOREJO'),
 ('3508180006', '3508180', 'CURAHPETUNG'),
 ('3508180007', '3508180', 'GROBOGAN'),
@@ -51291,7 +51389,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3514140007', '3514140', 'GUNUNG SARI'),
 ('3514140008', '3514140', 'WONOKOYO'),
 ('3514140009', '3514140', 'GUNUNG GANGSIR'),
-('3514140010', '3514140', 'CANGKRING MALANG'),
+('3514140010', '3514140', 'CANGKRING MALANG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3514140011', '3514140', 'KEDUNG RINGIN'),
 ('3514140012', '3514140', 'PAGAK'),
 ('3514140013', '3514140', 'KEDUNG BOTO'),
@@ -51302,8 +51401,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3514150004', '3514150', 'KAUMAN'),
 ('3514150005', '3514150', 'BENDO MUNGAL'),
 ('3514150006', '3514150', 'KERSIKAN'),
-('3514150008', '3514150', 'DERMO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3514150008', '3514150', 'DERMO'),
 ('3514150009', '3514150', 'LATEK'),
 ('3514150010', '3514150', 'MASANGAN'),
 ('3514150011', '3514150', 'RACI'),
@@ -52603,7 +52701,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3519010002', '3519010', 'TANJUNGREJO'),
 ('3519010003', '3519010', 'SUKOREJO'),
 ('3519010004', '3519010', 'PUCANGANOM'),
-('3519010005', '3519010', 'KRANDEGAN'),
+('3519010005', '3519010', 'KRANDEGAN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3519010006', '3519010', 'SINGGAHAN'),
 ('3519010007', '3519010', 'SIDOREJO'),
 ('3519010008', '3519010', 'PALUR'),
@@ -52615,8 +52714,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3519010014', '3519010', 'KEDONDONG'),
 ('3519020001', '3519020', 'BANARAN'),
 ('3519020002', '3519020', 'KLOROGAN'),
-('3519020003', '3519020', 'SLAMBUR');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3519020003', '3519020', 'SLAMBUR'),
 ('3519020005', '3519020', 'SARENG'),
 ('3519020006', '3519020', 'PURWOREJO'),
 ('3519020007', '3519020', 'SUMBEREJO'),
@@ -53943,7 +54041,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3524050008', '3524050', 'PLABUHANREJO'),
 ('3524050010', '3524050', 'SUMBERAGUNG'),
 ('3524050011', '3524050', 'MANTUP'),
-('3524050013', '3524050', 'SUMBERBENDO'),
+('3524050013', '3524050', 'SUMBERBENDO');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3524050014', '3524050', 'TUNGGUNJAGIR'),
 ('3524050015', '3524050', 'SUKOBENDU'),
 ('3524060001', '3524060', 'MORONYAMPLUNG'),
@@ -53955,8 +54054,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3524060008', '3524060', 'RANDUBENER'),
 ('3524060009', '3524060', 'KALIWATES'),
 ('3524060010', '3524060', 'TLOGOAGUNG'),
-('3524060011', '3524060', 'KEDUNGMEGARIH');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3524060011', '3524060', 'KEDUNGMEGARIH'),
 ('3524060012', '3524060', 'KEMBANGBAHU'),
 ('3524060013', '3524060', 'LOPANG'),
 ('3524060014', '3524060', 'MANGKUJAJAR'),
@@ -55258,7 +55356,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3528120012', '3528120', 'LESONG DAJA'),
 ('3528120013', '3528120', 'KAPONG'),
 ('3528130001', '3528130', 'SANA TENGAH'),
-('3528130002', '3528130', 'SANA DAJA'),
+('3528130002', '3528130', 'SANA DAJA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3528130003', '3528130', 'DEMPO BARAT'),
 ('3528130004', '3528130', 'DEMPO TIMUR'),
 ('3528130005', '3528130', 'BINDANG'),
@@ -55269,8 +55368,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3529010001', '3529010', 'KADUARA TIMUR'),
 ('3529010002', '3529010', 'SENDANG'),
 ('3529010003', '3529010', 'ROMBASAN'),
-('3529010004', '3529010', 'SENTOL LAOK');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3529010004', '3529010', 'SENTOL LAOK'),
 ('3529010005', '3529010', 'LARANGAN PERENG'),
 ('3529010006', '3529010', 'SENTOL DAYA'),
 ('3529010007', '3529010', 'PAKAMBAN DAYA'),
@@ -56556,7 +56654,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3602140008', '3602140', 'JAYAMANIK'),
 ('3602140009', '3602140', 'MARGALUYU'),
 ('3602140010', '3602140', 'SANGIANG JAYA'),
-('3602140011', '3602140', 'TAMBAK'),
+('3602140011', '3602140', 'TAMBAK');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('3602140012', '3602140', 'MARGA JAYA'),
 ('3602140013', '3602140', 'CIMARGA'),
 ('3602140014', '3602140', 'MEKAR JAYA'),
@@ -56567,8 +56666,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('3602150002', '3602150', 'MUARADUA'),
 ('3602150003', '3602150', 'MUNCANGKOPONG'),
 ('3602150004', '3602150', 'TAMAN JAYA'),
-('3602150005', '3602150', 'CURUGPANJANG');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('3602150005', '3602150', 'CURUGPANJANG'),
 ('3602150006', '3602150', 'CIKULUR'),
 ('3602150007', '3602150', 'CIGOONG SELATAN'),
 ('3602150008', '3602150', 'CIGOONG UTARA'),
@@ -57862,7 +57960,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5106040024', '5106040', 'SONGAN A'),
 ('5106040025', '5106040', 'BATUR SELATAN'),
 ('5106040026', '5106040', 'BATUR TENGAH'),
-('5106040027', '5106040', 'BATUR UTARA'),
+('5106040027', '5106040', 'BATUR UTARA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('5106040028', '5106040', 'KINTAMANI'),
 ('5106040029', '5106040', 'SERAHI'),
 ('5106040030', '5106040', 'MANIKLIYU'),
@@ -57874,8 +57973,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5106040036', '5106040', 'CATUR'),
 ('5106040037', '5106040', 'PENGEJARAN'),
 ('5106040038', '5106040', 'SATRA'),
-('5106040040', '5106040', 'DAUSA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('5106040040', '5106040', 'DAUSA'),
 ('5106040041', '5106040', 'DAUP'),
 ('5106040042', '5106040', 'BANTANG'),
 ('5106040044', '5106040', 'SUKAWANA'),
@@ -59182,7 +59280,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5272020002', '5272020', 'DODU'),
 ('5272020003', '5272020', 'NUNGGA'),
 ('5272020014', '5272020', 'OI FO\'O'),
-('5272020015', '5272020', 'KODO'),
+('5272020015', '5272020', 'KODO');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('5272020016', '5272020', 'LELAMASE'),
 ('5272021001', '5272021', 'NITU'),
 ('5272021002', '5272021', 'RONTU'),
@@ -59194,8 +59293,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5272021008', '5272021', 'KENDO'),
 ('5272021009', '5272021', 'PENANAE'),
 ('5272021010', '5272021', 'RITE'),
-('5272021011', '5272021', 'NTOBO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('5272021011', '5272021', 'NTOBO'),
 ('5272030001', '5272030', 'MELAYU'),
 ('5272030002', '5272030', 'JATIWANGI'),
 ('5272030003', '5272030', 'JATIBARU'),
@@ -60531,7 +60629,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5309040013', '5309040', 'BALAWELING I'),
 ('5309040014', '5309040', 'BALAWELING II'),
 ('5309040015', '5309040', 'DANI WATO'),
-('5309040016', '5309040', 'NURHALOLON'),
+('5309040016', '5309040', 'NURHALOLON');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('5309040017', '5309040', 'RITAEBANG'),
 ('5309040018', '5309040', 'TITEHENA'),
 ('5309040019', '5309040', 'LEWONAMA'),
@@ -60544,8 +60643,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5309050003', '5309050', 'WATANHURA II'),
 ('5309050004', '5309050', 'WATANHURA'),
 ('5309050005', '5309050', 'LEBAO'),
-('5309050006', '5309050', 'LIWO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('5309050006', '5309050', 'LIWO'),
 ('5309050007', '5309050', 'LAMAWAI'),
 ('5309050008', '5309050', 'WATOHARI'),
 ('5309050009', '5309050', 'TANAH WERANG'),
@@ -61859,7 +61957,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5317061015', '5317061', 'GOLLU SAPI'),
 ('5317061016', '5317061', 'MATA LOMBU'),
 ('5317061017', '5317061', 'LIMBU WATU'),
-('5317061018', '5317061', 'MAREDA WUNI'),
+('5317061018', '5317061', 'MAREDA WUNI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('5317061019', '5317061', 'LETE WUNGANA'),
 ('5317061020', '5317061', 'KIKU BOOKO'),
 ('5317070001', '5317070', 'WANO TALLA'),
@@ -61872,8 +61971,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('5317070008', '5317070', 'JELA MANU'),
 ('5317070009', '5317070', 'BODO PONDA'),
 ('5317070010', '5317070', 'PANDUA TANA'),
-('5317070011', '5317070', 'ODI PAURATA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('5317070011', '5317070', 'ODI PAURATA'),
 ('5317070012', '5317070', 'REDA WANO'),
 ('5317080007', '5317080', 'RAMMA DANA'),
 ('5317080008', '5317080', 'KARUNI'),
@@ -63168,7 +63266,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6106040014', '6106040', 'TELUK RUNJAI'),
 ('6106040015', '6106040', 'ASAM JELAI'),
 ('6106040016', '6106040', 'AIR DUA'),
-('6106040017', '6106040', 'SIDAHARI'),
+('6106040017', '6106040', 'SIDAHARI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6106040018', '6106040', 'KARANG DANGIN'),
 ('6106040019', '6106040', 'KUSIK BATU LAPU'),
 ('6106040020', '6106040', 'PERIGI'),
@@ -63181,8 +63280,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6106050005', '6106050', 'MAHAWA'),
 ('6106050006', '6106050', 'SERENGKAH'),
 ('6106050007', '6106050', 'NATAI PANJANG'),
-('6106050008', '6106050', 'TUMBANG TITI');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('6106050008', '6106050', 'TUMBANG TITI'),
 ('6106050009', '6106050', 'BATU TAJAM'),
 ('6106050010', '6106050', 'SENGKAHARAK'),
 ('6106050022', '6106050', 'SEGAR WANGI'),
@@ -64417,7 +64515,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6112080012', '6112080', 'MEGA TIMUR'),
 ('6112080013', '6112080', 'TELUK BAKUNG'),
 ('6112080014', '6112080', 'AMPERA RAYA'),
-('6112080015', '6112080', 'SUNGAI MALAYA'),
+('6112080015', '6112080', 'SUNGAI MALAYA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6112090001', '6112090', 'KUALA MANDOR A'),
 ('6112090002', '6112090', 'KUALA MANDOR-B'),
 ('6112090003', '6112090', 'SUNGAI ENAU'),
@@ -64430,8 +64529,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6171010006', '6171010', 'KOTA BARU'),
 ('6171011001', '6171011', 'BANGKA BELITUNG LAUT'),
 ('6171011002', '6171011', 'BANGKA BELITUNG DARAT'),
-('6171011003', '6171011', 'BANSIR LAUT');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('6171011003', '6171011', 'BANSIR LAUT'),
 ('6171011004', '6171011', 'BANSIR DARAT'),
 ('6171020001', '6171020', 'PARIT MAYOR'),
 ('6171020002', '6171020', 'BANJAR SERASAN'),
@@ -65670,7 +65768,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6211020009', '6211020', 'LINAU'),
 ('6211020010', '6211020', 'TUMBANG BARINGEI'),
 ('6211020011', '6211020', 'TUMBANG MALAHOI'),
-('6211020015', '6211020', 'JAKATAN RAYA'),
+('6211020015', '6211020', 'JAKATAN RAYA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6211020016', '6211020', 'BERENG BARU'),
 ('6211020017', '6211020', 'BERENG MALAKA'),
 ('6211020020', '6211020', 'KARYA  BAKTI'),
@@ -65683,8 +65782,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6211021009', '6211021', 'TUMBANG MUJAI'),
 ('6211021010', '6211021', 'SEI ANTAI'),
 ('6211021011', '6211021', 'TUMBANG TUWE'),
-('6211022001', '6211022', 'HUJUNG PATA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('6211022001', '6211022', 'HUJUNG PATA'),
 ('6211022002', '6211022', 'TUMBANG JALEMU KAJUEI'),
 ('6211022003', '6211022', 'JALEMU  RAYA'),
 ('6211022004', '6211022', 'JALEMU MASULAN'),
@@ -66913,7 +67011,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6305060008', '6305060', 'BATARATAT'),
 ('6305060009', '6305060', 'PARANDAKAN'),
 ('6305070001', '6305070', 'ANTASARI HILIR'),
-('6305070002', '6305070', 'ANTASARI'),
+('6305070002', '6305070', 'ANTASARI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6305070003', '6305070', 'KUPANG'),
 ('6305070004', '6305070', 'RANGDA MALINGKUNG'),
 ('6305070005', '6305070', 'RANTAU KIWA'),
@@ -66926,8 +67025,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6305070012', '6305070', 'JINGAH BABARIS'),
 ('6305070013', '6305070', 'KAKARAN'),
 ('6305070014', '6305070', 'BADAUN'),
-('6305070015', '6305070', 'BANUA HANYAR HULU');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('6305070015', '6305070', 'BANUA HANYAR HULU'),
 ('6305070016', '6305070', 'BANUA HANYAR'),
 ('6305080001', '6305080', 'PARIGI KACIL'),
 ('6305080002', '6305080', 'PARIGI'),
@@ -68182,7 +68280,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6402041010', '6402041', 'MUARA KELAWIT'),
 ('6402041012', '6402041', 'SANSANG'),
 ('6402041013', '6402041', 'KALIQ'),
-('6402041014', '6402041', 'TANA MEA'),
+('6402041014', '6402041', 'TANA MEA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6402041015', '6402041', 'TEBISAQ'),
 ('6402041016', '6402041', 'MUARA PONAQ'),
 ('6402050010', '6402050', 'MUARA BEGAI'),
@@ -68196,8 +68295,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6402051002', '6402051', 'RANDA EMPAS'),
 ('6402051004', '6402051', 'SAMBUNG'),
 ('6402051005', '6402051', 'JELMU SIBAK'),
-('6402051006', '6402051', 'ANAN JAYA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('6402051006', '6402051', 'ANAN JAYA'),
 ('6402051007', '6402051', 'SUAKONG'),
 ('6402051008', '6402051', 'DILANG PUTI'),
 ('6402051009', '6402051', 'PENARUNG'),
@@ -69453,7 +69551,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('6571030001', '6571030', 'KARANG REJO'),
 ('6571030002', '6571030', 'KARANG BALIK'),
 ('6571030003', '6571030', 'KARANG ANYAR'),
-('6571030004', '6571030', 'KARANG ANYAR PANTAI'),
+('6571030004', '6571030', 'KARANG ANYAR PANTAI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('6571030005', '6571030', 'KARANG HARAPAN'),
 ('6571040001', '6571040', 'JUATA PERMAI'),
 ('6571040002', '6571040', 'JUATA KERIKIL'),
@@ -69466,8 +69565,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7101021006', '7101021', 'MEKARUO'),
 ('7101021007', '7101021', 'WANGGA BARU'),
 ('7101021008', '7101021', 'TORAUT UTARA'),
-('7101021009', '7101021', 'DOLODUO I');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7101021009', '7101021', 'DOLODUO I'),
 ('7101021010', '7101021', 'DOLODUO II'),
 ('7101021011', '7101021', 'DOLODUO III'),
 ('7101021012', '7101021', 'TORAUT TENGAH'),
@@ -70759,7 +70857,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7109030021', '7109030', 'PONOSAKAN BELANG'),
 ('7109030022', '7109030', 'BUKU TENGAH'),
 ('7109030023', '7109030', 'TABABO SELATAN'),
-('7109030024', '7109030', 'WATULINEY TENGAH'),
+('7109030024', '7109030', 'WATULINEY TENGAH');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7109030025', '7109030', 'WATULINEY INDAH'),
 ('7109030026', '7109030', 'MOLOMPAR UTARA'),
 ('7109030027', '7109030', 'MOLOMPAR TIMUR'),
@@ -70772,8 +70871,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7109040010', '7109040', 'WAWALI'),
 ('7109040016', '7109040', 'RASI SATU'),
 ('7109040017', '7109040', 'TOSURAYA BARAT'),
-('7109040018', '7109040', 'TOSURAYA SELATAN');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7109040018', '7109040', 'TOSURAYA SELATAN'),
 ('7109040019', '7109040', 'LOWU UTARA'),
 ('7109040020', '7109040', 'NATAAN'),
 ('7109040021', '7109040', 'WAWALI PASAN'),
@@ -72071,7 +72169,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7205090011', '7205090', 'LABUAN SALUMBONE'),
 ('7205090012', '7205090', 'LABUAN TOPOSO'),
 ('7205090013', '7205090', 'LABUAN LUMBUBAKA'),
-('7205091001', '7205091', 'BALE'),
+('7205091001', '7205091', 'BALE');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7205091002', '7205091', 'GUNTARANO'),
 ('7205091003', '7205091', 'NUPA BOMBA'),
 ('7205091004', '7205091', 'WOMBO'),
@@ -72086,8 +72185,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7205100003', '7205100', 'TOAYA'),
 ('7205100004', '7205100', 'SUMARI'),
 ('7205100005', '7205100', 'TARIPA'),
-('7205100006', '7205100', 'MASAINGI');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7205100006', '7205100', 'MASAINGI'),
 ('7205100007', '7205100', 'MARANA'),
 ('7205100016', '7205100', 'LERO TATARI'),
 ('7205100017', '7205100', 'TOAYA VUNTA'),
@@ -73406,7 +73504,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7302080008', '7302080', 'BONTOHARU'),
 ('7302080009', '7302080', 'PALAMPANG'),
 ('7302080010', '7302080', 'BAJIMINASA'),
-('7302080011', '7302080', 'ANRANG'),
+('7302080011', '7302080', 'ANRANG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7302080012', '7302080', 'BONTO MATENE'),
 ('7302080013', '7302080', 'BONTOLOHE'),
 ('7302080014', '7302080', 'TOPANDA'),
@@ -73420,8 +73519,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7302090007', '7302090', 'TAMAONA'),
 ('7302090008', '7302090', 'KINDANG'),
 ('7302090009', '7302090', 'ORO GADING'),
-('7302090010', '7302090', 'SOPA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7302090010', '7302090', 'SOPA'),
 ('7302090011', '7302090', 'SOMBA PALIOI'),
 ('7302090012', '7302090', 'SIPAENRE'),
 ('7302090013', '7302090', 'KAHAYA'),
@@ -74715,7 +74813,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7313070011', '7313070', 'PARIA'),
 ('7313070012', '7313070', 'URAIANG'),
 ('7313070013', '7313070', 'MACANANG'),
-('7313070014', '7313070', 'LAERUNG'),
+('7313070014', '7313070', 'LAERUNG');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7313070015', '7313070', 'L I U'),
 ('7313070016', '7313070', 'BOTTO BENTENG'),
 ('7313070017', '7313070', 'BOTTO PENNO'),
@@ -74729,8 +74828,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7313080008', '7313080', 'MARIO'),
 ('7313080009', '7313080', 'WAETUWO'),
 ('7313080010', '7313080', 'WEWANGREWU'),
-('7313080011', '7313080', 'PALIPPU');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7313080011', '7313080', 'PALIPPU'),
 ('7313080012', '7313080', 'TANCUNG'),
 ('7313080013', '7313080', 'BARU TANCUNG'),
 ('7313080014', '7313080', 'PINCENGPUTE'),
@@ -75962,7 +76060,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7326200011', '7326200', 'LEMBANG PONGLU'),
 ('7326200012', '7326200', 'LEMBANG PAONGANAN'),
 ('7326200013', '7326200', 'LEMBANG TALIMBANGAN'),
-('7326210001', '7326210', 'KELURAHAN BARUPPU SELATAN'),
+('7326210001', '7326210', 'KELURAHAN BARUPPU SELATAN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7326210002', '7326210', 'LEMBANG BARUPPU BENTENG BATU'),
 ('7326210003', '7326210', 'LEMBANG BARUPPU UTARA'),
 ('7326210004', '7326210', 'LEMBANG BARUPPU PARODO'),
@@ -75975,8 +76074,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7371010008', '7371010', 'PANAMBUNGAN'),
 ('7371010009', '7371010', 'KUNJUNG MAE'),
 ('7371020001', '7371020', 'TAMPARANG KEKE'),
-('7371020002', '7371020', 'SAMBUNG JAWA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7371020002', '7371020', 'SAMBUNG JAWA'),
 ('7371020003', '7371020', 'KARANG ANYAR'),
 ('7371020004', '7371020', 'BAJI MAPPAKASUNGGU'),
 ('7371020005', '7371020', 'PA\'BATANG'),
@@ -77281,7 +77379,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7405111004', '7405111', 'HORODOPI'),
 ('7405111005', '7405111', 'BENUA UTAMA'),
 ('7405111006', '7405111', 'PUOSU'),
-('7405111007', '7405111', 'LAMARA'),
+('7405111007', '7405111', 'LAMARA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7405111008', '7405111', 'UELAWA'),
 ('7405111010', '7405111', 'WAWORAHA'),
 ('7405111011', '7405111', 'PUUWEHUKO'),
@@ -77296,8 +77395,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7405112007', '7405112', 'LIPU MASAGENA'),
 ('7405112008', '7405112', 'POLO-POLOLI'),
 ('7405112010', '7405112', 'TEPOROMBUA'),
-('7406010001', '7406010', 'TIRONGKOTUA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7406010001', '7406010', 'TIRONGKOTUA'),
 ('7406010002', '7406010', 'RAHADOPI'),
 ('7406010003', '7406010', 'TEOMOKOLE'),
 ('7406010004', '7406010', 'RAHAMPUU'),
@@ -78611,7 +78709,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7502022004', '7502022', 'TABONGO TIMUR'),
 ('7502022005', '7502022', 'LIMEHE TIMUR'),
 ('7502022006', '7502022', 'MOTINELO'),
-('7502022007', '7502022', 'MOAHUDU'),
+('7502022007', '7502022', 'MOAHUDU');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('7502022008', '7502022', 'TERATAI'),
 ('7502022009', '7502022', 'LIMEHU'),
 ('7502023001', '7502023', 'MOMALA'),
@@ -78627,8 +78726,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('7502030004', '7502030', 'ILOMATA'),
 ('7502030005', '7502030', 'MOLOWAHU'),
 ('7502030006', '7502030', 'DUNGGALA'),
-('7502030007', '7502030', 'REKSONEGORO');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('7502030007', '7502030', 'REKSONEGORO'),
 ('7502030008', '7502030', 'TOLOTIO'),
 ('7502030009', '7502030', 'ISIMU SELATAN'),
 ('7502030010', '7502030', 'DATAHU'),
@@ -79937,7 +80035,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8102010044', '8102010', 'WEARLILIR'),
 ('8102010045', '8102010', 'LOON'),
 ('8102010046', '8102010', 'DUDUNWAHAN'),
-('8102010047', '8102010', 'OHOIDER ATAS'),
+('8102010047', '8102010', 'OHOIDER ATAS');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('8102010048', '8102010', 'SITNIOHOI'),
 ('8102010049', '8102010', 'WATDEK'),
 ('8102010050', '8102010', 'OHOIJANG'),
@@ -79953,8 +80052,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8102012010', '8102012', 'YATWAV'),
 ('8102013007', '8102013', 'MASTUR'),
 ('8102013008', '8102013', 'OHOINOL'),
-('8102013009', '8102013', 'WAIN');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('8102013009', '8102013', 'WAIN'),
 ('8102013010', '8102013', 'ABEAN'),
 ('8102013011', '8102013', 'RAAT'),
 ('8102013012', '8102013', 'RUMAT'),
@@ -81295,7 +81393,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8203023007', '8203023', 'FOKALIK'),
 ('8203030006', '8203030', 'WAITINA'),
 ('8203030007', '8203030', 'KOW'),
-('8203030008', '8203030', 'WAI-TAMELA'),
+('8203030008', '8203030', 'WAI-TAMELA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('8203030009', '8203030', 'NAFLOW'),
 ('8203030010', '8203030', 'KARAMAT TITDOY'),
 ('8203031001', '8203031', 'BARU AKOL'),
@@ -81311,8 +81410,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('8203032003', '8203032', 'WAISAKAI'),
 ('8203032004', '8203032', 'WAISUM'),
 ('8203040001', '8203040', 'PAS IPA'),
-('8203040002', '8203040', 'DOFA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('8203040002', '8203040', 'DOFA'),
 ('8203040003', '8203040', 'LEKO KADAI'),
 ('8203040004', '8203040', 'LEKOSULA'),
 ('8203040015', '8203040', 'PELITA'),
@@ -82654,7 +82752,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9104082008', '9104082', 'MEROK'),
 ('9104082009', '9104082', 'MAHTI'),
 ('9104082010', '9104082', 'MESERKIR'),
-('9104082011', '9104082', 'MOFICKIN'),
+('9104082011', '9104082', 'MOFICKIN');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('9104082012', '9104082', 'MERENEITEJ'),
 ('9104082013', '9104082', 'MEYAH'),
 ('9104082014', '9104082', 'MASEFA'),
@@ -82670,8 +82769,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9104090024', '9104090', 'MOJUI'),
 ('9104090025', '9104090', 'KEWISINI'),
 ('9104090026', '9104090', 'MERIRAOG'),
-('9104090027', '9104090', 'MEYEWAH');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('9104090027', '9104090', 'MEYEWAH'),
 ('9104090028', '9104090', 'TAUGO'),
 ('9104090029', '9104090', 'MOSOIMA'),
 ('9104090030', '9104090', 'ENEYINEFA'),
@@ -84029,7 +84127,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9401042013', '9401042', 'BERSEHATI'),
 ('9401042014', '9401042', 'KAMANGI'),
 ('9401043001', '9401043', 'KAMNO SARI'),
-('9401043002', '9401043', 'GURINDA JAYA'),
+('9401043002', '9401043', 'GURINDA JAYA');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('9401043003', '9401043', 'JAGEBOB RAYA'),
 ('9401043004', '9401043', 'MIMI BARU'),
 ('9401043005', '9401043', 'WENDA ASRI'),
@@ -84045,8 +84144,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9401044001', '9401044', 'RAWA BIRU'),
 ('9401044002', '9401044', 'YANGGANDUR'),
 ('9401044003', '9401044', 'SOTA'),
-('9401044004', '9401044', 'ERAMBU');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('9401044004', '9401044', 'ERAMBU'),
 ('9401044005', '9401044', 'TORAY'),
 ('9401045001', '9401045', 'KONDO'),
 ('9401045002', '9401045', 'TOMERAU'),
@@ -85395,7 +85493,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9411090016', '9411090', 'GIBAGA'),
 ('9411090017', '9411090', 'NAMI'),
 ('9411090018', '9411090', 'LINWAKWI'),
-('9411091001', '9411091', 'DOKOME'),
+('9411091001', '9411091', 'DOKOME');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('9411091002', '9411091', 'URAGE'),
 ('9411091003', '9411091', 'NUNGWAWI'),
 ('9411091004', '9411091', 'NOWONERI'),
@@ -85413,8 +85512,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9412010026', '9412010', 'APARUKA'),
 ('9412011001', '9412011', 'POTOWAYBURU'),
 ('9412011002', '9412011', 'YAPAKOPA'),
-('9412011003', '9412011', 'AINDUA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('9412011003', '9412011', 'AINDUA'),
 ('9412011004', '9412011', 'TAPORMAI'),
 ('9412011005', '9412011', 'UMAR'),
 ('9412012001', '9412012', 'PRONGGO'),
@@ -86795,7 +86893,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9418014007', '9418014', 'GOLENA'),
 ('9418014008', '9418014', 'KORLO'),
 ('9418014009', '9418014', 'GUNALO'),
-('9418014010', '9418014', 'TIMER'),
+('9418014010', '9418014', 'TIMER');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('9418014011', '9418014', 'NOWO'),
 ('9418014012', '9418014', 'GULAK'),
 ('9418014013', '9418014', 'TOWOLOME'),
@@ -86814,8 +86913,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9418016005', '9418016', 'EWAN'),
 ('9418016006', '9418016', 'WUMELAK'),
 ('9418016007', '9418016', 'WALELO'),
-('9418016008', '9418016', 'LAURA');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('9418016008', '9418016', 'LAURA'),
 ('9418016009', '9418016', 'TALINAMBER'),
 ('9418016010', '9418016', 'ALINDUDA'),
 ('9418020019', '9418020', 'KARUBAGA'),
@@ -88169,7 +88267,8 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9432010029', '9432010', 'AMULUK'),
 ('9432010030', '9432010', 'YAHAMER'),
 ('9432020002', '9432020', 'YAREMA'),
-('9432020003', '9432020', 'APALAPSILI'),
+('9432020003', '9432020', 'APALAPSILI');
+INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 ('9432020005', '9432020', 'ASILIKMA'),
 ('9432020006', '9432020', 'TIKANO'),
 ('9432020007', '9432020', 'NASINENA'),
@@ -88187,8 +88286,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 ('9432020020', '9432020', 'NANAHORUK'),
 ('9432020024', '9432020', 'HUMALEN'),
 ('9432020026', '9432020', 'MAKRIG'),
-('9432020027', '9432020', 'YAREMA SATU');
-INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+('9432020027', '9432020', 'YAREMA SATU'),
 ('9432020029', '9432020', 'SOMOHI'),
 ('9432030001', '9432030', 'WAMBO'),
 ('9432030002', '9432030', 'WAMBALFAK'),
@@ -88792,12 +88890,6 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 --
 
 --
--- Indeks untuk tabel `coordinator`
---
-ALTER TABLE `coordinator`
-  ADD PRIMARY KEY (`id`) USING BTREE;
-
---
 -- Indeks untuk tabel `districts`
 --
 ALTER TABLE `districts`
@@ -88811,12 +88903,6 @@ ALTER TABLE `level`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`) USING BTREE;
-
---
 -- Indeks untuk tabel `puskesmas`
 --
 ALTER TABLE `puskesmas`
@@ -88827,7 +88913,7 @@ ALTER TABLE `puskesmas`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `kode_kategori` (`category_code`);
+  ADD KEY `qcategory_id` (`qcategory_id`);
 
 --
 -- Indeks untuk tabel `question_category`
@@ -88849,12 +88935,6 @@ ALTER TABLE `respondent`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `supervisor`
---
-ALTER TABLE `supervisor`
-  ADD PRIMARY KEY (`id`) USING BTREE;
-
---
 -- Indeks untuk tabel `survey`
 --
 ALTER TABLE `survey`
@@ -88870,7 +88950,7 @@ ALTER TABLE `survey_result`
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD PRIMARY KEY (`user_id`) USING BTREE,
   ADD UNIQUE KEY `username` (`username`),
   ADD KEY `level_id` (`level_id`);
 
@@ -88886,22 +88966,10 @@ ALTER TABLE `villages`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `coordinator`
---
-ALTER TABLE `coordinator`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `puskesmas`
@@ -88913,43 +88981,37 @@ ALTER TABLE `puskesmas`
 -- AUTO_INCREMENT untuk tabel `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT untuk tabel `question_category`
 --
 ALTER TABLE `question_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `respondent`
 --
 ALTER TABLE `respondent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `supervisor`
---
-ALTER TABLE `supervisor`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `survey`
 --
 ALTER TABLE `survey`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `survey_result`
 --
 ALTER TABLE `survey_result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -88960,6 +89022,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `districts`
   ADD CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`) ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `question`
+--
+ALTER TABLE `question`
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`qcategory_id`) REFERENCES `question_category` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`

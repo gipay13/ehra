@@ -15,6 +15,7 @@ class Hasil extends CI_Controller
 	public function index()
 	{
 		$data = [
+			'title' => 'Hasil Survey',
 			'survey' => $this->HasilModel->get_hasil(),
 		];
 		$this->template->load('layouts/layouts-admin', 'admin_pages/hasil-page', $data);
@@ -35,5 +36,20 @@ class Hasil extends CI_Controller
 			);
 			redirect('admin/hasil');
 		}
+	}
+
+	public function laporan_hasil($no_survey)
+	{
+
+		$data = [
+			'laporan' => $this->HasilModel->get_hasil_laporan($no_survey),
+		];
+
+		//$this->load->view('laporan_pages/laporan_hasil');
+		$this->load->library('pdf');
+
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
+		$this->pdf->load_view('laporan_pages/laporan_hasil', $data);
 	}
 }

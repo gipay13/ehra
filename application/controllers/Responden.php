@@ -15,9 +15,9 @@ class Responden extends CI_Controller
 	{
 		$data = array(
 			"regencies"		=> $this->RespondenModel->regencies(),
+			"survey"		=> $this->RespondenModel->no_survey(),
 			"koordinator"	=> $this->UserModel->get_user(4),
 			"supervisor"	=> $this->UserModel->get_user(6),
-			"survey"		=> $this->RespondenModel->no_survey()
 		);
 
 		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
@@ -27,13 +27,6 @@ class Responden extends CI_Controller
 	{
 		if ($this->input->post('id')) {
 			echo $this->RespondenModel->district($this->input->post('id'));
-		}
-	}
-
-	public function fetch_koordinator()
-	{
-		if ($this->input->post('id')) {
-			echo $this->RespondenModel->koordinator($this->input->post('id'));
 		}
 	}
 

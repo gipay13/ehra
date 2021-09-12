@@ -23,4 +23,10 @@ class HasilModel extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->delete('survey');
 	}
+
+	function get_hasil_laporan($no_survey) {
+		$this->db->where('');
+		$query = $this->db->get('survey_result');
+		return $query->result();	
+	}
 }

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Ehra</title>
+	<title>Ehra | Survey</title>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -138,6 +138,18 @@
 		$jwbn26.change(function() {
 			if (this.checked) {
 				$('#ta').prop('checked', false)
+			}
+		})
+
+		var $jwbn70 = $('input[name="answer70[]"]').not('#Tidaksemua')
+		$('#Tidaksemua').change(function() {
+			if (this.checked) {
+				$jwbn70.prop('checked', false)
+			}
+		});
+		$jwbn70.change(function() {
+			if (this.checked) {
+				$('#Tidaksemua').prop('checked', false)
 			}
 		})
 

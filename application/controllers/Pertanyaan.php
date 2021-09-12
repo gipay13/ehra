@@ -15,10 +15,51 @@ class Pertanyaan extends CI_Controller
 	public function index()
 	{
 		$data = array(
+			'title' => 'Pertanyaan',
 			'kategori' => $this->KategoriModel->get_kategori(),
 			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/pertanyaan-page', $data);
+	}
+
+	public function process()
+	{
+		$process = $this->input->post(null, TRUE);
+
+		if (isset($_POST['add'])) {
+			$this->PertanyaanModel->insert_pertanyaan($process);
+			//print_r($process);
+		} else if (isset($_POST['edit'])) {
+			$this->PertanyaanModel->update_pertanyaan($process);
+		}
+
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-check-circle mx-1"></i> Pertanyaan Berhasil Ditambah/Diupdate</span>
+				</div>'
+			);
+			redirect('admin/pertanyaan');
+		}
+	}
+
+	public function delete($id)
+	{
+		$this->PertanyaanModel->delete_pertanyaan($id);
+
+
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-times-circle mx-1"></i> Pertanyaan Dihapus</span>
+				</div>'
+			);
+			redirect('admin/pertanyaan');
+		}
 	}
 }

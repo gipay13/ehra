@@ -21,6 +21,7 @@ class User extends CI_Controller
 	public function index()
 	{
 		$data = [
+			'title' => 'User',
 			'puskesmas' => $this->UserModel->get_puskesmas(),
 			'user' => $this->UserModel->get_user(),
 			'level' => $this->UserModel->get_level(),
@@ -63,7 +64,7 @@ class User extends CI_Controller
 
 	public function delete($id)
 	{
-		$this->AdminModel->delete_user($id);
+		$this->UserModel->delete_user($id);
 
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata(

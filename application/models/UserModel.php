@@ -19,7 +19,6 @@ class UserModel extends CI_Model
 
 	function get_user($level = null)
 	{
-		$this->db->select('users.*, level.name as level_name, puskesmas.nm_puskesmas as puskesmas_name');
 		$this->db->join('level', 'level.id = users.level_id');
 		$this->db->join('puskesmas', 'puskesmas.id = users.puskesmas_id', 'left');
 		if ($level != null) {
@@ -59,7 +58,7 @@ class UserModel extends CI_Model
 
 	public function delete_user($id)
 	{
-		$this->db->where('id', $id);
+		$this->db->where('user_id', $id);
 		$this->db->delete('users');
 	}
 }

@@ -5,8 +5,8 @@ class RespondenModel extends CI_Model
 {
 	function regencies()
 	{
-		$this->db->like('name', 'SUKABUMI');
-		$this->db->order_by('name', 'asc');
+		$this->db->like('regency_name', 'SUKABUMI');
+		$this->db->order_by('regency_name', 'asc');
 		$query = $this->db->get('regencies');
 
 		return $query->result();
@@ -15,12 +15,12 @@ class RespondenModel extends CI_Model
 	function district($id)
 	{
 		$this->db->where('regency_id', $id);
-		$this->db->order_by('name', 'asc');
+		$this->db->order_by('district_name', 'asc');
 		$query = $this->db->get('districts');
 
 		$output = '<option value="">--Pilih Kecamatan--</option>';
 		foreach ($query->result() as $d) {
-			$output .= '<option value="' . $d->name . '">' . $d->name . '</option>';
+			$output .= '<option value="' . $d->district_name . '">' . $d->district_name . '</option>';
 		}
 
 		return $output;
@@ -54,7 +54,7 @@ class RespondenModel extends CI_Model
 			'jml_pr'				=> $responden['jumlah_pr'],
 			'nama_responden'		=> $responden['responden'],
 			'hubungan_responden'	=> $responden['hubungan'],
-			'district_id'			=> $responden['kecamatan'],
+			'kecamatan'				=> $responden['kecamatan'],
 			'alamat'				=> $responden['alamat'],
 			'rt'					=> $responden['rt'],
 			'rw'					=> $responden['rw'],

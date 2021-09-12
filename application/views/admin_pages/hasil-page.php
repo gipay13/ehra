@@ -9,6 +9,9 @@
 					<a href="<?= base_url('responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
 				</ol>
 			</div>
+			<div class="col-sm-12 mt-3">
+				<?= $this->session->flashdata('message'); ?>
+			</div>
 		</div>
 	</div>
 </div>
@@ -51,6 +54,7 @@
 										<td><?= $s->kecamatan ?></td>
 										<td><?= $s->alamat ?></td>
 										<td>
+											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
 											<a href="<?= base_url('hasil/delete/' . $s->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
 										</td>
 									</tr>

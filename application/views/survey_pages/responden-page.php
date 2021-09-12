@@ -3,137 +3,146 @@
 		<div class="col-md-8 mx-auto">
 			<form action="<?= base_url('responden/process'); ?>" method="post">
 				<div class="card">
-					<div class="my-3 mx-4">
-						<div class="form-group">
-							<label for="no_survey">Nomor Survey</label>
-							<input type="text" class="form-control" name="no_survey" id="no_survey" value="<?= $survey ?>" readonly>
-						</div>
-						<div class="form-group">
-							<label for="tanggal_survey">Tanggal Survey</label>
-							<input type="date" class="form-control" name="tanggal_survey" id="tanggal_survey" value="<?= date('Y-m-d') ?>">
-						</div>
-						<div class="form-group">
-							<label for="jam_survey">Jam Survey</label>
-							<input type="time" name="jam_survey" id="jam_survey" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="username">Nama Pewawancara/Enumerator</label>
-							<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
-							<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
-						</div>
-						<div class="form-group">
-							<label for="supervisor">Nama Supervisor</label>
-							<select name="supervisor" id="supervisor" class="form-control">
-								<option value="">--Pilih Supervisor--</option>
-								<?php
-								foreach ($supervisor as $s) {
-									echo '<option value="' . $s->user_id . '">' . $s->name . '</option>';
-								}
-								?>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="koordinator">Koordinator Kecamatan</label>
-							<select name="koordinator" id="koordinator" class="form-control">
-								<option value="">--Pilih Koordinator--</option>
-								<?php foreach ($koordinator as $k) { ?>
-									<option value="<?= $k->user_id ?>"><?= $k->name ?></option>
-								<?php } ?>
-							</select>
+					<div class="card-header">
+						Informasi Umum
+					</div>
+					<div class="card-body">
+						<div class="my-3 mx-4">
+							<div class="form-group">
+								<label for="no_survey">Nomor Survey</label>
+								<input type="text" class="form-control" name="no_survey" id="no_survey" value="<?= $survey ?>" readonly>
+							</div>
+							<div class="form-group">
+								<label for="tanggal_survey">Tanggal Survey</label>
+								<input type="date" class="form-control" name="tanggal_survey" id="tanggal_survey" value="<?= date('Y-m-d') ?>">
+							</div>
+							<div class="form-group">
+								<label for="jam_survey">Jam Survey</label>
+								<input type="time" name="jam_survey" id="jam_survey" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="username">Nama Pewawancara/Enumerator</label>
+								<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
+								<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
+							</div>
+							<div class="form-group">
+								<label for="supervisor">Nama Supervisor</label>
+								<select name="supervisor" id="supervisor" class="form-control">
+									<option value="">--Pilih Supervisor--</option>
+									<?php
+									foreach ($supervisor as $s) {
+										echo '<option value="' . $s->user_id . '">' . $s->name . '</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="koordinator">Koordinator Kecamatan</label>
+								<select name="koordinator" id="koordinator" class="form-control">
+									<option value="">--Pilih Koordinator--</option>
+									<?php foreach ($koordinator as $k) { ?>
+										<option value="<?= $k->user_id ?>"><?= $k->name ?></option>
+									<?php } ?>
+								</select>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="card my-5">
-					<div class="my-3 mx-4">
-						<div class="form-group">
-							<label for="kabupaten">Kabupaten/Kota</label>
-							<select name="kabupaten" id="kabupaten" class="form-control">
-								<option value="">--Pilih Kabupaten--</option>
-								<?php
-								foreach ($regencies as $r) {
-									echo '<option value="' . $r->id . '">' . $r->name . '</option>';
-								}
-								?>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<label for="kecamatan">Kecamatan</label>
-							<select name="kecamatan" id="kecamatan" class="form-control">
-								<option value="">--Pilih Kecamatan--</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<label for="nkk">NKK</label>
-							<input type="text" class="form-control" name="nkk" id="nkk">
-						</div>
-						<div class="form-group">
-							<label for="nik">NIK Kepala Rumah Tangga</label>
-							<input type="text" class="form-control" name="nik" id="nik">
-						</div>
-						<div class="form-group">
-							<label for="nama_kepala">Nama Kepala Rumah Tangga</label>
-							<input type="text" class="form-control" name="nama_kepala" id="nama_kepala" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="jumlah_keluarga">Jumlah Keluarga Dalam Rumah</label>
-							<input type="number" class="form-control" name="jumlah_keluarga" id="jumlah_keluarga">
-						</div>
-						<div class="form-group">
-							<label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
-							<div class="row">
-								<div class="col-md-3">Laki</div>
-								<input type="number" class="form-control col-md-4" name="jumlah_laki" id="jumlahlaki">
+					<div class="card-header">
+						A. Informasi Responden
+					</div>
+					<div class="card-body">
+						<div class="my-3 mx-4">
+							<div class="form-group">
+								<label for="kabupaten">Kabupaten/Kota</label>
+								<select name="kabupaten" id="kabupaten" class="form-control">
+									<option value="">--Pilih Kabupaten--</option>
+									<?php
+									foreach ($regencies as $r) {
+										echo '<option value="' . $r->id . '">' . $r->regency_name . '</option>';
+									}
+									?>
+								</select>
 							</div>
-							<div class="row mt-2">
-								<div class="col-md-3">Perempuan</div>
-								<input type="number" class="form-control col-md-4" name="jumlah_pr" id="jumlahpr">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="responden">Nama Responden</label>
-							<input type="text" class="form-control" name="responden" id="responden" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="hubungan">Hubungan Responden dengan Kepala Keluarga</label>
-							<div class="custom-control custom-radio">
-								<input type="radio" id="istri" name="hubungan" class="custom-control-input" value="1">
-								<label class="custom-control-label" for="istri">Istri</label>
-							</div>
-							<div class="custom-control custom-radio">
-								<input type="radio" id="anakPr" name="hubungan" class="custom-control-input" value="2">
-								<label class="custom-control-label" for="anakPr">Anak perempuan yang sudah menikah</label>
-							</div>
-							<div class="custom-control custom-radio">
-								<input type="radio" id="kepala" name="hubungan" class="custom-control-input" value="3">
-								<label class="custom-control-label" for="kepala">Kepala keluarga</label>
-							</div>
-						</div>
 
-						<div class="form-group">
-							<label for="alamat">Alamat</label>
-							<input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="rt">RT</label>
-							<input type="number" class="form-control" name="rt" id="rt" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="rw">RW</label>
-							<input type="number" class="form-control" name="rw" id="rw" autocomplete="off">
-						</div>
-						<div class="form-group">
-							<label for="no_rmh">No Rumah</label>
-							<input type="text" class="form-control" name="no_rmh" id="no_rmh" autocomplete="off">
-						</div>
+							<div class="form-group">
+								<label for="kecamatan">Kecamatan</label>
+								<select name="kecamatan" id="kecamatan" class="form-control">
+									<option value="">--Pilih Kecamatan--</option>
+								</select>
+							</div>
 
+							<div class="form-group">
+								<label for="nkk">NKK</label>
+								<input type="text" class="form-control" name="nkk" id="nkk">
+							</div>
+							<div class="form-group">
+								<label for="nik">NIK Kepala Rumah Tangga</label>
+								<input type="text" class="form-control" name="nik" id="nik">
+							</div>
+							<div class="form-group">
+								<label for="nama_kepala">Nama Kepala Rumah Tangga</label>
+								<input type="text" class="form-control" name="nama_kepala" id="nama_kepala" autocomplete="off">
+							</div>
+							<div class="form-group">
+								<label for="jumlah_keluarga">Jumlah Keluarga Dalam Rumah</label>
+								<input type="number" class="form-control" name="jumlah_keluarga" id="jumlah_keluarga">
+							</div>
+							<div class="form-group">
+								<label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
+								<div class="row">
+									<div class="col-md-3">Laki</div>
+									<input type="number" class="form-control col-md-4" name="jumlah_laki" id="jumlahlaki">
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-3">Perempuan</div>
+									<input type="number" class="form-control col-md-4" name="jumlah_pr" id="jumlahpr">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="responden">Nama Responden</label>
+								<input type="text" class="form-control" name="responden" id="responden" autocomplete="off">
+							</div>
+							<div class="form-group">
+								<label for="hubungan">Hubungan Responden dengan Kepala Keluarga</label>
+								<div class="custom-control custom-radio">
+									<input type="radio" id="istri" name="hubungan" class="custom-control-input" value="1">
+									<label class="custom-control-label" for="istri">Istri</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" id="anakPr" name="hubungan" class="custom-control-input" value="2">
+									<label class="custom-control-label" for="anakPr">Anak perempuan yang sudah menikah</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" id="kepala" name="hubungan" class="custom-control-input" value="3">
+									<label class="custom-control-label" for="kepala">Kepala keluarga</label>
+								</div>
+							</div>
 
+							<div class="form-group">
+								<label for="alamat">Alamat</label>
+								<input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
+							</div>
+							<div class="form-group">
+								<label for="rt">RT</label>
+								<input type="number" class="form-control" name="rt" id="rt" autocomplete="off">
+							</div>
+							<div class="form-group">
+								<label for="rw">RW</label>
+								<input type="number" class="form-control" name="rw" id="rw" autocomplete="off">
+							</div>
+							<div class="form-group">
+								<label for="no_rmh">No Rumah</label>
+								<input type="text" class="form-control" name="no_rmh" id="no_rmh" autocomplete="off">
+							</div>
+
+						</div>
 					</div>
 				</div>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
-					Next
+					Submit
 				</button>
 
 				<!-- Central Modal large -->

@@ -6,8 +6,11 @@
 			</div>
 			<div class="col-sm-6">
 				<ol class="float-sm-right">
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i> Tambah Kategori</button>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i> Tambah Pertanyaan</button>
 				</ol>
+			</div>
+			<div class="col-sm-12 mt-3">
+				<?= $this->session->flashdata('message'); ?>
 			</div>
 		</div>
 	</div>
@@ -24,6 +27,7 @@
 								<tr>
 									<th>No</th>
 									<th>Kode Kategori</th>
+									<th>Id</th>
 									<th>Pertanyaan</th>
 									<th>Action</th>
 								</tr>
@@ -34,8 +38,11 @@
 									<tr>
 										<td><?= $index++ ?></td>
 										<td><?= $p->qcategory_code ?></td>
-										<td><?= $p->question ?></td>
-										<td>edit</td>
+										<td><?= $p->id ?></td>
+										<td><?= $p->question_name ?></td>
+										<td>
+											<a href="<?= base_url('pertanyaan/delete/' . $p->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+										</td>
 									</tr>
 								<?php } ?>
 							</tbody>
@@ -43,6 +50,7 @@
 								<tr>
 									<th>No</th>
 									<th>Kode Kategori</th>
+									<th>Id</th>
 									<th>Pertanyaan</th>
 									<th>Action</th>
 								</tr>
@@ -59,32 +67,33 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Input Pertanyaan</h4>
+				<h4 class="modal-title">Form Pertanyaan</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form>
+			<form action="<?= base_url('pertanyaan/process') ?>" method="POST">
 				<div class="modal-body">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="kode_kategori">Kode Kategori</label>
-							<select name="kode_kategori" id="kode_kategori" class="form-control" required>
+							<label for="id_kategori">Kode Kategori</label>
+							<input type="hidden" name="id">
+							<select name="id_kategori" class="form-control" required>
 								<option value="">--Pilih Kategori--</option>
 								<?php foreach ($kategori as $k) { ?>
-									<option value="<?= $k->category_code ?>"><?= $k->category_code ?></option>
+									<option value="<?= $k->id ?>"><?= $k->category_code ?></option>
 								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="pertanyaan">Pertanyaan</label>
-							<input type="text" name="pertanyaan" class="form-control" id="pertanyaan" required>
+							<input type="text" name="pertanyaan" class="form-control" required>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn-primary" name="add" id="submit">Save</button>
 				</div>
 			</form>
 		</div>

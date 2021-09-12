@@ -16,6 +16,7 @@ class Kategori extends CI_Controller
 	{
 
 		$data = array(
+			'title' => 'Kategori Pertanyaan',
 			'kategori' => $this->KategoriModel->get_kategori(),
 		);
 

@@ -20,10 +20,10 @@ class SurveyModel extends CI_Model
 	function insert_jawaban($no_survey, $id_pertanyaan, $jawaban, $ket)
 	{
 		$answer = array(
-			'id_survey'		=> $no_survey,
-			'id_pertanyaan' => $id_pertanyaan,
-			'jawaban' 		=> $jawaban,
-			'ket'			=> $ket = '' ? null : $ket,
+			'survey_id'		=> $no_survey,
+			'question_id' => $id_pertanyaan,
+			'answer' 		=> $jawaban,
+			'description'			=> $ket = '' ? null : $ket,
 		);
 
 		$this->db->insert('survey_result', $answer);

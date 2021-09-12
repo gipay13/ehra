@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Ehra | Admin Page</title>
+	<title>Ehra | <?= $title ?></title>
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -160,7 +160,6 @@
 				"responsive": true,
 				"lengthChange": false,
 				"autoWidth": false,
-				"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
 			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
 		});
 	</script>

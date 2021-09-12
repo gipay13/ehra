@@ -20,7 +20,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<!-- B -->
@@ -128,7 +128,7 @@
 												<?php } ?>
 												<?php if ($p->id == 7) { ?>
 													<div class="col-sm-10">
-														<input type="text" class="form-control currency" id="rp" name="answer<?= $p->id; ?>" placeholder=" ex. Rp. 1.000.000">
+														<input type="text" class="form-control currency" id="rp" name="answer<?= $p->id; ?>" placeholder="Rp. 1.000.000">
 													</div>
 												<?php } ?>
 												<?php if ($p->id == 8) { ?>
@@ -187,7 +187,7 @@
 												<?php } ?>
 												<?php if ($p->id == 11) { ?>
 													<div>
-														<input type="text" class="form-control" id="sejakTahun" name="answer<?= $p->id; ?>" placeholder="ex. Tahun 1990">
+														<input type="text" class="form-control" id="sejakTahun" name="answer<?= $p->id; ?>" placeholder="Tahun 1990">
 													</div>
 												<?php } ?>
 												<?php if ($p->id == 12) { ?>
@@ -202,44 +202,60 @@
 														</div>
 													</div>
 												<?php } ?>
-												<?php if ($p->id == 128) { ?>
+												<?php if ($p->id == 13) { ?>
 													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
+														<div class="form-group row">
+															<label for="kurang2th" class="col-sm-5 col-form-label">Kurang dari 2 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="kurang2th" name="answer<?= $p->id; ?>A">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for="2-5th" class="col-sm-5 col-form-label">2-5 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="2-5th" name="answer<?= $p->id; ?>B">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for="6-12th" class="col-sm-5 col-form-label">6-12 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="6-12th" name="answer<?= $p->id; ?>C">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for=">12th" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id=">12th" name="answer<?= $p->id; ?>D">
+															</div>
+														</div>
 													</div>
 												<?php } ?>
-												<?php if ($p->id == 129) { ?>
+												<?php if ($p->id == 14) { ?>
 													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 131) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 132) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 133) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 134) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 136) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 137) { ?>
-													<div>
-														<input type="text" class="form-control" name="answer<?= $p->id; ?>" placeholder="ex. 1 Orang, Jika tidak ada tulis 0 Orang">
+														<div class="form-group row">
+															<label for="kurang2" class="col-sm-5 col-form-label">Kurang dari 2 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="kurang2" name="answer<?= $p->id; ?>A">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for="2-5" class="col-sm-5 col-form-label">2-5 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="2-5" name="answer<?= $p->id; ?>B">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for="6-12" class="col-sm-5 col-form-label">6-12 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id="6-12" name="answer<?= $p->id; ?>C">
+															</div>
+														</div>
+														<div class="form-group row">
+															<label for=">12" class="col-sm-5 col-form-label">Lebih dari 12 tahun</label>
+															<div class="col-sm-7">
+																<input type="text" class="form-control" id=">12" name="answer<?= $p->id; ?>D">
+															</div>
+														</div>
 													</div>
 												<?php } ?>
 											</td>
@@ -270,7 +286,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 15) { ?>
@@ -314,7 +330,7 @@
 														</div>
 														<div class="custom-control custom-checkbox">
 															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Lainnya," value="9">
-															<label class="custom-control-label" for="Lainnya,">Lainnya</label>
+															<label class="custom-control-label" for="Lainnya,">Lainnya, sebutkan:</label>
 														</div>
 													</div>
 												<?php } ?>
@@ -538,7 +554,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 25) { ?>
@@ -1141,7 +1157,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 49) { ?>
@@ -1298,182 +1314,6 @@
 														</div>
 													</div>
 												<?php } ?>
-												<?php if ($p->id == 138) { ?>
-													<div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d1" name="answer<?= $p->id; ?>" class="custom-control-input" value="1">
-															<label class="custom-control-label" for="d1">Saluran terbuka kesungai/kanal/kolam/selokan jalan, halaman, selokan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d2" name="answer<?= $p->id; ?>" class="custom-control-input" value="2">
-															<label class="custom-control-label" for="d2">Ke jalan, halaman, kebun</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d3" name="answer<?= $p->id; ?>" class="custom-control-input" value="3">
-															<label class="custom-control-label" for="d3">Saluran terbuka ke cubluk</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d4" name="answer<?= $p->id; ?>" class="custom-control-input" value="4">
-															<label class="custom-control-label" for="d4">Saluran terbuka ke kolam/rawa/genangan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d5" name="answer<?= $p->id; ?>" class="custom-control-input" value="5">
-															<label class="custom-control-label" for="d5">Saluran terbuka ke tangki septik</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d6" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="d6">Saluran tertutup ke riool, selokan, sungai</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d7" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="d7">Sumur resapan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d8" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="d8">Pipa saluran pembuangan kotoran/ipal terpusat</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d9" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="d9">Pipa IPAL Komunal (contoh : Sanimas)</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="d10" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="d10">Tidak tahu</label>
-														</div>
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 139) { ?>
-													<div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km1" name="answer<?= $p->id; ?>" class="custom-control-input" value="1">
-															<label class="custom-control-label" for="km1">Saluran terbuka kesungai/kanal/kolam/selokan jalan, halaman, selokan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km2" name="answer<?= $p->id; ?>" class="custom-control-input" value="2">
-															<label class="custom-control-label" for="km2">Ke jalan, halaman, kebun</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km3" name="answer<?= $p->id; ?>" class="custom-control-input" value="3">
-															<label class="custom-control-label" for="km3">Saluran terbuka ke cubluk</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km4" name="answer<?= $p->id; ?>" class="custom-control-input" value="4">
-															<label class="custom-control-label" for="km4">Saluran terbuka ke kolam/rawa/genangan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km5" name="answer<?= $p->id; ?>" class="custom-control-input" value="5">
-															<label class="custom-control-label" for="km5">Saluran terbuka ke tangki septik</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km6" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="km6">Saluran tertutup ke riool, selokan, sungai</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km7" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="km7">Sumur resapan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km8" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="km8">Pipa saluran pembuangan kotoran/ipal terpusat</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km9" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="km9">Pipa IPAL Komunal (contoh : Sanimas)</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="km10" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="km10">Tidak tahu</label>
-														</div>
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 140) { ?>
-													<div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp1" name="answer<?= $p->id; ?>" class="custom-control-input" value="1">
-															<label class="custom-control-label" for="tcp1">Saluran terbuka kesungai/kanal/kolam/selokan jalan, halaman, selokan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp2" name="answer<?= $p->id; ?>" class="custom-control-input" value="2">
-															<label class="custom-control-label" for="tcp2">Ke jalan, halaman, kebun</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp3" name="answer<?= $p->id; ?>" class="custom-control-input" value="3">
-															<label class="custom-control-label" for="tcp3">Saluran terbuka ke cubluk</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp4" name="answer<?= $p->id; ?>" class="custom-control-input" value="4">
-															<label class="custom-control-label" for="tcp4">Saluran terbuka ke kolam/rawa/genangan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp5" name="answer<?= $p->id; ?>" class="custom-control-input" value="5">
-															<label class="custom-control-label" for="tcp5">Saluran terbuka ke tangki septik</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp6" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="tcp6">Saluran tertutup ke riool, selokan, sungai</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp7" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="tcp7">Sumur resapan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp8" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="tcp8">Pipa saluran pembuangan kotoran/ipal terpusat</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp9" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="tcp9">Pipa IPAL Komunal (contoh : Sanimas)</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="tcp10" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="tcp10">Tidak tahu</label>
-														</div>
-													</div>
-												<?php } ?>
-												<?php if ($p->id == 141) { ?>
-													<div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w1" name="answer<?= $p->id; ?>" class="custom-control-input" value="1">
-															<label class="custom-control-label" for="w1">Saluran terbuka kesungai/kanal/kolam/selokan jalan, halaman, selokan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w2" name="answer<?= $p->id; ?>" class="custom-control-input" value="2">
-															<label class="custom-control-label" for="w2">Ke jalan, halaman, kebun</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w3" name="answer<?= $p->id; ?>" class="custom-control-input" value="3">
-															<label class="custom-control-label" for="w3">Saluran terbuka ke cubluk</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w4" name="answer<?= $p->id; ?>" class="custom-control-input" value="4">
-															<label class="custom-control-label" for="w4">Saluran terbuka ke kolam/rawa/genangan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w5" name="answer<?= $p->id; ?>" class="custom-control-input" value="5">
-															<label class="custom-control-label" for="w5">Saluran terbuka ke tangki septik</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w6" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="w6">Saluran tertutup ke riool, selokan, sungai</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w7" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="w7">Sumur resapan</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w8" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="w8">Pipa saluran pembuangan kotoran/ipal terpusat</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w9" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="w9">Pipa IPAL Komunal (contoh : Sanimas)</label>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" id="w10" name="answer<?= $p->id; ?>" class="custom-control-input" value="6">
-															<label class="custom-control-label" for="w10">Tidak tahu</label>
-														</div>
-													</div>
-												<?php } ?>
 											</td>
 										</tr>
 									<?php } ?>
@@ -1503,92 +1343,10 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 58) { ?>
-													<div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airmerk1" value="1">
-															<label class="custom-control-label" for="airmerk1">Air kemasan bermerk</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airisi1" value="2">
-															<label class="custom-control-label" for="airisi1">Air isi ulang – membeli dari penjual air isi ulang</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airledeng1" value="3">
-															<label class="custom-control-label" for="airledeng1">Air Ledeng dari PDAM/Proyek/HIPPAM sendiri</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airpdam1" value="4">
-															<label class="custom-control-label" for="airpdam1">Air ledeng dari PDAM/Proyek/HIPPAM tetangga</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="aireceran1" value="5">
-															<label class="custom-control-label" for="aireceran1">Air ledeng eceran dari PDAM/Proyek/HIPPAM</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airhidran1" value="6">
-															<label class="custom-control-label" for="airhidran1">Air dari hidran umum – PDAM/HIPPAM/Proyek</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airkranumum1" value="7">
-															<label class="custom-control-label" for="airkranumum1">Air dari kran umum – PDAM/HIPPAM/Proyek</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airterminal1" value="8">
-															<label class="custom-control-label" for="airterminal1">Air dari terminal air_PDAM/HIPPAM/Proyek</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airkapal1" value="9">
-															<label class="custom-control-label" for="airkapal1">Air dari kapal air</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airsumurbor1" value="10">
-															<label class="custom-control-label" for="airsumurbor1">Air dari sumur bor dng pompa tangan/listrik/mesin</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airgalisendiri1" value="11">
-															<label class="custom-control-label" for="airgalisendiri1">Air dari sumur gali terlindungi sendiri</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airgalitetangga1" value="12">
-															<label class="custom-control-label" for="airgalitetangga1">Air dari sumur gali terlindungi tetangga</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airtidaksendiri1" value="13">
-															<label class="custom-control-label" for="airtidaksendiri1">Air dari sumur gali tidak terlindungi sendiri</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airtidaktetangga1" value="14">
-															<label class="custom-control-label" for="airtidaktetangga1">Air dari sumur gali tidak terlindungi tetangga</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airmata1" value="15">
-															<label class="custom-control-label" for="airmata1">Air dari Mata air terlindungi</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airmatatidak1" value="16">
-															<label class="custom-control-label" for="airmatatidak1">Air dari Mata air tidak terlindungi</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airujan1" value="17">
-															<label class="custom-control-label" for="airujan1">Air hujan (PAH/Penampungan Air Hujan)</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airsungai1" value="18">
-															<label class="custom-control-label" for="airsungai1">Air dari sungai</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="airdanau1" value="19">
-															<label class="custom-control-label" for="airdanau1">Air dari waduk/danau</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="lain41" value="20">
-															<label class="custom-control-label" for="lain41">Lainnya</label>
-														</div>
-													</div>
 												<?php } ?>
 												<?php if ($p->id == 59) { ?>
 													<div>
@@ -1789,32 +1547,6 @@
 													</div>
 												<?php } ?>
 												<?php if ($p->id == 70) { ?>
-													<div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Keruh" value="1">
-															<label class="custom-control-label" for="Keruh">Keruh</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Berwarna" value="2">
-															<label class="custom-control-label" for="Berwarna">Berwarna</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Berasa" value="3">
-															<label class="custom-control-label" for="Berasa">Berasa</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Berbusa" value="4">
-															<label class="custom-control-label" for="Berbusa">Berbusa</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Berbau" value="5">
-															<label class="custom-control-label" for="Berbau">Berbau</label>
-														</div>
-														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="Tidaksemua" value="6">
-															<label class="custom-control-label" for="Tidaksemua">Tidak semua</label>
-														</div>
-													</div>
 												<?php } ?>
 												<?php if ($p->id == 71) { ?>
 													<div>
@@ -1993,7 +1725,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 78) { ?>
@@ -2165,7 +1897,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 82) { ?>
@@ -2261,7 +1993,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 84) { ?>
@@ -2537,7 +2269,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 92) { ?>
@@ -2642,7 +2374,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 95) { ?>
@@ -2835,7 +2567,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 104) { ?>
@@ -2968,7 +2700,7 @@
 									$data = $this->CI->pertanyaan($k->id);
 									foreach ($data as $p) { ?>
 										<tr>
-											<td class="col-md-5"><?= $p->question_name; ?></td>
+											<td class="col-md-5"><?= $p->question; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
 												<?php if ($p->id == 107) { ?>
@@ -3196,8 +2928,8 @@
 															<label class="custom-control-label" for="dapur2">Di dekat dapur</label>
 														</div>
 														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="dkm2" value="3">
-															<label class="custom-control-label" for="dkm2">Di dekat kamar mandi</label>
+															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="km2" value="3">
+															<label class="custom-control-label" for="km2">Di dekat kamar mandi</label>
 														</div>
 														<div class="custom-control custom-checkbox">
 															<input type="checkbox" class="custom-control-input" name="answer<?= $p->id; ?>[]" id="bakair" value="4">

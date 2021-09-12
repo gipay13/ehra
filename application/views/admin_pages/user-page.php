@@ -98,7 +98,7 @@
 							<select name="level" id="level" class="form-control" required>
 								<option value="">--Pilih Akses--</option>
 								<?php foreach ($level as $l) { ?>
-									<option value="<?= $l->id ?>"><?= $l->name ?></option>
+									<option value="<?= $l->id ?>"><?= $l->level_name ?></option>
 								<?php } ?>
 							</select>
 						</div>
@@ -107,7 +107,7 @@
 							<select name="puskesmas" id="puskesmas" class="form-control">
 								<option value="">--Pilih Puskesmas--</option>
 								<?php foreach ($puskesmas as $p) { ?>
-									<option value="<?= $p->id ?>"><?= $p->nm_puskesmas ?></option>
+									<option value="<?= $p->id ?>"><?= $p->puskesmas_name ?></option>
 								<?php } ?>
 							</select>
 						</div>

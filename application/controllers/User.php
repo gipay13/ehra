@@ -13,7 +13,9 @@ class User extends CI_Controller
 		if (
 			$this->session->userdata('level') == 2 ||
 			$this->session->userdata('level') == 3 ||
-			$this->session->userdata('level') == 4
+			$this->session->userdata('level') == 4 ||
+			$this->session->userdata('level') == 5 ||
+			$this->session->userdata('level') == 6
 		)
 			redirect('admin/dashboard');
 	}

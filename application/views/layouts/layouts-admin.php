@@ -84,18 +84,20 @@
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link">
-								<i class="nav-icon fas fa-question"></i>
-								<p>Pertanyaan</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?= base_url('admin/kategori') ?>" class="nav-link">
-								<i class="nav-icon fas fa-object-group"></i>
-								<p>Kategori Pertanyan</p>
-							</a>
-						</li>
+						<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
+							<li class="nav-item">
+								<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link">
+									<i class="nav-icon fas fa-question"></i>
+									<p>Pertanyaan</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?= base_url('admin/kategori') ?>" class="nav-link">
+									<i class="nav-icon fas fa-object-group"></i>
+									<p>Kategori Pertanyan</p>
+								</a>
+							</li>
+						<?php } ?>
 						<li class="nav-item">
 							<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
 								<i class="nav-icon fas fa-poll"></i>

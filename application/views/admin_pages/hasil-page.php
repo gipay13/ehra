@@ -4,11 +4,13 @@
 			<div class="col-sm-6">
 				<h1 class="m-0">Hasil Survey</h1>
 			</div>
-			<div class="col-sm-6">
-				<ol class="float-sm-right">
-					<a href="<?= base_url('responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
-				</ol>
-			</div>
+			<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
+				<div class="col-sm-6">
+					<ol class="float-sm-right">
+						<a href="<?= base_url('responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
+					</ol>
+				</div>
+			<?php } ?>
 			<div class="col-sm-12 mt-3">
 				<?= $this->session->flashdata('message'); ?>
 			</div>
@@ -55,7 +57,9 @@
 										<td><?= $s->alamat ?></td>
 										<td>
 											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
-											<a href="<?= base_url('hasil/delete/' . $s->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+											<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
+												<a href="<?= base_url('hasil/delete/' . $s->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+											<?php } ?>
 										</td>
 									</tr>
 								<?php } ?>

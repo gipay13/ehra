@@ -8,6 +8,12 @@ class Kategori extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('KategoriModel');
+		if (
+			$this->session->userdata('level') == 4 ||
+			$this->session->userdata('level') == 5 ||
+			$this->session->userdata('level') == 6
+		)
+			redirect('admin/dashboard');
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}

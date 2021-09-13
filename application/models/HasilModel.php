@@ -25,7 +25,9 @@ class HasilModel extends CI_Model
 	}
 
 	function get_hasil_laporan($no_survey) {
-		$this->db->where('');
+		$this->db->join('survey', 'survey.no_survey = survey_result.no_survey');
+		$this->db->join('question', 'question.id = survey_result.question_id');
+		$this->db->where('survey_result.no_survey', $no_survey);
 		$query = $this->db->get('survey_result');
 		return $query->result();	
 	}

@@ -42,14 +42,14 @@ class Hasil extends CI_Controller
 	{
 
 		$data = [
-			'laporan' => $this->HasilModel->get_hasil_laporan($no_survey),
+			'laporan' => $this->HasilModel->get_hasil_laporan($no_survey)->result(),
 		];
 
-		//$this->load->view('laporan_pages/laporan_hasil');
-		$this->load->library('pdf');
+		$this->load->view('laporan_pages/laporan_hasil');
+		// $this->load->library('pdf');
 
-		$this->pdf->setPaper('A4', 'potrait');
-		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
-		$this->pdf->load_view('laporan_pages/laporan_hasil', $data);
+		// $this->pdf->setPaper('A4', 'potrait');
+		// $this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
+		// $this->pdf->load_view('laporan_pages/laporan_hasil', $data);
 	}
 }

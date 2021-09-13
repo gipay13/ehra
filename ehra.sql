@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Sep 2021 pada 05.19
+-- Waktu pembuatan: 13 Sep 2021 pada 04.35
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -8269,7 +8269,8 @@ INSERT INTO `users` (`user_id`, `name`, `username`, `password`, `level_id`, `pus
 (3, 'Admin EHRA', 'admin', '$2y$10$4Pw6LN3gdeXgjGX5BjW.AOdtyMOHFlajGsafpEGg06grVC24If4fO', 1, NULL, '2021-07-31', '2021-07-31'),
 (9, 'Asep', 'koor1', '$2y$10$o8fAZgSPOB3wIk28pkT9.e/IcrAJx6C.zYkFPlhjKcWwoSrjUAhxK', 4, NULL, '2021-09-09', '2021-09-09'),
 (10, 'Udin', 'supervisor1', '$2y$10$ESlXnL4E2cdFGATevxl5zOkdGj28x8/z4EfFE/XNHwRzI701s9952', 6, NULL, '2021-09-09', '2021-09-09'),
-(11, 'Bahlul', 'petugas1', '$2y$10$WEhdYRFB0WefDOD1FccKr.XUPN8A4Sg8/EQwVnkHMsHSQ3Ms3D20m', 2, 7, '2021-09-10', '2021-09-10');
+(11, 'Bahlul', 'petugas1', '$2y$10$WEhdYRFB0WefDOD1FccKr.XUPN8A4Sg8/EQwVnkHMsHSQ3Ms3D20m', 2, 7, '2021-09-10', '2021-09-10'),
+(13, 'kepala puskesmas', 'kepala1', '$2y$10$JZv7TfVpTCWwi91F3uwCDuyA36ZQTp8IaZ7MBmO2AqAphoVoK28ha', 3, 9, '2021-09-13', '2021-09-13');
 
 -- --------------------------------------------------------
 
@@ -89011,7 +89012,7 @@ ALTER TABLE `survey_result`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

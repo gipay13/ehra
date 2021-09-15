@@ -53,7 +53,7 @@
 										<td><?= $s->nkk ?></td>
 										<td><?= $s->nik ?></td>
 										<td><?= $s->nama_kepala ?></td>
-										<td><?= $s->kecamatan ?></td>
+										<td><?= $s->district_name ?></td>
 										<td><?= $s->alamat ?></td>
 										<td>
 											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
@@ -78,6 +78,9 @@
 									<th>Aksi</th>
 								</tr>
 							</tfoot>
+							<pre>
+								<?= print_r($survey) ?>
+							</pre>
 						</table>
 					</div>
 				</div>

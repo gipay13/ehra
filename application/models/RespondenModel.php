@@ -20,7 +20,7 @@ class RespondenModel extends CI_Model
 
 		$output = '<option value="">--Pilih Kecamatan--</option>';
 		foreach ($query->result() as $d) {
-			$output .= '<option value="' . $d->district_name . '">' . $d->district_name . '</option>';
+			$output .= '<option value="' . $d->id . '">' . $d->district_name . '</option>';
 		}
 
 		return $output;
@@ -54,7 +54,7 @@ class RespondenModel extends CI_Model
 			'jml_pr'				=> $responden['jumlah_pr'],
 			'nama_responden'		=> $responden['responden'],
 			'hubungan_responden'	=> $responden['hubungan'],
-			'kecamatan'				=> $responden['kecamatan'],
+			'district_id'				=> $responden['kecamatan'],
 			'alamat'				=> $responden['alamat'],
 			'rt'					=> $responden['rt'],
 			'rw'					=> $responden['rw'],

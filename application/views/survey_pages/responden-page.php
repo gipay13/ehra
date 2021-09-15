@@ -93,11 +93,11 @@
 								<label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
 								<div class="row">
 									<div class="col-md-3">Laki</div>
-									<input type="number" class="form-control col-md-4" name="jumlah_laki" id="jumlahlaki">
+									<input type="text" class="form-control col-md-4" name="jumlah_laki" id="jumlahlaki" placeholder="ex. 1 Orang">
 								</div>
 								<div class="row mt-2">
 									<div class="col-md-3">Perempuan</div>
-									<input type="number" class="form-control col-md-4" name="jumlah_pr" id="jumlahpr">
+									<input type="text" class="form-control col-md-4" name="jumlah_pr" id="jumlahpr" placeholder="ex. 1 Orang">
 								</div>
 							</div>
 							<div class="form-group">
@@ -134,7 +134,7 @@
 							</div>
 							<div class="form-group">
 								<label for="no_rmh">No Rumah</label>
-								<input type="text" class="form-control" name="no_rmh" id="no_rmh" autocomplete="off">
+								<input type="text" class="form-control" name="no_rmh" id="no_rmh" autocomplete="off" placeholder="Tulis dengan Blok jika ada ex. B-12">
 							</div>
 
 						</div>

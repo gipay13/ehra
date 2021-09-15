@@ -6,14 +6,14 @@ class SurveyModel extends CI_Model
 	function kategori_pertanyaan($kode)
 	{
 		$this->db->where('category_code', $kode);
-		$query = $this->db->get('question_category');
+		$query = $this->db->get('categories');
 		return $query->result();
 	}
 
 	function pertanyaan($id)
 	{
 		$this->db->where('qcategory_id', $id);
-		$query = $this->db->get('question');
+		$query = $this->db->get('questions');
 		return $query->result();
 	}
 
@@ -26,6 +26,6 @@ class SurveyModel extends CI_Model
 			'description'			=> $ket = '' ? null : $ket,
 		);
 
-		$this->db->insert('survey_result', $answer);
+		$this->db->insert('results', $answer);
 	}
 }

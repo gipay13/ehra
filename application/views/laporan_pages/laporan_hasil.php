@@ -93,7 +93,7 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 		<tr>
-			<td style="text-align: center; background-color: #2985B4;">Informasi Responden</td>
+			<td style="text-align: center; background-color: #2985B4;">Identitas Responden</td>
 		</tr>
 	</table>
 	<table class="table">
@@ -127,7 +127,7 @@
 		</tr>
 		<tr>
 			<td width="50%">Hubungan Responden</td>
-			<td width="50%"><?= $survey->hubungan_responden ?></td>
+			<td width="50%"><?= $survey->hubungan_responden == 1 ? "Istri" : ($survey->hubungan_responden == 2 ? "Anak perempuan yang sudah menikah" : "Kepala keluarga"); ?></td>
 		</tr>
 		<tr>
 			<td width="50%">Alamat</td>
@@ -136,6 +136,14 @@
 		<tr>
 			<td width="50%">RT</td>
 			<td width="50%"><?= $survey->rt ?></td>
+		</tr>
+		<tr>
+			<td width="50%">RW</td>
+			<td width="50%"><?= $survey->rw ?></td>
+		</tr>
+		<tr>
+			<td width="50%">Nomor Rumah</td>
+			<td width="50%"><?= $survey->no_rmh ?></td>
 		</tr>
 	</table>
 	<?php foreach ($kategori as $k) { ?>
@@ -148,7 +156,7 @@
 			</tr>
 		</table>
 		<table class="table">
-			<?php $jawaban = $this->CI->jawaban($survey->no_survey, $k->id) ?>
+			<?php $jawaban = $this->CI->get_hasil_jawaban($survey->no_survey, $k->id) ?>
 			<?php foreach ($jawaban as $j) { ?>
 				<tr>
 					<td width="40%"><?= $j->question_name ?></td>

@@ -8,7 +8,7 @@ class Hasil extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('HasilModel');
+		$this->load->model(['HasilModel', 'KategoriModel']);
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('username'))
 			redirect('auth');
@@ -40,7 +40,7 @@ class Hasil extends CI_Controller
 		}
 	}
 
-	public function jawaban($no_survey, $qcategory_id)
+	public function get_hasil_jawaban($no_survey, $qcategory_id)
 	{
 		$data = $this->HasilModel->get_hasil_jawaban($no_survey, $qcategory_id);
 
@@ -52,14 +52,14 @@ class Hasil extends CI_Controller
 
 		$data = [
 			'survey' => $this->HasilModel->get_hasil_survey($no_survey),
-			'kategori' => $this->HasilModel->kategori_pertanyaan(),
+			'kategori' => $this->KategoriModel->get_kategori(),
 		];
 
-		//$this->load->view('laporan_pages/laporan_hasil', $data);
-		$this->load->library('pdf');
+		$this->load->view('laporan_pages/laporan_hasil', $data);
+		// $this->load->library('pdf');
 
-		$this->pdf->setPaper('A4', 'potrait');
-		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
-		$this->pdf->load_view('laporan_pages/laporan_hasil', $data);
+		// $this->pdf->setPaper('A4', 'potrait');
+		// $this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
+		// $this->pdf->load_view('laporan_pages/laporan_hasil', $data);
 	}
 }

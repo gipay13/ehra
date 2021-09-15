@@ -13,13 +13,13 @@ class UserModel extends CI_Model
 	function get_level()
 	{
 		$this->db->order_by('id', 'asc');
-		$query = $this->db->get('level');
+		$query = $this->db->get('levels');
 		return $query->result();
 	}
 
 	function get_user($level = null)
 	{
-		$this->db->join('level', 'level.id = users.level_id');
+		$this->db->join('levels', 'levels.id = users.level_id');
 		$this->db->join('puskesmas', 'puskesmas.id = users.puskesmas_id', 'left');
 		if ($level != null) {
 			$this->db->where('level_id', $level);

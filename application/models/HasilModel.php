@@ -37,18 +37,11 @@ class HasilModel extends CI_Model
 
 	function get_hasil_jawaban($no_survey, $qcategory_id)
 	{
-		$this->db->join('question', 'question.id = survey_result.question_id');
-		$this->db->join('question_category', 'question_category.id = question.qcategory_id');
-		$this->db->where('question_category.id', $qcategory_id);
-		$this->db->where('survey_result.no_survey', $no_survey);
-		$query = $this->db->get('survey_result');
-		return $query->result();
-	}
-
-	function kategori_pertanyaan()
-	{
-		$this->db->order_by('created_at', 'asc');
-		$query = $this->db->get('question_category');
+		$this->db->join('questions', 'questions.id = results.question_id');
+		$this->db->join('categories', 'categories.id = questions.qcategory_id');
+		$this->db->where('categories.id', $qcategory_id);
+		$this->db->where('results.no_survey', $no_survey);
+		$query = $this->db->get('results');
 		return $query->result();
 	}
 }

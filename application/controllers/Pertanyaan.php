@@ -23,7 +23,7 @@ class Pertanyaan extends CI_Controller
 		$data = array(
 			'title' => 'Pertanyaan',
 			'kategori' => $this->KategoriModel->get_kategori(),
-			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan(),
+			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan()->result(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/pertanyaan-page', $data);

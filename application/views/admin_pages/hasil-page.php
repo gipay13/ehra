@@ -24,7 +24,7 @@
 			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
-						<h3 class="card-title">Informasi Responden</h3>
+						<h3 class="card-title">Informasi Survey</h3>
 					</div>
 					<div class="card-body">
 						<table id="table" class="table table-bordered table-striped">
@@ -34,9 +34,8 @@
 									<th>Nomor Survey</th>
 									<th>Tanggal Survey</th>
 									<th>Pewawancara</th>
-									<th>NKK</th>
 									<th>NIK</th>
-									<th>Nama Kepala Keluarga</th>
+									<th>Nama Responden</th>
 									<th>Kecamatan</th>
 									<th>Alamat</th>
 									<th>Aksi</th>
@@ -50,9 +49,8 @@
 										<td><?= $s->no_survey ?></td>
 										<td><?= $s->survey_date ?></td>
 										<td><?= $s->name ?></td>
-										<td><?= $s->nkk ?></td>
 										<td><?= $s->nik ?></td>
-										<td><?= $s->nama_kepala ?></td>
+										<td><?= $s->nama_responden ?></td>
 										<td><?= $s->district_name ?></td>
 										<td><?= $s->alamat ?></td>
 										<td>
@@ -70,17 +68,16 @@
 									<th>Nomor Survey</th>
 									<th>Tanggal Survey</th>
 									<th>Pewawancara</th>
-									<th>NKK</th>
 									<th>NIK</th>
-									<th>Nama Kepala Keluarga</th>
+									<th>Nama Responden</th>
 									<th>Kecamatan</th>
 									<th>Alamat</th>
 									<th>Aksi</th>
 								</tr>
 							</tfoot>
-							<pre>
+							<!-- <pre>
 								<?= print_r($survey) ?>
-							</pre>
+							</pre> -->
 						</table>
 					</div>
 				</div>

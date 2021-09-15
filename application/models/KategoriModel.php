@@ -6,7 +6,7 @@ class KategoriModel extends CI_Model
 	function get_kategori()
 	{
 		$this->db->order_by('created_at', 'asc');
-		$query = $this->db->get('question_category');
+		$query = $this->db->get('categories');
 		return $query->result();
 	}
 
@@ -15,9 +15,9 @@ class KategoriModel extends CI_Model
 		$this->db->select('*');
 		$this->db->where('category_code', $category_code);
 		if ($id != null) {
-			$this->db->where('question_category.id !=', $id);
+			$this->db->where('categories.id !=', $id);
 		}
-		$query = $this->db->get('question_category');
+		$query = $this->db->get('categories');
 
 		return $query->num_rows();
 	}
@@ -31,13 +31,13 @@ class KategoriModel extends CI_Model
 			'updated_at' => date('Y-m-d H:i:s'),
 		];
 
-		$this->db->insert('question_category', $data);
+		$this->db->insert('categories', $data);
 	}
 
 	public function delete_kategori($id)
 	{
 		$this->db->where('id', $id);
-		$this->db->delete('question_category');
+		$this->db->delete('categories');
 	}
 
 	public function update_kategori($update)
@@ -49,6 +49,6 @@ class KategoriModel extends CI_Model
 		];
 
 		$this->db->where('id', $update['id']);
-		$this->db->update('question_category', $data);
+		$this->db->update('categories', $data);
 	}
 }

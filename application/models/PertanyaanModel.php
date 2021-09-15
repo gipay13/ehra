@@ -5,10 +5,10 @@ class PertanyaanModel extends CI_Model
 {
 	function get_pertanyaan()
 	{
-		$this->db->select('question.*, question_category.category_code as qcategory_code');
-		$this->db->join('question_category', 'question_category.id = question.qcategory_id');
-		$query = $this->db->get('question');
-		return $query->result();
+		$this->db->select('questions.*, categories.category_code as qcategory_code');
+		$this->db->join('categories', 'categories.id = questions.qcategory_id');
+		$query = $this->db->get('questions');
+		return $query;
 	}
 
 	public function insert_pertanyaan($insert)
@@ -20,24 +20,13 @@ class PertanyaanModel extends CI_Model
 			'updated_at' => date('Y-m-d'),
 		];
 
-		$this->db->insert('question', $data);
+		$this->db->insert('questions', $data);
 	}
 
 	public function delete_pertanyaan($id)
 	{
 		$this->db->where('id', $id);
-		$this->db->delete('question');
+		$this->db->delete('questions');
 	}
 
-	public function update_pertanyaan($update)
-	{
-		$data = [
-			'qcategory_id' => $update['id_kategori'],
-			'question_name' => $update['pertanyaan'],
-			'updated_at' => date('Y-m-d'),
-		];
-
-		$this->db->where('id', $update['id']);
-		$this->db->update('question', $data);
-	}
 }

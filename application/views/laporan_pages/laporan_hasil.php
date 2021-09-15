@@ -77,15 +77,15 @@
 		</tr>
 		<tr>
 			<td>Koordinator Kecamatan</td>
-			<td></td>
+			<td><?= $survey->coordinator_id ?></td>
 		</tr>
 		<tr>
 			<td>Supervisor</td>
-			<td></td>
+			<td><?= $survey->supervisor_id ?></td>
 		</tr>
 		<tr>
 			<td>Kecamatan</td>
-			<td><?= $survey->district_id ?></td>
+			<td><?= $survey->district_name ?></td>
 		</tr>
 	</table>
 	<table width="100%">

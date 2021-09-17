@@ -25,7 +25,7 @@ class HasilModel extends CI_Model
 		$this->db->delete('survey');
 	}
 
-	function get_hasil_survey($no_survey)
+	function get_laporan_survey($no_survey)
 	{
 		$this->db->join('respondent', 'respondent.nik = survey.nik');
 		$this->db->join('users', 'users.user_id = survey.user_id');
@@ -35,12 +35,10 @@ class HasilModel extends CI_Model
 		return $query->row();
 	}
 
-	function get_hasil_jawaban($no_survey, $qcategory_id)
+	function get_laporan_jawaban($id)
 	{
-		$this->db->join('questions', 'questions.id = results.question_id');
-		$this->db->join('categories', 'categories.id = questions.qcategory_id');
-		$this->db->where('categories.id', $qcategory_id);
-		$this->db->where('results.no_survey', $no_survey);
+		$this->db->join('answers', 'answers.id = results.answer_id');
+		$this->db->where('results.question_id', $id);
 		$query = $this->db->get('results');
 		return $query->result();
 	}

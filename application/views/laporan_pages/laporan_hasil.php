@@ -118,12 +118,8 @@
 			<td width="50%"><?= $survey->jml_keluarga ?></td>
 		</tr>
 		<tr>
-			<td width="50%">Jumlah Laki-laki</td>
-			<td width="50%"><?= $survey->jml_laki ?></td>
-		</tr>
-		<tr>
-			<td width="50%">Jumlah Perempuan</td>
-			<td width="50%"><?= $survey->jml_pr ?></td>
+			<td width="50%">Jumlah Jiwa Dalam Rumah</td>
+			<td width="50%"><?= $survey->jml_jiwa ?></td>
 		</tr>
 		<tr>
 			<td width="50%">Hubungan Responden</td>
@@ -151,17 +147,26 @@
 			<tr>
 				<td style="padding-top: 60px;"></td>
 			</tr>
-			<tr>
-				<td style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
-			</tr>
 		</table>
 		<table class="table">
-			<?php $jawaban = $this->CI->get_hasil_jawaban($survey->no_survey, $k->id) ?>
-			<?php foreach ($jawaban as $j) { ?>
+			<thead>
 				<tr>
-					<td width="40%"><?= $j->question_name ?></td>
+					<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
+				</tr>
+			</thead>
+			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
+			<?php foreach ($pertanyaan as $p) { ?>
+				<tr>
+					<td width="40%"><?= $p->question_name ?></td>
 					<td width="20%"></td>
-					<td width="40%"><?= $j->answer ?></td>
+					<td width="40%">
+						<?php $jawaban = $this->CI->jawaban($p->id) ?>
+						<?php foreach ($jawaban as $j) { ?>
+							<div>
+								<?= $j->answer_name ?>
+							</div>
+						<?php } ?>
+					</td>
 				</tr>
 			<?php } ?>
 		</table>

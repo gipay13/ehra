@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Sep 2021 pada 04.35
+-- Waktu pembuatan: 17 Sep 2021 pada 06.40
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.4.21
 
@@ -20,6 +20,652 @@ SET time_zone = "+00:00";
 --
 -- Database: `ehra`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `answers`
+--
+
+CREATE TABLE `answers` (
+  `id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `answer_name` varchar(100) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `answers`
+--
+
+INSERT INTO `answers` (`id`, `question_id`, `answer_name`, `created_at`, `updated_at`) VALUES
+(1, 1, '> 20 Tahun', '2021-09-16', '2021-09-16'),
+(2, 1, '20 - 30 Tahun', '2021-09-16', '2021-09-16'),
+(3, 1, '31 - 40 Tahun', '2021-09-16', '2021-09-16'),
+(4, 1, '41 - 50 Tahun', '2021-09-16', '2021-09-16'),
+(5, 1, '<50 Tahun', '2021-09-16', '2021-09-16'),
+(6, 2, 'Milik sendiri', '2021-09-16', '2021-09-16'),
+(7, 2, 'Rumah dinas', '2021-09-16', '2021-09-16'),
+(8, 2, 'Berbagi dengan keluarga lain', '2021-09-16', '2021-09-16'),
+(9, 2, 'Sewa', '2021-09-16', '2021-09-16'),
+(10, 2, 'Kontrak', '2021-09-16', '2021-09-16'),
+(11, 2, 'Milik orang tua/anak/saudara', '2021-09-16', '2021-09-16'),
+(12, 2, 'Lainnya', '2021-09-16', '2021-09-16'),
+(13, 3, '< 50 m2', '2021-09-16', '2021-09-16'),
+(14, 3, '50 - 100 m2', '2021-09-16', '2021-09-16'),
+(15, 3, '>100 m2', '2021-09-16', '2021-09-16'),
+(16, 4, 'Permanen', '2021-09-16', '2021-09-16'),
+(17, 4, 'Semi permanen', '2021-09-16', '2021-09-16'),
+(18, 4, 'Darurat', '2021-09-16', '2021-09-16'),
+(19, 4, 'Lainnya', '2021-09-16', '2021-09-16'),
+(20, 5, 'Tidak sekolah formal', '2021-09-16', '2021-09-16'),
+(21, 5, 'SD', '2021-09-16', '2021-09-16'),
+(22, 5, 'SMP', '2021-09-16', '2021-09-16'),
+(23, 5, 'SMA', '2021-09-16', '2021-09-16'),
+(24, 5, 'SMK / Kejuruan', '2021-09-16', '2021-09-16'),
+(25, 5, 'Universitas / Akademi', '2021-09-16', '2021-09-16'),
+(26, 6, 'Ya', '2021-09-16', '2021-09-16'),
+(27, 6, 'Tidak', '2021-09-16', '2021-09-16'),
+(28, 7, '< Rp. 1.000.000', '2021-09-16', '2021-09-16'),
+(29, 7, 'Rp. 1.000.000 - Rp. 3.000.000', '2021-09-16', '2021-09-16'),
+(30, 7, 'Rp. 3.000.001 - Rp. 5.000.000', '2021-09-16', '2021-09-16'),
+(31, 7, 'Rp. 5.000.001 - Rp. 7.000.000', '2021-09-16', '2021-09-16'),
+(32, 7, '> Rp. 7.000.000', '2021-09-16', '2021-09-16'),
+(33, 8, '< Rp1.800.000', '2021-09-16', '2021-09-16'),
+(34, 8, 'Rp1.800.001 - Rp3.000.000', '2021-09-16', '2021-09-16'),
+(35, 8, 'Rp3.000.001 - Rp4.800.000', '2021-09-16', '2021-09-16'),
+(36, 8, 'Rp4.800.001 - Rp7.200.000', '2021-09-16', '2021-09-16'),
+(37, 8, '> Rp 7.200.000', '2021-09-16', '2021-09-16'),
+(38, 9, 'Ya', '2021-09-16', '2021-09-16'),
+(39, 9, 'Tidak', '2021-09-16', '2021-09-16'),
+(40, 10, 'Tidak pernah menerima bantuan', '2021-09-16', '2021-09-16'),
+(41, 10, 'Menerima 1 bantuan', '2021-09-16', '2021-09-16'),
+(42, 10, 'Menerima lebih dari 1 bantuan', '2021-09-16', '2021-09-16'),
+(43, 11, '< 10 Tahun', '2021-09-16', '2021-09-16'),
+(44, 11, '10 - 20 Tahun', '2021-09-16', '2021-09-16'),
+(45, 11, '> 20 Tahun', '2021-09-16', '2021-09-16'),
+(46, 12, 'Ya', '2021-09-16', '2021-09-16'),
+(47, 12, 'Tidak', '2021-09-16', '2021-09-16'),
+(48, 15, '< 3 Liter', '2021-09-16', '2021-09-16'),
+(49, 15, '3 - 5 Liter', '2021-09-16', '2021-09-16'),
+(50, 15, '6 - 8 Liter', '2021-09-16', '2021-09-16'),
+(51, 15, '> 8 Liter', '2021-09-16', '2021-09-16'),
+(52, 16, 'Banyak sampah berserakan atau bertumpuk di sekitar lingkungan', '2021-09-16', '2021-09-16'),
+(53, 16, 'Banyak lalat di sekitar tumpukan sampah', '2021-09-16', '2021-09-16'),
+(54, 16, 'Banyak tikus berkeliaran', '2021-09-16', '2021-09-16'),
+(55, 16, 'Banyak nyamuk', '2021-09-16', '2021-09-16'),
+(56, 16, 'Banyak kucing dan anjing mendatangi tumpukan sampah', '2021-09-16', '2021-09-16'),
+(57, 16, 'Bau busuk yang mengganggu', '2021-09-16', '2021-09-16'),
+(58, 16, 'Menyumbat saluran drainase', '2021-09-16', '2021-09-16'),
+(59, 16, 'Ada anak-anak yang bermain di sekitarnya', '2021-09-16', '2021-09-16'),
+(60, 16, 'Lainnya', '2021-09-16', '2021-09-16'),
+(61, 17, 'Dikumpulkan oleh kolektor informal yang mendaur ulang dan atau sampah organik ditimbun dalam tanah/d', '2021-09-16', '2021-09-16'),
+(62, 17, 'Dikumpulkan dan dibuang ke TPS', '2021-09-16', '2021-09-16'),
+(63, 17, 'Dibakar', '2021-09-16', '2021-09-16'),
+(64, 17, 'Dibuang ke dalam lubang dan ditutup dengan tanah', '2021-09-16', '2021-09-16'),
+(65, 17, 'Dibuang ke dalam lubang tetapi tidak ditutup dengan tanah', '2021-09-16', '2021-09-16'),
+(66, 17, 'Dibuang ke sungai/kali/laut/danau', '2021-09-16', '2021-09-16'),
+(67, 17, 'Dibiarkan saja sampai membusuk', '2021-09-16', '2021-09-16'),
+(68, 17, 'Dibuang ke lahan kosong/kebun/hutan dan dibiarkan membusuk', '2021-09-16', '2021-09-16'),
+(69, 17, 'Lain-lain', '2021-09-16', '2021-09-16'),
+(70, 17, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(71, 18, 'Ya', '2021-09-16', '2021-09-16'),
+(72, 18, 'Tidak', '2021-09-16', '2021-09-16'),
+(73, 19, 'Sampah organik/sampah basah', '2021-09-16', '2021-09-16'),
+(74, 19, 'Plastik', '2021-09-16', '2021-09-16'),
+(75, 19, 'Gelas atau kaca', '2021-09-16', '2021-09-16'),
+(76, 19, 'Kertas', '2021-09-16', '2021-09-16'),
+(77, 19, 'Besi / Logam', '2021-09-16', '2021-09-16'),
+(78, 19, 'Bahan Berbahaya dan Beracun (B3)', '2021-09-16', '2021-09-16'),
+(79, 19, 'Lainnya', '2021-09-16', '2021-09-16'),
+(80, 19, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(81, 20, 'Tiap Hari', '2021-09-16', '2021-09-16'),
+(82, 20, 'Beberapa kali dalam seminggu', '2021-09-16', '2021-09-16'),
+(83, 20, 'Sekali dalam seminggu', '2021-09-16', '2021-09-16'),
+(84, 20, 'Beberapa kali dalam sebulan', '2021-09-16', '2021-09-16'),
+(85, 20, 'Sekali dalam sebulan', '2021-09-16', '2021-09-16'),
+(86, 20, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(87, 20, 'Lainnya', '2021-09-16', '2021-09-16'),
+(88, 20, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(89, 21, 'Tepat waktu', '2021-09-16', '2021-09-16'),
+(90, 21, 'Sering terlambat', '2021-09-16', '2021-09-16'),
+(91, 21, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(92, 22, 'Ya', '2021-09-16', '2021-09-16'),
+(93, 22, 'Tidak', '2021-09-16', '2021-09-16'),
+(94, 23, 'Pemungut uang sampah dari RT', '2021-09-16', '2021-09-16'),
+(95, 23, 'Pemungut uang sampah dari Desa/Kelurahan', '2021-09-16', '2021-09-16'),
+(96, 23, 'Pemungut uang sampah dari perusahaan swasta / KSM', '2021-09-16', '2021-09-16'),
+(97, 23, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(98, 24, '< Rp. 50.000', '2021-09-16', '2021-09-16'),
+(99, 24, 'Rp. 50.000 - Rp. 100.000', '2021-09-16', '2021-09-16'),
+(100, 24, '> Rp. 100.000', '2021-09-16', '2021-09-16'),
+(101, 24, 'Tidak Tahu', '2021-09-16', '2021-09-16'),
+(102, 25, 'Jamban pribdi', '2021-09-16', '2021-09-16'),
+(103, 25, 'Jamban tetangga / saudara', '2021-09-16', '2021-09-16'),
+(104, 25, 'MCK/WC Umum', '2021-09-16', '2021-09-16'),
+(105, 25, 'Ke WC “helikopter” di empang/ kolam', '2021-09-16', '2021-09-16'),
+(106, 25, 'Ke sungai/pantai/laut', '2021-09-16', '2021-09-16'),
+(107, 25, 'Ke kebun/pekarangan rumah', '2021-09-16', '2021-09-16'),
+(108, 25, 'Ke selokan/parit/got', '2021-09-16', '2021-09-16'),
+(109, 25, 'Ke lubang galian', '2021-09-16', '2021-09-16'),
+(110, 25, 'Lainnya', '2021-09-16', '2021-09-16'),
+(111, 25, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(112, 26, 'Anak laki-laki umur 5 – 12 tahun', '2021-09-16', '2021-09-16'),
+(113, 26, 'Anak perempuan umur 5 – 12 tahun', '2021-09-16', '2021-09-16'),
+(114, 26, 'Remaja laki-laki', '2021-09-16', '2021-09-16'),
+(115, 26, 'Remaja perempuan', '2021-09-16', '2021-09-16'),
+(116, 26, 'Laki-laki dewasa', '2021-09-16', '2021-09-16'),
+(117, 26, 'Perempuan dewasa', '2021-09-16', '2021-09-16'),
+(118, 26, 'Laki-laki tua', '2021-09-16', '2021-09-16'),
+(119, 26, 'Perempuan tua', '2021-09-16', '2021-09-16'),
+(120, 26, 'Masih ada tapi tidak tahu/jelas siapa', '2021-09-16', '2021-09-16'),
+(121, 26, 'Lainnya', '2021-09-16', '2021-09-16'),
+(122, 26, 'Tidak ada', '2021-09-16', '2021-09-16'),
+(123, 27, 'Ya', '2021-09-16', '2021-09-16'),
+(124, 27, 'Tidak', '2021-09-16', '2021-09-16'),
+(125, 28, 'Kloset jongkok leher angsa', '2021-09-16', '2021-09-16'),
+(126, 28, 'Kloset duduk leher angsa', '2021-09-16', '2021-09-16'),
+(127, 28, 'Bukan Leher Angsa', '2021-09-16', '2021-09-16'),
+(128, 28, 'Tidak punya kloset', '2021-09-16', '2021-09-16'),
+(129, 29, 'Tangki septik fabrikasi sesuai SNI', '2021-09-16', '2021-09-16'),
+(130, 29, 'Tangki septik konstruksi sendiri (kedap samping dan dasar)', '2021-09-16', '2021-09-16'),
+(131, 29, 'IPAL komunal (contoh: sanimas)', '2021-09-16', '2021-09-16'),
+(132, 29, 'IPAL terpusat/perpipaan limbah kota', '2021-09-16', '2021-09-16'),
+(133, 29, 'Cubluk/Lubang tanah', '2021-09-16', '2021-09-16'),
+(134, 29, 'Langsung ke saluran drainase', '2021-09-16', '2021-09-16'),
+(135, 29, 'Sungai /danau/pantai/laut', '2021-09-16', '2021-09-16'),
+(136, 29, 'Kolam/sawah', '2021-09-16', '2021-09-16'),
+(137, 29, 'Kebun/tanah lapang', '2021-09-16', '2021-09-16'),
+(138, 29, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(139, 29, 'Lainnya', '2021-09-16', '2021-09-16'),
+(140, 30, 'Ya', '2021-09-16', '2021-09-16'),
+(141, 30, 'Tidak', '2021-09-16', '2021-09-16'),
+(142, 30, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(143, 31, 'Ya', '2021-09-16', '2021-09-16'),
+(144, 31, 'Tidak ', '2021-09-16', '2021-09-16'),
+(145, 31, 'Tidak Tahu', '2021-09-16', '2021-09-16'),
+(146, 32, 'Lahan resapan', '2021-09-16', '2021-09-16'),
+(147, 32, 'Sumur resapan', '2021-09-16', '2021-09-16'),
+(148, 32, 'Saluran air hujan/drainase', '2021-09-16', '2021-09-16'),
+(149, 32, 'Kanal/sungai/badan air/kolam/laut', '2021-09-16', '2021-09-16'),
+(150, 32, 'Tidak ada/meresap ke bawah/dinding tangki', '2021-09-16', '2021-09-16'),
+(151, 32, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(152, 33, '0 – 12 bulan yang lalu', '2021-09-16', '2021-09-16'),
+(153, 33, '1 – 5 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(154, 33, 'Lebih dari 5 – 10 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(155, 33, 'Lebih dari 10 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(156, 33, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(157, 34, '0 – 12 bulan yang lalu', '2021-09-16', '2021-09-16'),
+(158, 34, '1 – 5 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(159, 34, 'Lebih dari 5 – 10 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(160, 34, 'Lebih dari 10 tahun yang lalu', '2021-09-16', '2021-09-16'),
+(161, 34, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(162, 34, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(163, 35, 'Ya', '2021-09-16', '2021-09-16'),
+(164, 35, 'Tidak', '2021-09-16', '2021-09-16'),
+(165, 36, 'Layanan sedot tinja atau truk sedot tinja pemerintah', '2021-09-16', '2021-09-16'),
+(166, 36, 'Layanan sedot tinja atau truk sedot tinja swasta', '2021-09-16', '2021-09-16'),
+(167, 36, 'Membayar tukang', '2021-09-16', '2021-09-16'),
+(168, 36, 'Dikosongkan sendiri', '2021-09-16', '2021-09-16'),
+(169, 36, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(170, 37, 'Ke sungai besar, sungai kecil, selokan/parit, kolam/empang, saluran drainase', '2021-09-16', '2021-09-16'),
+(171, 37, 'Dikubur di halaman', '2021-09-16', '2021-09-16'),
+(172, 37, 'Dikubur di tanah orang lain', '2021-09-16', '2021-09-16'),
+(173, 37, 'Lainnya', '2021-09-16', '2021-09-16'),
+(174, 37, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(175, 38, 'Kurang dari Rp 100 ribu', '2021-09-16', '2021-09-16'),
+(176, 38, 'Antara Rp 100 ribu s.d. Rp 200 ribu', '2021-09-16', '2021-09-16'),
+(177, 38, 'Antara Rp 201 ribu s.d Rp 300 ribu', '2021-09-16', '2021-09-16'),
+(178, 38, 'Antara Rp 301 ribu s.d Rp 400 ribu', '2021-09-16', '2021-09-16'),
+(179, 38, 'Lebih dari 400 ribu', '2021-09-16', '2021-09-16'),
+(180, 38, 'Tidak ingat', '2021-09-16', '2021-09-16'),
+(181, 39, 'Dibuang di jamban', '2021-09-16', '2021-09-16'),
+(182, 39, 'Ditanam', '2021-09-16', '2021-09-16'),
+(183, 39, 'Dibuang di sembarang tempat/tempat sampah', '2021-09-16', '2021-09-16'),
+(184, 39, 'Dibersihkan di sembarang tempat', '2021-09-16', '2021-09-16'),
+(185, 39, 'Lainnya', '2021-09-16', '2021-09-16'),
+(186, 40, 'YA, sangat sering', '2021-09-16', '2021-09-16'),
+(187, 40, 'YA, kadang-kadang', '2021-09-16', '2021-09-16'),
+(188, 40, 'TIDAK, tidak biasa', '2021-09-16', '2021-09-16'),
+(189, 40, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(190, 41, 'Ke Jamban', '2021-09-16', '2021-09-16'),
+(191, 41, 'Ke tempat sampah', '2021-09-16', '2021-09-16'),
+(192, 41, 'Ke kebun/pekaangan/jalan', '2021-09-16', '2021-09-16'),
+(193, 41, 'Ke sungai/selokan/got/pantai/laut', '2021-09-16', '2021-09-16'),
+(194, 41, 'Lainnya', '2021-09-16', '2021-09-16'),
+(195, 41, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(196, 42, 'Mau berlangganan', '2021-09-16', '2021-09-16'),
+(197, 42, 'Tidak mau berlangganan', '2021-09-16', '2021-09-16'),
+(198, 43, 'Kurang dari atau sama dengan Rp 1.000.000', '2021-09-16', '2021-09-16'),
+(199, 43, 'Rp 1.000.001 – Rp 1.500.000', '2021-09-16', '2021-09-16'),
+(200, 43, 'Rp 1.500.001 – Rp 2.000.000', '2021-09-16', '2021-09-16'),
+(201, 43, 'Diatas Rp 2.000.000', '2021-09-16', '2021-09-16'),
+(202, 44, 'Kurang dari atau sama dengan Rp 5.000', '2021-09-16', '2021-09-16'),
+(203, 44, 'Rp 5.000 - Rp 10.000', '2021-09-16', '2021-09-16'),
+(204, 44, 'Rp 10.001 - Rp 15.000', '2021-09-16', '2021-09-16'),
+(205, 44, 'Lebih dari Rp 15.001', '2021-09-16', '2021-09-16'),
+(206, 45, 'Tidak sanggup membayar biaya penyambungan', '2021-09-16', '2021-09-16'),
+(207, 45, 'Belum perlu', '2021-09-16', '2021-09-16'),
+(208, 45, 'Lainnya', '2021-09-16', '2021-09-16'),
+(209, 46, 'Mau berlangganan dengan membayar', '2021-09-16', '2021-09-16'),
+(210, 46, 'Tidak mau berlangganan', '2021-09-16', '2021-09-16'),
+(211, 47, 'Kurang dari Rp 100.000', '2021-09-16', '2021-09-16'),
+(212, 47, 'Antara Rp100.000 sd Rp 200.000', '2021-09-16', '2021-09-16'),
+(213, 47, 'Antara Rp200.000 sd Rp 300.000', '2021-09-16', '2021-09-16'),
+(214, 47, 'Antara Rp300.000 sd Rp 400.000', '2021-09-16', '2021-09-16'),
+(215, 47, 'Lebih dari Rp 400.001', '2021-09-16', '2021-09-16'),
+(216, 48, 'Tidak sanggup membayar biaya penyedotan', '2021-09-16', '2021-09-16'),
+(217, 48, 'Belum perlu', '2021-09-16', '2021-09-16'),
+(218, 48, 'Lainnya', '2021-09-16', '2021-09-16'),
+(219, 49, 'Ya', '2021-09-16', '2021-09-16'),
+(220, 49, 'Tidak', '2021-09-16', '2021-09-16'),
+(221, 51, 'Ya', '2021-09-16', '2021-09-16'),
+(222, 51, 'Tidak', '2021-09-16', '2021-09-16'),
+(223, 52, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(224, 52, 'Sekali dalam setahun', '2021-09-16', '2021-09-16'),
+(225, 52, 'Beberapa kali dalam setahun', '2021-09-16', '2021-09-16'),
+(226, 52, 'Sekali atau beberapa kali dalam sebulan', '2021-09-16', '2021-09-16'),
+(227, 52, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(228, 53, 'Ya', '2021-09-16', '2021-09-16'),
+(229, 53, 'Tidak', '2021-09-16', '2021-09-16'),
+(230, 54, 'Ya', '2021-09-16', '2021-09-16'),
+(231, 54, 'Tidak', '2021-09-16', '2021-09-16'),
+(232, 55, 'Setumit orang dewasa', '2021-09-16', '2021-09-16'),
+(233, 55, 'Setengah lutut orang dewasa (30 cm)', '2021-09-16', '2021-09-16'),
+(234, 55, 'Selutut orang dewasa', '2021-09-16', '2021-09-16'),
+(235, 55, 'Sepinggang orang dewasa', '2021-09-16', '2021-09-16'),
+(236, 55, 'Sebahu orang dewasa', '2021-09-16', '2021-09-16'),
+(237, 55, 'Lebih tinggi dari orang dewasa', '2021-09-16', '2021-09-16'),
+(238, 55, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(239, 56, 'Tidak pernah/tidak punya', '2021-09-16', '2021-09-16'),
+(240, 56, 'Kadang-kadang', '2021-09-16', '2021-09-16'),
+(241, 56, 'Selalu', '2021-09-16', '2021-09-16'),
+(242, 56, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(243, 57, 'Kurang dari 1 jam', '2021-09-16', '2021-09-16'),
+(244, 57, 'Antara 1 – 3 jam', '2021-09-16', '2021-09-16'),
+(245, 57, 'Setengah hari', '2021-09-16', '2021-09-16'),
+(246, 57, 'Satu hari', '2021-09-16', '2021-09-16'),
+(247, 57, 'Lebih dari 1 hari', '2021-09-16', '2021-09-16'),
+(248, 57, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(249, 58, 'Air kemasan bermerk', '2021-09-16', '2021-09-16'),
+(250, 58, 'Air isi ulang – membeli dari penjual air isi ualng', '2021-09-16', '2021-09-16'),
+(251, 58, 'Air Ledeng dari PDAM/Proyek/HIPPAM sendiri', '2021-09-16', '2021-09-16'),
+(252, 58, 'Air ledeng dari PDAM/Proyek/HIPPAM wilayah tetangga', '2021-09-16', '2021-09-16'),
+(253, 58, 'Air ledeng eceran dari PDAM/Proyek/HIPPAM', '2021-09-16', '2021-09-16'),
+(254, 58, 'Air dari hidran umum – PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(255, 58, 'Air dari kran umum – PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(256, 58, 'Air dari terminal air_PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(257, 58, 'Air dari kapal air/gerobak (terlindungi)', '2021-09-16', '2021-09-16'),
+(258, 58, 'Air dari sumur bor dengan pompa tangan/listrik/mesin', '2021-09-16', '2021-09-16'),
+(259, 58, 'Air dari sumur gali terlindungi sendiri', '2021-09-16', '2021-09-16'),
+(260, 58, 'Air dari sumur gali terlindungi tetangga', '2021-09-16', '2021-09-16'),
+(261, 58, 'Air dari sumur gali tidak terlindungi sendiri', '2021-09-16', '2021-09-16'),
+(262, 58, 'Air dari sumur gali tidak terlindungi tetangga', '2021-09-16', '2021-09-16'),
+(263, 58, 'Air dari Mata air terlindungi', '2021-09-16', '2021-09-16'),
+(264, 58, 'Air dari Mata air tidak terlindungi', '2021-09-16', '2021-09-16'),
+(265, 58, 'Air hujan (PAH/Penampungan Air Hujan)(terlindungi)', '2021-09-16', '2021-09-16'),
+(266, 58, 'Air dari sungai', '2021-09-16', '2021-09-16'),
+(267, 58, 'Air dari waduk/danau', '2021-09-16', '2021-09-16'),
+(268, 58, 'Lainnya', '2021-09-16', '2021-09-16'),
+(269, 59, 'Kurang dari 60 liter (+/- 4 galon)', '2021-09-16', '2021-09-16'),
+(270, 59, 'Lebih dari sama dengan 60 liter (+/- 4 galon)', '2021-09-16', '2021-09-16'),
+(271, 59, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(272, 60, '0-2 liter', '2021-09-16', '2021-09-16'),
+(273, 60, '2-4 liter', '2021-09-16', '2021-09-16'),
+(274, 60, '4-6 liter', '2021-09-16', '2021-09-16'),
+(275, 60, '> 6 liter', '2021-09-16', '2021-09-16'),
+(276, 61, 'Ya', '2021-09-16', '2021-09-16'),
+(277, 61, 'Tidak', '2021-09-16', '2021-09-16'),
+(278, 61, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(279, 62, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(280, 62, 'Beberapa jam saja', '2021-09-16', '2021-09-16'),
+(281, 62, 'Satu sampai dua hari', '2021-09-16', '2021-09-16'),
+(282, 62, 'Tiga hari sampai kurang dari seminggu', '2021-09-16', '2021-09-16'),
+(283, 62, 'Seminggu', '2021-09-16', '2021-09-16'),
+(284, 62, 'Lebih dari satu minggu', '2021-09-16', '2021-09-16'),
+(285, 62, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(286, 63, 'Kurang dari 30 menit', '2021-09-16', '2021-09-16'),
+(287, 63, 'Lebih dari 30 menit', '2021-09-16', '2021-09-16'),
+(288, 63, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(289, 64, 'Ya, pernah', '2021-09-16', '2021-09-16'),
+(290, 64, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(291, 64, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(292, 65, '< 2 minggu', '2021-09-16', '2021-09-16'),
+(293, 65, '2 minggu s.d. 1 bulan', '2021-09-16', '2021-09-16'),
+(294, 65, '1 bulan s.d. 3 bulan', '2021-09-16', '2021-09-16'),
+(295, 65, '> 3 bulan', '2021-09-16', '2021-09-16'),
+(296, 66, 'Ya', '2021-09-16', '2021-09-16'),
+(297, 66, 'Tidak', '2021-09-16', '2021-09-16'),
+(298, 67, '< 10 m', '2021-09-16', '2021-09-16'),
+(299, 67, '> 10 m', '2021-09-16', '2021-09-16'),
+(300, 67, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(301, 68, 'Didalam kawasan pagar rumah', '2021-09-16', '2021-09-16'),
+(302, 68, 'Diluar kawasan pagar rumah', '2021-09-16', '2021-09-16'),
+(303, 68, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(304, 69, 'Kurang dari 1 km', '2021-09-16', '2021-09-16'),
+(305, 69, 'Lebih dari atau sama dengan 1 km', '2021-09-16', '2021-09-16'),
+(306, 69, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(307, 70, 'Keruh', '2021-09-16', '2021-09-16'),
+(308, 70, 'Bewarna', '2021-09-16', '2021-09-16'),
+(309, 70, 'Berasa', '2021-09-16', '2021-09-16'),
+(310, 70, 'Berbusa', '2021-09-16', '2021-09-16'),
+(311, 70, 'Berbau', '2021-09-16', '2021-09-16'),
+(312, 70, 'Tidak semua', '2021-09-16', '2021-09-16'),
+(313, 71, '<1 meter', '2021-09-16', '2021-09-16'),
+(314, 71, '1 meter', '2021-09-16', '2021-09-16'),
+(315, 71, '2 meter', '2021-09-16', '2021-09-16'),
+(316, 71, '3 meter', '2021-09-16', '2021-09-16'),
+(317, 71, '4 meter', '2021-09-16', '2021-09-16'),
+(318, 71, '5 meter', '2021-09-16', '2021-09-16'),
+(319, 71, '> 5 meter', '2021-09-16', '2021-09-16'),
+(320, 71, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(321, 72, 'Membeli', '2021-09-16', '2021-09-16'),
+(322, 72, 'Tidak membeli', '2021-09-16', '2021-09-16'),
+(323, 73, '< Rp. 1.000.000', '0000-00-00', '0000-00-00'),
+(324, 73, 'Rp. 1.000.000 - Rp. 3.000.000', '2021-09-16', '2021-09-16'),
+(325, 73, 'Rp. 3.000.001 - Rp. 5.000.000', '2021-09-16', '2021-09-16'),
+(326, 73, 'Rp. 5.000.001 - Rp. 7.000.000', '2021-09-16', '2021-09-16'),
+(327, 73, '> Rp. 7.000.000', '2021-09-16', '2021-09-16'),
+(328, 74, 'Ya', '2021-09-16', '2021-09-16'),
+(329, 74, 'Tidak', '2021-09-16', '2021-09-16'),
+(330, 75, 'Merebus/memasak hingga mendidih', '2021-09-16', '2021-09-16'),
+(331, 75, 'Menggunakan filter modern (keramik, bio', '2021-09-16', '2021-09-16'),
+(333, 75, 'Menjemur dibawah sinar matahari (solar', '2021-09-16', '2021-09-16'),
+(334, 75, 'Klorin cair/klorin padat', '2021-09-16', '2021-09-16'),
+(335, 75, 'Ultraviolet (UV)', '2021-09-16', '2021-09-16'),
+(336, 75, 'Reverse Osmosis (RO)', '2021-09-16', '2021-09-16'),
+(337, 75, 'Lainnya', '2021-09-16', '2021-09-16'),
+(338, 75, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(340, 76, 'Ya', '2021-09-16', '2021-09-16'),
+(341, 76, 'Tidak', '2021-09-16', '2021-09-16'),
+(342, 77, 'Langsung dari dispenser', '2021-09-16', '2021-09-16'),
+(343, 77, 'Dengan menggunakan gayung', '2021-09-16', '2021-09-16'),
+(344, 77, 'Dengan menggunakan gelas', '2021-09-16', '2021-09-16'),
+(345, 77, 'Lainnya', '2021-09-16', '2021-09-16'),
+(346, 77, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(347, 78, 'Ya', '2021-09-16', '2021-09-16'),
+(348, 78, 'Tidak', '2021-09-16', '2021-09-16'),
+(349, 79, 'Mandi', '2021-09-16', '2021-09-16'),
+(350, 79, 'Memandikan anak', '2021-09-16', '2021-09-16'),
+(351, 79, 'Menceboki anak', '2021-09-16', '2021-09-16'),
+(352, 79, 'Mencuci tangan sendiri', '2021-09-16', '2021-09-16'),
+(353, 79, 'Mencuci tangan anak', '2021-09-16', '2021-09-16'),
+(354, 79, 'Mencuci peralatan minum, makan dan masak', '2021-09-16', '2021-09-16'),
+(355, 79, 'Mencuci pakaian', '2021-09-16', '2021-09-16'),
+(356, 79, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(357, 79, 'Lainnya', '2021-09-16', '2021-09-16'),
+(358, 80, 'Di kamar mandi', '2021-09-16', '2021-09-16'),
+(359, 80, 'Di dekat kamar mandi', '2021-09-16', '2021-09-16'),
+(360, 80, 'Di jamban', '2021-09-16', '2021-09-16'),
+(361, 80, 'Di dekat jamban', '2021-09-16', '2021-09-16'),
+(362, 80, 'Di sumur', '2021-09-16', '2021-09-16'),
+(363, 80, 'Di sekitar bak penampungan air', '2021-09-16', '2021-09-16'),
+(364, 80, 'Di tempat cuci piring', '2021-09-16', '2021-09-16'),
+(365, 80, 'Di dapur', '2021-09-16', '2021-09-16'),
+(366, 80, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(367, 80, 'Lainnya', '2021-09-16', '2021-09-16'),
+(368, 81, 'Sebelum ke toilet', '2021-09-16', '2021-09-16'),
+(369, 81, 'Setelah dari buang air besar', '2021-09-16', '2021-09-16'),
+(370, 81, 'Sebelum makan', '2021-09-16', '2021-09-16'),
+(371, 81, 'Setelah makan', '2021-09-16', '2021-09-16'),
+(372, 81, 'Sebelum menyuapi/menyusui anak', '2021-09-16', '2021-09-16'),
+(373, 81, 'Sebelum menyiapkan masakan', '2021-09-16', '2021-09-16'),
+(374, 81, 'Setelah memegang hewan', '2021-09-16', '2021-09-16'),
+(375, 81, 'Sebelum sholat', '2021-09-16', '2021-09-16'),
+(376, 81, 'Setelah menceboki bayi/anak', '2021-09-16', '2021-09-16'),
+(377, 81, 'Lainnya', '2021-09-16', '2021-09-16'),
+(378, 82, 'Hari ini', '2021-09-16', '2021-09-16'),
+(379, 82, 'Kemarin', '2021-09-16', '2021-09-16'),
+(380, 82, '1 minggu terakhir', '2021-09-16', '2021-09-16'),
+(381, 82, '1 bulan terakhir', '2021-09-16', '2021-09-16'),
+(382, 82, '3 bulan terakhir', '2021-09-16', '2021-09-16'),
+(383, 82, '6 bulan terakhir', '2021-09-16', '2021-09-16'),
+(384, 82, 'Lebih dari 6 bulan lalu', '2021-09-16', '2021-09-16'),
+(385, 82, 'Tidak pernah', '2021-09-16', '2021-09-16'),
+(386, 83, 'Anak-anak balita', '2021-09-16', '2021-09-16'),
+(387, 83, 'Anak-anak non balita', '2021-09-16', '2021-09-16'),
+(388, 83, 'Anak remaja laki-laki', '2021-09-16', '2021-09-16'),
+(389, 83, 'Anak remaja perempuan', '2021-09-16', '2021-09-16'),
+(390, 83, 'Orang dewasa laki-laki', '2021-09-16', '2021-09-16'),
+(391, 83, 'Orang dewasa perempuan', '2021-09-16', '2021-09-16'),
+(392, 84, 'Air kemasan bermerk', '2021-09-16', '2021-09-16'),
+(393, 84, 'Air isi ulang – membeli dari penjual air isi ulang', '2021-09-16', '2021-09-16'),
+(394, 84, 'Air Ledeng dari PDAM/Proyek/HIPPAM sendiri', '2021-09-16', '2021-09-16'),
+(395, 84, 'Air ledeng dari PDAM/Proyek/HIPPAM tetangga', '2021-09-16', '2021-09-16'),
+(396, 84, 'Air ledeng eceran dari PDAM/Proyek/HIPPAM', '2021-09-16', '2021-09-16'),
+(397, 84, 'Air dari hidran umum – PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(398, 84, 'Air dari kran umum – PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(399, 84, 'Air dari terminal air_PDAM/HIPPAM/Proyek', '2021-09-16', '2021-09-16'),
+(400, 84, 'Air dari kapal air', '2021-09-16', '2021-09-16'),
+(401, 84, 'Air dari sumur bor dng pompa tangan/listrik/mesin', '2021-09-16', '2021-09-16'),
+(402, 84, 'Air dari sumur gali terlindungi sendiri', '2021-09-16', '2021-09-16'),
+(403, 84, 'Air dari sumur gali terlindungi tetangga', '2021-09-16', '2021-09-16'),
+(404, 84, 'Air dari sumur gali tidak terlindungi sendiri', '2021-09-16', '2021-09-16'),
+(405, 84, 'Air dari sumur gali tidak terlindungi tetangga', '2021-09-16', '2021-09-16'),
+(406, 84, 'Air dari Mata air terlindungi', '2021-09-16', '2021-09-16'),
+(407, 84, 'Air dari Mata air tidak terlindungi', '2021-09-16', '2021-09-16'),
+(408, 84, 'Air hujan (PAH/Penampungan Air Hujan)', '2021-09-16', '2021-09-16'),
+(409, 84, 'Air dari sungai', '2021-09-16', '2021-09-16'),
+(410, 84, 'Air dari waduk/danau', '2021-09-16', '2021-09-16'),
+(411, 84, 'Lainnya', '2021-09-16', '2021-09-16'),
+(412, 85, 'Tidak disimpan', '2021-09-16', '2021-09-16'),
+(413, 85, 'Ya, dalam panci atau ember atau tempayan tanpa', '2021-09-16', '2021-09-16'),
+(414, 85, 'Ya, dalam panci atau ember atau tempayan yang', '2021-09-16', '2021-09-16'),
+(415, 85, 'Lainnya', '2021-09-16', '2021-09-16'),
+(416, 86, 'Tangan/mulut menyentuh air', '2021-09-16', '2021-09-16'),
+(417, 86, 'Tangan/mulut tidak menyentuh air', '2021-09-16', '2021-09-16'),
+(418, 87, 'Ya', '2021-09-16', '2021-09-16'),
+(419, 87, 'Tidak', '2021-09-16', '2021-09-16'),
+(420, 88, 'Ya', '2021-09-16', '2021-09-16'),
+(421, 88, 'Tidak', '2021-09-16', '2021-09-16'),
+(422, 89, 'YA, disimpan di atas dan ditutup', '2021-09-16', '2021-09-16'),
+(423, 89, 'YA, disimpan dalam lemari makan, ditutup dengan', '2021-09-16', '2021-09-16'),
+(424, 89, 'YA, disimpan dalam lemari yang tertutup rapat', '2021-09-16', '2021-09-16'),
+(425, 89, 'YA, di dalam kulkas', '2021-09-16', '2021-09-16'),
+(426, 89, 'Lainnya', '2021-09-16', '2021-09-16'),
+(427, 89, 'Tidak ditutup', '2021-09-16', '2021-09-16'),
+(428, 90, 'Ya, kantong plastik tertutup', '2021-09-16', '2021-09-16'),
+(429, 90, 'Ya, kantong plastik terbuka', '2021-09-16', '2021-09-16'),
+(430, 90, 'Ya, tempat sampah terbuka', '2021-09-16', '2021-09-16'),
+(431, 90, 'Ya, tempat sampah tertutup', '2021-09-16', '2021-09-16'),
+(432, 90, 'Lainnya', '2021-09-16', '2021-09-16'),
+(433, 90, 'Tidak ada', '2021-09-16', '2021-09-16'),
+(434, 91, 'Saluran terbuka ke sungai/kanal/kolam/selokan jalan/halaman', '2021-09-16', '2021-09-16'),
+(435, 91, 'Saluran terbuka ke cubluk', '2021-09-16', '2021-09-16'),
+(436, 91, 'Saluran terbuka ke kolam/rawa/genangan', '2021-09-16', '2021-09-16'),
+(437, 91, 'Saluran terbuka ke tangki septik', '2021-09-16', '2021-09-16'),
+(438, 91, 'Saluran tertutup ke riool, selokan, sungai', '2021-09-16', '2021-09-16'),
+(439, 91, 'Lubang galian/sumur resapan', '2021-09-16', '2021-09-16'),
+(440, 91, 'Saluran tertutup ke tangki septik', '2021-09-16', '2021-09-16'),
+(441, 91, 'Pipa IPAL Sanimas', '2021-09-16', '2021-09-16'),
+(442, 91, 'Lainnya', '2021-09-16', '2021-09-16'),
+(443, 91, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(444, 92, 'Ya', '2021-09-16', '2021-09-16'),
+(445, 92, 'Tidak', '2021-09-16', '2021-09-16'),
+(446, 93, 'Saluran terbuka ke sungai/kanal/kolam/selokan jalan/halaman', '2021-09-16', '2021-09-16'),
+(447, 93, 'Saluran terbuka ke cubluk', '2021-09-16', '2021-09-16'),
+(448, 93, 'Saluran terbuka ke kolam/rawa/genangan', '2021-09-16', '2021-09-16'),
+(449, 93, 'Saluran terbuka ke tangki septik', '2021-09-16', '2021-09-16'),
+(450, 93, 'Saluran tertutup ke riool, selokan, sungai', '2021-09-16', '2021-09-16'),
+(451, 93, 'Lubang galian/sumur resapan', '2021-09-16', '2021-09-16'),
+(452, 93, 'Saluran tertutup ke tangki septik', '2021-09-16', '2021-09-16'),
+(453, 93, 'Pipa IPAL Sanimas', '2021-09-16', '2021-09-16'),
+(454, 93, 'Lainnya', '2021-09-16', '2021-09-16'),
+(455, 93, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(456, 94, 'Ya', '2021-09-16', '2021-09-16'),
+(457, 94, 'Tidak', '2021-09-16', '2021-09-16'),
+(458, 94, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(459, 95, 'YA, dalam bak air/ember', '2021-09-16', '2021-09-16'),
+(460, 95, 'YA, dari kran & berfungsi', '2021-09-16', '2021-09-16'),
+(461, 95, 'YA, dari kran, tidak berfungsi', '2021-09-16', '2021-09-16'),
+(462, 95, 'Tidak ada', '2021-09-16', '2021-09-16'),
+(463, 96, 'Ya', '2021-09-16', '2021-09-16'),
+(464, 96, 'Tidak', '2021-09-16', '2021-09-16'),
+(465, 97, 'Ya', '2021-09-16', '2021-09-16'),
+(466, 97, 'Tidak', '2021-09-16', '2021-09-16'),
+(467, 98, 'Kloset jongkok leher angsa', '2021-09-16', '2021-09-16'),
+(468, 98, 'Kloset duduk leher angsa', '2021-09-16', '2021-09-16'),
+(469, 98, 'Bukan leher angsa', '2021-09-16', '2021-09-16'),
+(470, 98, 'Tidak punya kloset', '2021-09-16', '2021-09-16'),
+(471, 99, 'Tangki septik fabrikasi sesuai SNI', '2021-09-16', '2021-09-16'),
+(472, 99, 'Tangki septik konstruksi sendiri (kedap samping dan dasar)', '2021-09-16', '2021-09-16'),
+(473, 99, 'IPAL komunal (contoh: Sanimas)', '2021-09-16', '2021-09-16'),
+(474, 99, 'IPAL terpusat/perpipaan limbah kota', '2021-09-16', '2021-09-16'),
+(475, 99, 'Cubluk/Lubang tanah', '2021-09-16', '2021-09-16'),
+(476, 99, 'Langsung ke saluran drainase', '2021-09-16', '2021-09-16'),
+(477, 99, 'Sungai /danau/pantai/laut', '2021-09-16', '2021-09-16'),
+(478, 99, 'Kolam/sawah', '2021-09-16', '2021-09-16'),
+(479, 99, 'Kebun/tanah lapang', '2021-09-16', '2021-09-16'),
+(480, 99, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(481, 99, 'Lainnya', '2021-09-16', '2021-09-16'),
+(482, 100, 'Ya', '2021-09-16', '2021-09-16'),
+(483, 100, 'Tidak', '2021-09-16', '2021-09-16'),
+(484, 101, 'Ya', '2021-09-16', '2021-09-16'),
+(485, 101, 'Tidak', '2021-09-16', '2021-09-16'),
+(486, 102, 'Ya', '2021-09-16', '2021-09-16'),
+(487, 102, 'Tidak', '2021-09-16', '2021-09-16'),
+(488, 103, 'Ya, berungsi', '2021-09-16', '2021-09-16'),
+(489, 103, 'Tidak berfungsi', '2021-09-16', '2021-09-16'),
+(490, 104, 'Ya', '2021-09-16', '2021-09-16'),
+(491, 104, 'Tidak', '2021-09-16', '2021-09-16'),
+(492, 105, 'Air Ledeng PDAM/proyek - berfungsi/mengalir', '2021-09-16', '2021-09-16'),
+(493, 105, 'Air Ledeng PDAM/proyek, tidak berfungsi', '2021-09-16', '2021-09-16'),
+(494, 105, 'Sumur Gali yang terlindungi', '2021-09-16', '2021-09-16'),
+(495, 105, 'Sumur Gali yang tidak terlindungi', '2021-09-16', '2021-09-16'),
+(496, 105, 'Sumur Bor dengan Pompa Tangan', '2021-09-16', '2021-09-16'),
+(497, 105, 'Sumur Bor dengan Pompa Mesin/Listrik', '2021-09-16', '2021-09-16'),
+(498, 105, 'Hidran Umum- PDAM/Proyek/HIPPAM', '2021-09-16', '2021-09-16'),
+(499, 105, 'Kran Umum – PDAM/Proyek/HIPPAM', '2021-09-16', '2021-09-16'),
+(500, 105, 'Penjual air keliling', '2021-09-16', '2021-09-16'),
+(501, 105, 'Lainnya', '2021-09-16', '2021-09-16'),
+(502, 106, 'Saluran terbuka ke sungai/kanal/kolam/selokan jalan, halaman, selokan', '2021-09-16', '2021-09-16'),
+(503, 106, 'Saluran terbuka ke cubluk', '2021-09-16', '2021-09-16'),
+(504, 106, 'Saluran terbuka ke kolam/rawa/genangan', '2021-09-16', '2021-09-16'),
+(505, 106, 'Saluran terbuka ke tangki septik', '2021-09-16', '2021-09-16'),
+(506, 106, 'Saluran tertutup ke riool, selokan, sungai', '2021-09-16', '2021-09-16'),
+(507, 106, 'Lubang galian/sumur resapan', '2021-09-16', '2021-09-16'),
+(508, 106, 'Saluran tertutup ke tangki septik', '2021-09-16', '2021-09-16'),
+(509, 106, 'Pipa IPAL Sanimas', '2021-09-16', '2021-09-16'),
+(510, 106, 'Lainnya', '2021-09-16', '2021-09-16'),
+(511, 106, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(512, 107, 'Ya', '2021-09-16', '2021-09-16'),
+(513, 107, 'Tidak', '2021-09-16', '2021-09-16'),
+(514, 108, 'Di pekarangan depan', '2021-09-16', '2021-09-16'),
+(515, 108, 'Di pekarangan samping', '2021-09-16', '2021-09-16'),
+(516, 108, 'Di pekarangan belakang', '2021-09-16', '2021-09-16'),
+(517, 108, 'Di bawah garasi', '2021-09-16', '2021-09-16'),
+(518, 108, 'Di dalam rumah', '2021-09-16', '2021-09-16'),
+(519, 108, 'Lainnya', '2021-09-16', '2021-09-16'),
+(520, 108, 'Tidak jelas/tidak tahu', '2021-09-16', '2021-09-16'),
+(521, 109, 'Ya', '2021-09-16', '2021-09-16'),
+(522, 109, 'Tidak', '2021-09-16', '2021-09-16'),
+(523, 110, 'Dikumpulkan oleh kolektor informal yang mendaur ulang dan atau Sampah organik ditimbun dalam tanah/d', '2021-09-16', '2021-09-16'),
+(524, 110, 'Dikumpulkan dan dibuang ke TPS', '2021-09-16', '2021-09-16'),
+(525, 110, 'Dibakar', '2021-09-16', '2021-09-16'),
+(526, 110, 'Dibuang ke dalam lubang dan ditutup dengan tanah', '2021-09-16', '2021-09-16'),
+(527, 110, 'Dibuang ke dalam lubang tetapi tidak ditutup dengan tanah', '2021-09-16', '2021-09-16'),
+(528, 110, 'Dibuang ke sungai/kali/laut/danau', '2021-09-16', '2021-09-16'),
+(529, 110, 'Dibiarkan saja sampai membusuk', '2021-09-16', '2021-09-16'),
+(530, 110, 'Dibuang ke lahan kosong/kebun/hutan dan dibiarkan membusuk', '2021-09-16', '2021-09-16'),
+(531, 110, 'Lain-lain', '2021-09-16', '2021-09-16'),
+(532, 111, 'Ya', '2021-09-16', '2021-09-16'),
+(533, 111, 'Tidak', '2021-09-16', '2021-09-16'),
+(534, 112, 'Ya', '2021-09-16', '2021-09-16'),
+(535, 112, 'Tidak', '2021-09-16', '2021-09-16'),
+(536, 113, 'Sampah organik/sampah basah', '2021-09-16', '2021-09-16'),
+(537, 113, 'Plastik', '2021-09-16', '2021-09-16'),
+(538, 113, 'Gelas/Kaca', '2021-09-16', '2021-09-16'),
+(539, 113, 'Kertas/Kardus', '2021-09-16', '2021-09-16'),
+(540, 113, 'Besi/Logam', '2021-09-16', '2021-09-16'),
+(541, 113, 'Bahan Berbahaya dan Beracun (B3)', '2021-09-16', '2021-09-16'),
+(542, 113, 'Lainnya', '2021-09-16', '2021-09-16'),
+(543, 114, 'Ya', '2021-09-16', '2021-09-16'),
+(544, 114, 'Tidak', '2021-09-16', '2021-09-16'),
+(545, 115, 'Ya', '2021-09-16', '2021-09-16'),
+(546, 115, 'Tidak', '2021-09-16', '2021-09-16'),
+(547, 116, 'Pupuk tanaman hias', '2021-09-16', '2021-09-16'),
+(548, 116, 'Pupuk tanaman buah, sayur, obat', '2021-09-16', '2021-09-16'),
+(549, 116, 'Dijual', '2021-09-16', '2021-09-16'),
+(550, 116, 'Tidak dimanfaatkan', '2021-09-16', '2021-09-16'),
+(551, 117, 'Ya', '2021-09-16', '2021-09-16'),
+(552, 117, 'Tidak', '2021-09-16', '2021-09-16'),
+(553, 118, 'Di halaman/pekarangan rumah', '2021-09-16', '2021-09-16'),
+(554, 118, 'Di dekat dapur', '2021-09-16', '2021-09-16'),
+(555, 118, 'Di dekat kamar mandi', '2021-09-16', '2021-09-16'),
+(556, 118, 'Di dekat bak penampungan air hujan.', '2021-09-16', '2021-09-16'),
+(557, 118, 'Di tempat lain', '2021-09-16', '2021-09-16'),
+(558, 119, 'Hujan', '2021-09-16', '2021-09-16'),
+(559, 119, 'Air limbah dapur', '2021-09-16', '2021-09-16'),
+(560, 119, 'Air limbah kamar mandi', '2021-09-16', '2021-09-16'),
+(561, 119, 'Air limbah dari sumber lain, sebutkan', '2021-09-16', '2021-09-16'),
+(562, 119, 'Tidak tahu/tidak pasti.', '2021-09-16', '2021-09-16'),
+(563, 120, 'Ya, di halaman ada benda yang dapat menyebabkan air tergenang', '2021-09-16', '2021-09-16'),
+(564, 120, 'Tidak, halaman bersih dari benda yang dapat menyebabkan air tergenang', '2021-09-16', '2021-09-16'),
+(565, 121, 'YA, terbuka', '2021-09-16', '2021-09-16'),
+(566, 121, 'YA, tertutup, tidak terlihat', '2021-09-16', '2021-09-16'),
+(567, 121, 'TIDAK, tidak terlihat', '2021-09-16', '2021-09-16'),
+(568, 122, 'YA', '2021-09-16', '2021-09-16'),
+(569, 122, 'TIDAK', '2021-09-16', '2021-09-16'),
+(570, 122, 'Tidak dapat dipakai: saluran kering', '2021-09-16', '2021-09-16'),
+(571, 122, 'Tidak ada saluran', '2021-09-16', '2021-09-16'),
+(572, 123, 'YA, bersih atau hampir selalu bersih dari sampah', '2021-09-16', '2021-09-16'),
+(573, 123, 'Tidak bersih dari sampah, tapi air masih dapat mengalir', '2021-09-16', '2021-09-16'),
+(574, 123, 'Tidak bersih dari sampah, saluran tersumbat', '2021-09-16', '2021-09-16'),
+(575, 123, 'Tidak bersih dari sampah, tapi saluran kering', '2021-09-16', '2021-09-16'),
+(576, 123, 'Tidak ada saluran', '2021-09-16', '2021-09-16'),
+(577, 124, 'Tidak ada', '2021-09-16', '2021-09-16'),
+(578, 124, '1 anak', '2021-09-16', '2021-09-16'),
+(579, 124, '2 anak', '2021-09-16', '2021-09-16'),
+(580, 124, '3 anak', '2021-09-16', '2021-09-16'),
+(581, 124, '< 3 anak', '2021-09-16', '2021-09-16'),
+(640, 135, 'Saluran terbuka ke sungai/kanal/kolam/selokan jalan, halaman, selokan', '2021-09-16', '2021-09-16'),
+(641, 135, 'Ke jalan, halaman, kebun', '2021-09-16', '2021-09-16'),
+(642, 135, 'Saluran terbuka ke cubluk', '2021-09-16', '2021-09-16'),
+(643, 135, 'Saluran terbuka ke kolam/rawa/genangan', '2021-09-16', '2021-09-16'),
+(644, 135, 'Saluran terbuka ke tangki septik', '2021-09-16', '2021-09-16'),
+(645, 135, 'Saluran tertutup ke riool, selokan, sungai', '2021-09-16', '2021-09-16'),
+(646, 135, 'Sumur resapan', '2021-09-16', '2021-09-16'),
+(647, 135, 'Pipa saluran pembuangan kotoran/ipal terpusat', '2021-09-16', '2021-09-16'),
+(648, 135, 'Pipa IPAL Komunal (contoh : Sanimas)', '2021-09-16', '2021-09-16'),
+(649, 135, 'Tidak tahu', '2021-09-16', '2021-09-16'),
+(650, 128, 'Tidak ada', '2021-09-16', '2021-09-16'),
+(655, 128, '1 anak', '2021-09-16', '2021-09-16'),
+(656, 128, '2 anak', '2021-09-16', '2021-09-16'),
+(657, 128, '3 anak', '2021-09-16', '2021-09-16'),
+(658, 128, '< 3 anak', '2021-09-16', '2021-09-16');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `category_code` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data untuk tabel `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_code`, `category_name`, `created_at`, `updated_at`) VALUES
+(1, 'AO', 'Lihat dan Amati Dapur dan Sekelilingnya oleh Enumerator', '2021-07-14', '2021-09-15'),
+(2, 'B', 'Informasi Responden', '2021-07-06', '2021-07-06'),
+(3, 'BO', 'Lihat dan Amati Kamar Mandi', '2021-07-15', '2021-09-15'),
+(4, 'C', 'Pengelolaan Sampah Rumah Tangga', '2021-07-07', '2021-07-06'),
+(5, 'CO', 'Lihat dan Amati Jamban', '2021-07-16', '2021-09-15'),
+(6, 'D', 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja', '2021-07-08', '2021-07-06'),
+(7, 'DO', 'Lihat dan Amati Tempat Cuci Pakaian', '2021-07-17', '2021-09-15'),
+(8, 'E', 'Drainase Lingkungan/Selokan Sekitar Rumah dan Banjir', '2021-07-09', '2021-07-06'),
+(9, 'EO', 'Lihat dan Amati Halaman/Perkarangan/Kebun', '2021-07-18', '2021-09-15'),
+(10, 'F', 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene', '2021-07-10', '2021-07-06'),
+(11, 'G', 'Perilaku Higiene dan Sanitasi', '2021-07-11', '2021-07-06'),
+(12, 'H', 'Kejadian Penyakit Diare', '2021-07-12', '2021-07-06');
 
 -- --------------------------------------------------------
 
@@ -7261,10 +7907,10 @@ INSERT INTO `districts` (`id`, `regency_id`, `district_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `level`
+-- Struktur dari tabel `levels`
 --
 
-CREATE TABLE `level` (
+CREATE TABLE `levels` (
   `id` int(11) NOT NULL,
   `level_name` varchar(40) NOT NULL,
   `created_at` date NOT NULL,
@@ -7272,10 +7918,10 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `level`
+-- Dumping data untuk tabel `levels`
 --
 
-INSERT INTO `level` (`id`, `level_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `levels` (`id`, `level_name`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', '2021-09-08', '2021-09-08'),
 (2, 'Petugas Puskesmas', '2021-09-08', '2021-09-08'),
 (3, 'Kepala Puskesmas', '2021-09-08', '2021-09-08'),
@@ -7290,7 +7936,7 @@ INSERT INTO `level` (`id`, `level_name`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `puskesmas` (
-  `id` int(2) NOT NULL,
+  `id` int(11) NOT NULL,
   `puskesmas_name` char(252) DEFAULT NULL,
   `chief_name` char(100) DEFAULT NULL,
   `address` char(200) DEFAULT NULL,
@@ -7328,186 +7974,146 @@ INSERT INTO `puskesmas` (`id`, `puskesmas_name`, `chief_name`, `address`, `regis
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `question`
+-- Struktur dari tabel `questions`
 --
 
-CREATE TABLE `question` (
+CREATE TABLE `questions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `qcategory_id` int(11) DEFAULT NULL,
+  `type_id` int(11) NOT NULL,
   `question_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data untuk tabel `question`
+-- Dumping data untuk tabel `questions`
 --
 
-INSERT INTO `question` (`id`, `qcategory_id`, `question_name`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Maaf, berapakah usia Ibu sekarang ?', '2021-07-05', '2021-07-05'),
-(2, 2, 'Maaf, apa status rumah yang Ibu tempati saat ini ?', '2021-07-05', '2021-07-05'),
-(3, 2, 'Luas lahan (rumah dan pekarangan)', '2021-07-05', '2021-07-05'),
-(4, 2, 'Jenis bangunan rumah', '2021-07-05', '2021-07-05'),
-(5, 2, 'Maaf, apa pendidikan terakhir Ibu ?', '2021-07-05', '2021-07-05'),
-(6, 2, 'Maaf, apakah Ibu mempunyai Surat Keterangan Tidak Mampu (SKTM) atau sejenisnya dari desa/kelurahan ?', '2021-07-05', '2021-07-05'),
-(7, 2, 'Maaf, berapa besar pengeluaran rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
-(8, 2, 'Maaf, berapa besar pengahasilan rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
-(9, 2, 'Maaf, apakah Ibu mempunyai Kartu Jaminan Kesehatan(Askeskin, Jamkesmas, Jamkesda, BPJS, JKN) atau sejenisnya?', '2021-07-05', '2021-07-05'),
-(10, 2, 'Bantuan apa yang pernah diterima keluarga untuk sektor air minum dan sanitasi?', '2021-07-05', '2021-07-06'),
-(11, 2, 'Sudah berapa lama tinggal disini (sejak tahun berapa)?', '2021-07-05', '2021-07-05'),
-(12, 2, 'Maaf, apakah Ibu mempunyai anak ?', '2021-07-05', '2021-07-05'),
-(15, 4, 'Berapa timbulan sampah yang keluarga Ibu hasilkan dalam satu hari? (perkiraan)', '2021-07-05', '2021-07-05'),
-(16, 4, 'Bagaimana kondisi sampah di sekitar lingkungan RT/RW rumah Ibu ?', '2021-07-05', '2021-07-05'),
-(17, 4, 'Bagaimana sampah rumah tangga sebagian besar dikelola ?', '2021-07-05', '2021-07-05'),
-(18, 4, 'Apakah Ibu melakukan pemilahan sampah di\r\nrumah sebelum di buang ?', '2021-07-05', '2021-07-05'),
-(19, 4, 'Jika mendaur ulang, apa saja jenis sampah yang dipilah/dipisahkan sebelum dibuang ?', '2021-07-05', '2021-07-05'),
-(20, 4, 'Seberapa sering petugas mengangkut sampah dari rumah ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
-(21, 4, 'Dari pengalaman dalam sebulan terakhir ini, apakah sampah selalu diangkut tepat waktu ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
-(22, 4, 'Apakah layanan pengangkutan sampah oleh tukang sampah itu berbayar ?', '2021-07-05', '2021-07-05'),
-(23, 4, 'Kepada siapa membayarnya ?', '2021-07-05', '2021-07-05'),
-(24, 4, 'Berapa biaya yang dikeluarkan dalam sebulan\r\nuntuk membayar layanan sampah ?', '2021-07-05', '2021-07-05'),
-(25, 6, 'Dimana anggota keluarga yang sudah dewasa bila ingin buang air besar ?', '2021-07-05', '2021-07-05'),
-(26, 6, 'Apakah masih ada orang lain/ tetangga di lingkungan ibu yang buang air besar sembarangan di tempat terbuka (seperti kebun, halaman, sungai, pantai, laut, selokan/got, saluran irigasi)?', '2021-07-05', '2021-07-05'),
-(27, 6, 'Apakah di rumah Ibu mempunyai jamban pribadi?', '2021-07-05', '2021-07-05'),
-(28, 6, 'Jenis kloset apa yang Ibu pakai di rumah ?', '2021-07-05', '2021-07-05'),
-(29, 6, 'Kemana tempat penyaluran buangan akhir tinja ?', '2021-07-05', '2021-07-05'),
-(30, 6, 'Apakah terdapat lubang udara/ventilasi di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
-(31, 6, 'Apakah terdapat lubang penyedotan di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
-(32, 6, 'Kemanakah pembuangan (overflow/peluap) akhir dari tangki septik Ibu?', '2021-07-05', '2021-07-05'),
-(33, 6, 'Sudah berapa lama tangki septik ini dibuat/dibangun ?', '2021-07-05', '2021-07-05'),
-(34, 6, 'Kapan tangki septik terakhir dikosongkan/disedot?', '2021-07-05', '2021-07-05'),
-(35, 6, 'Apakah pengurasan dilakukan berkala (untuk tangki septik umur 10 tahun atau lebih)?', '2021-07-05', '2021-07-05'),
-(36, 6, 'Siapa yang mengosongkan tangki septik Ibu ?', '2021-07-05', '2021-07-05'),
-(37, 6, 'Apakah Ibu tahu, ke mana lumpur tinja dibuang pada saat tangki septik dikosongkan/disedot ?', '2021-07-05', '2021-07-05'),
-(38, 6, 'Berapa biaya yang pernah dikeluarkan ketika terakhir kali tangki septik disedot/dikosongkan oleh pemda/swasta?', '2021-07-05', '2021-07-05'),
-(39, 6, 'Bagaimana cara penanganan tinja balita/lansia yang menggunakan popok?', '2021-07-05', '2021-07-05'),
-(40, 6, 'Apakah anak balita di rumah Ibu masih terbiasa buang air besar di lantai, di kebun, di jalan, di selokan/got atau di sungai ?', '2021-07-05', '2021-07-05'),
-(41, 6, 'Ibu biasanya membuang TINJA anak kemana ?', '2021-07-05', '2021-07-05'),
-(42, 6, 'Apabila ada jaringan/perpipaan pengelolaan air limbah rumah tangga, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
-(43, 6, 'Apabila ingin berlangganan, berapa Bapak/Ibu bersedia membayar biaya pemasangan?', '2021-07-05', '2021-07-05'),
-(44, 6, 'Berapa Bapak/Ibu sanggup membayar rekening sistem penyaluran air limbah setiap bulannya?', '2021-07-05', '2021-07-05'),
-(45, 6, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan sambungan rumah?', '2021-07-05', '2021-07-05'),
-(46, 6, 'Apabila ada program layanan lumpur tinja terjadwal, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
-(47, 6, 'Berapa Bapak/Ibu sanggup membayar biaya penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
-(48, 6, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
-(49, 8, 'Apakah di rumah mempunyai sarana pembuangan air limbah selain tinja (SPAL = Saluran Pembuangan Air Limbah) ?', '2021-07-05', '2021-07-05'),
-(51, 8, 'Apakah saluran pembuangan air limbah selain diatas lancar?', '2021-07-05', '2021-07-05'),
-(52, 8, 'Apakah rumah yang ditempati saat ini atau lingkungan dan jalan di sekitar rumah pernah terkena banjir ?', '2021-07-05', '2021-07-05'),
-(53, 8, 'Apakah banjir biasa terjadi secara rutin ?', '2021-07-05', '2021-07-05'),
-(54, 8, 'Pada saat banjir terakhir, apakah air memasuki rumah?', '2021-07-05', '2021-07-05'),
-(55, 8, 'Pada saat terakhir kali banjir, berapa tinggi air yang masuk ke dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
-(56, 8, 'Pada saat terakhir banjir, apakah jamban di rumah ibu juga terendam banjir ?', '2021-07-05', '2021-07-05'),
-(57, 8, 'Pada saat terakhir banjir, berapa lama air banjir mengering?', '2021-07-05', '2021-07-05'),
-(58, 10, 'Sumber air utama yang Ibu gunakan untuk minum, masak, mencuci piring & gelas dan\r\nmenggosok gigi ?', '2021-07-05', '2021-07-05'),
-(59, 10, 'Berapa jumlah pemakaian air setiap orang per hari dalam rumah Ibu?', '2021-07-05', '2021-07-05'),
-(60, 10, 'Berapa jumlah rata-rata pemakaian air (khusus untuk air minum) setiap orang per hari dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
-(61, 10, 'Dalam satu tahun terakhir, apakah rumah tangga ibu pernah mengalami kekurangan air minum untuk kebutuhan rumah tangga selama minimal selama 24 jam?', '2021-07-05', '2021-07-05'),
-(62, 10, 'Jika ibu menggunakan air ledeng, apakah dalam satu bulan terakhir rumah ibu pernah mengalami gangguan aliran air ledeng?', '2021-07-05', '2021-07-05'),
-(63, 10, 'Berapa lama waktu yang Ibu habiskan untuk meng-akses sumber air minum utama (pergipulang dan antrian)?', '2021-07-05', '2021-07-05'),
-(64, 10, 'Jika ibu menggunakan sumur/air tanah , apakah sumber air sumur / air tanah di sini pernah mengalami kekeringan diwaktu kemarau.', '2021-07-05', '2021-07-05'),
-(65, 10, 'Jika ibu menggunakan sumur apakah sumur pernah mengalami kekeringan, berapa lama?', '2021-07-05', '2021-07-05'),
-(66, 10, 'Apakah Ibu puas dengan kualitas air yang digunakan saat ini ?', '2021-07-05', '2021-07-05'),
-(67, 10, 'Jika sumber air minum Ibu berasal dari sumur gali atau sumur bor/pompa tangan/listrik, berapa jarak sumber air tersebut ke tempat penampungan tinja ?', '2021-07-05', '2021-07-05'),
-(68, 10, 'Dimana Lokasi sumber air minum utama ibu tersebut?', '2021-07-05', '2021-07-05'),
-(69, 10, 'Berapa jarak sumber air minum utama dari rumah?', '2021-07-05', '2021-07-05'),
-(70, 10, 'Bagaimana menurut Ibu, kondisi fisik air yang  Ibu ambil dari sarana untuk air minum ? (Jawaban boleh pilih dari satu, kecuali F hanya satu pilihan', '2021-07-05', '2021-07-05'),
-(71, 10, 'Berapa kedalaman muka air sumur di lingkungan tempat tinggal Ibu (perkiraan)?', '2021-07-05', '2021-07-05'),
-(72, 10, 'Bagaimana biasanya cara ibu memperoleh air minum ?', '2021-07-05', '2021-07-05'),
-(73, 10, 'Berapa biaya rata-rata per bulan yang dikeluarkan untuk kebutuhan air rumah tangga Ibu?', '2021-07-05', '2021-07-05'),
-(74, 10, 'Apakah Ibu mengolah/menangani air sebelum digunakan untuk minum ? (kecuali air kemasan)', '2021-07-05', '2021-07-05'),
-(75, 10, 'Apa yang biasa ibu lakukan dalam mengolah air agar lebih aman untuk diminum ?', '2021-07-05', '2021-07-05'),
-(76, 10, 'Apakah Ibu menyimpan air untuk minum dan untuk masak di wadah yang tertutup rapat, kuat, terbuat dari bahan stainless steel/keramik/ kaca/dan jika terbuat dari plastik terdapat tanda gelas dan garpu?', '2021-07-05', '2021-07-05'),
-(77, 10, 'Bagaimana Ibu mengambil air untuk minum, dari tempat penyimpanan air ?', '2021-07-05', '2021-07-05'),
-(78, 11, 'Apakah Ibu memakai sabun pada hari ini atau kemarin?', '2021-07-05', '2021-07-05'),
-(79, 11, 'Untuk apa saja sabun itu digunakan oleh anggota keluarga ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
-(80, 11, 'Di mana saja anggota keluarga biasanya mencuci tangan ?', '2021-07-05', '2021-07-05'),
-(81, 11, 'Kapan biasanya anggota keluarga mencuci tangan pakai sabun ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
-(82, 12, 'Kapan waktu paling dekat anggota keluarga terkena diare ?', '2021-07-05', '2021-07-05'),
-(83, 12, 'Siapa anggota keluarga terakhir yang terkena diare ?', '2021-07-05', '2021-07-05'),
-(84, 1, 'Amati: Apakah terlihat sumber air untuk minum, masak dan mencuci peralatan minum, makan dan masak di dapur?', '2021-07-05', '2021-07-05'),
-(85, 1, 'Amati : Apa wadah/tempat yang digunakan untuk menyimpan air baku untuk air minum di dapur ?', '2021-07-05', '2021-07-05'),
-(86, 1, 'Amati : Bagaimana Ibu mengambil air minum dari wadah penyimpanan air ? (Mintalah responden untuk memperagakan cara yang biasa dilakukan mengambil air)', '2021-07-05', '2021-07-05'),
-(87, 1, 'Amati : Apakah tersedia air untuk cuci tangan di dapur ?', '2021-07-05', '2021-07-05'),
-(88, 1, 'Amati : Apakah terlihat ada sabun untuk mencuci tangan dan mencuci peralatan memasak, makan dan minum di dapur ?', '2021-07-05', '2021-07-05'),
-(89, 1, 'Amati : Apakah makanan ditutup/dilindungi dari lalat, kecoa, cicak, semut dan serangga lainnya ?', '2021-07-05', '2021-07-05'),
-(90, 1, 'Amati : Apakah ada wadah/tempat yang dipakai untuk mengumpulkan sampah di dapur dan ruangan lain di dalam rumah ?', '2021-07-05', '2021-07-05'),
-(91, 1, 'Amati : Kemana air limbah bekas cuci peralatan minum, makan dan masak dibuang ?', '2021-07-05', '2021-07-05'),
-(92, 3, 'Amati: Apakah ada sabun dan shampoo di kamar mandi ?', '2021-07-05', '2021-07-05'),
-(93, 3, 'Amati: Kemana air limbah bekas mandi dan cuci\r\ntangan dari wastafel dibuang ?', '2021-07-05', '2021-07-05'),
-(94, 3, 'Amati: Bila ada bak penampung air/bakmandi/ember, apakah terlihat ada jentik-jentik nyamuk di dalamnya ?', '2021-07-05', '2021-07-05'),
-(95, 5, 'Amati: Apakah tersedia air di dalam ruangan jamban?', '2021-07-05', '2021-07-05'),
-(96, 5, 'Amati: Apakah terlihat ada sabun di dalam atau di dekat jamban ?', '2021-07-05', '2021-07-05'),
-(97, 5, 'Amati: Apakah terlihat ada jentik-jentik nyamuk dalam bak air/ember ?', '2021-07-05', '2021-07-05'),
-(98, 5, 'Amati : Termasuk tipe apakah jamban yang Ibu lihat?', '2021-07-05', '2021-07-05'),
-(99, 5, 'Amati : Kemana saluran pembuangan dari kloset disalurkan/terhubungkan ?', '2021-07-05', '2021-07-05'),
-(100, 5, 'Amati : Apakah lantai dan dinding jamban bebas dari tinja, bekas tisu yang ada tinja atau bekas pembalut?', '2021-07-05', '2021-07-05'),
-(101, 5, 'Amati : Apakah jamban bebas dari kecoa dan lalat ?', '2021-07-05', '2021-07-05'),
-(102, 5, 'Amati : Jika ada kloset jongkok atau duduk leher angsa, apakah ada air untuk menyiram/mencebok ?', '2021-07-05', '2021-07-05'),
-(103, 5, 'Amati : Jika ada kloset duduk leher angsa, cobalah menekan alat penyiram, apakah dapat berfungsi ?', '2021-07-05', '2021-07-05'),
-(104, 7, 'Amati : Apakah ada sabun cuci atau pengganti sabun di tempat cuci pakaian?', '2021-07-05', '2021-07-05'),
-(105, 7, 'Amati : Dari mana sumber air untuk mencuci pakaian?', '2021-07-05', '2021-07-05'),
-(106, 7, 'Amati : Kemana air limbah bekas mencuci pakaian dibuang ?', '2021-07-05', '2021-07-05'),
-(107, 9, 'Amati : Apakah jarak sumur resapan (bila ada septik tank) atau cubluk dengan sumber air terdekat minimal 10 meter ?', '2021-07-05', '2021-07-05'),
-(108, 9, 'Dimana letak tangki septik yang digunakan?', '2021-07-05', '2021-07-05'),
-(109, 9, 'Amati : Apakah terdapat lubang udara/ventilasi pada septik tank ?', '2021-07-05', '2021-07-05'),
-(110, 9, 'Amati : Bagaimana cara mengelola sampah di rumah?', '2021-07-05', '2021-07-05'),
-(111, 9, 'Amati : Apakah sekeliling halaman bersih dari sampah ?', '2021-07-05', '2021-07-05'),
-(112, 9, 'Amati : Apakah terlihat bahwa sampah dipilah/dipisahkan?', '2021-07-05', '2021-07-05'),
-(113, 9, 'Amati : Jika sampah dipilah, apa saja yang terlihat dipilah ?', '2021-07-05', '2021-07-05'),
-(114, 9, 'Amati : Apakah ada tempat serta kegiatan untuk membuat kompos ?', '2021-07-05', '2021-07-05'),
-(115, 9, 'Amati : Apakah ada kompos yang sudah bisa dipakai?', '2021-07-05', '2021-07-05'),
-(116, 9, 'Amati : Untuk apa saja kompos dipakai oleh responden ?', '2021-07-05', '2021-07-05'),
-(117, 9, 'Amati : Apakah halaman/bagian depan rumah ada genangan air ?', '2021-07-05', '2021-07-05'),
-(118, 9, 'Amati : Dimana air biasanya tergenang ?', '2021-07-05', '2021-07-05'),
-(119, 9, 'Amati: Darimana air genangan berasal?', '2021-07-05', '2021-07-05'),
-(120, 9, 'Amati : Apakah di halaman ada benda yang dapat menyebabkan air tergenang (seperti ban bekas, kaleng, panci, ember)', '2021-07-05', '2021-07-05'),
-(121, 9, 'Amati : Apakah Ibu dapat melihat saluran air hujan atau saluran air limbah di dekat rumah (samping depan, samping belakang, samping kanan-kiri)', '2021-07-05', '2021-07-05'),
-(122, 9, 'Amati : Apakah air di saluran dapat mengalir ?', '2021-07-05', '2021-07-05'),
-(123, 9, 'Amati : Apakah saluran air, bersih dari sampah ?', '2021-07-05', '2021-07-05'),
-(128, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: Kurang dari 2 tahun ', '2021-09-10', '2021-09-10'),
-(129, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: 2 - 5 tahun', '2021-09-10', '2021-09-10'),
-(131, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: 6 - 12 tahun', '2021-09-10', '2021-09-10'),
-(132, 2, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini dengan kelompok umur: Lebih dari 12 tahun', '2021-09-10', '2021-09-10'),
-(133, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: Kurang dari 2 tahun ', '2021-09-10', '2021-09-10'),
-(134, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: 2 - 5 tahun', '2021-09-10', '2021-09-10'),
-(136, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: 6 - 12 tahun', '2021-09-10', '2021-09-10'),
-(137, 2, 'Berapa jumlah anak perempuan yang tinggal di rumah ini dengan kelompok umur: Lebih dari 12 tahun', '2021-09-10', '2021-09-10'),
-(138, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Dapur', '2021-09-10', '2021-09-10'),
-(139, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Kamar Mandi', '2021-09-10', '2021-09-10'),
-(140, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Tempat cuci pakaian', '2021-09-10', '2021-09-10'),
-(141, 8, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Wastafel', '2021-09-10', '2021-09-10');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `question_category`
---
-
-CREATE TABLE `question_category` (
-  `id` int(11) NOT NULL,
-  `category_code` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data untuk tabel `question_category`
---
-
-INSERT INTO `question_category` (`id`, `category_code`, `category_name`, `created_at`, `updated_at`) VALUES
-(1, 'AO', 'Lihat dan Amati Dapur dan Sekelilingnya oleh Enumerator', '2021-07-06', '2021-07-06'),
-(2, 'B', 'Informasi Responden', '2021-07-06', '2021-07-06'),
-(3, 'BO', 'Lihat dan Amati Kamar Mandi', '2021-07-06', '2021-07-06'),
-(4, 'C', 'Pengelolaan Sampah Rumah Tangga', '2021-07-06', '2021-07-06'),
-(5, 'CO', 'Lihat dan Amati Jamban', '2021-07-06', '2021-07-06'),
-(6, 'D', 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja', '2021-07-06', '2021-07-06'),
-(7, 'DO', 'Lihat dan Amati Tempat Cuci Pakaian', '2021-07-06', '2021-07-06'),
-(8, 'E', 'Drainase Lingkungan/Selokan Sekitar Rumah dan Banjir', '2021-07-06', '2021-07-06'),
-(9, 'EO', 'Lihat dan Amati Halaman/Perkarangan/Kebun', '2021-07-06', '2021-07-06'),
-(10, 'F', 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene', '2021-07-06', '2021-07-06'),
-(11, 'G', 'Perilaku Higiene dan Sanitasi', '2021-07-06', '2021-07-06'),
-(12, 'H', 'Kejadian Penyakit Diare', '2021-07-06', '2021-07-06');
+INSERT INTO `questions` (`id`, `qcategory_id`, `type_id`, `question_name`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'Maaf, berapakah usia Ibu sekarang ?', '2021-07-05', '2021-07-05'),
+(2, 2, 1, 'Maaf, apa status rumah yang Ibu tempati saat ini ?', '2021-07-05', '2021-07-05'),
+(3, 2, 1, 'Luas lahan (rumah dan pekarangan)', '2021-07-05', '2021-07-05'),
+(4, 2, 1, 'Jenis bangunan rumah', '2021-07-05', '2021-07-05'),
+(5, 2, 1, 'Maaf, apa pendidikan terakhir Ibu ?', '2021-07-05', '2021-07-05'),
+(6, 2, 1, 'Maaf, apakah Ibu mempunyai Surat Keterangan Tidak Mampu (SKTM) atau sejenisnya dari desa/kelurahan ?', '2021-07-05', '2021-07-05'),
+(7, 2, 1, 'Maaf, berapa besar pengeluaran rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
+(8, 2, 1, 'Maaf, berapa besar pengahasilan rumah tangga keluarga Ibu setiap bulan ?', '2021-07-05', '2021-07-05'),
+(9, 2, 1, 'Maaf, apakah Ibu mempunyai Kartu Jaminan Kesehatan(Askeskin, Jamkesmas, Jamkesda, BPJS, JKN) atau sejenisnya?', '2021-07-05', '2021-07-05'),
+(10, 2, 1, 'Bantuan apa yang pernah diterima keluarga untuk sektor air minum dan sanitasi?', '2021-07-05', '2021-07-06'),
+(11, 2, 1, 'Sudah berapa lama tinggal disini?', '2021-07-05', '2021-07-05'),
+(12, 2, 1, 'Maaf, apakah Ibu mempunyai anak ?', '2021-07-05', '2021-07-05'),
+(15, 4, 1, 'Berapa timbulan sampah yang keluarga Ibu hasilkan dalam satu hari?', '2021-07-05', '2021-07-05'),
+(16, 4, 2, 'Bagaimana kondisi sampah di sekitar lingkungan RT/RW rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(17, 4, 1, 'Bagaimana sampah rumah tangga sebagian besar dikelola ?', '2021-07-05', '2021-07-05'),
+(18, 4, 1, 'Apakah Ibu melakukan pemilahan sampah di\r\nrumah sebelum di buang ?', '2021-07-05', '2021-07-05'),
+(19, 4, 2, 'Jika mendaur ulang, apa saja jenis sampah yang dipilah/dipisahkan sebelum dibuang ?', '2021-07-05', '2021-07-05'),
+(20, 4, 1, 'Seberapa sering petugas mengangkut sampah dari rumah ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
+(21, 4, 1, 'Dari pengalaman dalam sebulan terakhir ini, apakah sampah selalu diangkut tepat waktu ? (Bacakan jawaban satu persatu dengan jelas kepada responden)', '2021-07-05', '2021-07-05'),
+(22, 4, 1, 'Apakah layanan pengangkutan sampah oleh tukang sampah itu berbayar ?', '2021-07-05', '2021-07-05'),
+(23, 4, 1, 'Kepada siapa membayarnya ?', '2021-07-05', '2021-07-05'),
+(24, 4, 1, 'Berapa biaya yang dikeluarkan dalam sebulan\r\nuntuk membayar layanan sampah ?', '2021-07-05', '2021-07-05'),
+(25, 6, 1, 'Dimana anggota keluarga yang sudah dewasa bila ingin buang air besar ?', '2021-07-05', '2021-07-05'),
+(26, 6, 2, 'Apakah masih ada orang lain/ tetangga di lingkungan ibu yang buang air besar sembarangan di tempat terbuka (seperti kebun, halaman, sungai, pantai, laut, selokan/got, saluran irigasi)?', '2021-07-05', '2021-07-05'),
+(27, 6, 1, 'Apakah di rumah Ibu mempunyai jamban pribadi?', '2021-07-05', '2021-07-05'),
+(28, 6, 1, 'Jenis kloset apa yang Ibu pakai di rumah ?', '2021-07-05', '2021-07-05'),
+(29, 6, 1, 'Kemana tempat penyaluran buangan akhir tinja ?', '2021-07-05', '2021-07-05'),
+(30, 6, 1, 'Apakah terdapat lubang udara/ventilasi di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(31, 6, 1, 'Apakah terdapat lubang penyedotan di tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(32, 6, 1, 'Kemanakah pembuangan (overflow/peluap) akhir dari tangki septik Ibu?', '2021-07-05', '2021-07-05'),
+(33, 6, 1, 'Sudah berapa lama tangki septik ini dibuat/dibangun ?', '2021-07-05', '2021-07-05'),
+(34, 6, 1, 'Kapan tangki septik terakhir dikosongkan/disedot?', '2021-07-05', '2021-07-05'),
+(35, 6, 1, 'Apakah pengurasan dilakukan berkala (untuk tangki septik umur 10 tahun atau lebih)?', '2021-07-05', '2021-07-05'),
+(36, 6, 1, 'Siapa yang mengosongkan tangki septik Ibu ?', '2021-07-05', '2021-07-05'),
+(37, 6, 1, 'Apakah Ibu tahu, ke mana lumpur tinja dibuang pada saat tangki septik dikosongkan/disedot ?', '2021-07-05', '2021-07-05'),
+(38, 6, 1, 'Berapa biaya yang pernah dikeluarkan ketika terakhir kali tangki septik disedot/dikosongkan oleh pemda/swasta?', '2021-07-05', '2021-07-05'),
+(39, 6, 1, 'Bagaimana cara penanganan tinja balita/lansia yang menggunakan popok?', '2021-07-05', '2021-07-05'),
+(40, 6, 1, 'Apakah anak balita di rumah Ibu masih terbiasa buang air besar di lantai, di kebun, di jalan, di selokan/got atau di sungai ?', '2021-07-05', '2021-07-05'),
+(41, 6, 1, 'Ibu biasanya membuang TINJA anak kemana ?', '2021-07-05', '2021-07-05'),
+(42, 6, 1, 'Apabila ada jaringan/perpipaan pengelolaan air limbah rumah tangga, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
+(43, 6, 1, 'Apabila ingin berlangganan, berapa Bapak/Ibu bersedia membayar biaya pemasangan?', '2021-07-05', '2021-07-05'),
+(44, 6, 1, 'Berapa Bapak/Ibu sanggup membayar rekening sistem penyaluran air limbah setiap bulannya?', '2021-07-05', '2021-07-05'),
+(45, 6, 1, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan sambungan rumah?', '2021-07-05', '2021-07-05'),
+(46, 6, 1, 'Apabila ada program layanan lumpur tinja terjadwal, apakah Bapak/Ibu akan berlangganan?', '2021-07-05', '2021-07-05'),
+(47, 6, 1, 'Berapa Bapak/Ibu sanggup membayar biaya penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
+(48, 6, 1, 'Apa yang menyebabkan Bapak/Ibu tidak berkeinginan berlangganan penyedotan lumpur tinja?', '2021-07-05', '2021-07-05'),
+(49, 8, 1, 'Apakah di rumah mempunyai sarana pembuangan air limbah selain tinja (SPAL = Saluran Pembuangan Air Limbah) ?', '2021-07-05', '2021-07-05'),
+(51, 8, 1, 'Apakah saluran pembuangan air limbah selain diatas lancar?', '2021-07-05', '2021-07-05'),
+(52, 8, 1, 'Apakah rumah yang ditempati saat ini atau lingkungan dan jalan di sekitar rumah pernah terkena banjir ?', '2021-07-05', '2021-07-05'),
+(53, 8, 1, 'Apakah banjir biasa terjadi secara rutin ?', '2021-07-05', '2021-07-05'),
+(54, 8, 1, 'Pada saat banjir terakhir, apakah air memasuki rumah?', '2021-07-05', '2021-07-05'),
+(55, 8, 1, 'Pada saat terakhir kali banjir, berapa tinggi air yang masuk ke dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(56, 8, 1, 'Pada saat terakhir banjir, apakah jamban di rumah ibu juga terendam banjir ?', '2021-07-05', '2021-07-05'),
+(57, 8, 1, 'Pada saat terakhir banjir, berapa lama air banjir mengering?', '2021-07-05', '2021-07-05'),
+(58, 10, 2, 'Sumber air utama yang Ibu gunakan untuk minum, masak, mencuci piring & gelas dan\r\nmenggosok gigi ?', '2021-07-05', '2021-07-05'),
+(59, 10, 1, 'Berapa jumlah pemakaian air setiap orang per hari dalam rumah Ibu?', '2021-07-05', '2021-07-05'),
+(60, 10, 1, 'Berapa jumlah rata-rata pemakaian air (khusus untuk air minum) setiap orang per hari dalam rumah Ibu ?', '2021-07-05', '2021-07-05'),
+(61, 10, 1, 'Dalam satu tahun terakhir, apakah rumah tangga ibu pernah mengalami kekurangan air minum untuk kebutuhan rumah tangga selama minimal selama 24 jam?', '2021-07-05', '2021-07-05'),
+(62, 10, 1, 'Jika ibu menggunakan air ledeng, apakah dalam satu bulan terakhir rumah ibu pernah mengalami gangguan aliran air ledeng?', '2021-07-05', '2021-07-05'),
+(63, 10, 1, 'Berapa lama waktu yang Ibu habiskan untuk meng-akses sumber air minum utama (pergipulang dan antrian)?', '2021-07-05', '2021-07-05'),
+(64, 10, 1, 'Jika ibu menggunakan sumur/air tanah , apakah sumber air sumur / air tanah di sini pernah mengalami kekeringan diwaktu kemarau.', '2021-07-05', '2021-07-05'),
+(65, 10, 1, 'Jika ibu menggunakan sumur apakah sumur pernah mengalami kekeringan, berapa lama?', '2021-07-05', '2021-07-05'),
+(66, 10, 1, 'Apakah Ibu puas dengan kualitas air yang digunakan saat ini ?', '2021-07-05', '2021-07-05'),
+(67, 10, 1, 'Jika sumber air minum Ibu berasal dari sumur gali atau sumur bor/pompa tangan/listrik, berapa jarak sumber air tersebut ke tempat penampungan tinja ?', '2021-07-05', '2021-07-05'),
+(68, 10, 1, 'Dimana Lokasi sumber air minum utama ibu tersebut?', '2021-07-05', '2021-07-05'),
+(69, 10, 1, 'Berapa jarak sumber air minum utama dari rumah?', '2021-07-05', '2021-07-05'),
+(70, 10, 2, 'Bagaimana menurut Ibu, kondisi fisik air yang  Ibu ambil dari sarana untuk air minum ? (Jawaban boleh pilih dari satu, kecuali F hanya satu pilihan', '2021-07-05', '2021-07-05'),
+(71, 10, 1, 'Berapa kedalaman muka air sumur di lingkungan tempat tinggal Ibu (perkiraan)?', '2021-07-05', '2021-07-05'),
+(72, 10, 1, 'Bagaimana biasanya cara ibu memperoleh air minum ?', '2021-07-05', '2021-07-05'),
+(73, 10, 1, 'Berapa biaya rata-rata per bulan yang dikeluarkan untuk kebutuhan air rumah tangga Ibu?', '2021-07-05', '2021-07-05'),
+(74, 10, 1, 'Apakah Ibu mengolah/menangani air sebelum digunakan untuk minum ? (kecuali air kemasan)', '2021-07-05', '2021-07-05'),
+(75, 10, 1, 'Apa yang biasa ibu lakukan dalam mengolah air agar lebih aman untuk diminum ?', '2021-07-05', '2021-07-05'),
+(76, 10, 1, 'Apakah Ibu menyimpan air untuk minum dan untuk masak di wadah yang tertutup rapat, kuat, terbuat dari bahan stainless steel/keramik/ kaca/dan jika terbuat dari plastik terdapat tanda gelas dan garpu?', '2021-07-05', '2021-07-05'),
+(77, 10, 1, 'Bagaimana Ibu mengambil air untuk minum, dari tempat penyimpanan air ?', '2021-07-05', '2021-07-05'),
+(78, 11, 1, 'Apakah Ibu memakai sabun pada hari ini atau kemarin?', '2021-07-05', '2021-07-05'),
+(79, 11, 2, 'Untuk apa saja sabun itu digunakan oleh anggota keluarga ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
+(80, 11, 2, 'Di mana saja anggota keluarga biasanya mencuci tangan ?', '2021-07-05', '2021-07-05'),
+(81, 11, 2, 'Kapan biasanya anggota keluarga mencuci tangan pakai sabun ? (Jawaban boleh lebih dari 1)', '2021-07-05', '2021-07-05'),
+(82, 12, 1, 'Kapan waktu paling dekat anggota keluarga terkena diare ?', '2021-07-05', '2021-07-05'),
+(83, 12, 2, 'Siapa anggota keluarga terakhir yang terkena diare ?', '2021-07-05', '2021-07-05'),
+(84, 1, 2, 'Amati: Apakah terlihat sumber air untuk minum, masak dan mencuci peralatan minum, makan dan masak di dapur?', '2021-07-05', '2021-07-05'),
+(85, 1, 1, 'Amati : Apa wadah/tempat yang digunakan untuk menyimpan air baku untuk air minum di dapur ?', '2021-07-05', '2021-07-05'),
+(86, 1, 1, 'Amati : Bagaimana Ibu mengambil air minum dari wadah penyimpanan air ? (Mintalah responden untuk memperagakan cara yang biasa dilakukan mengambil air)', '2021-07-05', '2021-07-05'),
+(87, 1, 1, 'Amati : Apakah tersedia air untuk cuci tangan di dapur ?', '2021-07-05', '2021-07-05'),
+(88, 1, 1, 'Amati : Apakah terlihat ada sabun untuk mencuci tangan dan mencuci peralatan memasak, makan dan minum di dapur ?', '2021-07-05', '2021-07-05'),
+(89, 1, 1, 'Amati : Apakah makanan ditutup/dilindungi dari lalat, kecoa, cicak, semut dan serangga lainnya ?', '2021-07-05', '2021-07-05'),
+(90, 1, 1, 'Amati : Apakah ada wadah/tempat yang dipakai untuk mengumpulkan sampah di dapur dan ruangan lain di dalam rumah ?', '2021-07-05', '2021-07-05'),
+(91, 1, 1, 'Amati : Kemana air limbah bekas cuci peralatan minum, makan dan masak dibuang ?', '2021-07-05', '2021-07-05'),
+(92, 3, 1, 'Amati: Apakah ada sabun dan shampoo di kamar mandi ?', '2021-07-05', '2021-07-05'),
+(93, 3, 1, 'Amati: Kemana air limbah bekas mandi dan cuci\r\ntangan dari wastafel dibuang ?', '2021-07-05', '2021-07-05'),
+(94, 3, 1, 'Amati: Bila ada bak penampung air/bakmandi/ember, apakah terlihat ada jentik-jentik nyamuk di dalamnya ?', '2021-07-05', '2021-07-05'),
+(95, 5, 1, 'Amati: Apakah tersedia air di dalam ruangan jamban?', '2021-07-05', '2021-07-05'),
+(96, 5, 1, 'Amati: Apakah terlihat ada sabun di dalam atau di dekat jamban ?', '2021-07-05', '2021-07-05'),
+(97, 5, 1, 'Amati: Apakah terlihat ada jentik-jentik nyamuk dalam bak air/ember ?', '2021-07-05', '2021-07-05'),
+(98, 5, 1, 'Amati : Termasuk tipe apakah jamban yang Ibu lihat?', '2021-07-05', '2021-07-05'),
+(99, 5, 1, 'Amati : Kemana saluran pembuangan dari kloset disalurkan/terhubungkan ?', '2021-07-05', '2021-07-05'),
+(100, 5, 1, 'Amati : Apakah lantai dan dinding jamban bebas dari tinja, bekas tisu yang ada tinja atau bekas pembalut?', '2021-07-05', '2021-07-05'),
+(101, 5, 1, 'Amati : Apakah jamban bebas dari kecoa dan lalat ?', '2021-07-05', '2021-07-05'),
+(102, 5, 1, 'Amati : Jika ada kloset jongkok atau duduk leher angsa, apakah ada air untuk menyiram/mencebok ?', '2021-07-05', '2021-07-05'),
+(103, 5, 1, 'Amati : Jika ada kloset duduk leher angsa, cobalah menekan alat penyiram, apakah dapat berfungsi ?', '2021-07-05', '2021-07-05'),
+(104, 7, 1, 'Amati : Apakah ada sabun cuci atau pengganti sabun di tempat cuci pakaian?', '2021-07-05', '2021-07-05'),
+(105, 7, 2, 'Amati : Dari mana sumber air untuk mencuci pakaian?', '2021-07-05', '2021-07-05'),
+(106, 7, 1, 'Amati : Kemana air limbah bekas mencuci pakaian dibuang ?', '2021-07-05', '2021-07-05'),
+(107, 9, 1, 'Amati : Apakah jarak sumur resapan (bila ada septik tank) atau cubluk dengan sumber air terdekat minimal 10 meter ?', '2021-07-05', '2021-07-05'),
+(108, 9, 1, 'Dimana letak tangki septik yang digunakan?', '2021-07-05', '2021-07-05'),
+(109, 9, 1, 'Amati : Apakah terdapat lubang udara/ventilasi pada septik tank ?', '2021-07-05', '2021-07-05'),
+(110, 9, 1, 'Amati : Bagaimana cara mengelola sampah di rumah?', '2021-07-05', '2021-07-05'),
+(111, 9, 1, 'Amati : Apakah sekeliling halaman bersih dari sampah ?', '2021-07-05', '2021-07-05'),
+(112, 9, 1, 'Amati : Apakah terlihat bahwa sampah dipilah/dipisahkan?', '2021-07-05', '2021-07-05'),
+(113, 9, 2, 'Amati : Jika sampah dipilah, apa saja yang terlihat dipilah ?', '2021-07-05', '2021-07-05'),
+(114, 9, 1, 'Amati : Apakah ada tempat serta kegiatan untuk membuat kompos ?', '2021-07-05', '2021-07-05'),
+(115, 9, 1, 'Amati : Apakah ada kompos yang sudah bisa dipakai?', '2021-07-05', '2021-07-05'),
+(116, 9, 2, 'Amati : Untuk apa saja kompos dipakai oleh responden ?', '2021-07-05', '2021-07-05'),
+(117, 9, 1, 'Amati : Apakah halaman/bagian depan rumah ada genangan air ?', '2021-07-05', '2021-07-05'),
+(118, 9, 2, 'Amati : Dimana air biasanya tergenang ?', '2021-07-05', '2021-07-05'),
+(119, 9, 2, 'Amati: Darimana air genangan berasal?', '2021-07-05', '2021-07-05'),
+(120, 9, 1, 'Amati : Apakah di halaman ada benda yang dapat menyebabkan air tergenang (seperti ban bekas, kaleng, panci, ember)', '2021-07-05', '2021-07-05'),
+(121, 9, 1, 'Amati : Apakah Ibu dapat melihat saluran air hujan atau saluran air limbah di dekat rumah (samping depan, samping belakang, samping kanan-kiri)', '2021-07-05', '2021-07-05'),
+(122, 9, 1, 'Amati : Apakah air di saluran dapat mengalir ?', '2021-07-05', '2021-07-05'),
+(123, 9, 1, 'Amati : Apakah saluran air, bersih dari sampah ?', '2021-07-05', '2021-07-05'),
+(124, 2, 1, 'Berapa jumlah anak laki-laki yang tinggal di rumah ini', '2021-09-10', '2021-09-10'),
+(128, 2, 1, 'Berapa jumlah anak perempuan yang tinggal di rumah ini', '2021-09-10', '2021-09-10'),
+(135, 8, 2, 'Kemana air bekas buangan / air limbah selain tinja dibuang yang berasal dari : Dapur, Kamar Mandi, Tempat cuci pakaian, Wastafel', '2021-09-10', '2021-09-10');
 
 -- --------------------------------------------------------
 
@@ -8053,23 +8659,176 @@ CREATE TABLE `respondent` (
   `nik` varchar(20) NOT NULL,
   `nama_kepala` varchar(100) NOT NULL,
   `jml_keluarga` int(11) NOT NULL,
-  `jml_laki` int(11) NOT NULL,
-  `jml_pr` int(11) NOT NULL,
+  `jml_jiwa` varchar(10) NOT NULL,
   `nama_responden` varchar(100) NOT NULL,
   `hubungan_responden` int(11) NOT NULL,
-  `kecamatan` varchar(50) NOT NULL,
+  `district_id` char(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text NOT NULL,
-  `rt` int(4) NOT NULL,
-  `rw` int(4) NOT NULL,
-  `no_rmh` varchar(11) NOT NULL
+  `rt` varchar(4) NOT NULL,
+  `rw` varchar(4) NOT NULL,
+  `no_rmh` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `respondent`
 --
 
-INSERT INTO `respondent` (`id`, `nkk`, `nik`, `nama_kepala`, `jml_keluarga`, `jml_laki`, `jml_pr`, `nama_responden`, `hubungan_responden`, `kecamatan`, `alamat`, `rt`, `rw`, `no_rmh`) VALUES
-(1, '867454545343', '64456457456', 'Udin Saripusin', 1, 2, 3, 'Usi Wulan', 1, 'SIMPENAN', 'Perum Sekarapi', 9, 3, 'G23');
+INSERT INTO `respondent` (`id`, `nkk`, `nik`, `nama_kepala`, `jml_keluarga`, `jml_jiwa`, `nama_responden`, `hubungan_responden`, `district_id`, `alamat`, `rt`, `rw`, `no_rmh`) VALUES
+(4, '867454545343', '64456457456', 'Nama Bapak', 1, '4 Orang', 'Nama Bapak', 1, '3272012', 'Nama Tempat', '008', '019', 'G-08');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `results`
+--
+
+CREATE TABLE `results` (
+  `id` int(11) NOT NULL,
+  `no_survey` varchar(15) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `answer_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data untuk tabel `results`
+--
+
+INSERT INTO `results` (`id`, `no_survey`, `question_id`, `answer_id`) VALUES
+(1, 'EHRA2109090001', 1, 4),
+(2, 'EHRA2109090001', 2, 11),
+(3, 'EHRA2109090001', 3, 14),
+(4, 'EHRA2109090001', 4, 17),
+(5, 'EHRA2109090001', 5, 22),
+(6, 'EHRA2109090001', 6, 27),
+(7, 'EHRA2109090001', 7, 30),
+(8, 'EHRA2109090001', 8, 34),
+(9, 'EHRA2109090001', 9, 39),
+(10, 'EHRA2109090001', 10, 40),
+(11, 'EHRA2109090001', 11, 43),
+(12, 'EHRA2109090001', 12, 47),
+(13, 'EHRA2109090001', 124, 579),
+(14, 'EHRA2109090001', 128, 656),
+(15, 'EHRA2109090001', 15, 50),
+(16, 'EHRA2109090001', 16, 54),
+(17, 'EHRA2109090001', 16, 57),
+(18, 'EHRA2109090001', 17, 65),
+(19, 'EHRA2109090001', 18, 72),
+(20, 'EHRA2109090001', 19, 75),
+(21, 'EHRA2109090001', 20, 85),
+(22, 'EHRA2109090001', 21, 89),
+(23, 'EHRA2109090001', 22, 93),
+(24, 'EHRA2109090001', 23, 94),
+(25, 'EHRA2109090001', 24, 98),
+(26, 'EHRA2109090001', 25, 106),
+(27, 'EHRA2109090001', 26, 115),
+(28, 'EHRA2109090001', 26, 117),
+(29, 'EHRA2109090001', 27, 124),
+(30, 'EHRA2109090001', 28, 127),
+(31, 'EHRA2109090001', 29, 133),
+(32, 'EHRA2109090001', 30, 141),
+(33, 'EHRA2109090001', 31, 144),
+(34, 'EHRA2109090001', 32, 148),
+(35, 'EHRA2109090001', 33, 153),
+(36, 'EHRA2109090001', 34, 159),
+(37, 'EHRA2109090001', 35, 164),
+(38, 'EHRA2109090001', 36, 167),
+(39, 'EHRA2109090001', 37, 171),
+(40, 'EHRA2109090001', 38, 176),
+(41, 'EHRA2109090001', 39, 182),
+(42, 'EHRA2109090001', 40, 186),
+(43, 'EHRA2109090001', 41, 192),
+(44, 'EHRA2109090001', 42, 197),
+(45, 'EHRA2109090001', 43, 200),
+(46, 'EHRA2109090001', 44, 203),
+(47, 'EHRA2109090001', 45, 207),
+(48, 'EHRA2109090001', 46, 209),
+(49, 'EHRA2109090001', 47, 212),
+(50, 'EHRA2109090001', 48, 217),
+(51, 'EHRA2109090001', 49, 220),
+(52, 'EHRA2109090001', 51, 222),
+(53, 'EHRA2109090001', 52, 224),
+(54, 'EHRA2109090001', 53, 228),
+(55, 'EHRA2109090001', 54, 231),
+(56, 'EHRA2109090001', 55, 234),
+(57, 'EHRA2109090001', 56, 240),
+(58, 'EHRA2109090001', 57, 245),
+(59, 'EHRA2109090001', 58, 253),
+(60, 'EHRA2109090001', 58, 261),
+(61, 'EHRA2109090001', 59, 270),
+(62, 'EHRA2109090001', 60, 273),
+(63, 'EHRA2109090001', 61, 277),
+(64, 'EHRA2109090001', 62, 280),
+(65, 'EHRA2109090001', 63, 287),
+(66, 'EHRA2109090001', 64, 289),
+(67, 'EHRA2109090001', 65, 293),
+(68, 'EHRA2109090001', 66, 297),
+(69, 'EHRA2109090001', 67, 298),
+(70, 'EHRA2109090001', 68, 302),
+(71, 'EHRA2109090001', 69, 306),
+(72, 'EHRA2109090001', 71, 316),
+(73, 'EHRA2109090001', 72, 322),
+(74, 'EHRA2109090001', 73, 324),
+(75, 'EHRA2109090001', 74, 329),
+(76, 'EHRA2109090001', 75, 331),
+(77, 'EHRA2109090001', 76, 340),
+(78, 'EHRA2109090001', 77, 342),
+(79, 'EHRA2109090001', 78, 348),
+(80, 'EHRA2109090001', 79, 352),
+(81, 'EHRA2109090001', 79, 354),
+(82, 'EHRA2109090001', 80, 358),
+(83, 'EHRA2109090001', 80, 361),
+(84, 'EHRA2109090001', 81, 370),
+(85, 'EHRA2109090001', 81, 372),
+(86, 'EHRA2109090001', 82, 380),
+(87, 'EHRA2109090001', 83, 388),
+(88, 'EHRA2109090001', 83, 389),
+(89, 'EHRA2109090001', 84, 396),
+(90, 'EHRA2109090001', 84, 400),
+(91, 'EHRA2109090001', 84, 402),
+(92, 'EHRA2109090001', 85, 412),
+(93, 'EHRA2109090001', 86, 416),
+(94, 'EHRA2109090001', 87, 419),
+(95, 'EHRA2109090001', 88, 421),
+(96, 'EHRA2109090001', 89, 423),
+(97, 'EHRA2109090001', 90, 429),
+(98, 'EHRA2109090001', 91, 436),
+(99, 'EHRA2109090001', 92, 445),
+(100, 'EHRA2109090001', 93, 449),
+(101, 'EHRA2109090001', 94, 457),
+(102, 'EHRA2109090001', 95, 461),
+(103, 'EHRA2109090001', 96, 464),
+(104, 'EHRA2109090001', 97, 466),
+(105, 'EHRA2109090001', 98, 467),
+(106, 'EHRA2109090001', 99, 471),
+(107, 'EHRA2109090001', 100, 483),
+(108, 'EHRA2109090001', 101, 485),
+(109, 'EHRA2109090001', 102, 487),
+(110, 'EHRA2109090001', 103, 489),
+(111, 'EHRA2109090001', 104, 491),
+(112, 'EHRA2109090001', 105, 495),
+(113, 'EHRA2109090001', 105, 497),
+(114, 'EHRA2109090001', 106, 506),
+(115, 'EHRA2109090001', 107, 513),
+(116, 'EHRA2109090001', 108, 516),
+(117, 'EHRA2109090001', 109, 522),
+(118, 'EHRA2109090001', 110, 527),
+(119, 'EHRA2109090001', 111, 533),
+(120, 'EHRA2109090001', 112, 535),
+(121, 'EHRA2109090001', 113, 538),
+(122, 'EHRA2109090001', 113, 539),
+(123, 'EHRA2109090001', 114, 544),
+(124, 'EHRA2109090001', 115, 546),
+(125, 'EHRA2109090001', 116, 547),
+(126, 'EHRA2109090001', 116, 548),
+(127, 'EHRA2109090001', 117, 552),
+(128, 'EHRA2109090001', 118, 554),
+(129, 'EHRA2109090001', 118, 555),
+(130, 'EHRA2109090001', 119, 559),
+(131, 'EHRA2109090001', 119, 560),
+(132, 'EHRA2109090001', 120, 564),
+(133, 'EHRA2109090001', 121, 566),
+(134, 'EHRA2109090001', 122, 569),
+(135, 'EHRA2109090001', 123, 572);
 
 -- --------------------------------------------------------
 
@@ -8093,156 +8852,29 @@ CREATE TABLE `survey` (
 --
 
 INSERT INTO `survey` (`id`, `no_survey`, `nik`, `survey_date`, `survey_time`, `user_id`, `supervisor_id`, `coordinator_id`) VALUES
-(1, 'EHRA2109090001', '64456457456', '2021-09-09', '17:12:00.000000', 3, 10, 9);
+(4, 'EHRA2109090001', '64456457456', '2021-09-16', '15:47:00.000000', 3, 10, 9);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `survey_result`
+-- Struktur dari tabel `type`
 --
 
-CREATE TABLE `survey_result` (
+CREATE TABLE `type` (
   `id` int(11) NOT NULL,
-  `no_survey` varchar(15) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `answer` varchar(225) DEFAULT NULL,
-  `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+  `type_name` varchar(40) NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `survey_result`
+-- Dumping data untuk tabel `type`
 --
 
-INSERT INTO `survey_result` (`id`, `no_survey`, `question_id`, `answer`, `description`) VALUES
-(1, 'EHRA2109090001', 1, '30 Tahun', NULL),
-(2, 'EHRA2109090001', 2, '1', NULL),
-(3, 'EHRA2109090001', 3, '120 m2', NULL),
-(4, 'EHRA2109090001', 4, '1', NULL),
-(5, 'EHRA2109090001', 5, '3', NULL),
-(6, 'EHRA2109090001', 6, '2', NULL),
-(7, 'EHRA2109090001', 7, 'Rp. 1.500.000', NULL),
-(8, 'EHRA2109090001', 8, '3', NULL),
-(9, 'EHRA2109090001', 9, '1', NULL),
-(10, 'EHRA2109090001', 10, '1', NULL),
-(11, 'EHRA2109090001', 11, 'Tahun 1990', NULL),
-(12, 'EHRA2109090001', 12, '1', NULL),
-(13, 'EHRA2109090001', 128, '1 orang', NULL),
-(14, 'EHRA2109090001', 129, '2 orang', NULL),
-(15, 'EHRA2109090001', 131, '0 orang', NULL),
-(16, 'EHRA2109090001', 132, '1 orang', NULL),
-(17, 'EHRA2109090001', 133, '2 orang', NULL),
-(18, 'EHRA2109090001', 134, '0 orang', NULL),
-(19, 'EHRA2109090001', 136, '0 orang ', NULL),
-(20, 'EHRA2109090001', 137, '2 orang', NULL),
-(21, 'EHRA2109090001', 15, '6 liter', NULL),
-(22, 'EHRA2109090001', 16, '3,5,7', NULL),
-(23, 'EHRA2109090001', 17, '6', NULL),
-(24, 'EHRA2109090001', 18, '2', NULL),
-(25, 'EHRA2109090001', 19, '2,6', NULL),
-(26, 'EHRA2109090001', 20, '3', NULL),
-(27, 'EHRA2109090001', 21, '2', NULL),
-(28, 'EHRA2109090001', 22, '2', NULL),
-(29, 'EHRA2109090001', 23, '2', NULL),
-(30, 'EHRA2109090001', 24, '2', NULL),
-(31, 'EHRA2109090001', 25, '4', NULL),
-(32, 'EHRA2109090001', 26, '4,6', NULL),
-(33, 'EHRA2109090001', 27, '2', NULL),
-(34, 'EHRA2109090001', 28, '2', NULL),
-(35, 'EHRA2109090001', 29, '8', NULL),
-(36, 'EHRA2109090001', 30, '3', NULL),
-(37, 'EHRA2109090001', 31, '3', NULL),
-(38, 'EHRA2109090001', 32, '3', NULL),
-(39, 'EHRA2109090001', 33, '1', NULL),
-(40, 'EHRA2109090001', 34, '3', NULL),
-(41, 'EHRA2109090001', 35, '2', NULL),
-(42, 'EHRA2109090001', 36, '2', NULL),
-(43, 'EHRA2109090001', 37, '1', NULL),
-(44, 'EHRA2109090001', 38, '2', NULL),
-(45, 'EHRA2109090001', 39, '3', NULL),
-(46, 'EHRA2109090001', 40, '4', NULL),
-(47, 'EHRA2109090001', 41, '1', NULL),
-(48, 'EHRA2109090001', 42, '2', NULL),
-(49, 'EHRA2109090001', 43, '3', NULL),
-(50, 'EHRA2109090001', 44, '2', NULL),
-(51, 'EHRA2109090001', 45, '1', NULL),
-(52, 'EHRA2109090001', 46, '2', NULL),
-(53, 'EHRA2109090001', 47, '2', NULL),
-(54, 'EHRA2109090001', 48, '1', NULL),
-(55, 'EHRA2109090001', 49, '2', NULL),
-(56, 'EHRA2109090001', 51, '2', NULL),
-(57, 'EHRA2109090001', 52, '3', NULL),
-(58, 'EHRA2109090001', 53, '2', NULL),
-(59, 'EHRA2109090001', 54, '2', NULL),
-(60, 'EHRA2109090001', 55, '5', NULL),
-(61, 'EHRA2109090001', 56, '2', NULL),
-(62, 'EHRA2109090001', 138, '6', NULL),
-(63, 'EHRA2109090001', 139, '2', NULL),
-(64, 'EHRA2109090001', 140, '6', NULL),
-(65, 'EHRA2109090001', 141, '3', NULL),
-(66, 'EHRA2109090001', 59, '2', NULL),
-(67, 'EHRA2109090001', 60, '2', NULL),
-(68, 'EHRA2109090001', 61, '3', NULL),
-(69, 'EHRA2109090001', 62, '4', NULL),
-(70, 'EHRA2109090001', 63, '2', NULL),
-(71, 'EHRA2109090001', 64, '2', NULL),
-(72, 'EHRA2109090001', 65, '3', NULL),
-(73, 'EHRA2109090001', 66, '2', NULL),
-(74, 'EHRA2109090001', 67, '2', NULL),
-(75, 'EHRA2109090001', 68, '2', NULL),
-(76, 'EHRA2109090001', 69, '2', NULL),
-(77, 'EHRA2109090001', 71, '7', NULL),
-(78, 'EHRA2109090001', 72, '2', NULL),
-(79, 'EHRA2109090001', 73, '2', NULL),
-(80, 'EHRA2109090001', 74, '2', NULL),
-(81, 'EHRA2109090001', 75, '4', NULL),
-(82, 'EHRA2109090001', 76, '2', NULL),
-(83, 'EHRA2109090001', 77, '1', NULL),
-(84, 'EHRA2109090001', 78, '2', NULL),
-(85, 'EHRA2109090001', 79, '3,6', NULL),
-(86, 'EHRA2109090001', 80, '4,7', NULL),
-(87, 'EHRA2109090001', 81, '2,5', NULL),
-(88, 'EHRA2109090001', 82, '6', NULL),
-(89, 'EHRA2109090001', 83, '2,4', NULL),
-(90, 'EHRA2109090001', 84, '2,7,11,14', NULL),
-(91, 'EHRA2109090001', 85, '3', NULL),
-(92, 'EHRA2109090001', 86, '2', NULL),
-(93, 'EHRA2109090001', 87, '2', NULL),
-(94, 'EHRA2109090001', 88, '2', NULL),
-(95, 'EHRA2109090001', 89, '3', NULL),
-(96, 'EHRA2109090001', 90, '3', NULL),
-(97, 'EHRA2109090001', 91, '2', NULL),
-(98, 'EHRA2109090001', 92, '2', NULL),
-(99, 'EHRA2109090001', 93, '4', NULL),
-(100, 'EHRA2109090001', 94, '2', NULL),
-(101, 'EHRA2109090001', 95, '2', NULL),
-(102, 'EHRA2109090001', 96, '2', NULL),
-(103, 'EHRA2109090001', 97, '2', NULL),
-(104, 'EHRA2109090001', 98, '2', NULL),
-(105, 'EHRA2109090001', 99, '2', NULL),
-(106, 'EHRA2109090001', 100, '2', NULL),
-(107, 'EHRA2109090001', 101, '2', NULL),
-(108, 'EHRA2109090001', 102, '2', NULL),
-(109, 'EHRA2109090001', 103, '2', NULL),
-(110, 'EHRA2109090001', 104, '2', NULL),
-(111, 'EHRA2109090001', 105, '4,5,7', NULL),
-(112, 'EHRA2109090001', 106, '7', NULL),
-(113, 'EHRA2109090001', 107, '2', NULL),
-(114, 'EHRA2109090001', 108, '2', NULL),
-(115, 'EHRA2109090001', 109, '2', NULL),
-(116, 'EHRA2109090001', 110, '4', NULL),
-(117, 'EHRA2109090001', 111, '2', NULL),
-(118, 'EHRA2109090001', 112, '2', NULL),
-(119, 'EHRA2109090001', 113, '2,5', NULL),
-(120, 'EHRA2109090001', 114, '2', NULL),
-(121, 'EHRA2109090001', 115, '2', NULL),
-(122, 'EHRA2109090001', 116, '2,3', NULL),
-(123, 'EHRA2109090001', 117, '2', NULL),
-(124, 'EHRA2109090001', 118, '2,4', NULL),
-(125, 'EHRA2109090001', 119, '2,3,4', NULL),
-(126, 'EHRA2109090001', 120, '1', NULL),
-(127, 'EHRA2109090001', 121, '2', NULL),
-(128, 'EHRA2109090001', 122, '2', NULL),
-(129, 'EHRA2109090001', 123, '2', NULL);
+INSERT INTO `type` (`id`, `type_name`, `created_at`, `updated_at`) VALUES
+(1, 'Radio Button', '2021-09-15', '2021-09-15'),
+(2, 'Checkbox', '2021-09-15', '2021-09-15'),
+(3, 'Select', '2021-09-15', '2021-09-15');
 
 -- --------------------------------------------------------
 
@@ -88891,6 +89523,18 @@ INSERT INTO `villages` (`id`, `district_id`, `village_name`) VALUES
 --
 
 --
+-- Indeks untuk tabel `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `districts`
 --
 ALTER TABLE `districts`
@@ -88898,9 +89542,9 @@ ALTER TABLE `districts`
   ADD KEY `districts_id_index` (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `level`
+-- Indeks untuk tabel `levels`
 --
-ALTER TABLE `level`
+ALTER TABLE `levels`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -88910,17 +89554,11 @@ ALTER TABLE `puskesmas`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `question`
+-- Indeks untuk tabel `questions`
 --
-ALTER TABLE `question`
+ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `qcategory_id` (`qcategory_id`);
-
---
--- Indeks untuk tabel `question_category`
---
-ALTER TABLE `question_category`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `regencies`
@@ -88936,16 +89574,22 @@ ALTER TABLE `respondent`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indeks untuk tabel `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indeks untuk tabel `survey`
 --
 ALTER TABLE `survey`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indeks untuk tabel `survey_result`
+-- Indeks untuk tabel `type`
 --
-ALTER TABLE `survey_result`
-  ADD PRIMARY KEY (`id`) USING BTREE;
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -88967,46 +89611,58 @@ ALTER TABLE `villages`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `level`
+-- AUTO_INCREMENT untuk tabel `answers`
 --
-ALTER TABLE `level`
+ALTER TABLE `answers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=660;
+
+--
+-- AUTO_INCREMENT untuk tabel `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT untuk tabel `levels`
+--
+ALTER TABLE `levels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `puskesmas`
 --
 ALTER TABLE `puskesmas`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `question`
+-- AUTO_INCREMENT untuk tabel `questions`
 --
-ALTER TABLE `question`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
-
---
--- AUTO_INCREMENT untuk tabel `question_category`
---
-ALTER TABLE `question_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+ALTER TABLE `questions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT untuk tabel `respondent`
 --
 ALTER TABLE `respondent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT untuk tabel `survey`
 --
 ALTER TABLE `survey`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `survey_result`
+-- AUTO_INCREMENT untuk tabel `type`
 --
-ALTER TABLE `survey_result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+ALTER TABLE `type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -89025,16 +89681,16 @@ ALTER TABLE `districts`
   ADD CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`) ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `question`
+-- Ketidakleluasaan untuk tabel `questions`
 --
-ALTER TABLE `question`
-  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`qcategory_id`) REFERENCES `question_category` (`id`);
+ALTER TABLE `questions`
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`qcategory_id`) REFERENCES `categories` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`level_id`) REFERENCES `level` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`level_id`) REFERENCES `levels` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `villages`

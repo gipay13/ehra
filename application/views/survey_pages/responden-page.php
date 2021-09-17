@@ -90,15 +90,16 @@
 								<input type="number" class="form-control" name="jumlah_keluarga" id="jumlah_keluarga">
 							</div>
 							<div class="form-group">
-								<label for="jumlahJiwa">Jumlah Jiwa dalam Rumah</label>
-								<div class="row">
-									<div class="col-md-3">Laki</div>
-									<input type="text" class="form-control col-md-4" name="jumlah_laki" id="jumlahlaki" placeholder="ex. 1 Orang">
-								</div>
-								<div class="row mt-2">
-									<div class="col-md-3">Perempuan</div>
-									<input type="text" class="form-control col-md-4" name="jumlah_pr" id="jumlahpr" placeholder="ex. 1 Orang">
-								</div>
+								<label for="jumlah_jiwa">Jumlah Jiwa dalam Rumah</label>
+								<select name="jumlah_jiwa" id="jumlah_jiwa" class="form-control">
+									<option value="">--Pilih--</option>
+									<option value="1 Orang">1 Orang</option>
+									<option value="2 Orang">2 Orang</option>
+									<option value="3 Orang">3 Orang</option>
+									<option value="4 Orang">4 Orang</option>
+									<option value="5 Orang">5 Orang</option>
+									<option value="< 5 Orang">< 5 Orang</option>
+								</select>
 							</div>
 							<div class="form-group">
 								<label for="responden">Nama Responden</label>

@@ -56,16 +56,16 @@ class Survey extends CI_Controller
 
 	public function radio($id, $id_pertanyaan, $label) {
 		echo '	<div class="custom-control custom-radio">
-					<input type="radio" id="'.$label.$id.'" name="answer'.$id_pertanyaan.'" class="custom-control-input" value="'.$id.'">
-					<label class="custom-control-label" for="'.$label.$id.'">'.$label.'</label>
+					<input type="radio" id="'.$id.'" name="answer'.$id_pertanyaan.'" class="custom-control-input" value="'.$id.'">
+					<label class="custom-control-label" for="'.$id.'">'.$label.'</label>
 				</div>';
 	}
 
 	public function checkbox($id, $id_pertanyaan, $label)
 	{
 		echo '	<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" name="answer'.$id_pertanyaan.'[]" id="'. $label . $id.'" value="'.$id. '">
-					<label class="custom-control-label" for="'. $label . $id.'">'.$label.'</label>
+					<input type="checkbox" class="custom-control-input" name="answer'.$id_pertanyaan.'[]" id="'. $id.'" value="'.$id. '">
+					<label class="custom-control-label" for="'. $id.'">'.$label.'</label>
 				</div>';
 	}
 
@@ -151,7 +151,7 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 55, $store['answer55']);
 		$this->SurveyModel->insert_jawaban($no_survey, 56, $store['answer56']);
 		$this->SurveyModel->insert_jawaban($no_survey, 57, $store['answer57']);
-		for ($i = 0; $i < count($store['answer138']); $i++) {
+		for ($i = 0; $i < count($store['answer135']); $i++) {
 			$this->SurveyModel->insert_jawaban($no_survey, 135, $store['answer135'][$i]);
 		}
 		// F
@@ -169,6 +169,9 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 67, $store['answer67']);
 		$this->SurveyModel->insert_jawaban($no_survey, 68, $store['answer68']);
 		$this->SurveyModel->insert_jawaban($no_survey, 69, $store['answer69']);
+		for ($i = 0; $i < count($store['answer70']); $i++) {
+			$this->SurveyModel->insert_jawaban($no_survey, 70, $store['answer70'][$i]);
+		}
 		$this->SurveyModel->insert_jawaban($no_survey, 71, $store['answer71']);
 		$this->SurveyModel->insert_jawaban($no_survey, 72, $store['answer72']);
 		$this->SurveyModel->insert_jawaban($no_survey, 73, $store['answer73']);

@@ -99,10 +99,75 @@
 							</li>
 						<?php } ?>
 						<li class="nav-item">
-							<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
-								<i class="nav-icon fas fa-poll"></i>
-								<p>Hasil Survey</p>
+							<a href="#" class="nav-link">
+								<i class="nav-icon fas fa-chart-pie"></i>
+								<p>
+									Laporan
+									<i class="right fas fa-angle-left"></i>
+								</p>
 							</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item">
+									<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Hasil Survey</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index2.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Informasi Responden</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Sampah</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Buang Air Besar</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Drainase</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Sumber Air</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Perilaku Hidup</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Diare</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Pengamatan</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Area Beresiko</p>
+									</a>
+								</li>
+							</ul>
 						</li>
 						<?php if ($this->session->userdata('level') == 1) { ?>
 							<li class="nav-header">Settings</li>

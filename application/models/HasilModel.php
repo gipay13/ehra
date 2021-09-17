@@ -7,37 +7,28 @@ class HasilModel extends CI_Model
 	{
 		$this->db->join('respondent', 'respondent.nik = survey.nik');
 		$this->db->join('users', 'users.user_id = survey.user_id');
-		$this->db->join('districts', 'districts.id = respondent.district_id');
+		$this->db->join('districts', 'districts.id = survey.district_id');
+		$this->db->join('villages', 'villages.id = survey.village_id');
 		$this->db->order_by('survey.survey_date', 'desc');
 		$query = $this->db->get('survey');
 		return $query->result();
 	}
 
-	function delete_hasil_responden($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('respondent');
-	}
-
-	function delete_hasil_survey($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('survey');
-	}
-
-	function get_laporan_survey($no_survey)
+	function get_pdf_survey($no_survey)
 	{
 		$this->db->join('respondent', 'respondent.nik = survey.nik');
 		$this->db->join('users', 'users.user_id = survey.user_id');
-		$this->db->join('districts', 'districts.id = respondent.district_id');
+		$this->db->join('districts', 'districts.id = survey.district_id');
+		$this->db->join('villages', 'villages.id = survey.village_id');
 		$this->db->where('survey.no_survey', $no_survey);
 		$query = $this->db->get('survey');
 		return $query->row();
 	}
 
-	function get_laporan_jawaban($id)
+	function get_pdf_jawaban($no_survey, $id)
 	{
 		$this->db->join('answers', 'answers.id = results.answer_id');
+		$this->db->where('no_survey', $no_survey);
 		$this->db->where('results.question_id', $id);
 		$query = $this->db->get('results');
 		return $query->result();

@@ -58,11 +58,11 @@
 		<tr>
 			<td style="padding-top: 60px;"></td>
 		</tr>
-		<tr>
-			<td style="text-align: center; background-color: #2985B4;">Informasi Umum</td>
-		</tr>
 	</table>
 	<table class="table">
+		<tr>
+			<td colspan="2" style="text-align: center; background-color: #2985B4;">Informasi Umum</td>
+		</tr>
 		<tr>
 			<td width="50%">Nomor Survey</td>
 			<td width="50%"><?= $survey->no_survey ?></td>
@@ -87,16 +87,20 @@
 			<td>Kecamatan</td>
 			<td><?= $survey->district_name ?></td>
 		</tr>
+		<tr>
+			<td>Kelurahan</td>
+			<td><?= $survey->village_name ?></td>
+		</tr>
 	</table>
 	<table width="100%">
 		<tr>
-			<td style="padding-top: 60px;"></td>
-		</tr>
-		<tr>
-			<td style="text-align: center; background-color: #2985B4;">Identitas Responden</td>
+			<td style="padding-top: 50px;"></td>
 		</tr>
 	</table>
 	<table class="table">
+		<tr>
+			<td colspan="2" style="text-align: center; background-color: #2985B4;">Identitas Responden</td>
+		</tr>
 		<tr>
 			<td width="50%">Nomor Kartu Keluarga</td>
 			<td width="50%"><?= $survey->nkk ?></td>
@@ -145,22 +149,20 @@
 	<?php foreach ($kategori as $k) { ?>
 		<table width="100%">
 			<tr>
-				<td style="padding-top: 60px;"></td>
+				<td style="padding-top: 50px;"></td>
 			</tr>
 		</table>
 		<table class="table">
-			<thead>
-				<tr>
-					<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
-				</tr>
-			</thead>
+			<tr>
+				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
+			</tr>
 			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
 			<?php foreach ($pertanyaan as $p) { ?>
 				<tr>
 					<td width="40%"><?= $p->question_name ?></td>
 					<td width="20%"></td>
 					<td width="40%">
-						<?php $jawaban = $this->CI->jawaban($p->id) ?>
+						<?php $jawaban = $this->CI->jawaban($survey->no_survey, $p->id) ?>
 						<?php foreach ($jawaban as $j) { ?>
 							<div>
 								<?= $j->answer_name ?>

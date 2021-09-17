@@ -37,6 +37,7 @@
 									<th>NIK</th>
 									<th>Nama Responden</th>
 									<th>Kecamatan</th>
+									<th>Kelurahan</th>
 									<th>Alamat</th>
 									<th>Aksi</th>
 								</tr>
@@ -52,12 +53,10 @@
 										<td><?= $s->nik ?></td>
 										<td><?= $s->nama_responden ?></td>
 										<td><?= $s->district_name ?></td>
+										<td><?= $s->village_name ?></td>
 										<td><?= $s->alamat ?></td>
 										<td>
 											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
-											<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
-												<a href="<?= base_url('hasil/delete/' . $s->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
-											<?php } ?>
 										</td>
 									</tr>
 								<?php } ?>
@@ -71,6 +70,7 @@
 									<th>NIK</th>
 									<th>Nama Responden</th>
 									<th>Kecamatan</th>
+									<th>Kelurahan</th>
 									<th>Alamat</th>
 									<th>Aksi</th>
 								</tr>

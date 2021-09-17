@@ -89,22 +89,6 @@
 				})
 			}
 		});
-
-		$('#kecamatan').change(function() {
-			var id = $('#kecamatan').val();
-			if (id != '') {
-				$.ajax({
-					url: "<?= base_url('responden/fetch_koordinator'); ?>",
-					method: "POST",
-					data: {
-						id: id
-					},
-					success: function(data) {
-						$('#koordinator').html(data);
-					}
-				})
-			}
-		});
 	});
 	$('.btn-next, .btn-prev').click(function() {
 		const $btn = $(this),
@@ -117,87 +101,99 @@
 
 	});
 	$(document).ready(function($) {
-		var $jwbn19 = $('input[name="answer19[]"]').not('#tidaktahu')
-		$('#tidaktahu').change(function() {
+		var $jwbn19 = $('input[name="answer19[]"]').not('#80')
+		$('#80').change(function() {
 			if (this.checked) {
 				$jwbn19.prop('checked', false)
 			}
 		});
 		$jwbn19.change(function() {
 			if (this.checked) {
-				$('#tidaktahu').prop('checked', false)
+				$('#80').prop('checked', false)
 			}
 		})
 
-		var $jwbn26 = $('input[name="answer26[]"]').not('#ta')
-		$('#ta').change(function() {
+		var $jwbn26 = $('input[name="answer26[]"]').not('#122')
+		$('#122').change(function() {
 			if (this.checked) {
 				$jwbn26.prop('checked', false)
 			}
 		});
 		$jwbn26.change(function() {
 			if (this.checked) {
-				$('#ta').prop('checked', false)
+				$('#122').prop('checked', false)
 			}
 		})
 
-		var $jwbn70 = $('input[name="answer70[]"]').not('#Tidaksemua')
-		$('#Tidaksemua').change(function() {
+		var $jwbn135 = $('input[name="answer135[]"]').not('#649')
+		$('#649').change(function() {
+			if (this.checked) {
+				$jwbn135.prop('checked', false)
+			}
+		});
+		$jwbn135.change(function() {
+			if (this.checked) {
+				$('#649').prop('checked', false)
+			}
+		})
+
+		var $jwbn70 = $('input[name="answer70[]"]').not('#312')
+		$('#312').change(function() {
 			if (this.checked) {
 				$jwbn70.prop('checked', false)
 			}
 		});
 		$jwbn70.change(function() {
 			if (this.checked) {
-				$('#Tidaksemua').prop('checked', false)
+				$('#312').prop('checked', false)
 			}
 		})
 
-		var $jwbn79 = $('input[name="answer79[]"]').not('#tidaktahu1')
-		$('#tidaktahu1').change(function() {
+		var $jwbn79 = $('input[name="answer79[]"]').not('#728')
+		$('#728').change(function() {
 			if (this.checked) {
 				$jwbn79.prop('checked', false)
 			}
 		});
 		$jwbn79.change(function() {
 			if (this.checked) {
-				$('#tidaktahu1').prop('checked', false)
+				$('#728').prop('checked', false)
 			}
 		})
 
-		var $jwbn80 = $('input[name="answer80[]"]').not('#tita')
-		$('#tita').change(function() {
+		var $jwbn80 = $('input[name="answer80[]"]').not('#719')
+		$('#719').change(function() {
 			if (this.checked) {
 				$jwbn80.prop('checked', false)
 			}
 		});
 		$jwbn80.change(function() {
 			if (this.checked) {
-				$('#tita').prop('checked', false)
+				$('#719').prop('checked', false)
 			}
 		})
 
-		var $jwbn116 = $('input[name="answer116[]"]').not('#td')
-		$('#td').change(function() {
+		var $jwbn116 = $('input[name="answer116[]"]').not('#550')
+		$('#550').change(function() {
 			if (this.checked) {
 				$jwbn116.prop('checked', false)
 			}
 		});
 		$jwbn116.change(function() {
 			if (this.checked) {
-				$('#td').prop('checked', false)
+				$('#550').prop('checked', false)
 			}
 		})
 
-		var $jwbn119 = $('input[name="answer119[]"]').not('#tidakpasti')
-		$('#tidakpasti').change(function() {
+		var $jwbn119 = $('input[name="answer119[]"]').not('#562')
+		$('#562').change(function() {
 			if (this.checked) {
 				$jwbn119.prop('checked', false)
 			}
 		});
 		$jwbn119.change(function() {
 			if (this.checked) {
-				$('#tidakpasti').prop('checked', false)
+				$('#562').prop('checked', false)
 			}
 		})
 	});

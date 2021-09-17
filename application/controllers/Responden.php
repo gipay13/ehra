@@ -1,4 +1,7 @@
 <?php
+
+use phpDocumentor\Reflection\PseudoTypes\False_;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Responden extends CI_Controller
@@ -36,17 +39,36 @@ class Responden extends CI_Controller
 		}
 	}
 
+	public function fetch_village()
+	{
+		if ($this->input->post('id')) {
+			echo $this->RespondenModel->village($this->input->post('id'));
+		}
+	}
+
 	public function process()
 	{
 		$process = $this->input->post(null, TRUE);
 
-		//print_r($process);
-
+		// echo '<pre>';
+		// print_r($process);
+		// echo '</pre>';
+		$this->db->trans_start();
 		$this->RespondenModel->insert_responden($process);
 		$this->RespondenModel->insert_survey($process);
+		$this->db->trans_complete();
 
-		//$this->db->insert_id(); ini untuk alternatif url
-
-		redirect('survey/p/' . $process['no_survey']);
+		if($this->db->trans_status() === False) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-times-circle mx-1"></i> Error Database</span>
+				</div>'
+			);
+			redirect('responden');
+		} else {
+			redirect('survey/p/' . $process['no_survey']);
+		}
 	}
 }

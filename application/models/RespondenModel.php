@@ -26,6 +26,20 @@ class RespondenModel extends CI_Model
 		return $output;
 	}
 
+	function village($id)
+	{
+		$this->db->where('district_id', $id);
+		$this->db->order_by('village_name', 'asc');
+		$query = $this->db->get('villages');
+
+		$output = '<option value="">--Pilih Kelurahan--</option>';
+		foreach ($query->result() as $v) {
+			$output .= '<option value="' . $v->id . '">' . $v->village_name . '</option>';
+		}
+
+		return $output;
+	}
+
 
 	public function no_survey()
 	{
@@ -53,7 +67,6 @@ class RespondenModel extends CI_Model
 			'jml_jiwa'				=> $responden['jumlah_jiwa'],
 			'nama_responden'		=> $responden['responden'],
 			'hubungan_responden'	=> $responden['hubungan'],
-			'district_id'			=> $responden['kecamatan'],
 			'alamat'				=> $responden['alamat'],
 			'rt'					=> $responden['rt'],
 			'rw'					=> $responden['rw'],
@@ -73,6 +86,9 @@ class RespondenModel extends CI_Model
 			'user_id'				=> $survey['user_id'],
 			'supervisor_id'			=> $survey['supervisor'],
 			'coordinator_id'		=> $survey['koordinator'],
+			'regency_id'			=> $survey['kabupaten'],
+			'district_id'			=> $survey['kecamatan'],
+			'village_id'			=> $survey['kelurahan']
 		];
 
 		$this->db->insert('survey', $data);

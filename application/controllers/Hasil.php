@@ -47,8 +47,8 @@ class Hasil extends CI_Controller
 		return $data;
 	}
 
-	public function jawaban($question_id) {
-		$data = $this->HasilModel->get_laporan_jawaban($question_id);
+	public function jawaban($no_survey, $question_id) {
+		$data = $this->HasilModel->get_pdf_jawaban($no_survey, $question_id);
 
 		return $data;
 	}
@@ -57,15 +57,15 @@ class Hasil extends CI_Controller
 	{
 
 		$data = [
-			'survey' => $this->HasilModel->get_laporan_survey($no_survey),
+			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
 			'kategori' => $this->KategoriModel->get_kategori(),
 		];
 
-		//$this->load->view('laporan_pages/laporan_hasil', $data);
-		$this->load->library('pdf');
+		$this->load->view('pdf_pages/pdf_hasil', $data);
+		// $this->load->library('pdf');
 
-		$this->pdf->setPaper('A4', 'potrait');
-		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
-		$this->pdf->load_view('laporan_pages/laporan_hasil', $data);
+		// $this->pdf->setPaper('A4', 'potrait');
+		// $this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
+		// $this->pdf->load_view('pdf_pages/pdf_hasil', $data);
 	}
 }

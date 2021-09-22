@@ -14,8 +14,9 @@ class PertanyaanModel extends CI_Model
 	public function insert_pertanyaan($insert)
 	{
 		$data = [
-			'qcategory_id' => $insert['id_kategori'],
+			'qcategory_id' => $insert['kategori'],
 			'question_name' => $insert['pertanyaan'],
+			'type_id' => $insert['tipe'],
 			'created_at' => date('Y-m-d'),
 			'updated_at' => date('Y-m-d'),
 		];

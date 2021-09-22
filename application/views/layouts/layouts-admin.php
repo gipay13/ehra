@@ -36,7 +36,7 @@
 					<a class="nav-link" data-toggle="dropdown" href="#">
 						<div class="user-panel">
 							<div class="image">
-								<img src="<?= base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+								<img src="<?= base_url() ?>assets/dist/img/blank-profile-picture.png" class="img-circle elevation-2" alt="User Image">
 							</div>
 						</div>
 					</a>
@@ -51,14 +51,14 @@
 
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<a href="" class="brand-link">
-				<img src="<?= base_url('assets/img/baktihusada.png') ?>" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+				<img src="<?= base_url('assets/dist/img/baktihusada.png') ?>" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
 				<span class="brand-text font-weight-light">Ehra</span>
 			</a>
 
 			<div class="sidebar">
 				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 					<div class="image">
-						<img src="<?= base_url('') ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+						<img src="<?= base_url('') ?>assets/dist/img/blank-profile-picture.png" class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
 						<a href="<?= base_url('auth/logout') ?>" class="d-block"><?= $this->session->userdata("name"); ?></a>
@@ -84,20 +84,24 @@
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
-							<li class="nav-item">
-								<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link">
-									<i class="nav-icon fas fa-question"></i>
-									<p>Pertanyaan</p>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?= base_url('admin/kategori') ?>" class="nav-link">
-									<i class="nav-icon fas fa-object-group"></i>
-									<p>Kategori Pertanyan</p>
-								</a>
-							</li>
-						<?php } ?>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link">
+								<i class="nav-icon fas fa-question"></i>
+								<p>Pertanyaan</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/kategori') ?>" class="nav-link">
+								<i class="nav-icon fas fa-folder-open"></i>
+								<p>Kategori Pertanyan</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
+								<i class="nav-icon fas fa-poll"></i>
+								<p>Hasil Survey</p>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a href="#" class="nav-link">
 								<i class="nav-icon fas fa-chart-pie"></i>
@@ -108,25 +112,19 @@
 							</a>
 							<ul class="nav nav-treeview">
 								<li class="nav-item">
-									<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Hasil Survey</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index2.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/infoumum') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Informasi Responden</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/sampah') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Sampah</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/buangair') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Buang Air Besar</p>
 									</a>
@@ -186,6 +184,8 @@
 		<!-- jQuery -->
 		<script src="<?= base_url('') ?>assets/plugins/jquery/jquery.min.js"></script>
 		<script src="<?= base_url('') ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- CANVAS JS -->
+		<script src="<?= base_url('') ?>assets/plugins/canvasjs/canvasjs.min.js"></script>
 
 		<div class="content-wrapper">
 			<?= $content ?>
@@ -224,6 +224,20 @@
 	<script>
 		$(function() {
 			$("#table").DataTable({
+				"responsive": true,
+				"lengthChange": false,
+				"autoWidth": false,
+			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+		});
+		$(function() {
+			$("#supervisor").DataTable({
+				"responsive": true,
+				"lengthChange": false,
+				"autoWidth": false,
+			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+		});
+		$(function() {
+			$("#koordinator").DataTable({
 				"responsive": true,
 				"lengthChange": false,
 				"autoWidth": false,

@@ -11,9 +11,8 @@ class Responden extends CI_Controller
 		parent::__construct();
 		$this->load->model(['RespondenModel', 'UserModel']);
 		if (
-			$this->session->userdata('level') == 4 ||
-			$this->session->userdata('level') == 5 ||
-			$this->session->userdata('level') == 6
+			$this->session->userdata('level') == 3 ||
+			$this->session->userdata('level') == 4
 		)
 			redirect('admin/dashboard');
 		if (!$this->session->userdata('username'))
@@ -25,8 +24,7 @@ class Responden extends CI_Controller
 		$data = array(
 			"regencies"		=> $this->RespondenModel->regencies(),
 			"survey"		=> $this->RespondenModel->no_survey(),
-			"koordinator"	=> $this->UserModel->get_user(4),
-			"supervisor"	=> $this->UserModel->get_user(6),
+			"supervisor"	=> $this->UserModel->get_supervisor(),
 		);
 
 		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
@@ -43,6 +41,13 @@ class Responden extends CI_Controller
 	{
 		if ($this->input->post('id')) {
 			echo $this->RespondenModel->village($this->input->post('id'));
+		}
+	}
+
+	public function fetch_koordinator()
+	{
+		if ($this->input->post('id')) {
+			echo $this->RespondenModel->koordinator($this->input->post('id'));
 		}
 	}
 

@@ -22,24 +22,31 @@
 
 		.table {
 			width: 100%;
-			border-spacing: 0;
+			margin-bottom: 1rem;
+			color: #212529;
+			background-color: transparent;
 		}
 
-		.table tr:first-child th,
-		.table tr:first-child td {
-			border-top: 1px solid #000;
+		.table th,
+		.table td {
+			padding: 0.75rem;
+			vertical-align: top;
+			border-top: 1px solid #dee2e6;
 		}
 
-		.table tr th:first-child,
-		.table tr td:first-child {
-			border-left: 1px solid #000;
+		.table thead th {
+			vertical-align: bottom;
+			border-bottom: 2px solid #dee2e6;
 		}
 
-		.table tr th,
-		.table tr td {
-			border-right: 1px solid #000;
-			border-bottom: 1px solid #000;
-			padding: 10px;
+		.table tbody+tbody {
+			border-top: 2px solid #dee2e6;
+		}
+
+
+
+		.table-striped tbody tr:nth-of-type(odd) {
+			background-color: rgba(0, 0, 0, 0.05);
 		}
 	</style>
 </head>
@@ -47,9 +54,9 @@
 <body>
 	<table width="100%">
 		<tr>
-			<td width="10%"><img style="width: 70px;" src="/assets/img/baktihusada.png"></td>
-			<td width="80%" style="text-align: center;">DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
-			<td width="10%"><img style="width: 70px" src="/assets/img/baktihusada.png"></td>
+			<td width="20%"><img style="width: 70px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
+			<td width="60%" style="text-align: center;">DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
+			<td width="20%"><img style="width: 170px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
 		</tr>
 	</table>
 	<br>
@@ -59,7 +66,7 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<table class="table">
+	<table class="table table-striped">
 		<tr>
 			<td colspan="2" style="text-align: center; background-color: #2985B4;">Informasi Umum</td>
 		</tr>
@@ -77,11 +84,11 @@
 		</tr>
 		<tr>
 			<td>Koordinator Kecamatan</td>
-			<td><?= $survey->coordinator_id ?></td>
+			<td><?= $survey->coordinator_name ?></td>
 		</tr>
 		<tr>
 			<td>Supervisor</td>
-			<td><?= $survey->supervisor_id ?></td>
+			<td><?= $survey->supervisor_name ?></td>
 		</tr>
 		<tr>
 			<td>Kecamatan</td>
@@ -97,7 +104,7 @@
 			<td style="padding-top: 50px;"></td>
 		</tr>
 	</table>
-	<table class="table">
+	<table class="table table-striped">
 		<tr>
 			<td colspan="2" style="text-align: center; background-color: #2985B4;">Identitas Responden</td>
 		</tr>
@@ -152,7 +159,7 @@
 				<td style="padding-top: 50px;"></td>
 			</tr>
 		</table>
-		<table class="table">
+		<table class="table table-striped">
 			<tr>
 				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
 			</tr>

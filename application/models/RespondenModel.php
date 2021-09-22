@@ -5,7 +5,6 @@ class RespondenModel extends CI_Model
 {
 	function regencies()
 	{
-		$this->db->like('regency_name', 'SUKABUMI');
 		$this->db->order_by('regency_name', 'asc');
 		$query = $this->db->get('regencies');
 
@@ -35,6 +34,19 @@ class RespondenModel extends CI_Model
 		$output = '<option value="">--Pilih Kelurahan--</option>';
 		foreach ($query->result() as $v) {
 			$output .= '<option value="' . $v->id . '">' . $v->village_name . '</option>';
+		}
+
+		return $output;
+	}
+
+	function koordinator($id)
+	{
+		$this->db->where('district_id', $id);
+		$query = $this->db->get('coordinators');
+
+		$output = '<option value="">--Pilih Koordinator--</option>';
+		foreach ($query->result() as $k) {
+			$output .= '<option value="' . $k->id . '">' . $k->coordinator_name . '</option>';
 		}
 
 		return $output;

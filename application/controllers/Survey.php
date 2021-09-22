@@ -10,9 +10,8 @@ class Survey extends CI_Controller
 		parent::__construct();
 		$this->load->model(['SurveyModel']);
 		if (
-			$this->session->userdata('level') == 4 ||
-			$this->session->userdata('level') == 5 ||
-			$this->session->userdata('level') == 6
+			$this->session->userdata('level') == 3 ||
+			$this->session->userdata('level') == 4
 		)
 			redirect('admin/dashboard');
 		if (!$this->session->userdata('username'))
@@ -67,11 +66,6 @@ class Survey extends CI_Controller
 					<input type="checkbox" class="custom-control-input" name="answer'.$id_pertanyaan.'[]" id="'. $id.'" value="'.$id. '">
 					<label class="custom-control-label" for="'. $id.'">'.$label.'</label>
 				</div>';
-	}
-
-	public function select($id, $label)
-	{
-		echo '<option value="'.$id.'">'.$label.'</option>';
 	}
 
 	public function store()

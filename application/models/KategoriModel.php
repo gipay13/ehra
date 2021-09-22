@@ -7,7 +7,7 @@ class KategoriModel extends CI_Model
 	{
 		$this->db->order_by('created_at', 'asc');
 		$query = $this->db->get('categories');
-		return $query->result();
+		return $query;
 	}
 
 	public function validate_kategori($category_code, $id = null)

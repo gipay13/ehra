@@ -61,3 +61,8 @@ $route['admin/pertanyaan'] = 'pertanyaan';
 $route['admin/kategori'] = 'kategori';
 $route['admin/hasil'] = 'hasil';
 $route['admin/user'] = 'user';
+
+
+$route['admin/laporan/infoumum'] = 'laporan/index_infoumum';
+$route['admin/laporan/sampah'] = 'laporan/index_sampah';
+$route['admin/laporan/buangair'] = 'laporan/index_buangair';

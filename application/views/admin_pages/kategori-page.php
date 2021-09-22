@@ -4,11 +4,13 @@
 			<div class="col-sm-6">
 				<h1 class="m-0">Kategori Pertanyaan</h1>
 			</div>
+			<?php if ($this->session->userdata('level') == 1) { ?>
 			<div class="col-sm-6">
 				<ol class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-plus"></i> Tambah Kategori</button>
 				</ol>
 			</div>
+			<?php } ?>
 			<div class="col-sm-12 mt-3">
 				<?= $this->session->flashdata('message'); ?>
 			</div>
@@ -39,10 +41,12 @@
 										<td><?= $k->category_code ?></td>
 										<td><?= $k->category_name ?></td>
 										<td>
-											<a href="" id="edit" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal-default" data-id="<?= $k->id ?>" data-kode="<?= $k->category_code ?>" data-nama="<?= $k->category_name ?>">
+											<!-- <a href="" id="edit" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal-default" data-id="<?= $k->id ?>" data-kode="<?= $k->category_code ?>" data-nama="<?= $k->category_name ?>">
 												<i class="fas fa-edit mx-1"></i>
-											</a>
+											</a> -->
+											<?php if ($this->session->userdata('level') == 1) { ?>
 											<a href="<?= base_url('kategori/delete/' . $k->id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+											<?php } ?>
 										</td>
 									</tr>
 								<?php } ?>

@@ -10,6 +10,13 @@ class UserModel extends CI_Model
 		return $query->result();
 	}
 
+	function get_kecamatan()
+	{
+		$this->db->order_by('id', 'asc');
+		$query = $this->db->get('districts');
+		return $query->result();
+	}
+
 	function get_level()
 	{
 		$this->db->order_by('id', 'asc');
@@ -33,7 +40,7 @@ class UserModel extends CI_Model
 	{
 		$data = [
 			'username' => $insert['username'],
-			'name' => $insert['name'],
+			'name' => $insert['user_name'],
 			'password' => password_hash($insert['password'], PASSWORD_DEFAULT),
 			'level_id' => $insert['level'],
 			'puskesmas_id' => $insert['puskesmas'] == '' ? null : $insert['puskesmas'],
@@ -44,12 +51,25 @@ class UserModel extends CI_Model
 		$this->db->insert('users', $data);
 	}
 
+	public function validate_puskesmas($puskesmas, $level, $id = null)
+	{
+		$this->db->select('*');
+		$this->db->where('level_id', $level);
+		$this->db->where('puskesmas_id', $puskesmas);
+		if ($id != null) {
+			$this->db->where('user_id !=', $id);
+		}
+		$query = $this->db->get('users');
+
+		return $query->num_rows();
+	}
+
 	public function validate_username($username, $id = null)
 	{
 		$this->db->select('*');
 		$this->db->where('username', $username);
 		if ($id != null) {
-			$this->db->where('users.id !=', $id);
+			$this->db->where('user_id !=', $id);
 		}
 		$query = $this->db->get('users');
 
@@ -60,5 +80,57 @@ class UserModel extends CI_Model
 	{
 		$this->db->where('user_id', $id);
 		$this->db->delete('users');
+	}
+
+
+	function get_supervisor()
+	{
+		$this->db->order_by('created_at', 'asc');
+		$query = $this->db->get('supervisors');
+		return $query->result();
+	}
+
+	public function insert_supervisor($insert)
+	{
+		$data = [
+			'supervisor_name' => $insert['supervisor_name'],
+			'created_at' => date('Y-m-d'),
+			'updated_at' => date('Y-m-d'),
+		];
+
+		$this->db->insert('supervisors', $data);
+	}
+
+	public function delete_supervisor($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete('supervisors');
+	}
+
+	function get_koordinator()
+	{
+		$this->db->select('coordinators.*, districts.district_name as district_name');
+		$this->db->join('districts', 'districts.id = coordinators.district_id');
+		$this->db->order_by('created_at', 'asc');
+		$query = $this->db->get('coordinators');
+		return $query->result();
+	}
+
+	public function insert_koordinator($insert)
+	{
+		$data = [
+			'coordinator_name' => $insert['koordinator_name'],
+			'district_id' => $insert['kecamatan'],
+			'created_at' => date('Y-m-d'),
+			'updated_at' => date('Y-m-d'),
+		];
+
+		$this->db->insert('coordinators', $data);
+	}
+
+	public function delete_koordinator($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete('coordinators');
 	}
 }

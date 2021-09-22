@@ -4,7 +4,7 @@
 			<div class="col-sm-6">
 				<h1 class="m-0">Hasil Survey</h1>
 			</div>
-			<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
+			<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2) { ?>
 				<div class="col-sm-6">
 					<ol class="float-sm-right">
 						<a href="<?= base_url('responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
@@ -48,7 +48,7 @@
 									<tr>
 										<td><?= $index++ ?></td>
 										<td><?= $s->no_survey ?></td>
-										<td><?= $s->survey_date ?></td>
+										<td><?= indo_date($s->survey_date) ?></td>
 										<td><?= $s->name ?></td>
 										<td><?= $s->nik ?></td>
 										<td><?= $s->nama_responden ?></td>

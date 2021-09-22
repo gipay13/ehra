@@ -18,7 +18,7 @@ class Hasil extends CI_Controller
 	{
 		$data = [
 			'title' => 'Hasil Survey',
-			'survey' => $this->HasilModel->get_hasil(),
+			'survey' => $this->HasilModel->get_hasil()->result(),
 		];
 		$this->template->load('layouts/layouts-admin', 'admin_pages/hasil-page', $data);
 	}
@@ -58,7 +58,7 @@ class Hasil extends CI_Controller
 
 		$data = [
 			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
-			'kategori' => $this->KategoriModel->get_kategori(),
+			'kategori' => $this->KategoriModel->get_kategori()->result(),
 		];
 
 		$this->load->view('pdf_pages/pdf_hasil', $data);

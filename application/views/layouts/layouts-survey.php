@@ -89,6 +89,22 @@
 				})
 			}
 		});
+
+		$('#kecamatan').change(function() {
+			var id = $('#kecamatan').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_koordinator'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#koordinator').html(data);
+					}
+				})
+			}
+		});
 	});
 	$('.btn-next, .btn-prev').click(function() {
 		const $btn = $(this),

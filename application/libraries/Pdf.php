@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once './assets/plugins/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Pdf extends Dompdf {
     public $filename;
@@ -15,12 +17,19 @@ class Pdf extends Dompdf {
         return get_instance();
     }
     
-    public function load_view($view, $data = array()){
-        $html = $this->ci()->load->view($view, $data, TRUE);
-        $this->loadHtml($html);
-        // Render the PDF
-        $this->render();
-        // Output the generated PDF to Browser
-        $this->stream($this->filename, ['Attachment' => true]);
+    public function load_view($view, $data = array(), $stream = TRUE){
+		$html = $this->ci()->load->view($view, $data, TRUE);
+
+		$options = new Options();
+		$options->set('isRemoteEnabled', TRUE);
+		$dompdf = new Dompdf($options);
+		$dompdf->loadHtml($html);
+		$dompdf->render();
+		if ($stream) {
+			$dompdf->stream($this->filename, ['Attachment' => 0]);
+		} else {
+			return $dompdf->output();
+		}
+        
     }
 }

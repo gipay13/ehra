@@ -21,31 +21,6 @@
 								<label for="jam_survey">Jam Survey</label>
 								<input type="time" name="jam_survey" id="jam_survey" class="form-control" required>
 							</div>
-							<div class="form-group">
-								<label for="username">Nama Pewawancara/Enumerator</label>
-								<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
-								<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
-							</div>
-							<div class="form-group">
-								<label for="supervisor">Nama Supervisor</label>
-								<select name="supervisor" id="supervisor" class="form-control" required>
-									<option value="">--Pilih Supervisor--</option>
-									<?php
-									foreach ($supervisor as $s) {
-										echo '<option value="' . $s->user_id . '">' . $s->name . '</option>';
-									}
-									?>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="koordinator">Koordinator Kecamatan</label>
-								<select name="koordinator" id="koordinator" class="form-control" required>
-									<option value="">--Pilih Koordinator--</option>
-									<?php foreach ($koordinator as $k) { ?>
-										<option value="<?= $k->user_id ?>"><?= $k->name ?></option>
-									<?php } ?>
-								</select>
-							</div>
 
 							<div class="form-group">
 								<label for="kabupaten">Kabupaten/Kota</label>
@@ -70,6 +45,28 @@
 								<label for="kelurahan">Kelurahan</label>
 								<select name="kelurahan" id="kelurahan" class="form-control" required>
 									<option value="">--Pilih Kelurahan--</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="username">Nama Pewawancara/Enumerator</label>
+								<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
+								<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
+							</div>
+							<div class="form-group">
+								<label for="supervisor">Nama Supervisor</label>
+								<select name="supervisor" id="supervisor" class="form-control" required>
+									<option value="">--Pilih Supervisor--</option>
+									<?php
+									foreach ($supervisor as $s) {
+										echo '<option value="' . $s->id . '">' . $s->supervisor_name . '</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="koordinator">Koordinator Kecamatan</label>
+								<select name="koordinator" id="koordinator" class="form-control" required>
+									<option value="">--Pilih Koordinator--</option>
 								</select>
 							</div>
 						</div>
@@ -121,7 +118,7 @@
 									<label class="custom-control-label" for="istri">Istri</label>
 								</div>
 								<div class="custom-control custom-radio">
-									<input type="radio" id="anakPr" name="hubungan" class="custom-control-input" value="2" >
+									<input type="radio" id="anakPr" name="hubungan" class="custom-control-input" value="2">
 									<label class="custom-control-label" for="anakPr">Anak perempuan yang sudah menikah</label>
 								</div>
 								<div class="custom-control custom-radio">

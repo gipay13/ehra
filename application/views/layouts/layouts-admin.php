@@ -124,37 +124,37 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/drainase') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Drainase</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/sumberair') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Sumber Air</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/higiene') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
-										<p>Perilaku Hidup</p>
+										<p>Perilaku Higiene</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/diare') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Diare</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/pengamatan') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Pengamatan</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url() ?>assets/index3.html" class="nav-link">
+									<a href="<?= base_url('admin/laporan/areaberesiko') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Area Beresiko</p>
 									</a>

@@ -13,11 +13,13 @@ foreach ($umur as $temp => $u) {
 <div class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6">
+			<div class="col-md-6 col-sm-12 mb-3">
 				<h1 class="m-0">Laporan <?= $title ?></h1>
 			</div>
-			<div class="col-sm-6">
-				<a href="<?= base_url('laporan/pdf_infoumum') ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
+			<div class="col-md-6 col-sm-12">
+				<div class="float-md-right">
+					<a href="<?= base_url('laporan/pdf_infoumum') ?>" class="btn btn-danger"><i class="fas fa-file-pdf mx-1"></i> Laporan</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -65,3 +65,10 @@ $route['admin/user'] = 'user';
 $route['admin/laporan/infoumum'] = 'laporan/index_infoumum';
 $route['admin/laporan/sampah'] = 'laporan/index_sampah';
 $route['admin/laporan/buangair'] = 'laporan/index_buangair';
+$route['admin/laporan/drainase'] = 'laporan/index_drainase';
+$route['admin/laporan/sumberair'] = 'laporan/index_sumberair';
+$route['admin/laporan/higiene'] = 'laporan/index_higiene';
+$route['admin/laporan/diare'] = 'laporan/index_diare';
+$route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
+$route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
+

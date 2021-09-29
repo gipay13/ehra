@@ -55,7 +55,7 @@
 	<table width="100%">
 		<tr>
 			<td width="20%"><img style="width: 50px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
-			<td width="60%" style="text-align: center;">DRAFT PERTANYAAN PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
+			<td width="60%" style="text-align: center;">DRAFT PERSENTASE HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
 			<td width="20%"><img style="width: 150px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
 		</tr>
 	</table>
@@ -66,33 +66,47 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<table class="table table-striped">
+	<table class="table">
 		<tr>
-			<th colspan="2" rowspan="2">Informasi Responden</th>
-			<th colspan="<?= $district->num_rows() ?>">% Kecamatan</th>
-		<tr>
-			<?php foreach ($district->result() as $r) { ?>
-				<th><?= $r->district_name ?></th>
-			<?php } ?>
+			<th colspan="2" rowspan="3"><?= $title ?></th>
+			<th colspan="<?= $district->num_rows() * 2 ?>">% Kecamatan</th>
+			<tr>
+				<?php foreach ($district->result() as $r) { ?>
+					<th colspan="2"><?= $r->district_name ?></th>
+				<?php } ?>
+			</tr>
+			<tr>
+				<?php foreach ($district->result() as $r) { ?>
+					<th>n</th>
+					<th>%</th>
+				<?php } ?>
+			</tr>
 		</tr>
-		</tr>
+		
 		<?php foreach ($question as $q) { ?>
 			<tr>
-				<td rowspan="<?= $this->CI->result($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
-				<?php $result = $this->CI->result($q->id)->result() ?>
-				<?php foreach ($result as $r) { ?>
-			<tr>
-				<td><?= $r->answer_name ?></td>
-				<td><?= round($r->persentase_baros) ?>%</td>
-				<td><?= round($r->persentase_lembursitu) ?>%</td>
-				<td><?= round($r->persentase_cibeureum) ?>%</td>
-				<td><?= round($r->persentase_citamiang) ?>%</td>
-				<td><?= round($r->persentase_waru) ?>%</td>
-				<td><?= round($r->persentase_gunung) ?>%</td>
-				<td><?= round($r->persentase_cikole) ?>%</td>
-			</tr>
-		<?php } ?>
-		</tr>
+				<td rowspan="<?= $this->CI->answer($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+				<?php $answer = $this->CI->answer($q->id)->result() ?>
+				<?php foreach ($answer as $a) { ?>
+					<tr>
+						<td><?= $a->answer_name ?></td>
+						<td>0</td>
+						<td>0%</td>
+						<td>0</td>
+						<td>0%</td>
+						<td>0</td>
+						<td>0%</td>
+						<td>0</td>
+						<td>0%</td>
+						<td>0</td>
+						<td>0%</td>
+						<td>0</td>
+						<td>0%</td>
+						<td><?= round($a->result) ?></td>
+						<td><?= round($a->persentase) ?>%</td>
+					</tr>
+				<?php } ?>
+				</tr>
 	<?php } ?>
 	</table>
 </body>

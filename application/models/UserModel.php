@@ -24,6 +24,14 @@ class UserModel extends CI_Model
 		return $query->result();
 	}
 
+	function get_userdata() {
+		$this->db->join('puskesmas', 'puskesmas.id = users.puskesmas_id');
+		$this->db->join('districts', 'districts.id = puskesmas.district_id');
+		$this->db->where('username', $this->session->userdata('username'));
+		$query = $this->db->get('users');
+		return $query->row();
+	}
+
 	function get_user($level = null)
 	{
 		$this->db->join('levels', 'levels.id = users.level_id');

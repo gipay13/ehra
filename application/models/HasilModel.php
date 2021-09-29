@@ -5,6 +5,7 @@ class HasilModel extends CI_Model
 {
 	function get_hasil()
 	{
+		$this->db->join('puskesmas', 'puskesmas.id = survey.puskesmas_id');
 		$this->db->join('respondent', 'respondent.nik = survey.nik');
 		$this->db->join('users', 'users.user_id = survey.user_id');
 		$this->db->join('districts', 'districts.id = survey.district_id');
@@ -12,6 +13,23 @@ class HasilModel extends CI_Model
 		$this->db->order_by('survey.survey_date', 'desc');
 		$query = $this->db->get('survey');
 		return $query;
+	}
+
+	function delete_survey($no_survey) {
+		$this->db->where('no_survey', $no_survey);
+		$this->db->delete('survey');
+	}
+
+	function delete_respondent($nik)
+	{
+		$this->db->where('nik', $nik);
+		$this->db->delete('respondent');
+	}
+
+	function delete_result($no_survey)
+	{
+		$this->db->where('no_survey', $no_survey);
+		$this->db->delete('results');
 	}
 
 	function get_pdf_survey($no_survey)

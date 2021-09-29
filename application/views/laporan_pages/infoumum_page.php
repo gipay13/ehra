@@ -7,7 +7,7 @@ foreach ($umur as $temp => $u) {
 	];
 }
 // echo '<pre>';
-// print_r(json_encode($kelompok_umur, JSON_NUMERIC_CHECK));
+// print_r($umur);
 // echo '</pre>';
 ?>
 <div class="content-header">
@@ -15,6 +15,9 @@ foreach ($umur as $temp => $u) {
 		<div class="row mb-2">
 			<div class="col-sm-6">
 				<h1 class="m-0">Laporan <?= $title ?></h1>
+			</div>
+			<div class="col-sm-6">
+				<a href="<?= base_url('laporan/pdf_infoumum') ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
 			</div>
 		</div>
 	</div>

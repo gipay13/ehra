@@ -11,23 +11,11 @@ class PertanyaanModel extends CI_Model
 		return $query;
 	}
 
-	public function insert_pertanyaan($insert)
+	function get_kategori()
 	{
-		$data = [
-			'qcategory_id' => $insert['kategori'],
-			'question_name' => $insert['pertanyaan'],
-			'type_id' => $insert['tipe'],
-			'created_at' => date('Y-m-d'),
-			'updated_at' => date('Y-m-d'),
-		];
-
-		$this->db->insert('questions', $data);
-	}
-
-	public function delete_pertanyaan($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('questions');
+		$this->db->order_by('created_at', 'asc');
+		$query = $this->db->get('categories');
+		return $query;
 	}
 
 }

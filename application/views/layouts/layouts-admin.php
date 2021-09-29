@@ -91,12 +91,6 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('admin/kategori') ?>" class="nav-link">
-								<i class="nav-icon fas fa-folder-open"></i>
-								<p>Kategori Pertanyan</p>
-							</a>
-						</li>
-						<li class="nav-item">
 							<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
 								<i class="nav-icon fas fa-poll"></i>
 								<p>Hasil Survey</p>
@@ -126,7 +120,7 @@
 								<li class="nav-item">
 									<a href="<?= base_url('admin/laporan/buangair') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
-										<p>Buang Air Besar</p>
+										<p>Pembuangan Limbah</p>
 									</a>
 								</li>
 								<li class="nav-item">
@@ -186,6 +180,19 @@
 		<script src="<?= base_url('') ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- CANVAS JS -->
 		<script src="<?= base_url('') ?>assets/plugins/canvasjs/canvasjs.min.js"></script>
+		<!-- Table -->
+		<script src="<?= base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/jszip/jszip.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/pdfmake/pdfmake.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/pdfmake/vfs_fonts.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+		<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 		<div class="content-wrapper">
 			<?= $content ?>
@@ -208,42 +215,6 @@
 	<script src="<?= base_url('assets/dist/js/adminlte.min.js') ?>"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="<?= base_url('assets/dist/js/demo.js') ?>"></script>
-	<!-- Table -->
-	<script src="<?= base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/jszip/jszip.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/pdfmake/pdfmake.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/pdfmake/vfs_fonts.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-	<script src="<?= base_url() ?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-	<script>
-		$(function() {
-			$("#table").DataTable({
-				"responsive": true,
-				"lengthChange": false,
-				"autoWidth": false,
-			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
-		});
-		$(function() {
-			$("#supervisor").DataTable({
-				"responsive": true,
-				"lengthChange": false,
-				"autoWidth": false,
-			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
-		});
-		$(function() {
-			$("#koordinator").DataTable({
-				"responsive": true,
-				"lengthChange": false,
-				"autoWidth": false,
-			}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
-		});
-	</script>
 </body>
 
 </html>

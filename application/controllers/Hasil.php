@@ -8,7 +8,7 @@ class Hasil extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['HasilModel', 'KategoriModel', 'SurveyModel']);
+		$this->load->model(['HasilModel', 'PertanyaanModel', 'SurveyModel']);
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('username'))
 			redirect('auth');
@@ -23,11 +23,14 @@ class Hasil extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'admin_pages/hasil-page', $data);
 	}
 
-	public function delete($id)
+	public function delete($no_survey, $nik)
 	{
-		$this->HasilModel->delete_hasil_responden($id);
-		$this->HasilModel->delete_hasil_survey($id);
-
+		$this->db->trans_start();
+		$this->HasilModel->delete_survey($no_survey);
+		$this->HasilModel->delete_respondent($nik);
+		$this->HasilModel->delete_result($no_survey);
+		$this->db->trans_complete();
+		
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata(
 				'message',
@@ -58,7 +61,7 @@ class Hasil extends CI_Controller
 
 		$data = [
 			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
-			'kategori' => $this->KategoriModel->get_kategori()->result(),
+			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
 		];
 
 		$this->load->view('pdf_pages/pdf_hasil', $data);

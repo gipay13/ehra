@@ -75,7 +75,7 @@ class User extends CI_Controller
 				'message',
 				'<div class="alert alert-success alert-dismissible">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<span><i class="fas fa-check-circle mx-1"></i> '.$message.' Berhasil Ditambah/Diupdate</span>
+						<span><i class="fas fa-check-circle mx-1"></i> '.$message.' Berhasil Ditambah</span>
 					</div>'
 			);
 			redirect('admin/user');

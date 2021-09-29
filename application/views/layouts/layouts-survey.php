@@ -17,6 +17,9 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
 	<style>
+		html {
+			scroll-behavior: smooth;
+		}
 		#toggle-cards .card:not(:first-child) {
 			display: none
 		}
@@ -24,7 +27,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+	<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="nav">
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
@@ -42,177 +45,19 @@
 		</div>
 	</nav>
 
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
 	<div class="container my-5">
 		<?= $content ?>
 	</div>
 
 </body>
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-
-<script>
-	$(document).ready(function($) {
-		$('#kabupaten').change(function() {
-			var id = $('#kabupaten').val();
-			if (id != '') {
-				$.ajax({
-					url: "<?= base_url('responden/fetch_district'); ?>",
-					method: "POST",
-					data: {
-						id: id
-					},
-					success: function(data) {
-						$('#kecamatan').html(data);
-					}
-				})
-			}
-		});
-
-		$('#kecamatan').change(function() {
-			var id = $('#kecamatan').val();
-			if (id != '') {
-				$.ajax({
-					url: "<?= base_url('responden/fetch_village'); ?>",
-					method: "POST",
-					data: {
-						id: id
-					},
-					success: function(data) {
-						$('#kelurahan').html(data);
-					}
-				})
-			}
-		});
-
-		$('#kecamatan').change(function() {
-			var id = $('#kecamatan').val();
-			if (id != '') {
-				$.ajax({
-					url: "<?= base_url('responden/fetch_koordinator'); ?>",
-					method: "POST",
-					data: {
-						id: id
-					},
-					success: function(data) {
-						$('#koordinator').html(data);
-					}
-				})
-			}
-		});
-	});
-	$('.btn-next, .btn-prev').click(function() {
-		const $btn = $(this),
-			isNext = $btn.hasClass('btn-next'),
-			$card = $btn.closest('.card').hide();
-
-
-		const $nextCard = isNext ? $card.next() : $card.prev();
-		$nextCard.show()
-
-	});
-	$(document).ready(function($) {
-		var $jwbn19 = $('input[name="answer19[]"]').not('#80')
-		$('#80').change(function() {
-			if (this.checked) {
-				$jwbn19.prop('checked', false)
-			}
-		});
-		$jwbn19.change(function() {
-			if (this.checked) {
-				$('#80').prop('checked', false)
-			}
-		})
-
-		var $jwbn26 = $('input[name="answer26[]"]').not('#122')
-		$('#122').change(function() {
-			if (this.checked) {
-				$jwbn26.prop('checked', false)
-			}
-		});
-		$jwbn26.change(function() {
-			if (this.checked) {
-				$('#122').prop('checked', false)
-			}
-		})
-
-		var $jwbn135 = $('input[name="answer135[]"]').not('#649')
-		$('#649').change(function() {
-			if (this.checked) {
-				$jwbn135.prop('checked', false)
-			}
-		});
-		$jwbn135.change(function() {
-			if (this.checked) {
-				$('#649').prop('checked', false)
-			}
-		})
-
-		var $jwbn70 = $('input[name="answer70[]"]').not('#312')
-		$('#312').change(function() {
-			if (this.checked) {
-				$jwbn70.prop('checked', false)
-			}
-		});
-		$jwbn70.change(function() {
-			if (this.checked) {
-				$('#312').prop('checked', false)
-			}
-		})
-
-		var $jwbn79 = $('input[name="answer79[]"]').not('#728')
-		$('#728').change(function() {
-			if (this.checked) {
-				$jwbn79.prop('checked', false)
-			}
-		});
-		$jwbn79.change(function() {
-			if (this.checked) {
-				$('#728').prop('checked', false)
-			}
-		})
-
-		var $jwbn80 = $('input[name="answer80[]"]').not('#719')
-		$('#719').change(function() {
-			if (this.checked) {
-				$jwbn80.prop('checked', false)
-			}
-		});
-		$jwbn80.change(function() {
-			if (this.checked) {
-				$('#719').prop('checked', false)
-			}
-		})
-
-		var $jwbn116 = $('input[name="answer116[]"]').not('#550')
-		$('#550').change(function() {
-			if (this.checked) {
-				$jwbn116.prop('checked', false)
-			}
-		});
-		$jwbn116.change(function() {
-			if (this.checked) {
-				$('#550').prop('checked', false)
-			}
-		})
-
-		var $jwbn119 = $('input[name="answer119[]"]').not('#562')
-		$('#562').change(function() {
-			if (this.checked) {
-				$jwbn119.prop('checked', false)
-			}
-		});
-		$jwbn119.change(function() {
-			if (this.checked) {
-				$('#562').prop('checked', false)
-			}
-		})
-	});
-</script>
 
 </html>

@@ -10,7 +10,7 @@
 	<title></title>
 	<style type="text/css">
 		body {
-			font-size: 12pt;
+			font-size: 10pt;
 			font-family: "helvetica", Courier, monospace;
 		}
 
@@ -54,9 +54,9 @@
 <body>
 	<table width="100%">
 		<tr>
-			<td width="20%"><img style="width: 70px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
+			<td width="20%"><img style="width: 50px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
 			<td width="60%" style="text-align: center;">DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
-			<td width="20%"><img style="width: 170px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
+			<td width="20%"><img style="width: 150px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
 		</tr>
 	</table>
 	<br>
@@ -106,7 +106,7 @@
 	</table>
 	<table class="table table-striped">
 		<tr>
-			<td colspan="2" style="text-align: center; background-color: #2985B4;">Identitas Responden</td>
+			<td colspan="2" style="text-align: center; background-color: #2985B4;">A. Identitas Responden</td>
 		</tr>
 		<tr>
 			<td width="50%">Nomor Kartu Keluarga</td>
@@ -161,7 +161,7 @@
 		</table>
 		<table class="table table-striped">
 			<tr>
-				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_name ?></td>
+				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_code ?>. <?= $k->category_name ?></td>
 			</tr>
 			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
 			<?php foreach ($pertanyaan as $p) { ?>

@@ -3,11 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pertanyaan extends CI_Controller
 {
+	public $CI = NULL;
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['PertanyaanModel', 'KategoriModel']);
+		$this->load->model(['PertanyaanModel', 'SurveyModel']);
+
+		$this->CI = &get_instance();
 
 		if (!$this->session->userdata('username'))
 			redirect('auth');
@@ -17,50 +20,32 @@ class Pertanyaan extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Pertanyaan',
-			'kategori' => $this->KategoriModel->get_kategori()->result(),
+			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
 			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan()->result(),
 		);
 
 		$this->template->load('layouts/layouts-admin', 'admin_pages/pertanyaan-page', $data);
 	}
 
-	public function process()
+	public function pertanyaan($qcategory_id)
 	{
-		$process = $this->input->post(null, TRUE);
+		$data = $this->SurveyModel->get_pertanyaan($qcategory_id);
 
-		if (isset($_POST['add'])) {
-			$this->PertanyaanModel->insert_pertanyaan($process);
-			//print_r($process);
-		} else if (isset($_POST['edit'])) {
-			$this->PertanyaanModel->update_pertanyaan($process);
-		}
-
-		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-success alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<span><i class="fas fa-check-circle mx-1"></i> Pertanyaan Berhasil Ditambah/Diupdate</span>
-				</div>'
-			);
-			redirect('admin/pertanyaan');
-		}
+		return $data;
 	}
 
-	public function delete($id)
+	public function list_pertanyaan()
 	{
-		$this->PertanyaanModel->delete_pertanyaan($id);
 
+		$data = [
+			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
+		];
 
-		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-times-circle mx-1"></i> Pertanyaan Dihapus</span>
-				</div>'
-			);
-			redirect('admin/pertanyaan');
-		}
+		$this->load->view('pdf_pages/pdf_pertanyaan', $data);
+		// $this->load->library('pdf');
+
+		// $this->pdf->setPaper('A4', 'potrait');
+		// $this->pdf->filename = 'List Pertanyaan.pdf';
+		// $this->pdf->load_view('pdf_pages/pdf_pertanyaan', $data);
 	}
 }

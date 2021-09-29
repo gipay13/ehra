@@ -1,7 +1,4 @@
 <?php
-
-use phpDocumentor\Reflection\PseudoTypes\False_;
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Responden extends CI_Controller
@@ -22,20 +19,14 @@ class Responden extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			"regencies"		=> $this->RespondenModel->regencies(),
-			"survey"		=> $this->RespondenModel->no_survey(),
-			"supervisor"	=> $this->UserModel->get_supervisor(),
+			'survey'		=> $this->RespondenModel->no_survey(),
+			'supervisor'	=> $this->UserModel->get_supervisor(),
+			'userdata'		=> $this->UserModel->get_userdata()
 		);
 
 		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
 	}
 
-	public function fetch_district()
-	{
-		if ($this->input->post('id')) {
-			echo $this->RespondenModel->district($this->input->post('id'));
-		}
-	}
 
 	public function fetch_village()
 	{

@@ -1,19 +1,23 @@
 <div class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6">
+			<div class="col-md-3 col-sm-12 mb-3">
 				<h1 class="m-0">User</h1>
 			</div>
-			<div class="col-sm-6">
-				<ol class="float-sm-right">
+			<div class="col-md-3 col-sm-12 mb-3">
+				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-user"><i class="fa fa-plus"></i> Tambah User</button>
-				</ol>
-				<ol class="float-sm-right">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12 mb-3">
+				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-supervisor"><i class="fa fa-plus"></i> Tambah Supervisor</button>
-				</ol>
-				<ol class="float-sm-right">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12 mb-3">
+				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-koordinator"><i class="fa fa-plus"></i> Tambah Koordinator</button>
-				</ol>
+				</div>
 			</div>
 			<div class="col-sm-12 mt-3">
 				<?= $this->session->flashdata('message'); ?>
@@ -278,3 +282,27 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	$(function() {
+		$("#table").DataTable({
+			"responsive": true,
+			"lengthChange": false,
+			"autoWidth": false,
+		}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+	});
+	$(function() {
+		$("#supervisor").DataTable({
+			"responsive": true,
+			"lengthChange": false,
+			"autoWidth": false,
+		}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+	});
+	$(function() {
+		$("#koordinator").DataTable({
+			"responsive": true,
+			"lengthChange": false,
+			"autoWidth": false,
+		}).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+	});
+</script>

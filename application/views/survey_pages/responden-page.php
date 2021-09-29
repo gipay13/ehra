@@ -1,6 +1,6 @@
 <div class="container my-5">
 	<div class="row">
-		<div class="col-md-8 mx-auto">
+		<div class="col-md-8 col-sm-12 mx-auto">
 			<?= $this->session->flashdata('message'); ?>
 			<form action="<?= base_url('responden/process'); ?>" method="post">
 				<div class="card">
@@ -19,25 +19,14 @@
 							</div>
 							<div class="form-group">
 								<label for="jam_survey">Jam Survey</label>
-								<input type="time" name="jam_survey" id="jam_survey" class="form-control" required>
-							</div>
-
-							<div class="form-group">
-								<label for="kabupaten">Kabupaten/Kota</label>
-								<select name="kabupaten" id="kabupaten" class="form-control" required>
-									<option value="">--Pilih Kabupaten--</option>
-									<?php
-									foreach ($regencies as $r) {
-										echo '<option value="' . $r->id . '">' . $r->regency_name . '</option>';
-									}
-									?>
-								</select>
+								<input type="time" name="jam_survey" id="jam_survey" class="form-control" value="<?= date('H:i') ?>" required>
 							</div>
 
 							<div class="form-group">
 								<label for="kecamatan">Kecamatan</label>
 								<select name="kecamatan" id="kecamatan" class="form-control" required>
 									<option value="">--Pilih Kecamatan--</option>
+									<option value="<?= $userdata->district_id ?>"><?= $userdata->district_name ?></option>
 								</select>
 							</div>
 
@@ -49,8 +38,13 @@
 							</div>
 							<div class="form-group">
 								<label for="username">Nama Pewawancara/Enumerator</label>
-								<input type="hidden" name="user_id" id="user_id" value="<?= $this->session->userdata('id'); ?>">
-								<input type="text" name="username" id="username" class="form-control" value="<?= $this->session->userdata("name"); ?>" readonly>
+								<input type="hidden" name="user_id" id="user_id" value="<?= $userdata->user_id ?>">
+								<input type="text" name="username" id="username" class="form-control" value="<?= $userdata->name ?>" readonly>
+							</div>
+							<div class="form-group">
+								<label for="username">Puskesmas</label>
+								<input type="hidden" name="puskesmas_id" id="puskesmas_id" value="<?= $userdata->puskesmas_id ?>">
+								<input type="text" name="puskesmas" id="puskesmas" class="form-control" value="<?= $userdata->puskesmas_name ?>" readonly>
 							</div>
 							<div class="form-group">
 								<label for="supervisor">Nama Supervisor</label>
@@ -182,3 +176,39 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function($) {
+		$('#kecamatan').change(function() {
+			var id = $('#kecamatan').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_village'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#kelurahan').html(data);
+					}
+				})
+			}
+		});
+
+		$('#kecamatan').change(function() {
+			var id = $('#kecamatan').val();
+			if (id != '') {
+				$.ajax({
+					url: "<?= base_url('responden/fetch_koordinator'); ?>",
+					method: "POST",
+					data: {
+						id: id
+					},
+					success: function(data) {
+						$('#koordinator').html(data);
+					}
+				})
+			}
+		});
+	});
+</script>

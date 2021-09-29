@@ -3,27 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class RespondenModel extends CI_Model
 {
-	function regencies()
-	{
-		$this->db->order_by('regency_name', 'asc');
-		$query = $this->db->get('regencies');
-
-		return $query->result();
-	}
-
-	function district($id)
-	{
-		$this->db->where('regency_id', $id);
-		$this->db->order_by('district_name', 'asc');
-		$query = $this->db->get('districts');
-
-		$output = '<option value="">--Pilih Kecamatan--</option>';
-		foreach ($query->result() as $d) {
-			$output .= '<option value="' . $d->id . '">' . $d->district_name . '</option>';
-		}
-
-		return $output;
-	}
 
 	function village($id)
 	{
@@ -95,10 +74,10 @@ class RespondenModel extends CI_Model
 			'nik'					=> $survey['nik'],
 			'survey_date'			=> $survey['tanggal_survey'],
 			'survey_time'			=> $survey['jam_survey'],
+			'puskesmas_id'			=> $survey['puskesmas_id'],
 			'user_id'				=> $survey['user_id'],
 			'supervisor_id'			=> $survey['supervisor'],
 			'coordinator_id'		=> $survey['koordinator'],
-			'regency_id'			=> $survey['kabupaten'],
 			'district_id'			=> $survey['kecamatan'],
 			'village_id'			=> $survey['kelurahan']
 		];

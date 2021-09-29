@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['PertanyaanModel', 'KategoriModel', 'HasilModel']);
+		$this->load->model(['PertanyaanModel', 'HasilModel']);
 		if (!$this->session->userdata('username'))
 			redirect('auth');
 	}
@@ -17,7 +17,7 @@ class Dashboard extends CI_Controller
 		$data = [
 			'title' => 'Dashboard',
 			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan()->num_rows(),
-			'kategori'	=> $this->KategoriModel->get_kategori()->num_rows(),
+			'kategori'	=> $this->PertanyaanModel->get_kategori()->num_rows(),
 			'hasil' => $this->HasilModel->get_hasil()->num_rows(),
 		];
 

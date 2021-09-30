@@ -50,8 +50,9 @@ class LaporanModel extends CI_Model
 				LEFT JOIN results ON answers.id = results.answer_id
 				LEFT JOIN survey ON results.no_survey = survey.no_survey
 				WHERE
-					answers.question_id = $id AND
-					survey.district_id = 3272050
+					answers.question_id = $id 
+					-- AND
+					-- survey.district_id = 3272050
 				GROUP BY
 					answers.id, 
 					survey.district_id";

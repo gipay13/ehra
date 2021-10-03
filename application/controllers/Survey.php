@@ -10,6 +10,7 @@ class Survey extends CI_Controller
 		parent::__construct();
 		$this->load->model(['SurveyModel']);
 		if (
+			$this->session->userdata('level') == 1 ||
 			$this->session->userdata('level') == 3 ||
 			$this->session->userdata('level') == 4
 		)

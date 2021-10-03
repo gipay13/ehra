@@ -51,12 +51,15 @@ foreach ($pba->result() as $temp => $p) {
 	window.onload = function() {
 		var tba = new CanvasJS.Chart("tba", {
 			theme: "light2",
+			animationEnabled: true,
 			title: {
-				text: "Persentase Tempat Buang Air Besar"
+				text: "Persentase Tempat Buang Air Besar",
+				fontSize: 20,
 			},
 			data: [{
 				type: "pie",
 				showInLegend: true,
+				percentFormatString: "#0.#",
 				toolTipContent: "{label} - #percent %",
 				legendText: "{label}",
 				dataPoints: <?= json_encode($tbaa, JSON_NUMERIC_CHECK); ?>
@@ -65,22 +68,26 @@ foreach ($pba->result() as $temp => $p) {
 
 		var tpa = new CanvasJS.Chart("tpa", {
 			theme: "light2",
+			animationEnabled: true,
 			title: {
-				text: "Tempat Penyaluran Akhir Tinja"
+				text: "Tempat Penyaluran Akhir Tinja",
+				fontSize: 20,
 			},
 			data: [{
 				type: "pie",
 				showInLegend: true,
-				toolTipContent: "{y} - #percent %",
-				yValueFormatString: "#,##0,,.## Million",
-				legendText: "{indexLabel}",
+				percentFormatString: "#0.#",
+				toolTipContent: "{label} - #percent %",
+				legendText: "{label}",
 				dataPoints: <?= json_encode($pbaa, JSON_NUMERIC_CHECK); ?>
 			}]
 		});
 
 		var waktukuras = new CanvasJS.Chart("waktukuras", {
+			animationEnabled: true,
 			title: {
-				text: "Waktu Terakhir Pengurasan Tanki Septik"
+				text: "Waktu Terakhir Pengurasan Tanki Septik",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -214,8 +221,10 @@ foreach ($pba->result() as $temp => $p) {
 		});
 
 		var praktikkuras = new CanvasJS.Chart("praktikkuras", {
+			animationEnabled: true,
 			title: {
-				text: "Praktik Pengurasan Tanki Septik"
+				text: "Praktik Pengurasan Tanki Septik",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -349,8 +358,10 @@ foreach ($pba->result() as $temp => $p) {
 		});
 
 		var septik = new CanvasJS.Chart("septik", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Tanki Septik Suspek Aman dan Tidak Aman"
+				text: "Persentase Tanki Septik Suspek Aman dan Tidak Aman",
+				fontSize: 20,
 			},
 
 			data: [{

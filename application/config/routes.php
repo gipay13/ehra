@@ -53,15 +53,17 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// Route Pertanyaan
+// Route Survey
 $route['survey/p/(:any)'] = 'survey/index/$1';
+$route['survey/responden'] = 'responden/index';
 
+// Route Dashboard
 $route['admin/dashboard'] = 'dashboard';
 $route['admin/pertanyaan'] = 'pertanyaan';
 $route['admin/hasil'] = 'hasil';
 $route['admin/user'] = 'user';
 
-
+// Route Laporan
 $route['admin/laporan/infoumum'] = 'laporan/index_infoumum';
 $route['admin/laporan/sampah'] = 'laporan/index_sampah';
 $route['admin/laporan/buangair'] = 'laporan/index_buangair';

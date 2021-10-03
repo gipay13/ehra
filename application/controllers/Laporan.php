@@ -31,7 +31,7 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Informasi Responden',
-			'umur' => $this->LaporanModel->chart_kelompok_umur()->result(),
+			'umur' => $this->LaporanModel->chart_per_question(1)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/infoumum_page', $data);
@@ -41,8 +41,9 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Informasi Responden',
-			'question' => $this->LaporanModel->get_pdf_infores()->result(),
-			'district' => $this->LaporanModel->get_district()
+			'question' => $this->LaporanModel->get_pdf_question(2, 1)->result(),
+			'district' => $this->LaporanModel->get_district(),
+			
 		];
 
 		$this->load->view('pdf_pages/pdf_infoumum', $data);
@@ -66,7 +67,7 @@ class Laporan extends CI_Controller
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//     LIMBAH
+	//     LIMBAH RUMAH TANGGA
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -74,8 +75,8 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'tba' => $this->LaporanModel->chart_tba(),
-			'pba' => $this->LaporanModel->chart_pba()
+			'tba' => $this->LaporanModel->chart_per_question(25),
+			'pba' => $this->LaporanModel->chart_per_question(29)
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/limbah_page', $data);
@@ -91,6 +92,8 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
+			'genangan' => $this->LaporanModel->chart_per_question(118)->result(),
+			'spal' => $this->LaporanModel->chart_per_question(49)->result()
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/drainase_page', $data);
@@ -136,6 +139,7 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Kejadian Penyakit Diare',
+			'diare' => $this->LaporanModel->chart_per_question(82)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare_page', $data);

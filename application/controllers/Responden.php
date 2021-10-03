@@ -8,6 +8,7 @@ class Responden extends CI_Controller
 		parent::__construct();
 		$this->load->model(['RespondenModel', 'UserModel']);
 		if (
+			$this->session->userdata('level') == 1 ||
 			$this->session->userdata('level') == 3 ||
 			$this->session->userdata('level') == 4
 		)

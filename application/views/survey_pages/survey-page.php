@@ -19,7 +19,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5 col-sm-12"><?= $p->question_name; ?></td>
 											<td class="col-md-1 col-sm-0"></td>
 											<td class="col-md-6 col-sm-12">
@@ -56,7 +56,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -94,7 +94,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -132,7 +132,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -170,7 +170,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -208,7 +208,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -246,7 +246,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -284,7 +284,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -322,7 +322,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -360,7 +360,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -398,7 +398,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -436,7 +436,7 @@
 									<?php
 									$pertanyaan = $this->CI->pertanyaan($k->id);
 									foreach ($pertanyaan as $p) { ?>
-										<tr>
+										<tr id="row-question-<?= $p->id ?>">
 											<td class="col-md-5"><?= $p->question_name; ?></td>
 											<td class="col-md-1"></td>
 											<td class="col-md-5">
@@ -508,7 +508,7 @@
 		$nextCard.show()
 
 	});
-	$(document).ready(function($) {
+	$(document).ready(function() {
 		var $jwbn19 = $('input[name="answer19[]"]').not('#80')
 		$('#80').change(function() {
 			if (this.checked) {
@@ -604,5 +604,249 @@
 				$('#562').prop('checked', false)
 			}
 		})
+	});
+	$(document).ready(function () { 
+		$('input[name="answer17"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 61 || answer_value == 62) {
+				$('#row-question-18').show();
+				$('#row-question-19').show();
+				$('#row-question-20').show();
+				$('#row-question-21').show();
+				$('#row-question-22').show();
+				$('#row-question-23').show();
+				$('#row-question-24').show();
+			} else {
+				$('#row-question-18').hide();
+				$('#row-question-19').hide();
+				$('#row-question-20').hide();
+				$('#row-question-21').hide();
+				$('#row-question-22').hide();
+				$('#row-question-23').hide();
+				$('#row-question-24').hide();
+			}
+		});
+		$('input[name="answer18"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 71) {
+				$('#row-question-19').show();
+			} else {
+				$('#row-question-19').hide();
+			}
+		});
+		$('input[name="answer20"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 86 || answer_value == 88) {
+				$('#row-question-21').hide();
+				$('#row-question-22').hide();
+				$('#row-question-23').hide();
+				$('#row-question-24').hide();
+			} else {
+				$('#row-question-21').show();
+				$('#row-question-22').show();
+				$('#row-question-23').show();
+				$('#row-question-24').show();
+			}
+		});
+		$('input[name="answer22"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 93) {
+				$('#row-question-23').hide();
+				$('#row-question-24').hide();
+			} else {
+				$('#row-question-23').show();
+				$('#row-question-24').show();
+			}
+		});
+		$('input[name="answer27"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 124) {
+				$('#row-question-28').hide();
+				$('#row-question-29').hide();
+				$('#row-question-30').hide();
+				$('#row-question-31').hide();
+				$('#row-question-32').hide();
+				$('#row-question-33').hide();
+				$('#row-question-34').hide();
+				$('#row-question-35').hide();
+				$('#row-question-36').hide();
+				$('#row-question-37').hide();
+				$('#row-question-38').hide();
+			} else {
+				$('#row-question-28').show();
+				$('#row-question-29').show();
+				$('#row-question-30').show();
+				$('#row-question-31').show();
+				$('#row-question-32').show();
+				$('#row-question-33').show();
+				$('#row-question-34').show();
+				$('#row-question-35').show();
+				$('#row-question-36').show();
+				$('#row-question-37').show();
+				$('#row-question-38').show();
+			}
+		});
+		$('input[name="answer29"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 132 || answer_value == 131 || answer_value == 130 || answer_value == 129 ) {
+				$('#row-question-30').show();
+				$('#row-question-31').show();
+				$('#row-question-32').show();
+				$('#row-question-33').show();
+				$('#row-question-34').show();
+				$('#row-question-35').show();
+				$('#row-question-36').show();
+				$('#row-question-37').show();
+				$('#row-question-38').show();
+			} else {
+				$('#row-question-30').hide();
+				$('#row-question-31').hide();
+				$('#row-question-32').hide();
+				$('#row-question-33').hide();
+				$('#row-question-34').hide();
+				$('#row-question-35').hide();
+				$('#row-question-36').hide();
+				$('#row-question-37').hide();
+				$('#row-question-38').hide();
+			}
+		});
+		$('input[name="answer34"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 161 || answer_value == 162 ) {
+				$('#row-question-35').hide();
+				$('#row-question-36').hide();
+				$('#row-question-37').hide();
+				$('#row-question-38').hide();
+			} else {
+				$('#row-question-35').show();
+				$('#row-question-36').show();
+				$('#row-question-37').show();
+				$('#row-question-38').show();
+			}
+		});
+		$('input[name="answer42"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 196 ) {
+				$('#row-question-45').hide();
+				$('#row-question-48').hide();
+			} else {
+				$('#row-question-45').show();
+				$('#row-question-48').show();
+			}
+		});
+		$('input[name="answer49"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 220 ) {
+				$('#row-question-50').hide();
+				$('#row-question-51').hide();
+			} else {
+				$('#row-question-50').show();
+				$('#row-question-51').show();
+			}
+		});
+		$('input[name="answer52"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 223 ) {
+				$('#row-question-53').hide();
+				$('#row-question-54').hide();
+				$('#row-question-55').hide();
+				$('#row-question-56').hide();
+				$('#row-question-57').hide();
+			} else {
+				$('#row-question-53').show();
+				$('#row-question-54').show();
+				$('#row-question-55').show();
+				$('#row-question-56').show();
+				$('#row-question-57').show();
+			}
+		});
+		$('input[name="answer54"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 231 ) {
+				$('#row-question-55').hide();
+				$('#row-question-56').hide();
+				$('#row-question-57').hide();
+			} else {
+				$('#row-question-55').show();
+				$('#row-question-56').show();
+				$('#row-question-57').show();
+			}
+		});
+		$('input[name="answer64"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 290 ) {
+				$('#row-question-65').hide();
+			} else {
+				$('#row-question-65').show();
+			}
+		});
+		$('input[name="answer67"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 300 ) {
+				$('#row-question-68').hide();
+			} else {
+				$('#row-question-68').show();
+			}
+		});
+		$('input[name="answer74"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 329 ) {
+				$('#row-question-75').hide();
+			} else {
+				$('#row-question-75').show();
+			}
+		});
+		$('input[name="answer78"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 348 ) {
+				$('#row-question-79').hide();
+			} else {
+				$('#row-question-79').show();
+			}
+		});
+		$('input[name="answer82"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 385 ) {
+				$('#row-question-83').hide();
+			} else {
+				$('#row-question-83').show();
+			}
+		});
+		$('input[name="answer112"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 535 ) {
+				$('#row-question-113').hide();
+			} else {
+				$('#row-question-113').show();
+			}
+		});
+		$('input[name="answer114"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 544 ) {
+				$('#row-question-115').hide();
+				$('#row-question-116').hide();
+			} else {
+				$('#row-question-115').show();
+				$('#row-question-116').show();
+			}
+		});
+		$('input[name="answer115"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 546 ) {
+				$('#row-question-116').hide();
+			} else {
+				$('#row-question-116').show();
+			}
+		});
+		$('input[name="answer117"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 552 ) {
+				$('#row-question-118').hide();
+				$('#row-question-119').hide();
+			} else {
+				$('#row-question-118').show();
+				$('#row-question-119').show();
+			}
+		});
 	});
 </script>

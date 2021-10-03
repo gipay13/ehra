@@ -178,8 +178,7 @@
 </div>
 
 <script>
-	$(document).ready(function($) {
-		$('#kecamatan').change(function() {
+	$('#kecamatan').change(function() {
 			var id = $('#kecamatan').val();
 			if (id != '') {
 				$.ajax({
@@ -195,7 +194,7 @@
 			}
 		});
 
-		$('#kecamatan').change(function() {
+	$('#kecamatan').change(function() {
 			var id = $('#kecamatan').val();
 			if (id != '') {
 				$.ajax({
@@ -206,9 +205,9 @@
 					},
 					success: function(data) {
 						$('#koordinator').html(data);
-					}
+					},
+					
 				})
 			}
 		});
-	});
 </script>

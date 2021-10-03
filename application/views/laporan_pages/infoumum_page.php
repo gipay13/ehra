@@ -42,13 +42,15 @@ foreach ($umur as $temp => $u) {
 			theme: "light2", // "light1", "light2", "dark1", "dark2"
 			title: {
 				text: "Kelompok Umur Responden",
-				fontFamily: "Helvetica"
+				fontSize: 20,
 			},
-			axisY: {
-				labelFontFamily: "Helvetica"
+			axisX: {
+				labelFontSize: 17,
+				labelFontColor: "black",
 			},
 			data: [{
 				type: "column",
+				yValueFormatString: "#### Responden",
 				dataPoints: <?= json_encode($kelompok_umur, JSON_NUMERIC_CHECK); ?>
 			}]
 		});

@@ -2,7 +2,7 @@
 
 <?php
 // echo '<pre>';
-// print_r($answer);
+// print_r($result);
 // echo '</pre>'
 ?>
 
@@ -43,10 +43,37 @@
 			border-top: 2px solid #dee2e6;
 		}
 
+		.table-sm th,
+		.table-sm td {
+			padding: 0.3rem;
+		}
 
+		.table-bordered {
+			border: 1px solid #dee2e6;
+		}
 
-		.table-striped tbody tr:nth-of-type(odd) {
-			background-color: rgba(0, 0, 0, 0.05);
+		.table-bordered th,
+		.table-bordered td {
+			border: 1px solid #dee2e6;
+		}
+
+		.table-bordered thead th,
+		.table-bordered thead td {
+			border-bottom-width: 2px;
+		}
+
+		.table {
+			border-collapse: collapse !important;
+		}
+
+		.table td,
+		.table th {
+			background-color: #fff !important;
+		}
+
+		.table-bordered th,
+		.table-bordered td {
+			border: 1px solid #dee2e6 !important;
 		}
 	</style>
 </head>
@@ -66,23 +93,25 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<table class="table">
-		<tr>
-			<th colspan="2" rowspan="3"><?= $title ?></th>
-			<th colspan="<?= $district->num_rows() * 2 ?>">% Kecamatan</th>
+	<table class="table table-bordered">
+		<thead>
 			<tr>
-				<?php foreach ($district->result() as $r) { ?>
-					<th colspan="2"><?= $r->district_name ?></th>
-				<?php } ?>
+				<th colspan="2" rowspan="3"><?= $title ?></th>
+				<th colspan="<?= $district->num_rows() * 2 ?>">% Kecamatan</th>
+				<tr>
+					<?php foreach ($district->result() as $r) { ?>
+						<th colspan="2"><?= $r->district_name ?></th>
+					<?php } ?>
+				</tr>
+				<tr>
+					<?php foreach ($district->result() as $r) { ?>
+						<th>n</th>
+						<th>%</th>
+					<?php } ?>
+				</tr>
 			</tr>
-			<tr>
-				<?php foreach ($district->result() as $r) { ?>
-					<th>n</th>
-					<th>%</th>
-				<?php } ?>
-			</tr>
-		</tr>
-		
+		</thead>
+
 		<?php foreach ($question as $q) { ?>
 			<tr>
 				<td rowspan="<?= $this->CI->answer($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
@@ -90,24 +119,12 @@
 				<?php foreach ($answer as $a) { ?>
 					<tr>
 						<td><?= $a->answer_name ?></td>
-						<td>0</td>
-						<td>0%</td>
-						<td>0</td>
-						<td>0%</td>
-						<td>0</td>
-						<td>0%</td>
-						<td>0</td>
-						<td>0%</td>
-						<td>0</td>
-						<td>0%</td>
-						<td>0</td>
-						<td>0%</td>
-						<td><?= round($a->result) ?></td>
+						<td><?= $a->count_result ?></td>
 						<td><?= round($a->persentase) ?>%</td>
 					</tr>
 				<?php } ?>
-				</tr>
-	<?php } ?>
+			</tr>
+		<?php } ?>
 	</table>
 </body>
 

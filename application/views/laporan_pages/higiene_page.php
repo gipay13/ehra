@@ -41,8 +41,10 @@
 <script>
 	window.onload = function() {
 		var ctps = new CanvasJS.Chart("ctps", {
+			animationEnabled: true,
 			title: {
-				text: "CTPS di Lima Waktu Penting"
+				text: "CTPS di Lima Waktu Penting",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -176,8 +178,10 @@
 		});
 
 		var waktuctps = new CanvasJS.Chart("waktuctps", {
+			animationEnabled: true,
 			title: {
-				text: "Waktu Melakukan CTPS"
+				text: "Waktu Melakukan CTPS",
+				fontSize: 20,
 			},
 			data: [{
 				type: "bar",
@@ -211,8 +215,10 @@
 
 
 		var babs = new CanvasJS.Chart("babs", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Praktik Buang Air Besar Sembarangan (BABS)"
+				text: "Persentase Praktik Buang Air Besar Sembarangan (BABS)",
+				fontSize: 20,
 			},
 
 			data: [{

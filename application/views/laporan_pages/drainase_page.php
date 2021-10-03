@@ -1,11 +1,18 @@
 <?php
 
-// foreach ($umur as $temp => $u) {
-// 	$kelompok_umur[] = [
-// 		'label' => $u->answer_name,
-// 		'y' => $u->count_answer
-// 	];
-// }
+foreach ($genangan as $temp => $g) {
+	$genangann[] = [
+		'label' => $g->answer_name,
+		'y' => $g->persentase
+	];
+}
+
+foreach ($spal as $temp => $s) {
+	$spall[] = [
+		'label' => $s->answer_name,
+		'y' => $s->persentase
+	];
+}
 
 ?>
 <div class="content-header">
@@ -56,8 +63,10 @@
 <script>
 	window.onload = function() {
 		var banjir = new CanvasJS.Chart("banjir", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Rumah Tangga yang Pernah Mengalami Banjir"
+				text: "Persentase Rumah Tangga yang Pernah Mengalami Banjir",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -191,8 +200,10 @@
 		});
 
 		var banjirrutin = new CanvasJS.Chart("banjirrutin", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Rumah Tangga yang Mengalami Banjir Rutin"
+				text: "Persentase Rumah Tangga yang Mengalami Banjir Rutin",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -326,8 +337,10 @@
 		});
 
 		var lamagenang = new CanvasJS.Chart("lamagenang", {
+			animationEnabled: true,
 			title: {
-				text: "Lama Air Menggenang Jika Terjadi Banjir"
+				text: "Lama Air Menggenang Jika Terjadi Banjir",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -461,8 +474,10 @@
 		});
 
 		var lokasigenang = new CanvasJS.Chart("lokasigenang", {
+			animationEnabled: true,
 			title: {
-				text: "Lokasi Genangan di Sekitar Rumah"
+				text: "Lokasi Genangan di Sekitar Rumah",
+				fontSize: 20,
 			},
 			legend: {
 				maxWidth: 350,
@@ -471,42 +486,18 @@
 			data: [{
 				type: "pie",
 				showInLegend: true,
-				legendText: "{indexLabel}",
-				dataPoints: [{
-						y: 4181563,
-						indexLabel: "PlayStation 3"
-					},
-					{
-						y: 2175498,
-						indexLabel: "Wii"
-					},
-					{
-						y: 3125844,
-						indexLabel: "Xbox 360"
-					},
-					{
-						y: 1176121,
-						indexLabel: "Nintendo DS"
-					},
-					{
-						y: 1727161,
-						indexLabel: "PSP"
-					},
-					{
-						y: 4303364,
-						indexLabel: "Nintendo 3DS"
-					},
-					{
-						y: 1717786,
-						indexLabel: "PS Vita"
-					}
-				]
+				percentFormatString: "#0.#",
+				toolTipContent: "{label} - #percent %",
+				legendText: "{label}",
+				dataPoints: <?= json_encode($genangann, JSON_NUMERIC_CHECK) ?>
 			}]
 		});
 
 		var punyaspal = new CanvasJS.Chart("punyaspal", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Kepemilikan SPAL"
+				text: "Persentase Kepemilikan SPAL",
+				fontSize: 20,
 			},
 			legend: {
 				maxWidth: 350,
@@ -515,42 +506,18 @@
 			data: [{
 				type: "pie",
 				showInLegend: true,
-				legendText: "{indexLabel}",
-				dataPoints: [{
-						y: 4181563,
-						indexLabel: "PlayStation 3"
-					},
-					{
-						y: 2175498,
-						indexLabel: "Wii"
-					},
-					{
-						y: 3125844,
-						indexLabel: "Xbox 360"
-					},
-					{
-						y: 1176121,
-						indexLabel: "Nintendo DS"
-					},
-					{
-						y: 1727161,
-						indexLabel: "PSP"
-					},
-					{
-						y: 4303364,
-						indexLabel: "Nintendo 3DS"
-					},
-					{
-						y: 1717786,
-						indexLabel: "PS Vita"
-					}
-				]
+				percentFormatString: "#0.#",
+				toolTipContent: "{label} - #percent %",
+				legendText: "{label}",
+				dataPoints: <?= json_encode($spall, JSON_NUMERIC_CHECK) ?>
 			}]
 		});
 
 		var gaspal = new CanvasJS.Chart("gaspal", {
+			animationEnabled: true,
 			title: {
-				text: "Akibat Tidak Memiliki SPAL Rumah Tangga"
+				text: "Akibat Tidak Memiliki SPAL Rumah Tangga",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -684,8 +651,10 @@
 		});
 
 		var spalberfungsi = new CanvasJS.Chart("spalberfungsi", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase SPAL yang Berfungsi"
+				text: "Persentase SPAL yang Berfungsi",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -819,8 +788,10 @@
 		});
 
 		var spalcemar = new CanvasJS.Chart("spalcemar", {
+			animationEnabled: true,
 			title: {
-				text: "Pencemaran SPAL"
+				text: "Pencemaran SPAL",
+				fontSize: 20,
 			},
 
 			data: [{

@@ -40,9 +40,13 @@ foreach ($district as $temp => $d) {
 		var kelola_sampah = new CanvasJS.Chart("kelola_sampah", {
 			animationEnabled: true,
 			title: {
-				text: "Persentase Pengelolaan Sampah Rumah Tangga"
+				text: "Persentase Pengelolaan Sampah Rumah Tangga",
+				fontSize: 20,
 			},
-
+			axisX: {
+				labelFontSize: 15,
+				labelFontColor: "black",
+			},
 			data: [{
 					type: "stackedBar",
 					dataPoints: <?= json_encode($dis, JSON_NUMERIC_CHECK); ?>
@@ -55,8 +59,10 @@ foreach ($district as $temp => $d) {
 		});
 
 		var pilih_sampah = new CanvasJS.Chart("pilih_sampah", {
+			animationEnabled: true,
 			title: {
-				text: "Persentase Praktik Pemilahan Sampah Rumah Tangga"
+				text: "Persentase Praktik Pemilahan Sampah Rumah Tangga",
+				fontSize: 20,
 			},
 
 			data: [{

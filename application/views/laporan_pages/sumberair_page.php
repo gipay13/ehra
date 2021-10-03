@@ -38,8 +38,10 @@
 <script>
 	window.onload = function() {
 		var akses = new CanvasJS.Chart("akses", {
+			animationEnabled: true,
 			title: {
-				text: "Akses Terhadap Air Bersih"
+				text: "Akses Terhadap Air Bersih",
+				fontSize: 20,
 			},
 
 			data: [{
@@ -173,8 +175,10 @@
 		});
 
 		var sumberair = new CanvasJS.Chart("sumberair", {
+			animationEnabled: true,
 			title: {
-				text: "Sumber Air Minum dan Memasak"
+				text: "Sumber Air Minum dan Memasak",
+				fontSize: 20,
 			},
 
 			data: [{

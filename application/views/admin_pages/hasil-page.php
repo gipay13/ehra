@@ -4,10 +4,10 @@
 			<div class="col-md-6 col-sm-12 mb-3">
 				<h1 class="m-0">Hasil Survey</h1>
 			</div>
-			<?php if ($this->session->userdata('level') == 1 || $this->session->userdata('level') == 2) { ?>
+			<?php if ($this->session->userdata('level') == 2) { ?>
 				<div class="col-md-6 col-sm-12">
 					<div class="float-sm-right">
-						<a href="<?= base_url('responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
+						<a href="<?= base_url('survey/responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
 					</div>
 				</div>
 			<?php } ?>

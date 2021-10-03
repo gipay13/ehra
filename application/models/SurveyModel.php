@@ -19,6 +19,7 @@ class SurveyModel extends CI_Model
 	function get_pertanyaan($id)
 	{
 		$this->db->where('qcategory_id', $id);
+		$this->db->order_by('id', 'asc');
 		$query = $this->db->get('questions');
 		return $query->result();
 	}

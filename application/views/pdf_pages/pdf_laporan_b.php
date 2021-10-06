@@ -114,13 +114,25 @@
 
 		<?php foreach ($question as $q) { ?>
 			<tr>
-				<td rowspan="<?= $this->CI->answer($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
-				<?php $answer = $this->CI->answer($q->id)->result() ?>
+                <td rowspan="<?= $this->CI->answer_checkbox($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+				<?php $answer = $this->CI->answer_checkbox($q->id)->result() ?>
 				<?php foreach ($answer as $a) { ?>
 					<tr>
 						<td><?= $a->answer_name ?></td>
-						<td><?= $a->count_result ?></td>
-						<td><?= round($a->persentase) ?>%</td>
+						<td><?= $a->result_cikole ?></td>
+						<td><?= round($a->persentase_cikole) ?>%</td>
+						<td><?= $a->result_gunungpuyuh ?></td>
+						<td><?= round($a->persentase_gunungpuyuh) ?>%</td>
+						<td><?= $a->result_warudoyong ?></td>
+						<td><?= round($a->persentase_warudoyong) ?>%</td>
+						<td><?= $a->result_citamiang ?></td>
+						<td><?= round($a->persentase_citamiang) ?>%</td>
+						<td><?= $a->result_cibeureum ?></td>
+						<td><?= round($a->persentase_cibeureum) ?>%</td>
+						<td><?= $a->result_lembursitu ?></td>
+						<td><?= round($a->persentase_lembursitu) ?>%</td>
+						<td><?= $a->result_baros ?></td>
+						<td><?= round($a->persentase_baros) ?>%</td>
 					</tr>
 				<?php } ?>
 			</tr>

@@ -29,7 +29,7 @@ class SurveyModel extends CI_Model
 		$answer = array(
 			'no_survey'		=> $no_survey,
 			'question_id' => $id_pertanyaan,
-			'answer_id' 		=> $jawaban,
+			'answer_id' 		=> ($jawaban != null) ? $jawaban : null,
 		);
 
 		$this->db->insert('results', $answer);

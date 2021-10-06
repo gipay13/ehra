@@ -55,7 +55,7 @@ class Survey extends CI_Controller
 	}
 
 	public function radio($id, $id_pertanyaan, $label) {
-		echo '	<div class="custom-control custom-radio">
+		echo '	<div class="custom-control custom-radio mb-1">
 					<input type="radio" id="'.$id.'" name="answer'.$id_pertanyaan.'" class="custom-control-input" value="'.$id.'">
 					<label class="custom-control-label" for="'.$id.'">'.$label.'</label>
 				</div>';
@@ -63,7 +63,7 @@ class Survey extends CI_Controller
 
 	public function checkbox($id, $id_pertanyaan, $label)
 	{
-		echo '	<div class="custom-control custom-checkbox">
+		echo '	<div class="custom-control custom-checkbox mb-1">
 					<input type="checkbox" class="custom-control-input" name="answer'.$id_pertanyaan.'[]" id="'. $id.'" value="'.$id. '">
 					<label class="custom-control-label" for="'. $id.'">'.$label.'</label>
 				</div>';
@@ -79,6 +79,7 @@ class Survey extends CI_Controller
 		// echo "</pre>";
 		$no_survey = $this->input->post('no_survey');
 
+		$this->db->trans_start();
 		// B
 		$this->SurveyModel->insert_jawaban($no_survey, 1, $store['answer1']);
 		$this->SurveyModel->insert_jawaban($no_survey, 2, $store['answer2']);
@@ -92,14 +93,13 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 10, $store['answer10']);
 		$this->SurveyModel->insert_jawaban($no_survey, 11, $store['answer11']);
 		$this->SurveyModel->insert_jawaban($no_survey, 12, $store['answer12']);
-		$this->SurveyModel->insert_jawaban($no_survey, 124, $store['answer124']);
-		$this->SurveyModel->insert_jawaban($no_survey, 128, $store['answer128']);
+		$this->SurveyModel->insert_jawaban($no_survey, 124, $store['answer13']);
+		$this->SurveyModel->insert_jawaban($no_survey, 128, $store['answer14']);
 		// C
 		$this->SurveyModel->insert_jawaban($no_survey, 15, $store['answer15']);
 		for($i = 0; $i < count($store['answer16']); $i++) {
 			$this->SurveyModel->insert_jawaban($no_survey, 16, $store['answer16'][$i]);
 		}
-		//$this->SurveyModel->insert_jawaban($no_survey, 16, implode(',', $store['answer16']));
 		$this->SurveyModel->insert_jawaban($no_survey, 17, $store['answer17']);
 		$this->SurveyModel->insert_jawaban($no_survey, 18, $store['answer18']);
 		$this->SurveyModel->insert_jawaban($no_survey, 19, implode(',', $store['answer19']));
@@ -111,10 +111,8 @@ class Survey extends CI_Controller
 		// D
 		$this->SurveyModel->insert_jawaban($no_survey, 25, $store['answer25']);
 		for ($i = 0; $i < count($store['answer26']); $i++) {
-			$answer = $store['answer26'];
-			$this->SurveyModel->insert_jawaban($no_survey, 26, $answer[$i]);
+			$this->SurveyModel->insert_jawaban($no_survey, 26, $store['answer26'][$i]);
 		}
-		//$this->SurveyModel->insert_jawaban($no_survey, 26, implode(',', $store['answer26']));
 		$this->SurveyModel->insert_jawaban($no_survey, 27, $store['answer27']);
 		$this->SurveyModel->insert_jawaban($no_survey, 28, $store['answer28']);
 		$this->SurveyModel->insert_jawaban($no_survey, 29, $store['answer29']);
@@ -139,6 +137,9 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 48, $store['answer48']);
 		// E
 		$this->SurveyModel->insert_jawaban($no_survey, 49, $store['answer49']);
+		for ($i = 0; $i < count($store['answer50']); $i++) {
+			$this->SurveyModel->insert_jawaban($no_survey, 50, $store['answer50'][$i]);
+		}
 		$this->SurveyModel->insert_jawaban($no_survey, 51, $store['answer51']);
 		$this->SurveyModel->insert_jawaban($no_survey, 52, $store['answer52']);
 		$this->SurveyModel->insert_jawaban($no_survey, 53, $store['answer53']);
@@ -146,9 +147,6 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 55, $store['answer55']);
 		$this->SurveyModel->insert_jawaban($no_survey, 56, $store['answer56']);
 		$this->SurveyModel->insert_jawaban($no_survey, 57, $store['answer57']);
-		for ($i = 0; $i < count($store['answer135']); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 135, $store['answer135'][$i]);
-		}
 		// F
 		for ($i = 0; $i < count($store['answer58']); $i++) {
 			$this->SurveyModel->insert_jawaban($no_survey, 58, $store['answer58'][$i]);
@@ -247,6 +245,7 @@ class Survey extends CI_Controller
 		$this->SurveyModel->insert_jawaban($no_survey, 121, $store['answer121']);
 		$this->SurveyModel->insert_jawaban($no_survey, 122, $store['answer122']);
 		$this->SurveyModel->insert_jawaban($no_survey, 123, $store['answer123']);
+		$this->db->trans_complete();
 
 		redirect('admin/hasil');
 	}

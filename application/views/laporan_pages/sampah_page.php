@@ -1,9 +1,9 @@
 <?php
 
-foreach ($district as $temp => $d) {
-	$dis[] = [
-		'label' => $d->district_name,
-		'y' => rand(3, 50)
+foreach ($pengelolaan61 as $temp => $p) {
+	$p61[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
 	];
 }
 
@@ -14,11 +14,6 @@ foreach ($district as $temp => $d) {
 			<div class="col-md-6 col-sm-12 mb-3">
 				<h1 class="m-0">Laporan <?= $title ?></h1>
 			</div>
-			<div class="col-md-6 col-sm-12">
-				<div class="float-md-right">
-					<a href="<?= base_url('laporan/pdf_sampah') ?>" class="btn btn-danger"><i class="fas fa-file-pdf mx-1"></i> Laporan</a>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -26,6 +21,120 @@ foreach ($district as $temp => $d) {
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>Nama Laporan</th>
+										<th>Tanggal</th>
+										<th>Export</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Kondisi Sampah</td>
+										<td>
+											<div class="row">
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-1 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td>
+											<a href="<?= base_url('laporan/pdf_kondisi_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
+										</td>			
+									</tr>
+									<tr>
+										<td>Pengelolaan Sampah</td>
+										<td>
+											<div class="row">
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-1 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td>
+											<a href="<?= base_url('laporan/pdf_kelola_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
+										</td>			
+									</tr>
+									<tr>
+										<td>Pemilihan Sampah</td>
+										<td>
+											<div class="row">
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-1 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td>
+											<a href="<?= base_url('laporan/pdf_pilih_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
+										</td>			
+									</tr>
+									<tr>
+										<td>Jenis Pemilihan Sampah</td>
+										<td>
+											<div class="row">
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-1 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td>
+											<a href="<?= base_url('laporan/pdf_jenis_pilih_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
+										</td>			
+									</tr>
+									<tr>
+										<td>Petugas Kebersihan</td>
+										<td>
+											<div class="row">
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-1 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td>
+											<a href="<?= base_url('laporan/pdf_petugas_kebersihan') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
+										</td>			
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-12">
 				<div id="kelola_sampah" style="height: 500px;"></div>
 			</div>
@@ -49,11 +158,7 @@ foreach ($district as $temp => $d) {
 			},
 			data: [{
 					type: "stackedBar",
-					dataPoints: <?= json_encode($dis, JSON_NUMERIC_CHECK); ?>
-				},
-				{
-					type: "stackedBar",
-					dataPoints: <?= json_encode($dis, JSON_NUMERIC_CHECK); ?>
+					dataPoints: <?= json_encode($p61, JSON_NUMERIC_CHECK); ?>
 				},
 			]
 		});

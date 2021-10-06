@@ -32,7 +32,77 @@ foreach ($spal as $temp => $s) {
 
 <section class="content">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row mb-2">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>Nama Laporan</th>
+										<th>Tanggal</th>
+										<th>Export</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Drainase Sekitar Rumah</td>
+										<td>
+											<div class="row">
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-2 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td><a href="<?= base_url('laporan/pdf_drainase') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+									</tr>
+									<tr>
+										<td>Lokasi Pembuangan Limbah Selain Tinja</td>
+										<td>
+											<div class="row">
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-2 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td><a href="<?= base_url('laporan/pdf_limbah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+									</tr>
+									<tr>
+										<td>Banjir</td>
+										<td>
+											<div class="row">
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control">
+												</div>
+												<div class="col-md-2 col-sm-12">
+													<p class="text-center my-2">Hingga</p>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<input type="date" name="end_date" id="end_date" class="form-control">
+												</div>
+											</div>
+										</td>
+										<td><a href="<?= base_url('laporan/pdf_banjir') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-12 mb-5">
 				<div id="banjir" style="height: 370px;"></div>
 			</div>

@@ -5,35 +5,32 @@
 			<div id="toggle-cards">
 				<?php foreach ($kategoriB as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 col-sm-12 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 col-sm-0 font-weight-bold"></th>
-										<th class="col-md-6 col-sm-12 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5 col-sm-12"><?= $p->question_name; ?></td>
-											<td class="col-md-1 col-sm-0"></td>
-											<td class="col-md-6 col-sm-12">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+							
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-info btn-next">Next</a>
@@ -42,35 +39,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriC as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-info btn-prev">Prev</a>
@@ -80,35 +73,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriD as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-info btn-prev">Prev</a>
@@ -118,35 +107,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriE as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -156,35 +141,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriF as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -194,35 +175,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriG as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -232,35 +209,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriH as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -270,35 +243,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriAO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -308,35 +277,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriBO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -346,35 +311,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriCO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-info btn-prev">Prev</a>
@@ -384,35 +345,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriDO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-next">Prev</a>
@@ -422,35 +379,31 @@
 				<?php } ?>
 				<?php foreach ($kategoriEO as $k) { ?>
 					<div class="card">
-						<div class="card-header"><?= $k->category_code ?>. <?= $k->category_name ?></div>
+						<div class="card-header font-weight-bold">
+							<?= $k->category_code ?>. <?= $k->category_name ?>
+						</div>
 						<div class="card-body">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th class="col-md-5 font-weight-bold">Kuesioner</th>
-										<th class="col-md-1 font-weight-bold"></th>
-										<th class="col-md-6 font-weight-bold">Jawaban</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$pertanyaan = $this->CI->pertanyaan($k->id);
-									foreach ($pertanyaan as $p) { ?>
-										<tr id="row-question-<?= $p->id ?>">
-											<td class="col-md-5"><?= $p->question_name; ?></td>
-											<td class="col-md-1"></td>
-											<td class="col-md-5">
+							<div class="container-fluid">
+								<?php
+								$pertanyaan = $this->CI->pertanyaan($k->id);
+								foreach ($pertanyaan as $p) { ?>
+									<div class="row mb-3 border-bottom" id="row-question-<?= $p->id ?>">
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0"><?= $p->question_name; ?></h6>
+										</div>
+										<div class="col-md-6 col-sm-12 mb-3">
+											<h6 class="m-0">
 												<?php $jawaban = $this->CI->jawaban($p->id); ?>
 												<?php foreach ($jawaban as $j) { ?>
 													<div>
 														<?= $p->type_id == 1 ? $this->CI->radio($j->id, $p->id, $j->answer_name) : $this->CI->checkbox($j->id, $p->id, $j->answer_name) ?>
 													</div>
 												<?php } ?>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											</h6>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
 						<div class="card-footer">
 							<a href="#nav" class="btn btn-default btn-prev">Prev</a>
@@ -605,7 +558,17 @@
 			}
 		})
 	});
-	$(document).ready(function () { 
+	$(document).ready(function () {
+		$('input[name="answer12"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 47) {
+				$('#row-question-124').hide();
+				$('#row-question-128').hide();
+			} else {
+				$('#row-question-124').show();
+				$('#row-question-128').show();
+			}
+		}); 
 		$('input[name="answer17"]').on('change', function () {
 			var answer_value = $(this).val();
         	if (answer_value == 61 || answer_value == 62) {
@@ -727,11 +690,23 @@
 		$('input[name="answer42"]').on('change', function () {
 			var answer_value = $(this).val();
         	if (answer_value == 196 ) {
+				$('#row-question-43').show();
+				$('#row-question-44').show();
 				$('#row-question-45').hide();
-				$('#row-question-48').hide();
 			} else {
+				$('#row-question-43').hide();
+				$('#row-question-44').hide();
 				$('#row-question-45').show();
+			}
+		});
+		$('input[name="answer46"]').on('change', function () {
+			var answer_value = $(this).val();
+        	if (answer_value == 210 ) {
+				$('#row-question-47').hide();
 				$('#row-question-48').show();
+			} else {
+				$('#row-question-47').show();
+				$('#row-question-48').hide();
 			}
 		});
 		$('input[name="answer49"]').on('change', function () {

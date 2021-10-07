@@ -66,7 +66,7 @@ $route['admin/user'] = 'user';
 // Route Laporan
 $route['admin/laporan/infoumum'] = 'laporan/index_infoumum';
 $route['admin/laporan/sampah'] = 'laporan/index_sampah';
-$route['admin/laporan/buangair'] = 'laporan/index_buangair';
+$route['admin/laporan/limbah'] = 'laporan/index_limbah';
 $route['admin/laporan/drainase'] = 'laporan/index_drainase';
 $route['admin/laporan/sumberair'] = 'laporan/index_sumberair';
 $route['admin/laporan/higiene'] = 'laporan/index_higiene';
@@ -74,3 +74,15 @@ $route['admin/laporan/diare'] = 'laporan/index_diare';
 $route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
 $route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
 
+//Route PDF Laporan
+// $route['admin/laporan/infoumum/pdf1'] = 'laporan/pdf_infoumum';
+
+// $route['admin/laporan/sampah/pdf1'] = 'laporan/pdf_kondisi_sampah';
+// $route['admin/laporan/sampah/pdf2'] = 'laporan/pdf_kelola_sampah';
+// $route['admin/laporan/sampah/pdf3'] = 'laporan/pdf_pilih_sampah';
+// $route['admin/laporan/sampah/pdf4'] = 'laporan/pdf_petugas_kebersihan';
+
+// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
+// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
+// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
+// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';

@@ -111,11 +111,11 @@
 				</tr>
 			</tr>
 		</thead>
-
-		<?php foreach ($question as $q) { ?>
+		<tbody>
+			<?php foreach ($question as $q) { ?>
 			<tr>
-                <td rowspan="<?= $this->CI->answer_checkbox($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
-				<?php $answer = $this->CI->answer_checkbox($q->id)->result() ?>
+                <td rowspan="<?= $this->CI->answer($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+				<?php $answer = $this->CI->answer($q->id)->result() ?>
 				<?php foreach ($answer as $a) { ?>
 					<tr>
 						<td><?= $a->answer_name ?></td>
@@ -136,7 +136,8 @@
 					</tr>
 				<?php } ?>
 			</tr>
-		<?php } ?>
+			<?php } ?>
+		</tbody>
 	</table>
 </body>
 

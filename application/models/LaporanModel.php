@@ -56,53 +56,23 @@ class LaporanModel extends CI_Model
 		return $query;
 	}
 
-	function get_pdf_answer_radio($id) {
+	function get_pdf_answer($id) {
 		$sql = "SELECT
 					answers.answer_name,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) AS result_baros,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272010 )) * 100 ) AS persentase_baros,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272011 THEN 1 ELSE NULL END ) AS result_lembursitu,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272011 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272011 )) * 100 ) AS persentase_cibeureum,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272012 THEN 1 ELSE NULL END ) AS result_cibeureum,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272012 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272012 )) * 100 ) AS persentase_lembursitu,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272020 THEN 1 ELSE NULL END ) AS result_citamiang,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272020 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272020 )) * 100 ) AS persentase_citamiang,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272030 THEN 1 ELSE NULL END ) AS result_warudoyong,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272030 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272030 )) * 100 ) AS persentase_warudoyong,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272040 THEN 1 ELSE NULL END ) AS result_gunungpuyuh,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272040 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272040 )) * 100 ) AS persentase_gunungpuyuh,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272050 THEN 1 ELSE NULL END ) AS result_cikole,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272050 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272050 )) * 100 ) AS persentase_cikole
-				FROM
-					answers
-					LEFT JOIN results ON answers.id = results.answer_id
-					LEFT JOIN survey ON results.no_survey = survey.no_survey 
-				WHERE
-					answers.question_id = $id  
-				GROUP BY
-					answers.id";
-
-		$query = $this->db->query($sql);
-		return $query;
-	}
-
-	function get_pdf_answer_checkbox($id) {
-		$sql = "SELECT
-					answers.answer_name,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) AS result_baros,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272010  )) * 100 ) AS persentase_baros,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272011 THEN 1 ELSE NULL END ) AS result_lembursitu,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272011 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272011 )) * 100 ) AS persentase_cibeureum,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272012 THEN 1 ELSE NULL END ) AS result_cibeureum,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272012 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272012 )) * 100 ) AS persentase_lembursitu,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272020 THEN 1 ELSE NULL END ) AS result_citamiang,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272020 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272020 )) * 100 ) AS persentase_citamiang,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272030 THEN 1 ELSE NULL END ) AS result_warudoyong,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272030 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272030 )) * 100 ) AS persentase_warudoyong,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272040 THEN 1 ELSE NULL END ) AS result_gunungpuyuh,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272040 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272040 )) * 100 ) AS persentase_gunungpuyuh,
-					COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272050 THEN 1 ELSE NULL END ) AS result_cikole,
-					(( COUNT(CASE WHEN results.question_id = $id AND survey.district_id = 3272050 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272050 )) * 100 ) AS persentase_cikole
+					COUNT(CASE WHEN survey.district_id = 3272010 THEN 1 ELSE NULL END ) AS result_baros,
+					(( COUNT(CASE WHEN survey.district_id = 3272010 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272010  )) * 100 ) AS persentase_baros,
+					COUNT(CASE WHEN survey.district_id = 3272011 THEN 1 ELSE NULL END ) AS result_lembursitu,
+					(( COUNT(CASE WHEN survey.district_id = 3272011 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272011 )) * 100 ) AS persentase_cibeureum,
+					COUNT(CASE WHEN survey.district_id = 3272012 THEN 1 ELSE NULL END ) AS result_cibeureum,
+					(( COUNT(CASE WHEN survey.district_id = 3272012 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272012 )) * 100 ) AS persentase_lembursitu,
+					COUNT(CASE WHEN survey.district_id = 3272020 THEN 1 ELSE NULL END ) AS result_citamiang,
+					(( COUNT(CASE WHEN survey.district_id = 3272020 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272020 )) * 100 ) AS persentase_citamiang,
+					COUNT(CASE WHEN survey.district_id = 3272030 THEN 1 ELSE NULL END ) AS result_warudoyong,
+					(( COUNT(CASE WHEN survey.district_id = 3272030 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272030 )) * 100 ) AS persentase_warudoyong,
+					COUNT(CASE WHEN survey.district_id = 3272040 THEN 1 ELSE NULL END ) AS result_gunungpuyuh,
+					(( COUNT(CASE WHEN survey.district_id = 3272040 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272040 )) * 100 ) AS persentase_gunungpuyuh,
+					COUNT(CASE WHEN survey.district_id = 3272050 THEN 1 ELSE NULL END ) AS result_cikole,
+					(( COUNT(CASE WHEN survey.district_id = 3272050 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272050 )) * 100 ) AS persentase_cikole
 				FROM
 					answers
 					LEFT JOIN results ON answers.id = results.answer_id
@@ -115,6 +85,36 @@ class LaporanModel extends CI_Model
 		$query = $this->db->query($sql);
 		return $query;
 	}
+
+	// function get_pdf_answer_radio($id) {
+	// 	$sql = "SELECT
+	// 				answers.answer_name,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272010 THEN 1 ELSE NULL END ) AS result_baros,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272010 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272010 )) * 100 ) AS persentase_baros,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272011 THEN 1 ELSE NULL END ) AS result_lembursitu,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272011 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272011 )) * 100 ) AS persentase_cibeureum,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272012 THEN 1 ELSE NULL END ) AS result_cibeureum,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272012 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272012 )) * 100 ) AS persentase_lembursitu,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272020 THEN 1 ELSE NULL END ) AS result_citamiang,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272020 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272020 )) * 100 ) AS persentase_citamiang,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272030 THEN 1 ELSE NULL END ) AS result_warudoyong,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272030 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272030 )) * 100 ) AS persentase_warudoyong,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272040 THEN 1 ELSE NULL END ) AS result_gunungpuyuh,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272040 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272040 )) * 100 ) AS persentase_gunungpuyuh,
+	// 				COUNT(CASE WHEN  survey.district_id = 3272050 THEN 1 ELSE NULL END ) AS result_cikole,
+	// 				(( COUNT(CASE WHEN  survey.district_id = 3272050 THEN 1 ELSE NULL END ) / ( SELECT COUNT( survey.id ) FROM survey WHERE survey.district_id = 3272050 )) * 100 ) AS persentase_cikole
+	// 			FROM
+	// 				answers
+	// 				LEFT JOIN results ON answers.id = results.answer_id
+	// 				LEFT JOIN survey ON results.no_survey = survey.no_survey 
+	// 			WHERE
+	// 				answers.question_id = $id  
+	// 			GROUP BY
+	// 				answers.id";
+
+	// 	$query = $this->db->query($sql);
+	// 	return $query;
+	// }
 
 	// public function get_data_pembayaran_by_date_range($start, $end)
     // {

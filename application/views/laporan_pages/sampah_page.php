@@ -21,15 +21,27 @@ foreach ($pengelolaan61 as $temp => $p) {
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="card">
+			<div class="col-md-6 col-sm-12">
+				<div class="card" style="height: 500px;">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-md-5 col-sm-12">
+								<input type="date" name="initial_date" id="initial_date" class="form-control">
+							</div>
+							<div class="col-md-2 col-sm-12">
+								<p class="text-center my-2">to</p>
+							</div>
+							<div class="col-md-5 col-sm-12">
+								<input type="date" name="end_date" id="end_date" class="form-control">
+							</div>
+						</div>
+					</div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th>Nama Laporan</th>
-										<th>Tanggal</th>
 										<th>Export</th>
 									</tr>
 								</thead>
@@ -37,37 +49,11 @@ foreach ($pengelolaan61 as $temp => $p) {
 									<tr>
 										<td>Kondisi Sampah</td>
 										<td>
-											<div class="row">
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control">
-												</div>
-												<div class="col-md-1 col-sm-12">
-													<p class="text-center my-2">Hingga</p>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="end_date" id="end_date" class="form-control">
-												</div>
-											</div>
-										</td>
-										<td>
 											<a href="<?= base_url('laporan/pdf_kondisi_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
 										</td>			
 									</tr>
 									<tr>
 										<td>Pengelolaan Sampah</td>
-										<td>
-											<div class="row">
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control">
-												</div>
-												<div class="col-md-1 col-sm-12">
-													<p class="text-center my-2">Hingga</p>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="end_date" id="end_date" class="form-control">
-												</div>
-											</div>
-										</td>
 										<td>
 											<a href="<?= base_url('laporan/pdf_kelola_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
 										</td>			
@@ -75,56 +61,11 @@ foreach ($pengelolaan61 as $temp => $p) {
 									<tr>
 										<td>Pemilihan Sampah</td>
 										<td>
-											<div class="row">
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control">
-												</div>
-												<div class="col-md-1 col-sm-12">
-													<p class="text-center my-2">Hingga</p>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="end_date" id="end_date" class="form-control">
-												</div>
-											</div>
-										</td>
-										<td>
 											<a href="<?= base_url('laporan/pdf_pilih_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
 										</td>			
 									</tr>
 									<tr>
-										<td>Jenis Pemilihan Sampah</td>
-										<td>
-											<div class="row">
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control">
-												</div>
-												<div class="col-md-1 col-sm-12">
-													<p class="text-center my-2">Hingga</p>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="end_date" id="end_date" class="form-control">
-												</div>
-											</div>
-										</td>
-										<td>
-											<a href="<?= base_url('laporan/pdf_jenis_pilih_sampah') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
-										</td>			
-									</tr>
-									<tr>
 										<td>Petugas Kebersihan</td>
-										<td>
-											<div class="row">
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control">
-												</div>
-												<div class="col-md-1 col-sm-12">
-													<p class="text-center my-2">Hingga</p>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<input type="date" name="end_date" id="end_date" class="form-control">
-												</div>
-											</div>
-										</td>
 										<td>
 											<a href="<?= base_url('laporan/pdf_petugas_kebersihan') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a>
 										</td>			
@@ -135,7 +76,7 @@ foreach ($pengelolaan61 as $temp => $p) {
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-6 col-sm-12">
 				<div id="kelola_sampah" style="height: 500px;"></div>
 			</div>
 			<div class="col-md-12 mt-5">

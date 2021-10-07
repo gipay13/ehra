@@ -14,15 +14,8 @@ class Laporan extends CI_Controller
 			redirect('auth');
 	}
 
-	public function answer_radio($id)
-	{
-		$data = $this->LaporanModel->get_pdf_answer_radio($id);
-
-		return $data;
-	}
-
-	public function answer_checkbox($id) {
-		$data = $this->LaporanModel->get_pdf_answer_checkbox($id);
+	public function answer($id) {
+		$data = $this->LaporanModel->get_pdf_answer($id);
 
 		return $data;
 	}
@@ -55,7 +48,7 @@ class Laporan extends CI_Controller
 			
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,7 +79,7 @@ class Laporan extends CI_Controller
 			
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_kelola_sampah()
@@ -100,13 +93,13 @@ class Laporan extends CI_Controller
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_pilih_sampah()
 	{
 		$category = 4;
-		$question = 18;
+		$question = [18, 19];
 
 		$data = [
 			'title' => 'Pengelolaan Sampah Rumah Tangga',
@@ -114,21 +107,7 @@ class Laporan extends CI_Controller
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
-	}
-
-	public function pdf_jenis_pilih_sampah()
-	{
-		$category = 4;
-		$question = 19;
-
-		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_petugas_kebersihan()
@@ -142,7 +121,7 @@ class Laporan extends CI_Controller
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +130,7 @@ class Laporan extends CI_Controller
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public function index_buangair()
+	public function index_limbah()
 	{
 		$data = [
 			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
@@ -168,12 +147,12 @@ class Laporan extends CI_Controller
 		$question = 25;
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_bab()
@@ -182,12 +161,12 @@ class Laporan extends CI_Controller
 		$question = 26;
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_jamban()
@@ -196,12 +175,12 @@ class Laporan extends CI_Controller
 		$question = 27;
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_pembuangan()
@@ -210,12 +189,12 @@ class Laporan extends CI_Controller
 		$question = [28, 29, 33, 34, 36, 37, 40, 41];
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -241,12 +220,12 @@ class Laporan extends CI_Controller
 		$question = 49;
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_limbah()
@@ -255,12 +234,12 @@ class Laporan extends CI_Controller
 		$question = 50;
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	public function pdf_banjir()
@@ -269,12 +248,12 @@ class Laporan extends CI_Controller
 		$question = [52, 53, 54, 55, 56, 57];
 
 		$data = [
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
+			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
 			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
 			'district' => $this->LaporanModel->get_district(),
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_b', $data);
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -286,10 +265,38 @@ class Laporan extends CI_Controller
 	public function index_sumberair()
 	{
 		$data = [
-			'title' => 'Pengelolaan Air Minum Rumah Tangga',
+			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sumberair_page', $data);
+	}
+
+	public function pdf_pengelolaan_sumberair()
+	{
+		$category = 10;
+		$question = 58;
+
+		$data = [
+			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_kualitas_sumberair()
+	{
+		$category = 10;
+		$question = [62, 66, 67, 74, 75, 76, 77];
+
+		$data = [
+			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -305,6 +312,62 @@ class Laporan extends CI_Controller
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/higiene_page', $data);
+	}
+
+	public function pdf_perilaku_higiene()
+	{
+		$category = 11;
+		$question = 78;
+
+		$data = [
+			'title' => 'Perilaku Higiene dan Sanitasi',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_penggunaan_sabun()
+	{
+		$category = 11;
+		$question = 79;
+
+		$data = [
+			'title' => 'Perilaku Higiene dan Sanitasi',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_lokasi_cucitangan()
+	{
+		$category = 11;
+		$question = 80;
+
+		$data = [
+			'title' => 'Perilaku Higiene dan Sanitasi',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_waktu_cucitangan()
+	{
+		$category = 11;
+		$question = 81;
+
+		$data = [
+			'title' => 'Perilaku Higiene dan Sanitasi',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -323,6 +386,20 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare_page', $data);
 	}
 
+	public function pdf_kejadian_diare()
+	{
+		$category = 12;
+		$question = [82, 83];
+
+		$data = [
+			'title' => 'Perilaku Higiene dan Sanitasi',
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//     PENGAMATAN
@@ -336,6 +413,71 @@ class Laporan extends CI_Controller
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/pengamatan_page', $data);
+	}
+
+	public function pdf_amati_ao()
+	{
+		$category = 1;
+
+		$data = [
+			'title' => 'Pengamatan',
+			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_amati_bo()
+	{
+		$category = 3;
+
+		$data = [
+			'title' => 'Pengamatan',
+			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_amati_co()
+	{
+		$category = 5;
+
+		$data = [
+			'title' => 'Pengamatan',
+			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_amati_do()
+	{
+		$category = 7;
+
+		$data = [
+			'title' => 'Pengamatan',
+			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
+	}
+
+	public function pdf_amati_eo()
+	{
+		$category = 9;
+
+		$data = [
+			'title' => 'Pengamatan',
+			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
+			'district' => $this->LaporanModel->get_district(),
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan', $data);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -94,6 +94,8 @@
 		</tr>
 	</table>
 	<table class="table table-bordered">
+		<?= $initial_date ?>
+		<?= $end_date ?>
 		<thead>
 			<tr>
 				<th colspan="2" rowspan="3"><?= $title ?></th>
@@ -114,8 +116,8 @@
 		<tbody>
 			<?php foreach ($question as $q) { ?>
 			<tr>
-                <td rowspan="<?= $this->CI->answer($q->id)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
-				<?php $answer = $this->CI->answer($q->id)->result() ?>
+                <td rowspan="<?= $this->CI->answer($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+				<?php $answer = $this->CI->answer($q->id, $initial_date, $end_date)->result() ?>
 				<?php foreach ($answer as $a) { ?>
 					<tr>
 						<td><?= $a->answer_name ?></td>

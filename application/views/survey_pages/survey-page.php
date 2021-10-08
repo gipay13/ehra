@@ -562,11 +562,11 @@
 		$('input[name="answer12"]').on('change', function () {
 			var answer_value = $(this).val();
         	if (answer_value == 47) {
-				$('#row-question-124').hide();
-				$('#row-question-128').hide();
+				$('#row-question-13').hide();
+				$('#row-question-14').hide();
 			} else {
-				$('#row-question-124').show();
-				$('#row-question-128').show();
+				$('#row-question-13').show();
+				$('#row-question-14').show();
 			}
 		}); 
 		$('input[name="answer17"]').on('change', function () {

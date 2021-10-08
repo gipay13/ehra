@@ -27,19 +27,9 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-md-6 col-sm-12">
-				<div class="card" style="height: 370px;">
+				<div class="card">
 					<div class="card-header">
-						<div class="row">
-							<div class="col-md-5 col-sm-12">
-								<input type="date" name="initial_date" id="initial_date" class="form-control">
-							</div>
-							<div class="col-md-2 col-sm-12">
-								<p class="text-center my-2">to</p>
-							</div>
-							<div class="col-md-5 col-sm-12">
-								<input type="date" name="end_date" id="end_date" class="form-control">
-							</div>
-						</div>
+						
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -47,25 +37,94 @@
 								<thead>
 									<tr>
 										<th>Nama Laporan</th>
+										<th>Tanggal</th>
 										<th>Export</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>Perilaku Higiene</td>
-										<td><a href="<?= base_url('laporan/pdf_perilaku_higiene') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_perilaku_higiene') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>		
 									</tr>
 									<tr>
 										<td>Penggunaan Sabun</td>
-										<td><a href="<?= base_url('laporan/pdf_penggunaan_sabun') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_penggunaan_sabun') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>			
 									</tr>
 									<tr>
 										<td>Lokasi Cuci Tangan Keluarga</td>
-										<td><a href="<?= base_url('laporan/pdf_lokasi_cucitangan') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_lokasi_cucitangan') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>			
 									</tr>
 									<tr>
 										<td>Waktu Cuci Tangan</td>
-										<td><a href="<?= base_url('laporan/pdf_waktu_cucitangan') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_waktu_cucitangan') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>				
 									</tr>
 								</tbody>
 							</table>

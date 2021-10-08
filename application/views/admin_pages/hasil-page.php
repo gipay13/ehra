@@ -37,7 +37,9 @@
 									<th>Puskesmas</th>
 									<th>NIK</th>
 									<th>Kecamatan</th>
-									<th>Alamat</th>
+									<th>Kelurahan</th>
+									<th>RW</th>
+									<th>RT</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -52,7 +54,9 @@
 										<td><?= $s->puskesmas_name ?></td>
 										<td><?= $s->nik ?></td>
 										<td><?= $s->district_name ?></td>
-										<td><?= $s->alamat ?></td>
+										<td><?= $s->village_name ?></td>
+										<td><?= $s->rw ?></td>
+										<td><?= $s->rt ?></td>
 										<td>
 											<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
 											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
@@ -69,7 +73,9 @@
 									<th>Puskesmas</th>
 									<th>NIK</th>
 									<th>Kecamatan</th>
-									<th>Alamat</th>
+									<th>Kelurahan</th>
+									<th>RW</th>
+									<th>RT</th>
 									<th>Aksi</th>
 								</tr>
 							</tfoot>

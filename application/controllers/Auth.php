@@ -11,7 +11,7 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		if ($this->session->userdata('name')) {
+		if ($this->session->userdata('id')) {
 			redirect('admin/dashboard');
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -36,7 +36,7 @@ class Auth extends CI_Controller
 		if ($user) {
 			if (password_verify($password, $user['password'])) {
 				$data = [
-					'username'	=> $user['username'],
+					'puskesmas' => $user['puskesmas_id'],
 					'name' 		=> $user['name'],
 					'level'		=> $user['level_id'],
 					'id'		=> $user['user_id']

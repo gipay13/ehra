@@ -10,6 +10,9 @@ class HasilModel extends CI_Model
 		$this->db->join('users', 'users.user_id = survey.user_id');
 		$this->db->join('districts', 'districts.id = survey.district_id');
 		$this->db->join('villages', 'villages.id = survey.village_id');
+		if($this->session->userdata('puskesmas') != null) {
+			$this->db->where('puskesmas.id', $this->session->userdata('puskesmas'));
+		}
 		$this->db->order_by('survey.survey_date', 'desc');
 		$query = $this->db->get('survey');
 		return $query;

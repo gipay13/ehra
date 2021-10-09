@@ -15,7 +15,7 @@ class Survey extends CI_Controller
 			$this->session->userdata('level') == 4
 		)
 			redirect('admin/dashboard');
-		if (!$this->session->userdata('username'))
+		if (!$this->session->userdata('id'))
 			redirect('auth');
 		$this->CI = &get_instance();
 	}

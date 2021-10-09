@@ -10,7 +10,7 @@ class Hasil extends CI_Controller
 		parent::__construct();
 		$this->load->model(['HasilModel', 'PertanyaanModel', 'SurveyModel']);
 		$this->CI = &get_instance();
-		if (!$this->session->userdata('username'))
+		if (!$this->session->userdata('id'))
 			redirect('auth');
 	}
 

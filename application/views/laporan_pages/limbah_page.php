@@ -30,19 +30,9 @@ foreach ($pba->result() as $temp => $p) {
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-md-6 col-sm-12">
-				<div class="card" style="height: 500px;">
+				<div class="card">
 					<div class="card-header">
-						<div class="row">
-							<div class="col-md-5 col-sm-12">
-								<input type="date" name="initial_date" id="initial_date" class="form-control">
-							</div>
-							<div class="col-md-2 col-sm-12">
-								<p class="text-center my-2">to</p>
-							</div>
-							<div class="col-md-5 col-sm-12">
-								<input type="date" name="end_date" id="end_date" class="form-control">
-							</div>
-						</div>
+
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -50,25 +40,94 @@ foreach ($pba->result() as $temp => $p) {
 								<thead>
 									<tr>
 										<th>Nama Laporan</th>
+										<th>Tanggal</th>
 										<th>Export</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>Tempat Buang Air Besar</td>
-										<td><a href="<?= base_url('laporan/pdf_tba') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_tba') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>			
 									</tr>
 									<tr>
 										<td>Buang Air Besar di Tempat Terbuka</td>
-										<td><a href="<?= base_url('laporan/pdf_bab') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_bab') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>		
 									</tr>
 									<tr>
 										<td>Kepemilikan Jamban Pribadi</td>
-										<td><a href="<?= base_url('laporan/pdf_jamban') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_jamban') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>			
 									</tr>
 									<tr>
 										<td>Pembuangan Limbah</td>
-										<td><a href="<?= base_url('laporan/pdf_pembuangan') ?>" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></a></td>			
+										<form action="<?= base_url('laporan/pdf_pembuangan') ?>" method="post">
+										<td>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+												<div class="col-md-12">
+													<p class="text-center my-2">to</p>
+												</div>
+												<div class="col-md-12">
+													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+												</div>
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+										</td>
+										</form>
 									</tr>
 								</tbody>
 							</table>

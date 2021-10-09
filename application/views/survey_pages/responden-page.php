@@ -141,6 +141,22 @@
 						</div>
 					</div>
 				</div>
+				<!-- <div class="card my-5">
+					<div class="card-header">
+
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label for="foto_responden">Foto Bersama Responden</label>
+							<div class="input-group">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" name="foto_responden" id="foto_responden" required>
+									<label class="custom-file-label" for="foto_responden">Choose file</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
 					Submit

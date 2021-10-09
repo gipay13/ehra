@@ -8,7 +8,7 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('UserModel');
-		if (!$this->session->userdata('username'))
+		if (!$this->session->userdata('id'))
 			redirect('auth');
 		if (
 			$this->session->userdata('level') == 2 ||

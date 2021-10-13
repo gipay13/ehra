@@ -14,17 +14,224 @@ class Laporan extends CI_Controller
 			redirect('auth');
 	}
 
-	public function answer($id, $initial_date, $end_date) {
-		$data = $this->LaporanModel->get_pdf_answer($id, $initial_date, $end_date);
+	public function answer_kecamatan($id, $initial_date, $end_date) {
+		$data = $this->LaporanModel->get_pdf_answer_kecamatan($id, $initial_date, $end_date);
 
 		return $data;
 	}
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public function answer_kelurahan($id, $initial_date, $end_date) {
+		$data = $this->LaporanModel->get_pdf_answer_kelurahan($id, $initial_date, $end_date);
 
-	//     INFORMASI UMUM
+		return $data;
+	}
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public function export()
+	{
+		if(isset($_POST['infoumum'])) {
+			$title = 'Informasi Responden';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+			
+			$category = 2;
+			$question = [1, 2, 5, 6, 9, 12];
+		} else if(isset($_POST['kondisi_sampah'])) {
+			$title = 'Pengelolaan Sampah Rumah Tangga';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 4;
+			$question = 16;
+		} else if(isset($_POST['kelola_sampah'])) {
+			$title = 'Pengelolaan Sampah Rumah Tangga';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 4;
+			$question = 17;
+		} else if(isset($_POST['pilih_sampah'])) {
+			$title = 'Pengelolaan Sampah Rumah Tangga';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 4;
+			$question = [18, 19];
+		} else if(isset($_POST['petugas_kebersihan'])) {
+			$title = 'Pengelolaan Sampah Rumah Tangga';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 4;
+			$question = [20, 21, 22, 23, 24];
+		} else if(isset($_POST['tba'])) {
+			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 6;
+			$question = 25;
+		} else if(isset($_POST['bab'])) {
+			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 6;
+			$question = 26;
+		} else if(isset($_POST['jamban'])) {
+			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 6;
+			$question = 27;
+		} else if(isset($_POST['pembuangan'])) {
+			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 6;
+			$question = [28, 29, 33, 34, 36, 37, 40, 41];
+		} else if(isset($_POST['drainase'])) {
+			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 8;
+			$question = 49;
+		} else if(isset($_POST['limbah_nontinja'])) {
+			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 8;
+			$question = 50;
+		} else if(isset($_POST['banjir'])) {
+			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 8;
+			$question = [52, 53, 54, 55, 56, 57];
+		} else if(isset($_POST['pengelolaan_sumberair'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 10;
+			$question = 58;
+		} else if(isset($_POST['kualitas_sumberair'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 10;
+			$question = [62, 66, 67, 74, 75, 76, 77];
+		} else if(isset($_POST['perilaku_higiene'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 11;
+			$question = 78;
+		} else if(isset($_POST['penggunaan_sabun'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 11;
+			$question = 79;
+		} else if(isset($_POST['lokasi_cucitangan'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 11;
+			$question = 80;
+		} else if(isset($_POST['waktu_cucitangan'])) {
+			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 11;
+			$question = 81;
+		} else if(isset($_POST['kejadian_diare'])) {
+			$title = 'Kejadian Penyakit Diare';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 12;
+		 	$question = [82, 83];
+		} else if(isset($_POST['amati_ao'])) {
+			$title = 'Pengamatan';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 1;
+			$question = [84, 85, 86, 87, 88, 89, 90, 91];
+		} else if(isset($_POST['amati_bo'])) {
+			$title = 'Pengamatan';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 3;
+			$question = [92, 93, 94];
+		} else if(isset($_POST['amati_co'])) {
+			$title = 'Pengamatan';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 5;
+			$question = [95, 96, 97, 98, 99, 100, 101, 102, 103];
+		} else if(isset($_POST['amati_do'])) {
+			$title = 'Pengamatan';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 7;
+			$question = [104, 105, 106];
+		} else if(isset($_POST['amati_eo'])) {
+			$title = 'Pengamatan';
+
+			$initial_date = $this->input->post('initial_date');
+			$end_date = $this->input->post('end_date');
+
+			$category = 9;
+			$question = [107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123];
+		}
+
+		$data = [
+			'initial_date' => $initial_date,
+			'end_date' => $end_date,
+			'title' => $title,
+			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+			'village' => $this->LaporanModel->get_village(),	
+		];
+
+		$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+	} 
 
 	public function index_infoumum()
 	{
@@ -36,33 +243,6 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/infoumum_page', $data);
 	}
 
-	public function pdf_infoumum()
-	{
-		
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-		
-		$category = 2;
-		$question = [1, 2, 5, 6, 9, 12];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Informasi Responden',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-			
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     PENGELOLAAN SAMPAH
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public function index_sampah()
 	{
 		$data = [
@@ -72,89 +252,6 @@ class Laporan extends CI_Controller
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sampah_page', $data);
 	}
-
-	public function pdf_kondisi_sampah()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 4;
-		$question = 16;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-			
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_kelola_sampah()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 4;
-		$question = 17;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_pilih_sampah()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 4;
-		$question = [18, 19];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_petugas_kebersihan()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 4;
-		$question = [20, 21, 22, 23, 24];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     LIMBAH RUMAH TANGGA
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public function index_limbah()
 	{
@@ -167,88 +264,6 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/limbah_page', $data);
 	}
 
-	public function pdf_tba()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 6;
-		$question = 25;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_bab()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 6;
-		$question = 26;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_jamban()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 6;
-		$question = 27;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_pembuangan()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 6;
-		$question = [28, 29, 33, 34, 36, 37, 40, 41];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     DRAINASE
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public function index_drainase()
 	{
 		$data = [
@@ -260,69 +275,6 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/drainase_page', $data);
 	}
 
-	public function pdf_drainase()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 8;
-		$question = 49;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_limbah()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 8;
-		$question = 50;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_banjir()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 8;
-		$question = [52, 53, 54, 55, 56, 57];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     SUMBER AIR
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public function index_sumberair()
 	{
 		$data = [
@@ -332,50 +284,6 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sumberair_page', $data);
 	}
 
-	public function pdf_pengelolaan_sumberair()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 10;
-		$question = 58;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_kualitas_sumberair()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 10;
-		$question = [62, 66, 67, 74, 75, 76, 77];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     PERILAKU HIEGENE DAN SANITASI
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public function index_higiene()
 	{
 		$data = [
@@ -384,88 +292,6 @@ class Laporan extends CI_Controller
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/higiene_page', $data);
 	}
-
-	public function pdf_perilaku_higiene()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 11;
-		$question = 78;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Perilaku Higiene dan Sanitasi',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_penggunaan_sabun()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 11;
-		$question = 79;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Perilaku Higiene dan Sanitasi',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_lokasi_cucitangan()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 11;
-		$question = 80;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Perilaku Higiene dan Sanitasi',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_waktu_cucitangan()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 11;
-		$question = 81;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Perilaku Higiene dan Sanitasi',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     KEJADIAN DIARE
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public function index_diare()
 	{
@@ -477,31 +303,6 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare_page', $data);
 	}
 
-	public function pdf_kejadian_diare()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 12;
-		$question = [82, 83];
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Perilaku Higiene dan Sanitasi',
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     PENGAMATAN
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public function index_pengamatan()
 	{
 		$data = [
@@ -510,102 +311,6 @@ class Laporan extends CI_Controller
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/pengamatan_page', $data);
 	}
-
-	public function pdf_amati_ao()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 1;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengamatan',
-			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_amati_bo()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 3;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengamatan',
-			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_amati_co()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 5;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengamatan',
-			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_amati_do()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 7;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengamatan',
-			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	public function pdf_amati_eo()
-	{
-		$initial_date = $this->input->post('initial_date');
-		$end_date = $this->input->post('end_date');
-
-		$category = 9;
-
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => 'Pengamatan',
-			'question' => $this->LaporanModel->get_pdf_question($category)->result(),
-			'district' => $this->LaporanModel->get_district(),
-		];
-
-		$this->load->view('pdf_pages/pdf_laporan', $data);
-	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//     PENGAMATAN
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public function index_areaberesiko()
 	{

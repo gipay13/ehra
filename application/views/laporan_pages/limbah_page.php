@@ -62,7 +62,7 @@ foreach ($pba->result() as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="tba" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
@@ -83,7 +83,7 @@ foreach ($pba->result() as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="bab" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>		
 									</tr>
@@ -104,7 +104,7 @@ foreach ($pba->result() as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="jamban" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
@@ -125,7 +125,7 @@ foreach ($pba->result() as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="pembuangan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>
 									</tr>

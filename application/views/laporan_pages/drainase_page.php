@@ -51,7 +51,7 @@ foreach ($spal as $temp => $s) {
 								<tbody>
 									<tr>
 										<td>Drainase Sekitar Rumah</td>
-										<form action="<?= base_url('laporan/pdf_drainase') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -65,12 +65,12 @@ foreach ($spal as $temp => $s) {
 												</div>
 											</div>
 										</td>
-										<td><button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
+										<td><button type="submit" name="drainase" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
 										</form>			
 									</tr>
 									<tr>
 										<td>Lokasi Pembuangan Limbah Selain Tinja</td>
-										<form action="<?= base_url('laporan/pdf_limbah') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -84,12 +84,12 @@ foreach ($spal as $temp => $s) {
 												</div>
 											</div>
 										</td>
-										<td><button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
+										<td><button type="submit" name="limbah_nontinja" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
 										</form>						
 									</tr>
 									<tr>
 										<td>Banjir</td>
-										<form action="<?= base_url('laporan/pdf_banjir') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -103,7 +103,7 @@ foreach ($spal as $temp => $s) {
 												</div>
 											</div>
 										</td>
-										<td><button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
+										<td><button type="submit" name="banjir" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
 										</form>				
 									</tr>
 								</tbody>

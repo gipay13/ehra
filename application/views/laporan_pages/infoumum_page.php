@@ -41,7 +41,7 @@ foreach ($umur as $temp => $u) {
 								<tbody>
 									<tr>
 										<td>Informasi Responden</td>
-										<form action="<?= base_url('laporan/pdf_infoumum') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -56,7 +56,7 @@ foreach ($umur as $temp => $u) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="infoumum" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>
 									</tr>

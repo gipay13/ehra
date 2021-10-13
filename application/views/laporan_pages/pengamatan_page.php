@@ -28,7 +28,7 @@
 								<tbody>
 									<tr>
 										<td>Amati Dapur dan Sekelilingnya</td>
-										<form action="<?= base_url('laporan/pdf_amati_ao') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -43,13 +43,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="amati_ao" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>	
 									</tr>
 									<tr>
 										<td>Amati Kamar Mandi</td>
-										<form action="<?= base_url('laporan/pdf_amati_bo') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -64,13 +64,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="amati_bo" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>	
 									</tr>
 									<tr>
 										<td>Amati Jamban</td>
-										<form action="<?= base_url('laporan/pdf_amati_co') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -85,12 +85,12 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="amati_co" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>	
 									<tr>
 										<td>Amati Tempat Cuci Pakaian</td>
-										<form action="<?= base_url('laporan/pdf_amati_do') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -105,13 +105,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="amati_do" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>	
 									</tr>
 									<tr>
 										<td>Amati Halaman/Perkarangan/Kebun</td>
-										<form action="<?= base_url('laporan/pdf_amati_eo') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -126,7 +126,7 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="amati_eo" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>	
 									</tr>

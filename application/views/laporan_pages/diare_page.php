@@ -39,7 +39,7 @@ foreach ($diare as $temp => $d) {
 								<tbody>
 									<tr>
 										<td>Kejadian Penyakit Diare</td>
-										<form action="<?= base_url('laporan/pdf_kejadian_diare') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -53,7 +53,7 @@ foreach ($diare as $temp => $d) {
 												</div>
 											</div>
 										</td>
-										<td><button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
+										<td><button type="submit" name="kejadian_diare" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button></td>
 										</form>			
 									</tr>
 								</tbody>

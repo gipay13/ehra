@@ -44,7 +44,7 @@
 								<tbody>
 									<tr>
 										<td>Pengelolaan Air Yang Aman dan Higiene</td>
-										<form action="<?= base_url('laporan/pdf_pengelolaan_sumberair') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -59,13 +59,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="pengelolaan_sumberair" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>				
 									</tr>
 									<tr>
 										<td>Lokasi dan Kualitas Sumber Air</td>
-										<form action="<?= base_url('laporan/pdf_kualitas_sumberair') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -80,7 +80,7 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="kualitas_sumberair" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>
 									</tr>

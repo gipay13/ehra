@@ -44,7 +44,7 @@
 								<tbody>
 									<tr>
 										<td>Perilaku Higiene</td>
-										<form action="<?= base_url('laporan/pdf_perilaku_higiene') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -59,13 +59,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="perilaku_higiene" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>		
 									</tr>
 									<tr>
 										<td>Penggunaan Sabun</td>
-										<form action="<?= base_url('laporan/pdf_penggunaan_sabun') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -80,13 +80,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="penggunaan_sabun" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
 									<tr>
 										<td>Lokasi Cuci Tangan Keluarga</td>
-										<form action="<?= base_url('laporan/pdf_lokasi_cucitangan') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -101,13 +101,13 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="lokasi_cucitangan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
 									<tr>
 										<td>Waktu Cuci Tangan</td>
-										<form action="<?= base_url('laporan/pdf_waktu_cucitangan') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -122,7 +122,7 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="waktu_cucitangan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>				
 									</tr>

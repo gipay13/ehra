@@ -39,7 +39,7 @@ foreach ($pengelolaan61 as $temp => $p) {
 								<tbody>
 									<tr>
 										<td>Kondisi Sampah</td>
-										<form action="<?= base_url('laporan/pdf_kondisi_sampah') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -54,13 +54,13 @@ foreach ($pengelolaan61 as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="kondisi_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
 									<tr>
 										<td>Pengelolaan Sampah</td>
-										<form action="<?= base_url('laporan/pdf_kelola_sampah') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -75,13 +75,13 @@ foreach ($pengelolaan61 as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="kelola_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>				
 									</tr>
 									<tr>
 										<td>Pemilihan Sampah</td>
-										<form action="<?= base_url('laporan/pdf_pilih_sampah') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -96,13 +96,13 @@ foreach ($pengelolaan61 as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="pilih_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>			
 									</tr>
 									<tr>
 										<td>Petugas Kebersihan</td>
-										<form action="<?= base_url('laporan/pdf_petugas_kebersihan') ?>" method="post">
+										<form action="<?= base_url('laporan/export') ?>" method="post">
 										<td>
 											<div class="row">
 												<div class="col-md-12">
@@ -117,7 +117,7 @@ foreach ($pengelolaan61 as $temp => $p) {
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
+											<button type="submit" name="petugas_kebersihan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
 										</td>
 										</form>				
 									</tr>

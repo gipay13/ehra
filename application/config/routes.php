@@ -75,7 +75,7 @@ $route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
 $route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
 
 //Route PDF Laporan
-// $route['admin/laporan/infoumum/pdf1'] = 'laporan/pdf_infoumum';
+$route['admin/laporan/(:any)/export'] = 'laporan/export/$1';
 
 // $route['admin/laporan/sampah/pdf1'] = 'laporan/pdf_kondisi_sampah';
 // $route['admin/laporan/sampah/pdf2'] = 'laporan/pdf_kelola_sampah';

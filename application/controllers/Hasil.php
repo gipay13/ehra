@@ -64,11 +64,10 @@ class Hasil extends CI_Controller
 			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
 		];
 
-		$this->load->view('pdf_pages/pdf_hasil', $data);
-		// $this->load->library('pdf');
+		//$this->load->view('pdf_pages/pdf_hasil', $data);
+		$this->load->library('pdf');
 
-		// $this->pdf->setPaper('A4', 'potrait');
-		// $this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
-		// $this->pdf->load_view('pdf_pages/pdf_hasil', $data);
+		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_hasil', $data, 'A4', 'portrait');
 	}
 }

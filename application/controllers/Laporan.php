@@ -230,7 +230,12 @@ class Laporan extends CI_Controller
 			'village' => $this->LaporanModel->get_village(),	
 		];
 
-		$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+		//$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+
+		$this->load->library('pdf');
+
+		$this->pdf->filename = $title.'_'.($initial_date).'_'.$end_date.'.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_laporan_kelurahan', $data, array(0, 0, 3458.27, 3458.27), 'landscape');
 	} 
 
 	public function index_infoumum()

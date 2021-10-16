@@ -15,67 +15,58 @@
 		}
 
 		.table {
+			border-collapse: collapse;
 			width: 100%;
-			margin-bottom: 1rem;
-			color: #212529;
-			background-color: transparent;
 		}
 
-		.table th,
-		.table td {
-			padding: 0.75rem;
-			vertical-align: top;
-			border-top: 1px solid #dee2e6;
+		.table td, .table th {
+			border: 1px solid #ddd;
+			padding: 8px;
 		}
 
-		.table thead th {
-			vertical-align: bottom;
-			border-bottom: 2px solid #dee2e6;
-		}
+		.table tr:nth-child(even){background-color: #f2f2f2;}
 
-		.table tbody+tbody {
-			border-top: 2px solid #dee2e6;
-		}
-
-
-
-		.table-striped tbody tr:nth-of-type(odd) {
-			background-color: rgba(0, 0, 0, 0.05);
+		.table th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: center;
+			background-color: #04AA6D;
+			color: white;
 		}
 	</style>
 </head>
 
-<body>
+<body style="padding: 10px">
 	<table width="100%">
 		<tr>
-			<td width="20%"><img style="width: 50px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
-			<td width="60%" style="text-align: center;">DRAFT PERTANYAAN PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
-			<td width="20%"><img style="width: 150px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
+			<td width="15%"><img style="width: 100px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
+			<td width="80%" style="text-align: left;">
+				<span style="font-weight: bold;">
+					DRAFT PERTANYAAN PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
+					<br>DINAS KESEHATAN KOTA SUKABUMI
+				</span>
+				<br>
+				<span>Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
+			</td>
 		</tr>
 	</table>
 	<br>
 	<hr class="line-title">
-	<table width="100%">
-		<tr>
-			<td style="padding-top: 60px;"></td>
-		</tr>
-	</table>
 	<?php foreach ($kategori as $k) { ?>
-		<table width="100%">
-			<tr>
-				<td style="padding-top: 50px;"></td>
-			</tr>
-		</table>
-		<table class="table table-striped">
-			<tr>
-				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_code ?>. <?= $k->category_name ?></td>
-			</tr>
-			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
-			<?php foreach ($pertanyaan as $p) { ?>
+		<table class="table" style="padding-top: 50px; page-break-after: always;">
+			<thead >
+				<tr>
+					<th colspan="3"><?= $k->category_code ?>. <?= $k->category_name ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
+				<?php foreach ($pertanyaan as $p) { ?>
 				<tr>
 					<td width="100%"><?= $p->question_name ?></td>
 				</tr>
-			<?php } ?>
+				<?php } ?>
+			</tbody>
 		</table>
 	<?php } ?>
 </body>

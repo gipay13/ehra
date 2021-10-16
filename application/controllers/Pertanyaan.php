@@ -41,11 +41,10 @@ class Pertanyaan extends CI_Controller
 			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
 		];
 
-		$this->load->view('pdf_pages/pdf_pertanyaan', $data);
-		// $this->load->library('pdf');
+		//$this->load->view('pdf_pages/pdf_pertanyaan', $data);
+		$this->load->library('pdf');
 
-		// $this->pdf->setPaper('A4', 'potrait');
-		// $this->pdf->filename = 'List Pertanyaan.pdf';
-		// $this->pdf->load_view('pdf_pages/pdf_pertanyaan', $data);
+		$this->pdf->filename = 'List Pertanyaan.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_pertanyaan', $data, 'A4', 'portrait');
 	}
 }

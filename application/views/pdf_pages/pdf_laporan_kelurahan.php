@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Font: Source Sans Pro -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css') ?>">
-	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="<?= base_url('assets/dist/css/adminlte.min.css') ?>">
     <title>Document</title>
-    <style>
-        .line-title {
-			border: 0;
-			border-style: inset;
-			border-top: 2px solid #000;
-		}
-    </style>
+	<style type="text/css">
+			body {
+				font-size: 10pt;
+				font-family: "helvetica", Courier, monospace;
+			}
+
+			.line-title {
+				border: 0;
+				border-style: inset;
+				border-top: 2px solid #000;
+			}
+
+			.table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			.table td, .table th {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			.table tr:nth-child(even){background-color: #f2f2f2;}
+
+			.table th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: center;
+				background-color: #04AA6D;
+				color: white;
+			}
+		</style>
 </head>
 <body>
-    <table>
+    <table width="100%">
 		<tr>
-			<td width="20%"><img style="width: 80px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
-			<td width="60%" style="text-align: center;"><h4>DRAFT PERSENTASE HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</h4></td>
-			<td width="20%" class="float-right mt-3"><img style="width: 180px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
+			<td width="15%"><img style="width: 120px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
+			<td width="5%"></td>
+			<td width="80%" style="text-align: left;">
+				<span style="font-weight: bold;">
+					DRAFT PERSENTASE PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
+					<br>DINAS KESEHATAN KOTA SUKABUMI
+				</span>
+				<br>
+				<span>Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
+			</td>
 		</tr>
 	</table>
 	<br>
@@ -34,21 +58,24 @@
 		</tr>
 	</table>
 	<h5>Tanggal : <?= $initial_date ?> - <?= $end_date ?></h5>
-	<table class="table table-bordered" width="100%">
+	<table class="table" width="100%">
 		<thead>
 			<tr>
 				<th colspan="2" rowspan="3"><?= $title ?></th>
-				<th colspan="<?= $village->num_rows() * 2 ?>" class="text-center">% KELURAHAN</th>
+				<th colspan="<?= ($village->num_rows() * 2) + 2 ?>" class="text-center">% KELURAHAN</th>
 				<tr>
 					<?php foreach ($village->result() as $v) { ?>
 						<th colspan="2"><?= $v->village_name ?></th>
 					<?php } ?>
+					<th colspan="2">Kota Sukabumi</th>
 				</tr>
 				<tr>
 					<?php foreach ($village->result() as $v) { ?>
 						<th>n</th>
 						<th>%</th>
 					<?php } ?>
+					<th>n</th>
+					<th>%</th>
 				</tr>
 			</tr>
 		</thead>
@@ -126,7 +153,8 @@
 						<td><?= round($a->persentase_cisarua) ?>%</td>
                         <td><?= $a->result_subangjaya ?></td>
 						<td><?= round($a->persentase_subangjaya) ?>%</td>
-                        
+                        <td>-</td>
+						<td>-</td>
 					</tr>
 				<?php } ?>
 			</tr>

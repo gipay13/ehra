@@ -17,12 +17,17 @@ class Pdf extends Dompdf {
         return get_instance();
     }
     
-    public function load_view($view, $data = array(), $stream = TRUE){
+    public function load_view($view, $data = array(), $paper_size, $orientation, $stream = TRUE){
 		$html = $this->ci()->load->view($view, $data, TRUE);
 
 		$options = new Options();
 		$options->set('isRemoteEnabled', TRUE);
+        //$options->set('isHtml5ParserEnabled', TRUE);
+        $options->set('debugCss', TRUE);
+
 		$dompdf = new Dompdf($options);
+        
+        $dompdf->setPaper($paper_size, $orientation);
 		$dompdf->loadHtml($html);
 		$dompdf->render();
 		if ($stream) {

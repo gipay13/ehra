@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-8 col-sm-12 mx-auto">
 			<?= $this->session->flashdata('message'); ?>
-			<form action="<?= base_url('responden/process'); ?>" method="post">
+			<?= form_open_multipart('responden/process') ?>
 				<div class="card">
 					<div class="card-header">
 						Informasi Umum
@@ -141,7 +141,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="card my-5">
+				<div class="card my-5">
 					<div class="card-header">
 
 					</div>
@@ -154,9 +154,26 @@
 									<label class="custom-file-label" for="foto_responden">Choose file</label>
 								</div>
 							</div>
+							<div class="row mt-3">
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="latitude">Latitude</label>
+										<input type="text" class="form-control" name="latitude" id="latitude" value="" readonly>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="longitude">Longitude</label>
+										<input type="text" class="form-control" name="longitude" id="longitude" value="" readonly>
+									</div>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary m-0" id="userLocation">
+								Aktifkan Lokasi
+							</button>
 						</div>
 					</div>
-				</div> -->
+				</div>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
 					Submit
@@ -183,12 +200,12 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
-								<button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+								<button type="submit" name="simpan" class="btn btn-primary btn-sm">Simpan</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</form>
+			<?= form_close() ?>
 		</div>
 	</div>
 </div>
@@ -226,4 +243,46 @@
 				})
 			}
 		});
+</script>
+<script>
+	const getUserLocation = () => {
+		const inputLatitude = document.querySelector('input[name="latitude"]').value;
+		const inputLongitude = document.querySelector('input[name="longitude"]').value;
+
+		const success = (position) => {
+			console.log(position);
+			// const latitude = position.coords.latitude;
+			// const longitude = position.coords.longitude;
+
+			// const geoApiUrl = `http://api.positionstack.com/v1/reverse
+			// 					? access_key = da380a514cc9855b15b0e04dbb988b04
+			// 					& query = ${latitude}, ${longitude}`
+
+			// fetch(geoApiUrl)
+			// .then(response => response.json())
+			// .then(data => {
+			// 	console.log(data);
+			// 	inputLatitude.textContent = data.latitude;
+			// 	inputLongitude.textContent = data.longitude;
+			// })
+
+			document.querySelector('input[name="latitude"]').value = position.coords.latitude;
+			document.querySelector('input[name="longitude"]').value = position.coords.longitude;
+
+		}
+
+		const options = {
+			enableHighAccuracy: true,
+			timeout: 5000,
+			maximumAge: 0
+		};
+
+		const error = (error) => {
+			inputLatitude.textContent = 'Tidak Dapat Menemukan Lokasi Anda';
+		}
+
+		navigator.geolocation.getCurrentPosition(success, error, options);
+	} 	
+
+	document.querySelector('#userLocation').addEventListener('click', getUserLocation);
 </script>

@@ -79,7 +79,11 @@ class RespondenModel extends CI_Model
 			'supervisor_id'			=> $survey['supervisor'],
 			'coordinator_id'		=> $survey['koordinator'],
 			'district_id'			=> $survey['kecamatan'],
-			'village_id'			=> $survey['kelurahan']
+			'village_id'			=> $survey['kelurahan'],
+			'village_id'			=> $survey['kelurahan'],
+			'lat'					=> $survey['latitude'],
+			'lng'					=> $survey['longitude'],
+			'image'					=> $survey['foto_responden'],
 		];
 
 		$this->db->insert('survey', $data);

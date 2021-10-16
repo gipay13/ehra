@@ -21,32 +21,23 @@
 		}
 
 		.table {
+			border-collapse: collapse;
 			width: 100%;
-			margin-bottom: 1rem;
-			color: #212529;
-			background-color: transparent;
 		}
 
-		.table th,
-		.table td {
-			padding: 0.75rem;
-			vertical-align: top;
-			border-top: 1px solid #dee2e6;
+		.table td, .table th {
+			border: 1px solid #ddd;
+			padding: 8px;
 		}
 
-		.table thead th {
-			vertical-align: bottom;
-			border-bottom: 2px solid #dee2e6;
-		}
+		.table tr:nth-child(even){background-color: #f2f2f2;}
 
-		.table tbody+tbody {
-			border-top: 2px solid #dee2e6;
-		}
-
-
-
-		.table-striped tbody tr:nth-of-type(odd) {
-			background-color: rgba(0, 0, 0, 0.05);
+		.table th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: center;
+			background-color: #04AA6D;
+			color: white;
 		}
 	</style>
 </head>
@@ -54,9 +45,15 @@
 <body>
 	<table width="100%">
 		<tr>
-			<td width="20%"><img style="width: 50px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
-			<td width="60%" style="text-align: center;">DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
-			<td width="20%"><img style="width: 150px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
+			<td width="15%"><img style="width: 100px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
+			<td width="80%" style="text-align: left;">
+				<span style="font-weight: bold;">
+					DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
+					<br>DINAS KESEHATAN KOTA SUKABUMI
+				</span>
+				<br>
+				<span>Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
+			</td>
 		</tr>
 	</table>
 	<br>
@@ -66,9 +63,9 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<table class="table table-striped">
+	<table class="table">
 		<tr>
-			<td colspan="2" style="text-align: center; background-color: #2985B4;">Informasi Umum</td>
+			<th colspan="2" style="text-align: center;">Informasi Umum</th>
 		</tr>
 		<tr>
 			<td width="50%">Nomor Survey</td>
@@ -76,7 +73,7 @@
 		</tr>
 		<tr>
 			<td>Tanggal Survey</td>
-			<td><?= $survey->survey_date ?></td>
+			<td><?= indo_date($survey->survey_date) ?></td>
 		</tr>
 		<tr>
 			<td>Pewawancara</td>
@@ -106,7 +103,7 @@
 	</table>
 	<table class="table table-striped">
 		<tr>
-			<td colspan="2" style="text-align: center; background-color: #2985B4;">A. Identitas Responden</td>
+			<th colspan="2" style="text-align: center;">A. Identitas Responden</th>
 		</tr>
 		<tr>
 			<td width="50%">Nomor Kartu Keluarga</td>
@@ -159,16 +156,16 @@
 				<td style="padding-top: 50px;"></td>
 			</tr>
 		</table>
-		<table class="table table-striped">
+		<table class="table">
 			<tr>
-				<td colspan="3" style="text-align: center; background-color: #2985B4;"><?= $k->category_code ?>. <?= $k->category_name ?></td>
+				<th colspan="3" style="text-align: center;"><?= $k->category_code ?>. <?= $k->category_name ?></th>
 			</tr>
 			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
 			<?php foreach ($pertanyaan as $p) { ?>
 				<tr>
-					<td width="40%"><?= $p->question_name ?></td>
-					<td width="20%"></td>
-					<td width="40%">
+					<td width="45%"><?= $p->question_name ?></td>
+					<td width="10%"></td>
+					<td width="45%">
 						<?php $jawaban = $this->CI->jawaban($survey->no_survey, $p->id) ?>
 						<?php foreach ($jawaban as $j) { ?>
 							<div>

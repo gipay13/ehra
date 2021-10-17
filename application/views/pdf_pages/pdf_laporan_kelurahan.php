@@ -11,7 +11,7 @@
 			.line-title {
 				border: 0;
 				border-style: inset;
-				border-top: 2px solid #000;
+				border-top: 10px solid #000;
 			}
 
 			.table {
@@ -36,17 +36,17 @@
 		</style>
 </head>
 <body>
-    <table width="100%">
+    <table width="100%" style="padding-top: 100px; padding-bottom: 100px">
 		<tr>
-			<td width="15%"><img style="width: 120px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
+			<td width="15%"><img style="width: 820px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
 			<td width="5%"></td>
 			<td width="80%" style="text-align: left;">
-				<span style="font-weight: bold;">
+				<span style="font-weight: bold; font-size: 80px;">
 					DRAFT PERSENTASE PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
 					<br>DINAS KESEHATAN KOTA SUKABUMI
 				</span>
 				<br>
-				<span>Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
+				<span style="font-size: 90px;">Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
 			</td>
 		</tr>
 	</table>

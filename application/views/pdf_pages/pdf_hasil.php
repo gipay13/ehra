@@ -101,7 +101,7 @@
 			<td style="padding-top: 50px;"></td>
 		</tr>
 	</table>
-	<table class="table table-striped">
+	<table class="table" style="page-break-after: always;">
 		<tr>
 			<th colspan="2" style="text-align: center;">A. Identitas Responden</th>
 		</tr>

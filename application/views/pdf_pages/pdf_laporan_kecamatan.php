@@ -2,30 +2,52 @@
 <html lang="en">
 
 <head>
-	<!-- Google Font: Source Sans Pro -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css') ?>">
-	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="<?= base_url('assets/dist/css/adminlte.min.css') ?>">
     <title>Document</title>
-    <style>
-        .line-title {
-			border: 0;
-			border-style: inset;
-			border-top: 2px solid #000;
-		}
-    </style>
+    <style type="text/css">
+			body {
+				font-size: 20pt;
+				font-family: "helvetica", Courier, monospace;
+			}
+
+			.line-title {
+				border: 0;
+				border-style: inset;
+				border-top: 5px solid #000;
+			}
+
+			.table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			.table td, .table th {
+				border: 1px solid #ddd;
+				padding: 2px;
+			}
+
+			.table tr:nth-child(even){background-color: #f2f2f2;}
+
+			.table th {
+				padding-top: 5px;
+				padding-bottom: 5px;
+				text-align: center;
+				background-color: #04AA6D;
+				color: white;
+			}
+		</style>
 </head>
 
 <body>
-	<table>
+	<table width="100%">
 		<tr>
-			<td width="20%"><img style="width: 80px; align-items: center;" src="<?= base_url('assets/dist/img/baktihusada.png') ?>"></td>
-			<td width="60%" style="text-align: center;">DRAFT PERSENTASE HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024<br>Environmental Health Risk Assessment (EHRA)</td>
-			<td width="20%" class="float-right mt-3"><img style="width: 180px" src="<?= base_url('assets/dist/img/ppsp.jpg') ?>"></td>
+			<td style="text-align: left;">
+				<span style="font-weight: bold; font-size: 80px;">
+					Laporan <?= $title ?>
+					<br><?= $subtitle ?>
+				</span>
+				<br>
+				<span style="font-size: 80px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
+			</td>
 		</tr>
 	</table>
 	<br>
@@ -35,32 +57,31 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<h3>Tanggal : <?= $initial_date ?> - <?= $end_date ?></h3>
-	<table class="table table-bordered">
-		<thead>
+	<table class="table">
+		<tr>
+			<th colspan="2" rowspan="3"><?= $title ?></th>
+			<th colspan="<?= ($district->num_rows() * 2) + 2 ?>">% KECAMATAN</th>
 			<tr>
-				<th colspan="2" rowspan="3"><?= $title ?></th>
-				<th colspan="<?= $district->num_rows() * 2 ?>">% Kecamatan</th>
-				<tr>
-					<?php foreach ($district->result() as $r) { ?>
-						<th colspan="2"><?= $r->district_name ?></th>
-					<?php } ?>
-				</tr>
-				<tr>
-					<?php foreach ($district->result() as $r) { ?>
-						<th>n</th>
-						<th>%</th>
-					<?php } ?>
-				</tr>
+				<?php foreach ($district->result() as $r) { ?>
+					<th colspan="2"><?= $r->district_name ?></th>
+				<?php } ?>
+				<th colspan="2">Kota Sukabumi</th>
 			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($question as $q) { ?>
+			<tr>
+				<?php foreach ($district->result() as $r) { ?>
+					<th>n</th>
+					<th>%</th>
+				<?php } ?>
+				<th>n</th>
+				<th>%</th>
+			</tr>
+		</tr>
+		<?php foreach ($question as $q) { ?>
 			<tr>
                 <td rowspan="<?= $this->CI->answer_kecamatan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
 				<?php $answer = $this->CI->answer_kecamatan($q->id, $initial_date, $end_date)->result() ?>
 				<?php foreach ($answer as $a) { ?>
-					<tr>
+					<tr style="margin: 0px;">
 						<td><?= $a->answer_name ?></td>
 						<td><?= $a->result_cikole ?></td>
 						<td><?= round($a->persentase_cikole) ?>%</td>
@@ -76,11 +97,12 @@
 						<td><?= round($a->persentase_lembursitu) ?>%</td>
 						<td><?= $a->result_baros ?></td>
 						<td><?= round($a->persentase_baros) ?>%</td>
+						<td><?= $a->result_cikole + $a->result_gunungpuyuh + $a->result_warudoyong + $a->result_citamiang + $a->result_cibeureum + $a->result_lembursitu + $a->result_baros ?></td>
+						<td>-</td>
 					</tr>
 				<?php } ?>
 			</tr>
-			<?php } ?>
-		</tbody>
+		<?php } ?>
 	</table>
 </body>
 

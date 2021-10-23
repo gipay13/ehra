@@ -36,17 +36,15 @@
 		</style>
 </head>
 <body>
-    <table width="100%" style="padding-top: 100px; padding-bottom: 100px">
+    <table width="100%">
 		<tr>
-			<td width="15%"><img style="width: 820px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
-			<td width="5%"></td>
-			<td width="80%" style="text-align: left;">
+			<td style="text-align: left;">
 				<span style="font-weight: bold; font-size: 80px;">
-					DRAFT PERSENTASE PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
-					<br>DINAS KESEHATAN KOTA SUKABUMI
+					Laporan <?= $title ?>
+					<br><?= $subtitle ?>
 				</span>
 				<br>
-				<span style="font-size: 90px;">Jl. Surya Kencana No.41, Selabatu, Kec. Cikole, Kota Sukabumi, Jawa Barat 43114</span>
+				<span style="font-size: 80px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
 			</td>
 		</tr>
 	</table>
@@ -57,32 +55,29 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<h5>Tanggal : <?= $initial_date ?> - <?= $end_date ?></h5>
 	<table class="table" width="100%">
-		<thead>
+		<tr>
+			<th colspan="2" rowspan="3"><?= $title ?></th>
+			<th colspan="<?= ($village->num_rows() * 2) + 2 ?>" class="text-center">% KELURAHAN</th>
 			<tr>
-				<th colspan="2" rowspan="3"><?= $title ?></th>
-				<th colspan="<?= ($village->num_rows() * 2) + 2 ?>" class="text-center">% KELURAHAN</th>
-				<tr>
-					<?php foreach ($village->result() as $v) { ?>
-						<th colspan="2"><?= $v->village_name ?></th>
-					<?php } ?>
-					<th colspan="2">Kota Sukabumi</th>
-				</tr>
-				<tr>
-					<?php foreach ($village->result() as $v) { ?>
-						<th>n</th>
-						<th>%</th>
-					<?php } ?>
+				<?php foreach ($village->result() as $v) { ?>
+					<th colspan="2"><?= $v->village_name ?></th>
+				<?php } ?>
+				<th colspan="2">Kota Sukabumi</th>
+			</tr>
+			<tr>
+				<?php foreach ($village->result() as $v) { ?>
 					<th>n</th>
 					<th>%</th>
-				</tr>
+				<?php } ?>
+				<th>n</th>
+				<th>%</th>
 			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($question as $q) { ?>
+		</tr>
+
+		<?php foreach ($question as $q) { ?>
 			<tr>
-                <td width="50%" rowspan="<?= $this->CI->answer_kelurahan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+                <td width="10%" rowspan="<?= $this->CI->answer_kelurahan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
 				<?php $answer = $this->CI->answer_kelurahan($q->id, $initial_date, $end_date)->result() ?>
 				<?php foreach ($answer as $a) { ?>
 					<tr>
@@ -153,13 +148,20 @@
 						<td><?= round($a->persentase_cisarua) ?>%</td>
                         <td><?= $a->result_subangjaya ?></td>
 						<td><?= round($a->persentase_subangjaya) ?>%</td>
-                        <td>-</td>
+                        <td><?= $a->result_sudajaya + $a->result_jayamekar + $a->result_jayaraksa + $a->result_baros + 
+								$a->result_lembursitu + $a->result_situmekar + $a->result_cipanengah + $a->result_cikundul + 
+								$a->result_sidangsari + $a->result_sindangpalay + $a->result_limusnunggal + $a->result_cibeureum + 
+								$a->result_babakan + $a->result_cikondang + $a->result_gedong + $a->result_citamiang + $a->result_nanggeleng +
+								$a->result_tipar + $a->result_dayeuhluhur + $a->result_warudoyong +
+								$a->result_nyomplong + $a->result_benteng + $a->result_sukakarya + $a->result_karangtengah +
+								$a->result_gunungpuyuh + $a->result_sriwidari + $a->result_karamat + $a->result_gunungparang +
+								$a->result_cikole + $a->result_kebonjati + $a->result_selabatu + $a->result_cisarua + $a->result_subangjaya ?>
+						</td>
 						<td>-</td>
 					</tr>
 				<?php } ?>
 			</tr>
-			<?php } ?>
-		</tbody>
+		<?php } ?>
 	</table>
 </body>
 </html>

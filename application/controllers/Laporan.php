@@ -9,6 +9,7 @@ class Laporan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('LaporanModel');
+		$this->load->library('pdf');
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('id'))
 			redirect('auth');
@@ -28,192 +29,221 @@ class Laporan extends CI_Controller
 
 	public function export()
 	{
-		if(isset($_POST['infoumum'])) {
+		// echo '<pre>';
+		// print_r($this->input->post(null, true));
+		// echo '</pre>';
+		$laporan = $this->input->post('laporan');
+
+		if($laporan == 'inforesponden') {
 			$title = 'Informasi Responden';
+			$subtitle = 'Informasi Responden';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 			
 			$category = 2;
 			$question = [1, 2, 5, 6, 9, 12];
-		} else if(isset($_POST['kondisi_sampah'])) {
+		} else if($laporan == 'kondisi_sampah') {
 			$title = 'Pengelolaan Sampah Rumah Tangga';
+			$subtitle = 'Kondisi Sampah';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 4;
 			$question = 16;
-		} else if(isset($_POST['kelola_sampah'])) {
+		} else if($laporan == 'kelola_sampah') {
 			$title = 'Pengelolaan Sampah Rumah Tangga';
+			$subtitle = 'Pengelolaan Sampah';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 4;
 			$question = 17;
-		} else if(isset($_POST['pilih_sampah'])) {
+		} else if($laporan == 'pilih_sampah') {
 			$title = 'Pengelolaan Sampah Rumah Tangga';
+			$subtitle = 'Pemilihan Sampah';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 4;
 			$question = [18, 19];
-		} else if(isset($_POST['petugas_kebersihan'])) {
+		} else if($laporan == 'petugas_kebersihan') {
 			$title = 'Pengelolaan Sampah Rumah Tangga';
+			$subtitle = 'Petugas Kebersihan';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 4;
 			$question = [20, 21, 22, 23, 24];
-		} else if(isset($_POST['tba'])) {
+		} else if($laporan == 'tba') {
 			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+			$subtitle = 'Tempat Buang Air Besar';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 6;
 			$question = 25;
-		} else if(isset($_POST['bab'])) {
+		} else if($laporan == 'bab') {
 			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+			$subtitle = 'Buang Air Besar';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 6;
 			$question = 26;
-		} else if(isset($_POST['jamban'])) {
+		} else if($laporan == 'jamban') {
 			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+			$subtitle = 'Kepemilikan Jamban';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 6;
 			$question = 27;
-		} else if(isset($_POST['pembuangan'])) {
+		} else if($laporan == 'pembuangan') {
 			$title = 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja';
+			$subtitle = 'Pembuangan Limbah';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 6;
 			$question = [28, 29, 33, 34, 36, 37, 40, 41];
-		} else if(isset($_POST['drainase'])) {
-			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+		} else if($laporan == 'drainase') {
+			$title = 'Drainase Selokan Sekitar Rumah dan Banjir';
+			$subtitle = 'Drainase Selokan Sekitar Rumah dan Banjir';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 8;
 			$question = 49;
-		} else if(isset($_POST['limbah_nontinja'])) {
-			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+		} else if($laporan == 'limbah_nontinja') {
+			$title = 'Drainase Selokan Sekitar Rumah dan Banjir';
+			$subtitle = 'Lokasi Pembuangan Limbah Selain Tinja';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 8;
 			$question = 50;
-		} else if(isset($_POST['banjir'])) {
-			$title = 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir';
+		} else if($laporan == 'banjir') {
+			$title = 'Drainase Selokan Sekitar Rumah dan Banjir';
+			$subtitle = 'Kejadian Banjir';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 8;
 			$question = [52, 53, 54, 55, 56, 57];
-		} else if(isset($_POST['pengelolaan_sumberair'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'pengelolaan_sumberair') {
+			$title = 'Pengelolaan Air Yang Aman dan Higiene';
+			$subtitle = 'Pengelolaan Air Yang Aman dan Higiene';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 10;
 			$question = 58;
-		} else if(isset($_POST['kualitas_sumberair'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'kualitas_sumberair') {
+			$title = 'Pengelolaan Air Yang Aman dan Higiene';
+			$subtitle = 'Lokasi dan Kulaitas Sumber Air';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 10;
 			$question = [62, 66, 67, 74, 75, 76, 77];
-		} else if(isset($_POST['perilaku_higiene'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'perilaku_higiene') {
+			$title = 'Perilaku Higiene dan Sanitasi';
+			$subtitle = 'Perilaku Higiene dan Sanitasi';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 11;
 			$question = 78;
-		} else if(isset($_POST['penggunaan_sabun'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'penggunaan_sabun') {
+			$title = 'Perilaku Higiene dan Sanitasi';
+			$subtitle = 'Penggunaan Sabun';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 11;
 			$question = 79;
-		} else if(isset($_POST['lokasi_cucitangan'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'lokasi_cucitangan') {
+			$title = 'Perilaku Higiene dan Sanitasi';
+			$subtitle = 'Lokasi Cuci Tangan Keluarga';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 11;
 			$question = 80;
-		} else if(isset($_POST['waktu_cucitangan'])) {
-			$title = 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene';
+		} else if($laporan == 'waktu_cucitangan') {
+			$title = 'Perilaku Higiene dan Sanitasi';
+			$subtitle = 'Waktu Cuci Tangan';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 11;
 			$question = 81;
-		} else if(isset($_POST['kejadian_diare'])) {
+		} else if($laporan == 'kejadian_diare') {
 			$title = 'Kejadian Penyakit Diare';
+			$subtitle = 'Kejadian Penyakit Diare';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 12;
 		 	$question = [82, 83];
-		} else if(isset($_POST['amati_ao'])) {
+		} else if($laporan == 'amati_ao') {
 			$title = 'Pengamatan';
+			$subtitle = 'Amati Dapur dan Sekitarnya';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 1;
 			$question = [84, 85, 86, 87, 88, 89, 90, 91];
-		} else if(isset($_POST['amati_bo'])) {
+		} else if($laporan == 'amati_bo') {
 			$title = 'Pengamatan';
+			$subtitle = 'Amati Kamar Mandi';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 3;
 			$question = [92, 93, 94];
-		} else if(isset($_POST['amati_co'])) {
+		} else if($laporan == 'amati_co') {
 			$title = 'Pengamatan';
+			$subtitle = 'Amati Jamban';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 5;
 			$question = [95, 96, 97, 98, 99, 100, 101, 102, 103];
-		} else if(isset($_POST['amati_do'])) {
+		} else if($laporan == 'amati_do') {
 			$title = 'Pengamatan';
+			$subtitle = 'Amati Tempat Cuci Pakaian';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
 
 			$category = 7;
 			$question = [104, 105, 106];
-		} else if(isset($_POST['amati_eo'])) {
+		} else if($laporan == 'amati_eo') {
 			$title = 'Pengamatan';
+			$subtitle = 'Amati Sekitar Rumah';
 
 			$initial_date = $this->input->post('initial_date');
 			$end_date = $this->input->post('end_date');
@@ -222,20 +252,38 @@ class Laporan extends CI_Controller
 			$question = [107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123];
 		}
 
-		$data = [
-			'initial_date' => $initial_date,
-			'end_date' => $end_date,
-			'title' => $title,
-			'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
-			'village' => $this->LaporanModel->get_village(),	
+		$data_kecamatan = [
+				'initial_date' => $initial_date,
+				'end_date' => $end_date,
+				'title' => $title,
+				'subtitle' => $subtitle,
+				'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+				'district' => $this->LaporanModel->get_district(),	
 		];
 
-		//$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+		$data_kelurahan = [
+				'initial_date' => $initial_date,
+				'end_date' => $end_date,
+				'title' => $title,
+				'subtitle' => $subtitle,
+				'question' => $this->LaporanModel->get_pdf_question($category, $question)->result(),
+				'village' => $this->LaporanModel->get_village(),	
+		];
 
-		$this->load->library('pdf');
 
-		$this->pdf->filename = $title.'_'.($initial_date).'_'.$end_date.'.pdf';
-		$this->pdf->load_view('pdf_pages/pdf_laporan_kelurahan', $data, array(0, 0, 3458.27, 3458.27), 'landscape');
+		if($this->input->post('wilayah') == 'kecamatan') {
+			//$this->load->view('pdf_pages/pdf_laporan_kecamatan', $data);
+
+			$this->pdf->filename = $subtitle.'_Kecamatan_'.$initial_date.'_'.$end_date.'.pdf';
+
+			$this->pdf->load_view('pdf_pages/pdf_laporan_kecamatan', $data_kecamatan, 'B0', 'landscape');
+		} else {
+			//$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+
+			$this->pdf->filename = $subtitle.'_Kelurahan_'.$initial_date.'_'.$end_date.'.pdf';
+
+			$this->pdf->load_view('pdf_pages/pdf_laporan_kelurahan', $data_kelurahan, array(0, 0, 3458.27, 3458.27), 'landscape');
+		}
 	} 
 
 	public function index_infoumum()
@@ -253,6 +301,14 @@ class Laporan extends CI_Controller
 		$data = [
 			'title' => 'Pengelolaan Sampah Rumah Tangga',
 			'pengelolaan61' => $this->LaporanModel->stacked_chart(17, 61)->result(),
+			'pengelolaan62' => $this->LaporanModel->stacked_chart(17, 62)->result(),
+			'pengelolaan63' => $this->LaporanModel->stacked_chart(17, 63)->result(),
+			'pengelolaan64' => $this->LaporanModel->stacked_chart(17, 64)->result(),
+			'pengelolaan65' => $this->LaporanModel->stacked_chart(17, 65)->result(),
+			'pengelolaan66' => $this->LaporanModel->stacked_chart(17, 66)->result(),
+			'pengelolaan67' => $this->LaporanModel->stacked_chart(17, 67)->result(),
+			'pengelolaan68' => $this->LaporanModel->stacked_chart(17, 68)->result(),
+			'pengelolaan69' => $this->LaporanModel->stacked_chart(17, 69)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sampah_page', $data);

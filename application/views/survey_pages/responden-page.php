@@ -74,11 +74,11 @@
 						<div class="my-3 mx-4">
 							<div class="form-group">
 								<label for="nkk">NKK</label>
-								<input type="text" class="form-control" name="nkk" id="nkk" required>
+								<input type="number" class="form-control" name="nkk" id="nkk" autocomplete="off" required>
 							</div>
 							<div class="form-group">
 								<label for="nik">NIK Kepala Rumah Tangga</label>
-								<input type="text" class="form-control" name="nik" id="nik" required>
+								<input type="number" class="form-control" name="nik" id="nik" autocomplete="off" required>
 							</div>
 							<div class="form-group">
 								<label for="nama_kepala">Nama Kepala Rumah Tangga</label>

@@ -16,7 +16,7 @@
 			<div class="card card-widget widget-user">
             	<div class="widget-user-header bg-info">
                 	<h3 class="widget-user-username"><?= $this->session->userdata('name') ?></h3>
-                	<h5 class="widget-user-desc"><?= $userdata->puskesmas_name ?></h5>
+                	<h5 class="widget-user-desc"><?= $userdata->puskesmas_name ?? "-" ?></h5>
               	</div>
               	<div class="widget-user-image">
                 	<img class="img-circle elevation-2" src="<?= base_url('assets/dist/img/blank-profile-picture.png') ?>" alt="User Avatar">
@@ -26,7 +26,7 @@
 						<div class="col-sm-6 border-right">
 							<div class="description-block">
 								<span class="description-text">KECAMATAN</span>
-								<h5 class="description-header"><?= $userdata->district_name?></h5>
+								<h5 class="description-header"><?= $userdata->district_name ?? "-" ?></h5>
 							</div>
 						</div>
                   		<div class="col-sm-6 border-right">

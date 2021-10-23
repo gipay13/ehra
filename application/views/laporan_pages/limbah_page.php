@@ -31,112 +31,50 @@ foreach ($pba->result() as $temp => $p) {
 		<div class="row mb-2">
 			<div class="col-md-6 col-sm-12">
 				<div class="card">
+					<form action="<?= base_url('laporan/export') ?>" method="post">
 					<div class="card-header">
-
+						Laporan
 					</div>
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered table-striped">
-								<thead>
-									<tr>
-										<th>Nama Laporan</th>
-										<th>Tanggal</th>
-										<th>Export</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Tempat Buang Air Besar</td>
-										<form action="<?= base_url('laporan/pdf_tba') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="tba" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>			
-									</tr>
-									<tr>
-										<td>Buang Air Besar di Tempat Terbuka</td>
-										<form action="<?= base_url('laporan/pdf_bab') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="bab" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>		
-									</tr>
-									<tr>
-										<td>Kepemilikan Jamban Pribadi</td>
-										<form action="<?= base_url('laporan/pdf_jamban') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="jamban" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>			
-									</tr>
-									<tr>
-										<td>Pembuangan Limbah</td>
-										<form action="<?= base_url('laporan/pdf_pembuangan') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="pembuangan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>
-									</tr>
-								</tbody>
-							</table>
+						<div class="form-group">
+							<label for="username">Nama Laporan</label>
+							<select name="laporan" id="laporan" class="form-control">
+								<option value="tba">Tempat Buang Air Besar</option>
+								<option value="bab">Buang Air Besar di Tempat Terbuka</option>
+								<option value="jamban">Kepemilikan Jamban Pribadi</option>
+								<option value="pembuangan">Pembuangan Limbah</option>
+							</select>
 						</div>
+						<div class="form-group">
+							<label for="username">Tanggal</label>
+							<div class="row">
+								<div class="col-md-5 col-sm-12">
+									<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+								</div>
+								<div class="col-md-2 col-sm-12">
+									<p class="text-center my-2">to</p>
+								</div>
+								<div class="col-md-5 col-sm-12">
+									<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="username">Wilayah</label>
+							<select name="wilayah" id="wilayah" class="form-control">
+								<option value="kecamatan">Kecamatan</option>
+								<option value="kelurahan">Kelurahan</option>
+							</select>
+						</div>		
 					</div>
+					<div class="card-footer">
+						<button type="submit" class="btn btn-danger"><i class="fas fa-file-pdf"></i> Export Laporan</button>
+					</div>
+					</form>	
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
-				<div id="tba" style="height: 500px;"></div>
+				<div id="tba" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mt-5">
 				<div id="tpa" style="height: 370px;"></div>

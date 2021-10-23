@@ -31,9 +31,9 @@ class RespondenModel extends CI_Model
 		return $output;
 	}
 
-
 	public function no_survey()
 	{
+		$permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$query = $this->db->query("SELECT MAX(MID(no_survey,12,4)) AS survey FROM survey WHERE MID(no_survey,5,6) = DATE_FORMAT(CURDATE(), '%y%m%d')");
 
 		if ($query->num_rows() > 0) {
@@ -44,7 +44,7 @@ class RespondenModel extends CI_Model
 			$no = "0001";
 		}
 
-		$no_survey = "EHRA" . date('ymd') . $no;
+		$no_survey = "EHRA".date('ymd').substr(str_shuffle($permitted_chars), 0, 10).$no;
 		return $no_survey;
 	}
 

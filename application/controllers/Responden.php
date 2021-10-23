@@ -17,6 +17,7 @@ class Responden extends CI_Controller
 			redirect('auth');
 	}
 
+	
 	public function index()
 	{
 		$data = array(
@@ -83,10 +84,10 @@ class Responden extends CI_Controller
 								<span><i class="fas fa-check-circle mx-1"></i> Responden Berhasil di Tambah Silahkan Lanjut Dengan Survey</span>
 							</div>'
 						);
-						redirect('survey/p/' . $process['no_survey']);
+						redirect('survey/p/'.$process['no_survey']);
 					}
 				} else {
-					$error = $this->upload->display_error();
+					//$error = $this->upload->display_error();
 					$this->session->set_flashdata(
 						'message',
 						'<div class="alert alert-success alert-dismissible">

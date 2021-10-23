@@ -6,6 +6,58 @@ foreach ($pengelolaan61 as $temp => $p) {
 		'y' => $p->result
 	];
 }
+foreach ($pengelolaan62 as $temp => $p) {
+	$p62[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan63 as $temp => $p) {
+	$p63[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan64 as $temp => $p) {
+	$p64[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan65 as $temp => $p) {
+	$p65[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan66 as $temp => $p) {
+	$p66[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan67 as $temp => $p) {
+	$p67[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan68 as $temp => $p) {
+	$p68[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+foreach ($pengelolaan69 as $temp => $p) {
+	$p69[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
+
+$data = [$p61, $p62];
+
+// print_r(json_encode($data, JSON_NUMERIC_CHECK))
 
 ?>
 <div class="content-header">
@@ -23,112 +75,50 @@ foreach ($pengelolaan61 as $temp => $p) {
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
 				<div class="card">
+					<form action="<?= base_url('laporan/export') ?>" method="post">
 					<div class="card-header">
-				
+						Laporan
 					</div>
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered table-striped">
-								<thead>
-									<tr>
-										<th>Nama Laporan</th>
-										<th>Tanggal</th>
-										<th>Export</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Kondisi Sampah</td>
-										<form action="<?= base_url('laporan/export') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="kondisi_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>			
-									</tr>
-									<tr>
-										<td>Pengelolaan Sampah</td>
-										<form action="<?= base_url('laporan/export') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="kelola_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>				
-									</tr>
-									<tr>
-										<td>Pemilihan Sampah</td>
-										<form action="<?= base_url('laporan/export') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="pilih_sampah" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>			
-									</tr>
-									<tr>
-										<td>Petugas Kebersihan</td>
-										<form action="<?= base_url('laporan/export') ?>" method="post">
-										<td>
-											<div class="row">
-												<div class="col-md-12">
-													<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-												<div class="col-md-12">
-													<p class="text-center my-2">to</p>
-												</div>
-												<div class="col-md-12">
-													<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
-												</div>
-											</div>
-										</td>
-										<td>
-											<button type="submit" name="petugas_kebersihan" class="btn btn-danger btn-sm"><i class="fas fa-file-pdf"></i></button>											
-										</td>
-										</form>				
-									</tr>
-								</tbody>
-							</table>
+						<div class="form-group">
+							<label for="username">Nama Laporan</label>
+							<select name="laporan" id="laporan" class="form-control">
+								<option value="kondisi_sampah">Kondisi Sampah</option>
+								<option value="kelola_sampah">Pengelolaan Sampah</option>
+								<option value="pilih_sampah">Pemilihan Sampah</option>
+								<option value="petugas_kebersihan">Petugas Kebersihan</option>
+							</select>
 						</div>
+						<div class="form-group">
+							<label for="username">Tanggal</label>
+							<div class="row">
+								<div class="col-md-5 col-sm-12">
+									<input type="date" name="initial_date" id="initial_date" class="form-control" value="<?= date('Y-m-d') ?>">
+								</div>
+								<div class="col-md-2 col-sm-12">
+									<p class="text-center my-2">to</p>
+								</div>
+								<div class="col-md-5 col-sm-12">
+									<input type="date" name="end_date" id="end_date" class="form-control" value="<?= date('Y-m-d') ?>">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="username">Wilayah</label>
+							<select name="wilayah" id="wilayah" class="form-control">
+								<option value="kecamatan">Kecamatan</option>
+								<option value="kelurahan">Kelurahan</option>
+							</select>
+						</div>		
 					</div>
+					<div class="card-footer">
+						<button type="submit" class="btn btn-danger"><i class="fas fa-file-pdf"></i> Export Laporan</button>
+					</div>
+					</form>	
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
-				<div id="kelola_sampah" style="height: 500px;"></div>
+				<div id="kelola_sampah" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mt-5">
 				<div id="pilih_sampah" style="height: 370px;"></div>

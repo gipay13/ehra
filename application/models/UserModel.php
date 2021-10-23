@@ -12,7 +12,8 @@ class UserModel extends CI_Model
 
 	function get_kecamatan()
 	{
-		$this->db->order_by('id', 'asc');
+		$this->db->where('regency_id', '3272');
+		$this->db->order_by('id', 'desc');
 		$query = $this->db->get('districts');
 		return $query->result();
 	}

@@ -11,6 +11,8 @@ class Laporan extends CI_Controller
 		$this->load->model('LaporanModel');
 		$this->load->library('pdf');
 		$this->CI = &get_instance();
+		if($this->session->userdata('level') == 2)
+			redirect('admin/dashboard');
 		if (!$this->session->userdata('id'))
 			redirect('auth');
 	}
@@ -272,17 +274,17 @@ class Laporan extends CI_Controller
 
 
 		if($this->input->post('wilayah') == 'kecamatan') {
-			//$this->load->view('pdf_pages/pdf_laporan_kecamatan', $data);
+			// $this->load->view('pdf_pages/pdf_laporan_kecamatan', $data_kecamatan);
 
 			$this->pdf->filename = $subtitle.'_Kecamatan_'.$initial_date.'_'.$end_date.'.pdf';
 
 			$this->pdf->load_view('pdf_pages/pdf_laporan_kecamatan', $data_kecamatan, 'B0', 'landscape');
 		} else {
-			//$this->load->view('pdf_pages/pdf_laporan_kelurahan', $data);
+			// $this->load->view('pdf_pages/pdf_laporan_kelurahan', $data_kelurahan);
 
 			$this->pdf->filename = $subtitle.'_Kelurahan_'.$initial_date.'_'.$end_date.'.pdf';
 
-			$this->pdf->load_view('pdf_pages/pdf_laporan_kelurahan', $data_kelurahan, array(0, 0, 3458.27, 3458.27), 'landscape');
+			$this->pdf->load_view('pdf_pages/pdf_laporan_kelurahan', $data_kelurahan, 'B0', 'landscape');
 		}
 	} 
 
@@ -290,7 +292,7 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Informasi Responden',
-			'umur' => $this->LaporanModel->pie_bar_chart(1)->result(),
+			'umur' => $this->LaporanModel->chart(1)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/infoumum_page', $data);
@@ -300,15 +302,9 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Pengelolaan Sampah Rumah Tangga',
-			'pengelolaan61' => $this->LaporanModel->stacked_chart(17, 61)->result(),
-			'pengelolaan62' => $this->LaporanModel->stacked_chart(17, 62)->result(),
-			'pengelolaan63' => $this->LaporanModel->stacked_chart(17, 63)->result(),
-			'pengelolaan64' => $this->LaporanModel->stacked_chart(17, 64)->result(),
-			'pengelolaan65' => $this->LaporanModel->stacked_chart(17, 65)->result(),
-			'pengelolaan66' => $this->LaporanModel->stacked_chart(17, 66)->result(),
-			'pengelolaan67' => $this->LaporanModel->stacked_chart(17, 67)->result(),
-			'pengelolaan68' => $this->LaporanModel->stacked_chart(17, 68)->result(),
-			'pengelolaan69' => $this->LaporanModel->stacked_chart(17, 69)->result(),
+			'kelola_sampah' => $this->LaporanModel->chart(17)->result(),
+			'pilih_sampah_ya' => $this->LaporanModel->stacked_chart(18, 71)->result(),
+			'pilih_sampah_tidak' => $this->LaporanModel->stacked_chart(18, 72)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sampah_page', $data);
@@ -318,8 +314,10 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Pembuangan Air Kotor/Limbah Tinja Manusia, dan Lumpur Tinja',
-			'tba' => $this->LaporanModel->pie_bar_chart(25),
-			'pba' => $this->LaporanModel->pie_bar_chart(29)
+			'tba' => $this->LaporanModel->chart(25),
+			'pba' => $this->LaporanModel->chart(29),
+			'waktukuras' => $this->LaporanModel->chart(34),
+			'praktikkuras' => $this->LaporanModel->chart(36),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/limbah_page', $data);
@@ -329,8 +327,12 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Drainase Lingkungan/ Selokan Sekitar Rumah dan Banjir',
-			'genangan' => $this->LaporanModel->pie_bar_chart(118)->result(),
-			'spal' => $this->LaporanModel->pie_bar_chart(49)->result()
+			'genangan' => $this->LaporanModel->chart(118)->result(),
+			'spal' => $this->LaporanModel->chart(49)->result(),
+			'banjir' => $this->LaporanModel->chart(52)->result(),
+			'banjirrutin' => $this->LaporanModel->stacked_chart(53, 673)->result(),
+			'lamagenang' => $this->LaporanModel->chart(57)->result(),
+			'spalberfungsi' => $this->LaporanModel->chart(122)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/drainase_page', $data);
@@ -340,6 +342,7 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Pengelolaan Air Minum, Masak, Mencuci, dan Gosok Gigi Yang Aman dan Higiene',
+			'akses' => $this->LaporanModel->chart(58)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/sumberair_page', $data);
@@ -349,6 +352,8 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Perilaku Higiene dan Sanitasi',
+			'ctps' => $this->LaporanModel->chart(78)->result(),
+			'waktuctps' => $this->LaporanModel->chart(81)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/higiene_page', $data);
@@ -358,7 +363,7 @@ class Laporan extends CI_Controller
 	{
 		$data = [
 			'title' => 'Kejadian Penyakit Diare',
-			'diare' => $this->LaporanModel->pie_bar_chart(82)->result(),
+			'diare' => $this->LaporanModel->chart(82)->result(),
 		];
 
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare_page', $data);
@@ -373,12 +378,12 @@ class Laporan extends CI_Controller
 		$this->template->load('layouts/layouts-admin', 'laporan_pages/pengamatan_page', $data);
 	}
 
-	public function index_areaberesiko()
-	{
-		$data = [
-			'title' => 'Area Beresiko',
-		];
+	// public function index_areaberesiko()
+	// {
+	// 	$data = [
+	// 		'title' => 'Area Beresiko',
+	// 	];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/areaberesiko_page', $data);
-	}
+	// 	$this->template->load('layouts/layouts-admin', 'laporan_pages/areaberesiko_page', $data);
+	// }
 }

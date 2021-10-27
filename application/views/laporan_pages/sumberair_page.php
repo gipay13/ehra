@@ -1,11 +1,11 @@
 <?php
 
-// foreach ($umur as $temp => $u) {
-// 	$kelompok_umur[] = [
-// 		'label' => $u->answer_name,
-// 		'y' => $u->count_answer
-// 	];
-// }
+foreach ($akses as $temp => $a) {
+	$ak[] = [
+		'label' => $a->answer_name,
+		'y' => round($a->persentase)
+	];
+}
 
 ?>
 <div class="content-header">
@@ -21,7 +21,7 @@
 <section class="content">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-12">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
 					<div class="card-header">
@@ -63,11 +63,8 @@
 					</form>	
 				</div>
 			</div>
-			<div class="col-md-6 col-sm-12 mb-5">
-				<div id="akses" style="height: 370px;"></div>
-			</div>
 			<div class="col-md-12 mb-5">
-				<div id="sumberair" style="height: 370px;"></div>
+				<div id="akses" style="height: 370px;"></div>
 			</div>
 		</div>
 	</div>
@@ -80,275 +77,19 @@
 				text: "Akses Terhadap Air Bersih",
 				fontSize: 20,
 			},
-
-			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
-			]
-		});
-
-		var sumberair = new CanvasJS.Chart("sumberair", {
-			animationEnabled: true,
-			title: {
-				text: "Sumber Air Minum dan Memasak",
-				fontSize: 20,
+			axisX: {
+				labelFontSize: 5,
+				labelFontColor: "black",
 			},
-
 			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
+					type: "column",
+					toolTipContent: "{label} - {y} %",
+					dataPoints: <?= json_encode($ak, JSON_NUMERIC_CHECK); ?>
 				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
 			]
 		});
+
 
 		akses.render();
-		sumberair.render();
 	}
 </script>

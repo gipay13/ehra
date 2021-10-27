@@ -46,7 +46,7 @@
 					<br><?= $subtitle ?>
 				</span>
 				<br>
-				<span style="font-size: 80px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
+				<span style="font-size: 70px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
 			</td>
 		</tr>
 	</table>
@@ -57,7 +57,7 @@
 			<td style="padding-top: 60px;"></td>
 		</tr>
 	</table>
-	<table class="table">
+	<table class="table" width="100%">
 		<tr>
 			<th colspan="2" rowspan="3"><?= $title ?></th>
 			<th colspan="<?= ($district->num_rows() * 2) + 2 ?>">% KECAMATAN</th>
@@ -78,11 +78,12 @@
 		</tr>
 		<?php foreach ($question as $q) { ?>
 			<tr>
-                <td rowspan="<?= $this->CI->answer_kecamatan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
+                <td width="20%" rowspan="<?= $this->CI->answer_kecamatan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
 				<?php $answer = $this->CI->answer_kecamatan($q->id, $initial_date, $end_date)->result() ?>
 				<?php foreach ($answer as $a) { ?>
-					<tr style="margin: 0px;">
-						<td><?= $a->answer_name ?></td>
+					<?php $total_jawaban = $a->result_cikole + $a->result_gunungpuyuh + $a->result_warudoyong + $a->result_citamiang + $a->result_cibeureum + $a->result_lembursitu + $a->result_baros ?>
+					<tr>
+						<td width="20%"><?= $a->answer_name ?></td>
 						<td><?= $a->result_cikole ?></td>
 						<td><?= round($a->persentase_cikole) ?>%</td>
 						<td><?= $a->result_gunungpuyuh ?></td>
@@ -97,8 +98,8 @@
 						<td><?= round($a->persentase_lembursitu) ?>%</td>
 						<td><?= $a->result_baros ?></td>
 						<td><?= round($a->persentase_baros) ?>%</td>
-						<td><?= $a->result_cikole + $a->result_gunungpuyuh + $a->result_warudoyong + $a->result_citamiang + $a->result_cibeureum + $a->result_lembursitu + $a->result_baros ?></td>
-						<td>-</td>
+						<td><?= $total_jawaban ?></td>
+						<td><?= round(($total_jawaban/$a->total_survey) * 100) ?>%</td>
 					</tr>
 				<?php } ?>
 			</tr>

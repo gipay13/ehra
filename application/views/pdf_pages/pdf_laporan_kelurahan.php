@@ -11,7 +11,7 @@
 			.line-title {
 				border: 0;
 				border-style: inset;
-				border-top: 10px solid #000;
+				border-top: 5px solid #000;
 			}
 
 			.table {
@@ -20,8 +20,7 @@
 			}
 
 			.table td, .table th {
-				border: 1px solid #ddd;
-				padding: 8px;
+				border: 2px solid #ddd;
 			}
 
 			.table tr:nth-child(even){background-color: #f2f2f2;}
@@ -44,7 +43,7 @@
 					<br><?= $subtitle ?>
 				</span>
 				<br>
-				<span style="font-size: 80px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
+				<span style="font-size: 70px;">Tanggal : <?= indo_date($initial_date) ?> - <?= indo_date($end_date) ?></span>
 			</td>
 		</tr>
 	</table>
@@ -80,6 +79,15 @@
                 <td width="10%" rowspan="<?= $this->CI->answer_kelurahan($q->id, $initial_date, $end_date)->num_rows() + 1 ?>"><?= $q->question_name ?></td>
 				<?php $answer = $this->CI->answer_kelurahan($q->id, $initial_date, $end_date)->result() ?>
 				<?php foreach ($answer as $a) { ?>
+					<?php $total_jawaban = $a->result_sudajaya + $a->result_jayamekar + $a->result_jayaraksa + $a->result_baros + 
+								$a->result_lembursitu + $a->result_situmekar + $a->result_cipanengah + $a->result_cikundul + 
+								$a->result_sidangsari + $a->result_sindangpalay + $a->result_limusnunggal + $a->result_cibeureum + 
+								$a->result_babakan + $a->result_cikondang + $a->result_gedong + $a->result_citamiang + $a->result_nanggeleng +
+								$a->result_tipar + $a->result_dayeuhluhur + $a->result_warudoyong +
+								$a->result_nyomplong + $a->result_benteng + $a->result_sukakarya + $a->result_karangtengah +
+								$a->result_gunungpuyuh + $a->result_sriwidari + $a->result_karamat + $a->result_gunungparang +
+								$a->result_cikole + $a->result_kebonjati + $a->result_selabatu + $a->result_cisarua + $a->result_subangjaya  
+					?>
 					<tr>
 						<td><?= $a->answer_name ?></td>
 						<td><?= $a->result_sudajaya ?></td>
@@ -148,16 +156,8 @@
 						<td><?= round($a->persentase_cisarua) ?>%</td>
                         <td><?= $a->result_subangjaya ?></td>
 						<td><?= round($a->persentase_subangjaya) ?>%</td>
-                        <td><?= $a->result_sudajaya + $a->result_jayamekar + $a->result_jayaraksa + $a->result_baros + 
-								$a->result_lembursitu + $a->result_situmekar + $a->result_cipanengah + $a->result_cikundul + 
-								$a->result_sidangsari + $a->result_sindangpalay + $a->result_limusnunggal + $a->result_cibeureum + 
-								$a->result_babakan + $a->result_cikondang + $a->result_gedong + $a->result_citamiang + $a->result_nanggeleng +
-								$a->result_tipar + $a->result_dayeuhluhur + $a->result_warudoyong +
-								$a->result_nyomplong + $a->result_benteng + $a->result_sukakarya + $a->result_karangtengah +
-								$a->result_gunungpuyuh + $a->result_sriwidari + $a->result_karamat + $a->result_gunungparang +
-								$a->result_cikole + $a->result_kebonjati + $a->result_selabatu + $a->result_cisarua + $a->result_subangjaya ?>
-						</td>
-						<td>-</td>
+                        <td><?= $total_jawaban ?></td>
+						<td><?= round(($total_jawaban / $a->total_survey) * 100) ?>%</td>
 					</tr>
 				<?php } ?>
 			</tr>

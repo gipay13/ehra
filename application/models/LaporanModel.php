@@ -23,9 +23,9 @@ class LaporanModel extends CI_Model
 		return $query;
 	}
 
-	function pie_bar_chart($id) {
+	function chart($id) {
 		$sql = "SELECT
-					((COUNT(results.answer_id) / (SELECT count(survey.id) FROM survey)) * 100) AS persentase, 
+					((COUNT(results.answer_id) / (SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id)) * 100) AS persentase, 
 					COUNT(results.answer_id) AS count_answer, 
 					answers.answer_name
 				FROM
@@ -72,6 +72,7 @@ class LaporanModel extends CI_Model
 	function get_pdf_answer_kelurahan($id, $initial_date, $end_date) {
 		$sql = "SELECT
 					answers.answer_name,
+					( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id ) as total_survey,
 					-- BAROS
 					COUNT(CASE WHEN survey.survey_date BETWEEN '$initial_date' AND '$end_date' AND survey.village_id = 3272010006 THEN 1 ELSE NULL END ) AS result_sudajaya,
 					(( COUNT(CASE WHEN survey.survey_date BETWEEN '$initial_date' AND '$end_date' AND survey.village_id = 3272010006 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.village_id = 3272010006  )) * 100 ) AS persentase_sudajaya,
@@ -161,6 +162,7 @@ class LaporanModel extends CI_Model
 	function get_pdf_answer_kecamatan($id, $initial_date, $end_date) {
 		$sql = "SELECT
 					answers.answer_name,
+					( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id ) as total_survey,
 					COUNT(CASE WHEN survey.survey_date BETWEEN '$initial_date' AND '$end_date' AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) AS result_baros,
 					(( COUNT(CASE WHEN survey.survey_date BETWEEN '$initial_date' AND '$end_date' AND survey.district_id = 3272010 THEN 1 ELSE NULL END ) / ( SELECT COUNT( results.question_id ) FROM answers LEFT JOIN results ON answers.id = results.answer_id LEFT JOIN survey ON results.no_survey = survey.no_survey WHERE answers.question_id = $id AND survey.district_id = 3272010  )) * 100 ) AS persentase_baros,
 					COUNT(CASE WHEN survey.survey_date BETWEEN '$initial_date' AND '$end_date' AND survey.district_id = 3272011 THEN 1 ELSE NULL END ) AS result_lembursitu,

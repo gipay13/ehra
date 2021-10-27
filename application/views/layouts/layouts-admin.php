@@ -96,6 +96,7 @@
 								<p>Hasil Survey</p>
 							</a>
 						</li>
+						<?php if($this->session->userdata('level') == 1 || $this->session->userdata('level') == 3 || $this->session->userdata('level') == 4) { ?>
 						<li class="nav-item">
 							<a href="#" class="nav-link">
 								<i class="nav-icon fas fa-chart-pie"></i>
@@ -153,14 +154,15 @@
 										<p>Pengamatan</p>
 									</a>
 								</li>
-								<li class="nav-item">
+								<!-- <li class="nav-item">
 									<a href="<?= base_url('admin/laporan/areaberesiko') ?>" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Area Beresiko</p>
 									</a>
-								</li>
+								</li> -->
 							</ul>
 						</li>
+						<?php } ?>
 						<?php if ($this->session->userdata('level') == 1) { ?>
 							<li class="nav-header">Settings</li>
 							<li class="nav-item">

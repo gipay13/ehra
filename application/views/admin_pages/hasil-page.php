@@ -86,9 +86,6 @@
 									<th>Aksi</th>
 								</tr>
 							</tfoot>
-							<!-- <pre>
-								<?= print_r($survey) ?>
-							</pre> -->
 						</table>
 					</div>
 				</div>

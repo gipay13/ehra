@@ -12,9 +12,21 @@ foreach ($pba->result() as $temp => $p) {
 		'y' => $p->persentase
 	];
 }
-// echo '<pre>';
-// print_r($umur);
-// echo '</pre>';
+
+foreach ($waktukuras->result() as $temp => $w) {
+	$wk[] = [
+		'label' => $w->answer_name,
+		'y' => $w->count_answer
+	];
+}
+
+foreach ($praktikkuras->result() as $temp => $p) {
+	$pk[] = [
+		'label' => $p->answer_name,
+		'y' => round($p->persentase)
+	];
+}
+
 ?>
 <div class="content-header">
 	<div class="container-fluid">
@@ -85,9 +97,6 @@ foreach ($pba->result() as $temp => $p) {
 			<div class="col-md-12 mt-5">
 				<div id="praktikkuras" style="height: 370px;"></div>
 			</div>
-			<div class="col-md-12 mt-5">
-				<div id="septik" style="height: 370px;"></div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -133,134 +142,11 @@ foreach ($pba->result() as $temp => $p) {
 				text: "Waktu Terakhir Pengurasan Tanki Septik",
 				fontSize: 20,
 			},
-
 			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
+					type: "column",
+					yValueFormatString: "#### Rumah Tangga",
+					dataPoints: <?= json_encode($wk, JSON_NUMERIC_CHECK); ?>
 				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
 			]
 		});
 
@@ -270,275 +156,19 @@ foreach ($pba->result() as $temp => $p) {
 				text: "Praktik Pengurasan Tanki Septik",
 				fontSize: 20,
 			},
-
-			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
-			]
-		});
-
-		var septik = new CanvasJS.Chart("septik", {
-			animationEnabled: true,
-			title: {
-				text: "Persentase Tanki Septik Suspek Aman dan Tidak Aman",
-				fontSize: 20,
+			axisX: {
+				labelFontSize: 10,
+				labelFontColor: "black",
 			},
-
 			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
+					type: "column",
+					toolTipContent: "{label} - {y} %",
+					dataPoints: <?= json_encode($pk, JSON_NUMERIC_CHECK); ?>
 				}
 
 			]
 		});
 
-		septik.render();
 		praktikkuras.render();
 		waktukuras.render();
 		tba.render();

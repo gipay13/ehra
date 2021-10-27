@@ -1,4 +1,24 @@
 <?php
+foreach ($banjir as $temp => $b) {
+	$banjirr[] = [
+		'label' => $b->answer_name,
+		'y' => $b->persentase
+	];
+}
+
+foreach ($banjirrutin as $temp => $b) {
+	$br[] = [
+		'label' => $b->district_name,
+		'y' => $b->result
+	];
+}
+
+foreach ($lamagenang as $temp => $l) {
+	$lg[] = [
+		'label' => $l->answer_name,
+		'y' => $l->count_answer
+	];
+}
 
 foreach ($genangan as $temp => $g) {
 	$genangann[] = [
@@ -11,6 +31,13 @@ foreach ($spal as $temp => $s) {
 	$spall[] = [
 		'label' => $s->answer_name,
 		'y' => $s->persentase
+	];
+}
+
+foreach ($spalberfungsi as $temp => $spalf) {
+	$sb[] = [
+		'label' => $spalf->answer_name,
+		'y' => $spalf->persentase
 	];
 }
 
@@ -92,13 +119,7 @@ foreach ($spal as $temp => $s) {
 				<div id="punyaspal" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mb-5">
-				<div id="gaspal" style="height: 370px;"></div>
-			</div>
-			<div class="col-md-12 mb-5">
 				<div id="spalberfungsi" style="height: 370px;"></div>
-			</div>
-			<div class="col-md-12 mb-5">
-				<div id="spalcemar" style="height: 370px;"></div>
 			</div>
 		</div>
 	</div>
@@ -111,134 +132,16 @@ foreach ($spal as $temp => $s) {
 				text: "Persentase Rumah Tangga yang Pernah Mengalami Banjir",
 				fontSize: 20,
 			},
-
-			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
+			axisX: {
+				labelFontSize: 10,
+				labelFontColor: "black",
+			},
+			data: [
 				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
+					type: "column",
+					toolTipContent: "{y} %",
+					dataPoints: <?= json_encode($banjirr, JSON_NUMERIC_CHECK) ?>
 				}
-
 			]
 		});
 
@@ -251,129 +154,8 @@ foreach ($spal as $temp => $s) {
 
 			data: [{
 					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
+					toolTipContent: "{y} %",
+					dataPoints: <?= json_encode($br, JSON_NUMERIC_CHECK) ?>
 				}
 
 			]
@@ -388,129 +170,8 @@ foreach ($spal as $temp => $s) {
 
 			data: [{
 					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
+					toolTipContent: "{y} Responden",
+					dataPoints: <?= json_encode($lg, JSON_NUMERIC_CHECK) ?>
 				}
 
 			]
@@ -521,10 +182,6 @@ foreach ($spal as $temp => $s) {
 			title: {
 				text: "Lokasi Genangan di Sekitar Rumah",
 				fontSize: 20,
-			},
-			legend: {
-				maxWidth: 350,
-				itemWidth: 120
 			},
 			data: [{
 				type: "pie",
@@ -556,143 +213,6 @@ foreach ($spal as $temp => $s) {
 			}]
 		});
 
-		var gaspal = new CanvasJS.Chart("gaspal", {
-			animationEnabled: true,
-			title: {
-				text: "Akibat Tidak Memiliki SPAL Rumah Tangga",
-				fontSize: 20,
-			},
-
-			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
-			]
-		});
-
 		var spalberfungsi = new CanvasJS.Chart("spalberfungsi", {
 			animationEnabled: true,
 			title: {
@@ -701,279 +221,20 @@ foreach ($spal as $temp => $s) {
 			},
 
 			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
+					type: "column",
+					toolTipContent: "{y} %",
+					dataPoints: <?= json_encode($sb, JSON_NUMERIC_CHECK) ?>
 				}
 
 			]
 		});
 
-		var spalcemar = new CanvasJS.Chart("spalcemar", {
-			animationEnabled: true,
-			title: {
-				text: "Pencemaran SPAL",
-				fontSize: 20,
-			},
-
-			data: [{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
-			]
-		});
 
 		banjir.render();
 		banjirrutin.render();
 		lamagenang.render();
 		lokasigenang.render();
 		punyaspal.render();
-		gaspal.render();
 		spalberfungsi.render();
-		spalcemar.render();
 	}
 </script>

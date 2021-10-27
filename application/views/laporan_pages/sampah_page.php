@@ -1,63 +1,25 @@
 <?php
 
-foreach ($pengelolaan61 as $temp => $p) {
-	$p61[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
+foreach ($kelola_sampah as $temp => $k) {
+	$ks[] = [
+		'label' => $k->answer_name,
+		'y' => $k->count_answer
 	];
 }
-foreach ($pengelolaan62 as $temp => $p) {
-	$p62[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan63 as $temp => $p) {
-	$p63[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan64 as $temp => $p) {
-	$p64[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan65 as $temp => $p) {
-	$p65[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan66 as $temp => $p) {
-	$p66[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan67 as $temp => $p) {
-	$p67[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan68 as $temp => $p) {
-	$p68[] = [
-		'label' => $p->district_name,
-		'y' => $p->result
-	];
-}
-foreach ($pengelolaan69 as $temp => $p) {
-	$p69[] = [
+
+foreach ($pilih_sampah_ya as $temp => $p) {
+	$psy[] = [
 		'label' => $p->district_name,
 		'y' => $p->result
 	];
 }
 
-$data = [$p61, $p62];
-
-// print_r(json_encode($data, JSON_NUMERIC_CHECK))
+foreach ($pilih_sampah_tidak as $temp => $p) {
+	$pst[] = [
+		'label' => $p->district_name,
+		'y' => $p->result
+	];
+}
 
 ?>
 <div class="content-header">
@@ -73,7 +35,7 @@ $data = [$p61, $p62];
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-12">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
 					<div class="card-header">
@@ -117,11 +79,14 @@ $data = [$p61, $p62];
 					</form>	
 				</div>
 			</div>
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-12 mt-5">
 				<div id="kelola_sampah" style="height: 370px;"></div>
 			</div>
-			<div class="col-md-12 mt-5">
-				<div id="pilih_sampah" style="height: 370px;"></div>
+			<div class="col-md-6 col-sm-12 mt-5">
+				<div id="pilih_sampah_ya" style="height: 370px;"></div>
+			</div>
+			<div class="col-md-6 col-sm-12 mt-5">
+				<div id="pilih_sampah_tidak" style="height: 370px;"></div>
 			</div>
 		</div>
 	</div>
@@ -135,154 +100,60 @@ $data = [$p61, $p62];
 				fontSize: 20,
 			},
 			axisX: {
-				labelFontSize: 15,
+				labelFontSize: 10,
 				labelFontColor: "black",
 			},
 			data: [{
-					type: "stackedBar",
-					dataPoints: <?= json_encode($p61, JSON_NUMERIC_CHECK); ?>
+					type: "pie",
+					showInLegend: true,
+					percentFormatString: "#0.#",
+					toolTipContent: "{label} - #percent %",
+					legendText: "{label}",
+					dataPoints: <?= json_encode($ks, JSON_NUMERIC_CHECK); ?>
 				},
 			]
 		});
 
-		var pilih_sampah = new CanvasJS.Chart("pilih_sampah", {
+		var pilih_sampah_ya = new CanvasJS.Chart("pilih_sampah_ya", {
 			animationEnabled: true,
 			title: {
 				text: "Persentase Praktik Pemilahan Sampah Rumah Tangga",
 				fontSize: 20,
 			},
-
+			subtitles: [{
+				text: "Persetase Jawaban Ya",		
+				fontColor: "green",
+			}],
 			data: [{
 					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
+					toolTipContent: "{y} %",
+					dataPoints: <?= json_encode($psy, JSON_NUMERIC_CHECK); ?>
 				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 71
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 55
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 50
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 65
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 95
-						}
-
-					]
-				},
-
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 61
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 75
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 80
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 85
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 105
-						}
-
-					]
-				},
-				{
-					type: "stackedBar",
-					dataPoints: [{
-							x: new Date(2012, 01, 1),
-							y: 20
-						},
-						{
-							x: new Date(2012, 02, 1),
-							y: 35
-						},
-						{
-							x: new Date(2012, 03, 1),
-							y: 30
-						},
-						{
-							x: new Date(2012, 04, 1),
-							y: 45
-						},
-						{
-							x: new Date(2012, 05, 1),
-							y: 25
-						}
-
-					]
-				}
-
+				
 			]
 		});
 
-		pilih_sampah.render();
+		var pilih_sampah_tidak = new CanvasJS.Chart("pilih_sampah_tidak", {
+			animationEnabled: true,
+			title: {
+				text: "Persentase Praktik Pemilahan Sampah Rumah Tangga",
+				fontSize: 20,
+			},
+			subtitles: [{
+				text: "Persetase Jawaban Tidak",		
+				fontColor: "red",
+			}],
+			data: [{
+					type: "stackedBar",
+					toolTipContent: "{y} %",
+					dataPoints: <?= json_encode($pst, JSON_NUMERIC_CHECK); ?>
+				},
+				
+			]
+		});
+
+		pilih_sampah_ya.render();
+		pilih_sampah_tidak.render();
 		kelola_sampah.render();
 	}
 </script>

@@ -54,7 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Route Survey
-$route['survey/p/(:any)'] = 'survey/index/$1';
+$route['survey/ehra/(:any)'] = 'survey/index_ehra/$1';
+$route['survey/rumahsehat/(:any)'] = 'survey/index_rumahsehat/$1';
 $route['survey/responden'] = 'responden/index';
 
 // Route Dashboard
@@ -73,16 +74,3 @@ $route['admin/laporan/higiene'] = 'laporan/index_higiene';
 $route['admin/laporan/diare'] = 'laporan/index_diare';
 $route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
 $route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
-
-//Route PDF Laporan
-$route['admin/laporan/(:any)/export'] = 'laporan/export/$1';
-
-// $route['admin/laporan/sampah/pdf1'] = 'laporan/pdf_kondisi_sampah';
-// $route['admin/laporan/sampah/pdf2'] = 'laporan/pdf_kelola_sampah';
-// $route['admin/laporan/sampah/pdf3'] = 'laporan/pdf_pilih_sampah';
-// $route['admin/laporan/sampah/pdf4'] = 'laporan/pdf_petugas_kebersihan';
-
-// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
-// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
-// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';
-// $route['admin/laporan/limbah/pdf1'] = 'laporan/index_limbah';

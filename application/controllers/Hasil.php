@@ -8,7 +8,7 @@ class Hasil extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['HasilModel', 'PertanyaanModel', 'SurveyModel']);
+		$this->load->model('HasilModel');
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('id'))
 			redirect('auth');
@@ -21,6 +21,53 @@ class Hasil extends CI_Controller
 			'survey' => $this->HasilModel->get_hasil()->result(),
 		];
 		$this->template->load('layouts/layouts-admin', 'admin_pages/hasil-page', $data);
+	}
+
+	public function pertanyaan($qcategory_id)
+	{
+		$data = $this->HasilModel->get_pdf_pertanyaan($qcategory_id);
+		return $data;
+	}
+
+	public function jawaban($no_survey, $question_id) {
+		$data = $this->HasilModel->get_pdf_jawaban($no_survey, $question_id);
+		return $data;
+	}
+
+
+	public function hasil_survey_ehra($no_survey)
+	{
+
+		$code = ['B','C','D','E','F','G','H','AO','BO','CO','DO','EO'];
+
+		$data = [
+			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
+			'kategori' => $this->HasilModel->get_pdf_kategori($code),
+		];
+
+		$this->load->view('pdf_pages/pdf_hasil_ehra', $data);
+		// $this->load->library('pdf');
+
+		// $this->pdf->filename = 'Ehra-'.$no_survey.'.pdf';
+		// $this->pdf->load_view('pdf_pages/pdf_hasil_ehra', $data, 'A4', 'portrait');
+	}
+
+	public function hasil_survey_rs($no_survey)
+	{
+
+		$code = ['I','J','K'];
+
+		$data = [
+			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
+			'kategori' => $this->HasilModel->get_pdf_kategori($code),
+			'total' => $this->HasilModel->get_pdf_total($no_survey)
+		];
+
+		$this->load->view('pdf_pages/pdf_hasil_rs', $data);
+		// $this->load->library('pdf');
+
+		// $this->pdf->filename = 'Rumah Sehat-'.$no_survey.'.pdf';
+		// $this->pdf->load_view('pdf_pages/pdf_hasil', $data, 'A4', 'portrait');
 	}
 
 	public function delete($no_survey, $nik)
@@ -41,33 +88,5 @@ class Hasil extends CI_Controller
 			);
 			redirect('admin/hasil');
 		}
-	}
-
-	public function pertanyaan($qcategory_id)
-	{
-		$data = $this->SurveyModel->get_pertanyaan($qcategory_id);
-
-		return $data;
-	}
-
-	public function jawaban($no_survey, $question_id) {
-		$data = $this->HasilModel->get_pdf_jawaban($no_survey, $question_id);
-
-		return $data;
-	}
-
-	public function laporan_hasil($no_survey)
-	{
-
-		$data = [
-			'survey' => $this->HasilModel->get_pdf_survey($no_survey),
-			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
-		];
-
-		//$this->load->view('pdf_pages/pdf_hasil', $data);
-		$this->load->library('pdf');
-
-		$this->pdf->filename = 'Survey-'.$no_survey.'.pdf';
-		$this->pdf->load_view('pdf_pages/pdf_hasil', $data, 'A4', 'portrait');
 	}
 }

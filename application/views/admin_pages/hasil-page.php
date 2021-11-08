@@ -34,9 +34,7 @@
 									<th>Nomor Survey</th>
 									<th>Tanggal Survey</th>
 									<th>Pewawancara</th>
-									<th>Puskesmas</th>
 									<th>NIK</th>
-									<th>Kecamatan</th>
 									<th>Kelurahan</th>
 									<th>RW</th>
 									<th>RT</th>
@@ -52,20 +50,25 @@
 										<td><?= $s->no_survey ?></td>
 										<td><?= indo_date($s->survey_date) ?></td>
 										<td><?= $s->name ?></td>
-										<td><?= $s->puskesmas_name ?></td>
 										<td><?= $s->nik ?></td>
-										<td><?= $s->district_name ?></td>
 										<td><?= $s->village_name ?></td>
 										<td><?= $s->rw ?></td>
 										<td><?= $s->rt ?></td>
 										<td>
 											<?php if($s->image != null) { ?>
-												<img src="<?= base_url('uploads/'.$s->image)?>" alt="" style="width: 100px;">
+												<img src="<?= base_url('uploads/'.$s->image)?>" alt="" style="width: 50px;">
 											<?php } ?>
 										</td>
 										<td>
-											<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
-											<a href="<?= base_url('hasil/laporan_hasil/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i></a>
+											<div class="">
+												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+											</div>
+											<div class="">
+												<a href="<?= base_url('hasil/hasil_survey_ehra/'.$s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> EHRA</a>
+											</div>
+											<div class="">
+												<a href="<?= base_url('hasil/hasil_survey_rs/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> RS</a>
+											</div>
 										</td>
 									</tr>
 								<?php } ?>
@@ -76,9 +79,7 @@
 									<th>Nomor Survey</th>
 									<th>Tanggal Survey</th>
 									<th>Pewawancara</th>
-									<th>Puskesmas</th>
 									<th>NIK</th>
-									<th>Kecamatan</th>
 									<th>Kelurahan</th>
 									<th>RW</th>
 									<th>RT</th>

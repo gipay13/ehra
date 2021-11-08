@@ -8,7 +8,7 @@ class Pertanyaan extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['PertanyaanModel', 'SurveyModel']);
+		$this->load->model('PertanyaanModel');
 
 		$this->CI = &get_instance();
 
@@ -20,7 +20,6 @@ class Pertanyaan extends CI_Controller
 	{
 		$data = array(
 			'title' => 'Pertanyaan',
-			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
 			'pertanyaan' => $this->PertanyaanModel->get_pertanyaan()->result(),
 		);
 
@@ -29,22 +28,40 @@ class Pertanyaan extends CI_Controller
 
 	public function pertanyaan($qcategory_id)
 	{
-		$data = $this->SurveyModel->get_pertanyaan($qcategory_id);
+		$data = $this->PertanyaanModel->get_pertanyaan($qcategory_id)->result();
 
 		return $data;
 	}
 
-	public function list_pertanyaan()
+	public function pertanyaan_ehra()
 	{
+		$code = ['B','C','D','E','F','G','H','AO','BO','CO','DO','EO'];
 
 		$data = [
-			'kategori' => $this->PertanyaanModel->get_kategori()->result(),
+			'title' => 'PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024',
+			'kategori' => $this->PertanyaanModel->get_kategori($code)->result(),
 		];
 
-		//$this->load->view('pdf_pages/pdf_pertanyaan', $data);
+		// $this->load->view('pdf_pages/pdf_pertanyaan', $data);
 		$this->load->library('pdf');
 
-		$this->pdf->filename = 'List Pertanyaan.pdf';
+		$this->pdf->filename = 'List Pertanyaan Ehra.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_pertanyaan', $data, 'A4', 'portrait');
+	}
+
+	public function pertanyaan_rs()
+	{
+		$code = ['I','J','K'];
+
+		$data = [
+			'title' => 'RUMAH SEHAT',
+			'kategori' => $this->PertanyaanModel->get_kategori($code)->result(),
+		];
+
+		// $this->load->view('pdf_pages/pdf_pertanyaan', $data);
+		$this->load->library('pdf');
+
+		$this->pdf->filename = 'List Pertanyaan Rumah Sehat.pdf';
 		$this->pdf->load_view('pdf_pages/pdf_pertanyaan', $data, 'A4', 'portrait');
 	}
 }

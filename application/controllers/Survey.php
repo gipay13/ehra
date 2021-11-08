@@ -20,7 +20,7 @@ class Survey extends CI_Controller
 		$this->CI = &get_instance();
 	}
 
-	public function index()
+	public function index_ehra()
 	{
 		$data = array(
 			'kategoriB' => $this->SurveyModel->get_kategori_pertanyaan('B'),
@@ -37,7 +37,16 @@ class Survey extends CI_Controller
 			'kategoriEO' => $this->SurveyModel->get_kategori_pertanyaan('EO'),
 		);
 
-		$this->template->load('layouts/layouts-survey', 'survey_pages/survey-page', $data);
+		$this->template->load('layouts/layouts-survey', 'survey_pages/survey_ehra_page', $data);
+	}
+
+	public function index_rumahsehat()
+	{
+		$data = array(
+			'kategori' => $this->SurveyModel->get_kategori_pertanyaan(['I', 'J', 'K']),
+		);
+
+		$this->template->load('layouts/layouts-survey', 'survey_pages/survey_rs_page', $data);
 	}
 
 	public function pertanyaan($value)
@@ -69,7 +78,39 @@ class Survey extends CI_Controller
 				</div>';
 	}
 
-	public function store()
+	public function store_rs() {
+		$store = $this->input->post(null, TRUE);
+
+		$this->db->trans_start();
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 124, $store['answer124']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 125, $store['answer125']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 126, $store['answer126']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 127, $store['answer127']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 128, $store['answer128']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 129, $store['answer129']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 130, $store['answer130']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 131, $store['answer131']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 132, $store['answer132']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 133, $store['answer133']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 134, $store['answer134']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 135, $store['answer135']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 136, $store['answer136']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 137, $store['answer137']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 138, $store['answer138']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 139, $store['answer139']);
+		$this->SurveyModel->insert_jawaban( $store['no_survey'], 140, $store['answer140']);
+		$this->db->trans_complete();
+
+
+		if($this->db->trans_status() === False) {
+			redirect('survey/rumahsehat/'.$store['no_survey']);
+		} else {
+			redirect('admin/hasil');
+		}
+		
+	}
+
+	public function store_ehra()
 	{
 
 		$store = $this->input->post(null, TRUE);
@@ -82,180 +123,179 @@ class Survey extends CI_Controller
 
 		$this->db->trans_start();
 		// B
-		$this->SurveyModel->insert_jawaban($no_survey, 1, $store['answer1'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 2, $store['answer2'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 3, $store['answer3'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 4, $store['answer4'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 5, $store['answer5'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 6, $store['answer6'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 7, $store['answer7'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 8, $store['answer8'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 9, $store['answer9'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 10, $store['answer10'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 11, $store['answer11'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 12, $store['answer12'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 13, $store['answer13'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 14, $store['answer14'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 1, $store['answer1'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 2, $store['answer2'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 3, $store['answer3'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 4, $store['answer4'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 5, $store['answer5'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 6, $store['answer6'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 7, $store['answer7'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 8, $store['answer8'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 9, $store['answer9'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 10, $store['answer10'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 11, $store['answer11'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 12, $store['answer12'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 13, $store['answer13'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 14, $store['answer14'] ?? null);
 		// C
-		$this->SurveyModel->insert_jawaban($no_survey, 15, $store['answer15'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 15, $store['answer15'] ?? null);
 		for($i = 0; $i < count($store['answer16'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 16, $store['answer16'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 16, $store['answer16'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 17, $store['answer17'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 18, $store['answer18'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 17, $store['answer17'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 18, $store['answer18'] ?? null);
 		for($i = 0; $i < count($store['answer19'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 19, $store['answer19'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 19, $store['answer19'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 20, $store['answer20'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 21, $store['answer21'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 22, $store['answer22'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 23, $store['answer23'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 24, $store['answer24'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 20, $store['answer20'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 21, $store['answer21'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 22, $store['answer22'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 23, $store['answer23'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 24, $store['answer24'] ?? null);
 		// D
-		$this->SurveyModel->insert_jawaban($no_survey, 25, $store['answer25'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 25, $store['answer25'] ?? null);
 		for ($i = 0; $i < count($store['answer26'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 26, $store['answer26'][$i]  ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 26, $store['answer26'][$i]  ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 27, $store['answer27'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 28, $store['answer28'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 29, $store['answer29'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 30, $store['answer30'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 31, $store['answer31'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 32, $store['answer32'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 33, $store['answer33'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 34, $store['answer34'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 35, $store['answer35'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 36, $store['answer36'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 37, $store['answer37'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 38, $store['answer38'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 39, $store['answer39'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 40, $store['answer40'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 41, $store['answer41'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 42, $store['answer42'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 43, $store['answer43'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 44, $store['answer44'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 45, $store['answer45'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 46, $store['answer46'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 47, $store['answer47'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 48, $store['answer48'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 27, $store['answer27'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 28, $store['answer28'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 29, $store['answer29'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 30, $store['answer30'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 31, $store['answer31'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 32, $store['answer32'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 33, $store['answer33'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 34, $store['answer34'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 35, $store['answer35'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 36, $store['answer36'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 37, $store['answer37'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 38, $store['answer38'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 39, $store['answer39'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 40, $store['answer40'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 41, $store['answer41'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 42, $store['answer42'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 43, $store['answer43'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 44, $store['answer44'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 45, $store['answer45'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 46, $store['answer46'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 47, $store['answer47'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 48, $store['answer48'] ?? null);
 		// E
-		$this->SurveyModel->insert_jawaban($no_survey, 49, $store['answer49'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 49, $store['answer49'] ?? null);
 		for ($i = 0; $i < count($store['answer50'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 50, $store['answer50'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 50, $store['answer50'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 51, $store['answer51'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 52, $store['answer52'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 53, $store['answer53'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 54, $store['answer54'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 55, $store['answer55'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 56, $store['answer56'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 57, $store['answer57'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 51, $store['answer51'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 52, $store['answer52'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 53, $store['answer53'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 54, $store['answer54'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 55, $store['answer55'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 56, $store['answer56'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 57, $store['answer57'] ?? null);
 		// F
 		for ($i = 0; $i < count($store['answer58'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 58, $store['answer58'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 58, $store['answer58'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 59, $store['answer59'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 60, $store['answer60'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 61, $store['answer61'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 62, $store['answer62'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 63, $store['answer63'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 64, $store['answer64'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 65, $store['answer65'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 66, $store['answer66'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 67, $store['answer67'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 68, $store['answer68'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 69, $store['answer69'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 59, $store['answer59'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 60, $store['answer60'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 61, $store['answer61'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 62, $store['answer62'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 63, $store['answer63'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 64, $store['answer64'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 65, $store['answer65'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 66, $store['answer66'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 67, $store['answer67'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 68, $store['answer68'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 69, $store['answer69'] ?? null);
 		for ($i = 0; $i < count($store['answer70'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 70, $store['answer70'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 70, $store['answer70'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 71, $store['answer71'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 72, $store['answer72'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 73, $store['answer73'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 74, $store['answer74'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 75, $store['answer75'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 76, $store['answer76'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 77, $store['answer77'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 71, $store['answer71'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 72, $store['answer72'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 73, $store['answer73'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 74, $store['answer74'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 75, $store['answer75'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 76, $store['answer76'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 77, $store['answer77'] ?? null);
 		// G
-		$this->SurveyModel->insert_jawaban($no_survey, 78, $store['answer78'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 78, $store['answer78'] ?? null);
 		for ($i = 0; $i < count($store['answer79'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 79, $store['answer79'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 79, $store['answer79'][$i] ?? null);
 		}
 		for ($i = 0; $i < count($store['answer80'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 80, $store['answer80'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 80, $store['answer80'][$i] ?? null);
 		}
 		for ($i = 0; $i < count($store['answer81'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 81, $store['answer81'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 81, $store['answer81'][$i] ?? null);
 		}
 		// H
-		$this->SurveyModel->insert_jawaban($no_survey, 82, $store['answer82'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 82, $store['answer82'] ?? null);
 		for ($i = 0; $i < count($store['answer83'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 83, $store['answer83'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 83, $store['answer83'][$i] ?? null);
 		}
 		// AO
 		for ($i = 0; $i < count($store['answer84'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 84, $store['answer84'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 84, $store['answer84'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 85, $store['answer85'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 86, $store['answer86'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 87, $store['answer87'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 88, $store['answer88'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 89, $store['answer89'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 90, $store['answer90'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 91, $store['answer91'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 85, $store['answer85'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 86, $store['answer86'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 87, $store['answer87'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 88, $store['answer88'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 89, $store['answer89'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 90, $store['answer90'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 91, $store['answer91'] ?? null);
 		// BO
-		$this->SurveyModel->insert_jawaban($no_survey, 92, $store['answer92'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 93, $store['answer93'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 94, $store['answer94'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 92, $store['answer92'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 93, $store['answer93'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 94, $store['answer94'] ?? null);
 		// CO
-		$this->SurveyModel->insert_jawaban($no_survey, 95, $store['answer95'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 96, $store['answer96'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 97, $store['answer97'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 98, $store['answer98'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 99, $store['answer99'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 100, $store['answer100'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 101, $store['answer101'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 102, $store['answer102'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 103, $store['answer103'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 95, $store['answer95'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 96, $store['answer96'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 97, $store['answer97'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 98, $store['answer98'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 99, $store['answer99'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 100, $store['answer100'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 101, $store['answer101'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 102, $store['answer102'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 103, $store['answer103'] ?? null);
 		// DO
-		$this->SurveyModel->insert_jawaban($no_survey, 104, $store['answer104'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 104, $store['answer104'] ?? null);
 		for ($i = 0; $i < count($store['answer105'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 105, $store['answer105'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 105, $store['answer105'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 106, $store['answer106'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 106, $store['answer106'] ?? null);
 		// EO
-		$this->SurveyModel->insert_jawaban($no_survey, 107, $store['answer107'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 108, $store['answer108'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 109, $store['answer109'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 110, $store['answer110'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 111, $store['answer111'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 112, $store['answer112'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 107, $store['answer107'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 108, $store['answer108'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 109, $store['answer109'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 110, $store['answer110'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 111, $store['answer111'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 112, $store['answer112'] ?? null);
 		for ($i = 0; $i < count($store['answer113'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 113, $store['answer113'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 113, $store['answer113'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 114, $store['answer114'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 115, $store['answer115'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 114, $store['answer114'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 115, $store['answer115'] ?? null);
 		for ($i = 0; $i < count($store['answer116'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 116, $store['answer116'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 116, $store['answer116'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 117, $store['answer117'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 117, $store['answer117'] ?? null);
 		for ($i = 0; $i < count($store['answer118'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 118, $store['answer118'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 118, $store['answer118'][$i] ?? null);
 		}
 		for ($i = 0; $i < count($store['answer119'] ?? $novalue); $i++) {
-			$this->SurveyModel->insert_jawaban($no_survey, 119, $store['answer119'][$i] ?? null);
+			$this->SurveyModel->insert_jawaban( $no_survey, 119, $store['answer119'][$i] ?? null);
 		}
-		$this->SurveyModel->insert_jawaban($no_survey, 120, $store['answer120'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 121, $store['answer121'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 122, $store['answer122'] ?? null);
-		$this->SurveyModel->insert_jawaban($no_survey, 123, $store['answer123'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 120, $store['answer120'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 121, $store['answer121'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 122, $store['answer122'] ?? null);
+		$this->SurveyModel->insert_jawaban( $no_survey, 123, $store['answer123'] ?? null);
 		$this->db->trans_complete();
 
 
-		// throw new \CodeIgniter\Router\Exceptions\RedirectException('admin/hasil');
 		if($this->db->trans_status() === False) {
-			redirect('survey/p/' . $no_survey);
+			redirect('survey/ehra/' . $no_survey);
 		} else {
-			redirect('admin/hasil');
+			redirect('survey/rumahsehat/'.$no_survey);
 		}
 	}
 }

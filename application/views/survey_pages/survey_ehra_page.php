@@ -1,7 +1,7 @@
 <div class="container my-5">
 	<div class="col-md-12">
 		<?= $this->session->flashdata('message'); ?>
-		<form action="<?= base_url('survey/store'); ?>" method="POST">
+		<form action="<?= base_url('survey/store_ehra'); ?>" method="POST">
 			<input type="hidden" name="no_survey" value="<?= $this->uri->segment(3) ?>">
 			<div id="toggle-cards">
 				<?php foreach ($kategoriB as $k) { ?>
@@ -451,7 +451,7 @@
 					});
 				}
 			}
-		});
+	});
 	$('.btn-next, .btn-prev').click(function() {
 		const $btn = $(this),
 			isNext = $btn.hasClass('btn-next'),
@@ -825,4 +825,5 @@
 			}
 		});
 	});
+	
 </script>

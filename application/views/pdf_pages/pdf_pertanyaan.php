@@ -42,7 +42,7 @@
 			<td width="15%"><img style="width: 100px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
 			<td width="80%" style="text-align: left;">
 				<span style="font-weight: bold;">
-					DRAFT PERTANYAAN PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
+					DRAFT PERTANYAAN <?= $title ?>
 					<br>DINAS KESEHATAN KOTA SUKABUMI
 				</span>
 				<br>
@@ -54,7 +54,7 @@
 	<hr class="line-title">
 	<?php foreach ($kategori as $k) { ?>
 		<table class="table" style="padding-top: 50px; page-break-after: always;">
-			<thead >
+			<thead>
 				<tr>
 					<th colspan="3"><?= $k->category_code ?>. <?= $k->category_name ?></th>
 				</tr>

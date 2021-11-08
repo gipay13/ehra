@@ -5,7 +5,7 @@ class SurveyModel extends CI_Model
 {
 	function get_kategori_pertanyaan($kode)
 	{
-		$this->db->where('category_code', $kode);
+		$this->db->where_in('category_code', $kode);
 		$query = $this->db->get('categories');
 		return $query->result();
 	}
@@ -29,7 +29,7 @@ class SurveyModel extends CI_Model
 		$answer = array(
 			'no_survey'		=> $no_survey,
 			'question_id' 	=> $id_pertanyaan,
-			'answer_id' 	=> ($jawaban != null) ? $jawaban : null,
+			'answer_id' 	=> $jawaban,
 		);
 
 		$this->db->insert('results', $answer);

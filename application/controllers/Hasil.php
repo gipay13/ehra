@@ -45,11 +45,11 @@ class Hasil extends CI_Controller
 			'kategori' => $this->HasilModel->get_pdf_kategori($code),
 		];
 
-		$this->load->view('pdf_pages/pdf_hasil_ehra', $data);
-		// $this->load->library('pdf');
+		// $this->load->view('pdf_pages/pdf_hasil_ehra', $data);
+		$this->load->library('pdf');
 
-		// $this->pdf->filename = 'Ehra-'.$no_survey.'.pdf';
-		// $this->pdf->load_view('pdf_pages/pdf_hasil_ehra', $data, 'A4', 'portrait');
+		$this->pdf->filename = 'Ehra-'.$no_survey.'.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_hasil_ehra', $data, 'A4', 'portrait');
 	}
 
 	public function hasil_survey_rs($no_survey)
@@ -63,11 +63,11 @@ class Hasil extends CI_Controller
 			'total' => $this->HasilModel->get_pdf_total($no_survey)
 		];
 
-		$this->load->view('pdf_pages/pdf_hasil_rs', $data);
-		// $this->load->library('pdf');
+		// $this->load->view('pdf_pages/pdf_hasil_rs', $data);
+		$this->load->library('pdf');
 
-		// $this->pdf->filename = 'Rumah Sehat-'.$no_survey.'.pdf';
-		// $this->pdf->load_view('pdf_pages/pdf_hasil', $data, 'A4', 'portrait');
+		$this->pdf->filename = 'Rumah Sehat-'.$no_survey.'.pdf';
+		$this->pdf->load_view('pdf_pages/pdf_hasil_rs', $data, 'A4', 'portrait');
 	}
 
 	public function delete($no_survey, $nik)

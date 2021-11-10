@@ -26,7 +26,7 @@ class Responden extends CI_Controller
 			'userdata'		=> $this->UserModel->get_userdata()
 		);
 
-		$this->template->load('layouts/layouts-survey', 'survey_pages/responden-page', $data);
+		$this->template->load('layouts/layouts-survey', 'survey_pages/responden_page', $data);
 	}
 
 

@@ -2,14 +2,7 @@
 foreach ($banjir as $temp => $b) {
 	$banjirr[] = [
 		'label' => $b->answer_name,
-		'y' => $b->persentase
-	];
-}
-
-foreach ($banjirrutin as $temp => $b) {
-	$br[] = [
-		'label' => $b->district_name,
-		'y' => $b->result
+		'y' => round($b->persentase)
 	];
 }
 
@@ -23,21 +16,21 @@ foreach ($lamagenang as $temp => $l) {
 foreach ($genangan as $temp => $g) {
 	$genangann[] = [
 		'label' => $g->answer_name,
-		'y' => $g->persentase
+		'y' => round($g->persentase)
 	];
 }
 
 foreach ($spal as $temp => $s) {
 	$spall[] = [
 		'label' => $s->answer_name,
-		'y' => $s->persentase
+		'y' => round($s->persentase)
 	];
 }
 
 foreach ($spalberfungsi as $temp => $spalf) {
 	$sb[] = [
 		'label' => $spalf->answer_name,
-		'y' => $spalf->persentase
+		'y' => round($spalf->persentase)
 	];
 }
 
@@ -107,9 +100,6 @@ foreach ($spalberfungsi as $temp => $spalf) {
 				<div id="banjir" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mb-5">
-				<div id="banjirrutin" style="height: 370px;"></div>
-			</div>
-			<div class="col-md-12 mb-5">
 				<div id="lamagenang" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mb-5">
@@ -139,25 +129,9 @@ foreach ($spalberfungsi as $temp => $spalf) {
 			data: [
 				{
 					type: "column",
-					toolTipContent: "{y} %",
+					toolTipContent: "{label} - {y} %",
 					dataPoints: <?= json_encode($banjirr, JSON_NUMERIC_CHECK) ?>
 				}
-			]
-		});
-
-		var banjirrutin = new CanvasJS.Chart("banjirrutin", {
-			animationEnabled: true,
-			title: {
-				text: "Persentase Rumah Tangga yang Mengalami Banjir Rutin",
-				fontSize: 20,
-			},
-
-			data: [{
-					type: "stackedBar",
-					toolTipContent: "{y} %",
-					dataPoints: <?= json_encode($br, JSON_NUMERIC_CHECK) ?>
-				}
-
 			]
 		});
 
@@ -231,7 +205,6 @@ foreach ($spalberfungsi as $temp => $spalf) {
 
 
 		banjir.render();
-		banjirrutin.render();
 		lamagenang.render();
 		lokasigenang.render();
 		punyaspal.render();

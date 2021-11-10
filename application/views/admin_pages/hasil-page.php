@@ -61,7 +61,7 @@
 										</td>
 										<td>
 											<div class="">
-												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i></a>
+												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i> DELETE</a>
 											</div>
 											<div class="">
 												<a href="<?= base_url('hasil/hasil_survey_ehra/'.$s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> EHRA</a>

@@ -2,14 +2,14 @@
 foreach ($tba->result() as $temp => $t) {
 	$tbaa[] = [
 		'label' => $t->answer_name,
-		'y' => $t->persentase
+		'y' => round($t->persentase)
 	];
 }
 
 foreach ($pba->result() as $temp => $p) {
 	$pbaa[] = [
 		'label' => $p->answer_name,
-		'y' => $p->persentase
+		'y' => round($p->persentase)
 	];
 }
 

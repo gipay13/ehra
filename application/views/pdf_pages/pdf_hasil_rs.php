@@ -158,22 +158,34 @@
 		</table>
 		<table class="table">
 			<tr>
-				<th colspan="3" style="text-align: center;"><?= $k->category_code ?>. <?= $k->category_name ?></th>
+				<th colspan="4" style="text-align: center;"><?= $k->category_code ?>. <?= $k->category_name ?> (Bobot <?= $k->category_weight ?>)</th>
+			</tr>
+			<tr>
+				<td><b>Pertanyaan</b></td>
+				<td><b>Jawaban</b></td>
+				<td><b>Nilai</b></td>
+				<td><b>Jumlah</b></td>
 			</tr>
 			<?php $pertanyaan = $this->CI->pertanyaan($k->id) ?>
 			<?php foreach ($pertanyaan as $p) { ?>
 				<tr>
-					<td width="45%"><?= $p->question_name ?></td>
+					<td width="30%"><?= $p->question_name ?></td>
 					
 					<?php $jawaban = $this->CI->jawaban($survey->no_survey, $p->id) ?>
 					<?php foreach ($jawaban as $j) { ?>
-						<td width="45%"><?= $j->answer_name ?></td>
+						<td width="50%"><?= $j->answer_name ?></td>
+						<td width="10%"><?= $j->answer_weight ?></td>
 						<td width="10%"><?= $j->answer_weight * $k->category_weight ?></td>
 					<?php } ?>
 					</td>
 			<?php } ?>
 		</table>
 	<?php } ?>
+	<table width="100%">
+		<tr>
+			<td style="padding-top: 50px;"></td>
+		</tr>
+	</table>
 	<table width="100%">
 		<tr>
 			<td style="padding-top: 50px;"></td>

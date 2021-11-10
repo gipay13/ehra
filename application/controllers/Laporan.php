@@ -295,7 +295,7 @@ class Laporan extends CI_Controller
 			'umur' => $this->LaporanModel->chart(1)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/infoumum_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/infoumum-page', $data);
 	}
 
 	public function index_sampah()
@@ -307,7 +307,7 @@ class Laporan extends CI_Controller
 			'pilih_sampah_tidak' => $this->LaporanModel->stacked_chart(18, 72)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/sampah_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/sampah-page', $data);
 	}
 
 	public function index_limbah()
@@ -320,7 +320,7 @@ class Laporan extends CI_Controller
 			'praktikkuras' => $this->LaporanModel->chart(36),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/limbah_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/limbah-page', $data);
 	}
 
 	public function index_drainase()
@@ -330,12 +330,11 @@ class Laporan extends CI_Controller
 			'genangan' => $this->LaporanModel->chart(118)->result(),
 			'spal' => $this->LaporanModel->chart(49)->result(),
 			'banjir' => $this->LaporanModel->chart(52)->result(),
-			'banjirrutin' => $this->LaporanModel->stacked_chart(53, 673)->result(),
 			'lamagenang' => $this->LaporanModel->chart(57)->result(),
 			'spalberfungsi' => $this->LaporanModel->chart(122)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/drainase_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/drainase-page', $data);
 	}
 
 	public function index_sumberair()
@@ -345,7 +344,7 @@ class Laporan extends CI_Controller
 			'akses' => $this->LaporanModel->chart(58)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/sumberair_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/sumberair-page', $data);
 	}
 
 	public function index_higiene()
@@ -356,7 +355,7 @@ class Laporan extends CI_Controller
 			'waktuctps' => $this->LaporanModel->chart(81)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/higiene_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/higiene-page', $data);
 	}
 
 	public function index_diare()
@@ -366,7 +365,7 @@ class Laporan extends CI_Controller
 			'diare' => $this->LaporanModel->chart(82)->result(),
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/diare-page', $data);
 	}
 
 	public function index_pengamatan()
@@ -375,7 +374,7 @@ class Laporan extends CI_Controller
 			'title' => 'Pengamatan',
 		];
 
-		$this->template->load('layouts/layouts-admin', 'laporan_pages/pengamatan_page', $data);
+		$this->template->load('layouts/layouts-admin', 'laporan_pages/pengamatan-page', $data);
 	}
 
 	// public function index_areaberesiko()
@@ -385,5 +384,15 @@ class Laporan extends CI_Controller
 	// 	];
 
 	// 	$this->template->load('layouts/layouts-admin', 'laporan_pages/areaberesiko_page', $data);
+	// }
+
+	
+	// public function index_rumahsehat()
+	// {
+	// 	$data = [
+	// 		'title' => 'Rumah Sehat',
+	// 	];
+
+	// 	$this->template->load('layouts/layouts-admin', 'laporan_pages/rumahsehat-page', $data);
 	// }
 }

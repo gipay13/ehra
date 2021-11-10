@@ -4,23 +4,12 @@
 			<div class="col-md-3 col-sm-12 mb-3">
 				<h1 class="m-0">User</h1>
 			</div>
-			<div class="col-md-3 col-sm-12 mb-3">
+			<div class="col-md-9 col-sm-12 mb-3">
 				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-user"><i class="fa fa-plus"></i> Tambah User</button>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12 mb-3">
-				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-supervisor"><i class="fa fa-plus"></i> Tambah Supervisor</button>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12 mb-3">
-				<div class="float-sm-right">
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-koordinator"><i class="fa fa-plus"></i> Tambah Koordinator</button>
 				</div>
-			</div>
-			<div class="col-sm-12 mt-3">
-				<?= $this->session->flashdata('message'); ?>
 			</div>
 		</div>
 	</div>

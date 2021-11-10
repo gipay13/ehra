@@ -79,26 +79,26 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<li class="nav-item">
-							<a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
+							<a href="<?= base_url('admin/dashboard') ?>" class="nav-link <?= $this->uri->segment(2) == 'dashboard' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-tachometer-alt"></i>
 								<p>Dashboard</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link">
+							<a href="<?= base_url('admin/pertanyaan') ?>" class="nav-link <?= $this->uri->segment(2) == 'pertanyaan' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-question"></i>
 								<p>Pertanyaan</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= base_url('admin/hasil') ?>" class="nav-link">
+							<a href="<?= base_url('admin/hasil') ?>" class="nav-link <?= $this->uri->segment(2) == 'hasil' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-poll"></i>
 								<p>Hasil Survey</p>
 							</a>
 						</li>
 						<?php if($this->session->userdata('level') == 1 || $this->session->userdata('level') == 3 || $this->session->userdata('level') == 4) { ?>
-						<li class="nav-item">
-							<a href="#" class="nav-link">
+						<li class="nav-item <?= $this->uri->segment(2) == 'laporan' || $this->uri->segment(2) == '' ? 'menu-is-opening menu-open' : '' ?>">
+							<a href="#" class="nav-link <?= $this->uri->segment(2) == 'laporan' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
 								<i class="nav-icon fas fa-chart-pie"></i>
 								<p>
 									Laporan
@@ -107,49 +107,49 @@
 							</a>
 							<ul class="nav nav-treeview">
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/infoumum') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/infoumum') ?>" class="nav-link <?= $this->uri->segment(3) == 'infoumum' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Informasi Responden</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/sampah') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/sampah') ?>" class="nav-link <?= $this->uri->segment(3) == 'sampah' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Sampah</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/limbah') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/limbah') ?>" class="nav-link <?= $this->uri->segment(3) == 'limbah' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Pembuangan Limbah</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/drainase') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/drainase') ?>" class="nav-link <?= $this->uri->segment(3) == 'drainase' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Drainase</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/sumberair') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/sumberair') ?>" class="nav-link <?= $this->uri->segment(3) == 'sumberair' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Sumber Air</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/higiene') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/higiene') ?>" class="nav-link <?= $this->uri->segment(3) == 'higiene' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Perilaku Higiene</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/diare') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/diare') ?>" class="nav-link <?= $this->uri->segment(3) == 'diare' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Diare</p>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= base_url('admin/laporan/pengamatan') ?>" class="nav-link">
+									<a href="<?= base_url('admin/laporan/pengamatan') ?>" class="nav-link <?= $this->uri->segment(3) == 'pengamatan' ? 'active' : '' ?>">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Pengamatan</p>
 									</a>
@@ -160,13 +160,19 @@
 										<p>Area Beresiko</p>
 									</a>
 								</li> -->
+								<!-- <li class="nav-item">
+									<a href="<?= base_url('admin/laporan/rumahsehat') ?>" class="nav-link">
+										<i class="far fa-circle nav-icon"></i>
+										<p>Rumah Sehat</p>
+									</a>
+								</li> -->
 							</ul>
 						</li>
 						<?php } ?>
 						<?php if ($this->session->userdata('level') == 1) { ?>
 							<li class="nav-header">Settings</li>
 							<li class="nav-item">
-								<a href="<?= base_url('admin/user') ?>" class="nav-link">
+								<a href="<?= base_url('admin/user') ?>" class="nav-link <?= $this->uri->segment(2) == 'user' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
 									<i class="nav-icon fas fa-user"></i>
 									<p>Users</p>
 								</a>

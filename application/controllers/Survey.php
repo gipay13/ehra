@@ -103,6 +103,14 @@ class Survey extends CI_Controller
 
 
 		if($this->db->trans_status() === False) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-check-circle mx-1"></i> Database Error</span>
+				</div>'
+			);
+			
 			redirect('survey/rumahsehat/'.$store['no_survey']);
 		} else {
 			redirect('admin/hasil');
@@ -293,8 +301,23 @@ class Survey extends CI_Controller
 
 
 		if($this->db->trans_status() === False) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-check-circle mx-1"></i> Database Error</span>
+				</div>'
+			);
 			redirect('survey/ehra/' . $no_survey);
 		} else {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-check-circle mx-1"></i> Survey Ehra Berhasil di Tambah Silahkan Lanjut Dengan Survey Rumah Sehat</span>
+				</div>'
+			);
+
 			redirect('survey/rumahsehat/'.$no_survey);
 		}
 	}

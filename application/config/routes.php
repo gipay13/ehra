@@ -74,3 +74,4 @@ $route['admin/laporan/higiene'] = 'laporan/index_higiene';
 $route['admin/laporan/diare'] = 'laporan/index_diare';
 $route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
 $route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
+$route['admin/laporan/rumahsehat'] = 'laporan/index_rumahsehat';

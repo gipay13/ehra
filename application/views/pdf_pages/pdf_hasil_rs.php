@@ -48,7 +48,7 @@
 			<td width="15%"><img style="width: 100px; align-items: center;" src="<?= base_url('assets/dist/img/lambang_kota_sukabumi.png') ?>"></td>
 			<td width="80%" style="text-align: left;">
 				<span style="font-weight: bold;">
-					DRAFT HASIL PENILAIAN RISIKO KESEHATAN LINGKUNGAN 2020/2024
+					DRAFT HASIL PENILAIAN RUMAH SEHAT 2020/2024
 					<br>DINAS KESEHATAN KOTA SUKABUMI
 				</span>
 				<br>

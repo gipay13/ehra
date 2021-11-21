@@ -13,7 +13,7 @@ class Pertanyaan extends CI_Controller
 		$this->CI = &get_instance();
 
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('');
 	}
 
 	public function index()

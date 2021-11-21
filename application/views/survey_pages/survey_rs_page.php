@@ -35,7 +35,25 @@
 					</div>
 			<?php } ?>
 			<div class="mt-5">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal">
+					Submit
+				</button>
+			</div>
+			<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-md" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title w-100 text-center" id="myModalLabel"><b>PERHATIAN</b></h4>
+						</div>
+						<div class="modal-body">
+							<p class="text-center">Pastikan semua data sudah sesuai sebelum di simpan agar tidak terjadi kesalahan perhitungan pada laporan</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
+							<button type="submit" name="simpan" class="btn btn-primary btn-sm">Simpan</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>

@@ -12,9 +12,9 @@ class Laporan extends CI_Controller
 		$this->load->library('pdf');
 		$this->CI = &get_instance();
 		if($this->session->userdata('level') == 2)
-			redirect('admin/dashboard');
+			redirect('dashboard');
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('');
 	}
 
 	public function answer_kecamatan($id, $initial_date, $end_date) {

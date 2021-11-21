@@ -8,13 +8,11 @@ class Responden extends CI_Controller
 		parent::__construct();
 		$this->load->model(['RespondenModel', 'UserModel']);
 		if (
-			$this->session->userdata('level') == 1 ||
-			$this->session->userdata('level') == 3 ||
-			$this->session->userdata('level') == 4
+			$this->session->userdata('level') == 1
 		)
 			redirect('admin/dashboard');
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('');
 	}
 
 	
@@ -95,7 +93,7 @@ class Responden extends CI_Controller
 							<span><i class="fas fa-check-circle mx-1"></i> Image Error</span>
 						</div>'
 					);
-					redirect('responden');
+					redirect('survey/responden');
 				}
 			}
 		}

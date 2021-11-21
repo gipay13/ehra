@@ -179,24 +179,15 @@
 					Submit
 				</button>
 
-				<!-- Central Modal large -->
+				<!-- Central Modal -->
 				<div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-dialog modal-md" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h4 class="modal-title w-100 text-center" id="myModalLabel"><b>PERNYATAAN KESEDIAAN</b></h4>
+								<h4 class="modal-title w-100 text-center" id="myModalLabel"><b>PERHATIAN</b></h4>
 							</div>
 							<div class="modal-body">
-								<p class="text-center">(WAJIB DIBACAKAN PADA CALON RESPONDEN; BOLEH MENGGUNAKAN BAHASA DAERAH SETEMPAT)</p>
-								<p class="text-center">Selamat pagi/siang/sore Ibu, saya <?= $this->session->userdata("name"); ?> mewakili tim survey Penilaian Resiko Kesehatan Lingkungan, Program Percepatan
-									Pembangunan Sanitasi Permukiman (PPSP). Kami sedang melakukan survei rumah tangga dan
-									Ibu terpilih untuk diwawancarai. Kami ingin menanyakan dan mengamati hal-hal yang berkaitan dengan lingkungan rumah.
-									Informasi yang ibu berikan akan membantu pemerintah kab/kota merencanakan program lingkungan. Informasi yang ibu berikan
-									akan terjaga kerahasiaannya dan tidak akan ditunjukkan pada orang lain. Lama wawancara ini sekitar 30 menit. Wawancara ini
-									sifatnya sukarela, Ibu boleh menolak atau tidak menjawab pertanyaan tertentu atau tidak melanjutkan wawancara. Kami harap Ibu
-									bersedia berpartisipasi karena jawaban Ibu sangat penting bagi pembangunan lingkungan. <b>(Jika Calon Responden Tidak
-										bersedia, ucapkan terima kasih kepada calon responden tersebut dan selanjutnya anda pindah ke calon responden lain yang ada
-										dalam daftar calon responden)</b></p>
+								<p class="text-center">Pastikan semua data sudah sesuai sebelum di simpan agar tidak terjadi kesalahan perhitungan pada laporan</p>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>

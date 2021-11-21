@@ -35,7 +35,8 @@ foreach ($pilih_sampah_tidak as $temp => $p) {
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			<?php if($this->session->userdata('level') == 1) { ?>
+			<div class="col-md-12 mb-5">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
 					<div class="card-header">
@@ -79,13 +80,14 @@ foreach ($pilih_sampah_tidak as $temp => $p) {
 					</form>	
 				</div>
 			</div>
-			<div class="col-md-12 mt-5">
+			<?php } ?>
+			<div class="col-md-12 mb-5">
 				<div id="kelola_sampah" style="height: 370px;"></div>
 			</div>
-			<div class="col-md-6 col-sm-12 mt-5">
+			<div class="col-md-6 col-sm-12 mb-5">
 				<div id="pilih_sampah_ya" style="height: 370px;"></div>
 			</div>
-			<div class="col-md-6 col-sm-12 mt-5">
+			<div class="col-md-6 col-sm-12 mb-5">
 				<div id="pilih_sampah_tidak" style="height: 370px;"></div>
 			</div>
 		</div>

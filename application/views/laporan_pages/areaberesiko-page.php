@@ -10,6 +10,7 @@
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
+			<?php if($this->session->userdata('level') == 1) { ?>
 			<div class="col-md-12">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
@@ -55,6 +56,7 @@
 					</form>	
 				</div>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 </section>

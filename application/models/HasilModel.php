@@ -6,6 +6,7 @@ class HasilModel extends CI_Model
 
 	function get_hasil()
 	{
+		$this->db->select('*, respondent.id as respondent_id');
 		$this->db->join('puskesmas', 'puskesmas.id = survey.puskesmas_id');
 		$this->db->join('respondent', 'respondent.nik = survey.nik');
 		$this->db->join('users', 'users.user_id = survey.user_id');
@@ -79,9 +80,9 @@ class HasilModel extends CI_Model
 		$this->db->delete('survey');
 	}
 
-	function delete_respondent($nik)
+	function delete_respondent($id)
 	{
-		$this->db->where('nik', $nik);
+		$this->db->where('id', $id);
 		$this->db->delete('respondent');
 	}
 

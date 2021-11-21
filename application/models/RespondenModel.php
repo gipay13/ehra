@@ -39,9 +39,9 @@ class RespondenModel extends CI_Model
 		if ($query->num_rows() > 0) {
 			$row = $query->row();
 			$n = ((int)$row->survey) + 1;
-			$no = sprintf("%'.04d", $n);
+			$no = sprintf("%'.02d", $n);
 		} else {
-			$no = "0001";
+			$no = "01";
 		}
 
 		$no_survey = "EHRA".date('ymd').substr(str_shuffle($permitted_chars), 0, 10).$no;

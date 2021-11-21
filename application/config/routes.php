@@ -54,24 +54,24 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Route Survey
+$route['survey/responden'] = 'responden/index';
 $route['survey/ehra/(:any)'] = 'survey/index_ehra/$1';
 $route['survey/rumahsehat/(:any)'] = 'survey/index_rumahsehat/$1';
-$route['survey/responden'] = 'responden/index';
 
 // Route Dashboard
-$route['admin/dashboard'] = 'dashboard';
-$route['admin/pertanyaan'] = 'pertanyaan';
-$route['admin/hasil'] = 'hasil';
-$route['admin/user'] = 'user';
+$route['dashboard'] = 'dashboard';
+$route['pertanyaan'] = 'pertanyaan';
+$route['hasil'] = 'hasil';
+$route['user'] = 'user';
 
 // Route Laporan
-$route['admin/laporan/infoumum'] = 'laporan/index_infoumum';
-$route['admin/laporan/sampah'] = 'laporan/index_sampah';
-$route['admin/laporan/limbah'] = 'laporan/index_limbah';
-$route['admin/laporan/drainase'] = 'laporan/index_drainase';
-$route['admin/laporan/sumberair'] = 'laporan/index_sumberair';
-$route['admin/laporan/higiene'] = 'laporan/index_higiene';
-$route['admin/laporan/diare'] = 'laporan/index_diare';
-$route['admin/laporan/pengamatan'] = 'laporan/index_pengamatan';
-$route['admin/laporan/areaberesiko'] = 'laporan/index_areaberesiko';
-$route['admin/laporan/rumahsehat'] = 'laporan/index_rumahsehat';
+$route['laporan/infoumum'] = 'laporan/index_infoumum';
+$route['laporan/sampah'] = 'laporan/index_sampah';
+$route['laporan/limbah'] = 'laporan/index_limbah';
+$route['laporan/drainase'] = 'laporan/index_drainase';
+$route['laporan/sumberair'] = 'laporan/index_sumberair';
+$route['laporan/higiene'] = 'laporan/index_higiene';
+$route['laporan/diare'] = 'laporan/index_diare';
+$route['laporan/pengamatan'] = 'laporan/index_pengamatan';
+$route['laporan/areaberesiko'] = 'laporan/index_areaberesiko';
+$route['laporan/rumahsehat'] = 'laporan/index_rumahsehat';

@@ -11,7 +11,7 @@ class Hasil extends CI_Controller
 		$this->load->model('HasilModel');
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('');
 	}
 
 	public function index()
@@ -70,23 +70,35 @@ class Hasil extends CI_Controller
 		$this->pdf->load_view('pdf_pages/pdf_hasil_rs', $data, 'A4', 'portrait');
 	}
 
-	public function delete($no_survey, $nik)
+	public function delete($no_survey, $id)
 	{
 		$this->db->trans_start();
 		$this->HasilModel->delete_survey($no_survey);
-		$this->HasilModel->delete_respondent($nik);
+		$this->HasilModel->delete_respondent($id);
 		$this->HasilModel->delete_result($no_survey);
 		$this->db->trans_complete();
 		
-		if ($this->db->affected_rows() > 0) {
+		if ($this->db->trans_status() === FALSE) {
 			$this->session->set_flashdata(
 				'message',
 				'<div class="alert alert-danger alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-times-circle mx-1"></i> Hasil Survey Dihapus</span>
+					<span><i class="fas fa-times-circle mx-1"></i> Something Wrong, Please Try Again</span>
 				</div>'
 			);
-			redirect('admin/hasil');
+			redirect('hasil');	
+		} else {
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-times-circle mx-1"></i> Hasil Survey Dihapus</span>
+					</div>'
+				);
+				redirect('hasil');
+			}
 		}
+		
 	}
 }

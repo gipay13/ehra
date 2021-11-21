@@ -28,20 +28,8 @@
 
 <body>
 	<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="nav">
-		<div class="container">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown">
-						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-							<?= $this->session->userdata("name"); ?>
-						</a>
-
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="<?= base_url('admin/dashboard') ?>">Dashboard</a>
-						</div>
-					</li>
-				</ul>
-			</div>
+		<div class="navbar-brand">
+			<span class="navbar-brand mb-0 h1">Survey</span>
 		</div>
 	</nav>
 

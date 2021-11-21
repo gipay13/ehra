@@ -4,7 +4,7 @@
 			<div class="col-md-6 col-sm-12 mb-3">
 				<h1 class="m-0">Hasil Survey</h1>
 			</div>
-			<?php if ($this->session->userdata('level') == 2) { ?>
+			<?php if ($this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
 				<div class="col-md-6 col-sm-12">
 					<div class="float-sm-right">
 						<a href="<?= base_url('survey/responden') ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Survey</a>
@@ -60,9 +60,11 @@
 											<?php } ?>
 										</td>
 										<td>
+											<?php if ($this->session->userdata('level') == 3) { ?>
 											<div class="">
-												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->nik) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i> DELETE</a>
+												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->respondent_id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i> DELETE</a>
 											</div>
+											<?php } ?>
 											<div class="">
 												<a href="<?= base_url('hasil/hasil_survey_ehra/'.$s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> EHRA</a>
 											</div>

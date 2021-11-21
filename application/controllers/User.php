@@ -12,8 +12,7 @@ class User extends CI_Controller
 			redirect('auth');
 		if (
 			$this->session->userdata('level') == 2 ||
-			$this->session->userdata('level') == 3 ||
-			$this->session->userdata('level') == 4
+			$this->session->userdata('level') == 3
 		)
 			redirect('admin/dashboard');
 	}
@@ -113,7 +112,7 @@ class User extends CI_Controller
 			redirect('admin/user');
 		}
 	}
-
+	
 	public function delete_koordinator($id)
 	{
 		$this->UserModel->delete_koordinator($id);

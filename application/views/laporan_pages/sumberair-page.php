@@ -21,6 +21,7 @@ foreach ($akses as $temp => $a) {
 <section class="content">
 	<div class="container-fluid">
 		<div class="row mb-2">
+			<?php if($this->session->userdata('level') == 1) { ?>
 			<div class="col-md-12">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
@@ -63,6 +64,7 @@ foreach ($akses as $temp => $a) {
 					</form>	
 				</div>
 			</div>
+			<?php } ?>
 			<div class="col-md-12 mb-5">
 				<div id="akses" style="height: 370px;"></div>
 			</div>

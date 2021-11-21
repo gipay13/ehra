@@ -41,6 +41,7 @@ foreach ($praktikkuras->result() as $temp => $p) {
 <section class="content">
 	<div class="container-fluid">
 		<div class="row mb-2">
+			<?php if($this->session->userdata('level') == 1) { ?>
 			<div class="col-md-6 col-sm-12">
 				<div class="card">
 					<form action="<?= base_url('laporan/export') ?>" method="post">
@@ -85,7 +86,8 @@ foreach ($praktikkuras->result() as $temp => $p) {
 					</form>	
 				</div>
 			</div>
-			<div class="col-md-6 col-sm-12">
+			<?php } ?>
+			<div class="<?= $this->session->userdata('level') == 1 ? 'col-md-6' : 'col-md-12'?> col-sm-12">
 				<div id="tba" style="height: 370px;"></div>
 			</div>
 			<div class="col-md-12 mt-5">

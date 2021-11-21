@@ -10,13 +10,11 @@ class Survey extends CI_Controller
 		parent::__construct();
 		$this->load->model(['SurveyModel']);
 		if (
-			$this->session->userdata('level') == 1 ||
-			$this->session->userdata('level') == 3 ||
-			$this->session->userdata('level') == 4
+			$this->session->userdata('level') == 1
 		)
-			redirect('admin/dashboard');
+			redirect('dashboard');
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('');
 		$this->CI = &get_instance();
 	}
 
@@ -107,13 +105,13 @@ class Survey extends CI_Controller
 				'message',
 				'<div class="alert alert-success alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-check-circle mx-1"></i> Database Error</span>
+					<span><i class="fas fa-check-circle mx-1"></i> Something Wrong Please Try Again</span>
 				</div>'
 			);
 			
 			redirect('survey/rumahsehat/'.$store['no_survey']);
 		} else {
-			redirect('admin/hasil');
+			redirect('hasil');
 		}
 		
 	}
@@ -305,7 +303,7 @@ class Survey extends CI_Controller
 				'message',
 				'<div class="alert alert-success alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-check-circle mx-1"></i> Database Error</span>
+					<span><i class="fas fa-check-circle mx-1"></i> Something Wrong Please Try Again</span>
 				</div>'
 			);
 			redirect('survey/ehra/' . $no_survey);

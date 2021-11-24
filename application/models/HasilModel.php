@@ -8,7 +8,7 @@ class HasilModel extends CI_Model
 	{
 		$this->db->select('*, respondent.id as respondent_id');
 		$this->db->join('puskesmas', 'puskesmas.id = survey.puskesmas_id');
-		$this->db->join('respondent', 'respondent.nik = survey.nik');
+		$this->db->join('respondent', 'respondent.id = survey.respondent_id');
 		$this->db->join('users', 'users.user_id = survey.user_id');
 		$this->db->join('districts', 'districts.id = survey.district_id');
 		$this->db->join('villages', 'villages.id = survey.village_id');
@@ -22,7 +22,7 @@ class HasilModel extends CI_Model
 
 	function get_pdf_survey($no_survey)
 	{
-		$this->db->join('respondent', 'respondent.nik = survey.nik');
+		$this->db->join('respondent', 'respondent.id = survey.respondent_id');
 		$this->db->join('users', 'users.user_id = survey.user_id');
 		$this->db->join('districts', 'districts.id = survey.district_id');
 		$this->db->join('villages', 'villages.id = survey.village_id');

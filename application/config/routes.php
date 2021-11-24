@@ -58,11 +58,6 @@ $route['survey/responden'] = 'responden/index';
 $route['survey/ehra/(:any)'] = 'survey/index_ehra/$1';
 $route['survey/rumahsehat/(:any)'] = 'survey/index_rumahsehat/$1';
 
-// Route Dashboard
-$route['dashboard'] = 'dashboard';
-$route['pertanyaan'] = 'pertanyaan';
-$route['hasil'] = 'hasil';
-$route['user'] = 'user';
 
 // Route Laporan
 $route['laporan/infoumum'] = 'laporan/index_infoumum';

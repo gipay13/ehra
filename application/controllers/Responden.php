@@ -70,7 +70,7 @@ class Responden extends CI_Controller
 							'message',
 							'<div class="alert alert-danger alert-dismissible">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<span><i class="fas fa-times-circle mx-1"></i> Error Database</span>
+								<span><i class="fas fa-times-circle mx-1"></i> Something Wrong Please Try Again!</span>
 							</div>'
 						);
 						redirect('responden');

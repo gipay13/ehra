@@ -8,13 +8,14 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('UserModel');
+		$this->load->library('form_validation');
 		if (!$this->session->userdata('id'))
 			redirect('auth');
 		if (
 			$this->session->userdata('level') == 2 ||
 			$this->session->userdata('level') == 3
 		)
-			redirect('admin/dashboard');
+			redirect('dashboard');
 	}
 
 	public function index()
@@ -43,11 +44,11 @@ class User extends CI_Controller
 				$this->session->set_flashdata(
 					'message',
 					'<div class="alert alert-warning alert-dismissible">
-							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-							<span><i class="fas fa-exclamation-triangle mx-1"></i> Username Sudah Terpakai</span>
-						</div>'
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-exclamation-triangle mx-1"></i> Username Sudah Terpakai</span>
+					</div>'
 				);
-				redirect('admin/user');
+				redirect('user');
 			} else if ($puskesmas > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -56,28 +57,59 @@ class User extends CI_Controller
 						<span><i class="fas fa-exclamation-triangle mx-1"></i> Kepala Puskesmas Sudah Terdaftar</span>
 					</div>'
 				);
-				redirect('admin/user');
+				redirect('user');
 			} else {
-				$message = 'User';
+				$message = 'User Berhasil Ditambah';
 				$this->UserModel->insert_user($process);
 			}
 		} else if(isset($_POST['add_supervisor'])) {
-			$message = 'Supervisor';
+			$message = 'Supervisor Berhasil Ditambah';
 			$this->UserModel->insert_supervisor($process);
 		} else if (isset($_POST['add_koordinator'])) {
-			$message = 'Koordinator';
+			$message = 'Koordinator Berhasil Ditambah';
 			$this->UserModel->insert_koordinator($process);
+		} else if(isset($_POST['edit_user'])) {
+			$username = $this->UserModel->validate_username($process['username'], $process['user_id']);
+			$puskesmas = $this->UserModel->validate_puskesmas($process['puskesmas'], $process['level'], $process['user_id']);
+			if ($username > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-warning alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-exclamation-triangle mx-1"></i> Username Sudah Terpakai</span>
+					</div>'
+				);
+				redirect('user');
+			} else if ($puskesmas > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-warning alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-exclamation-triangle mx-1"></i> Kepala Puskesmas Sudah Terdaftar</span>
+					</div>'
+				);
+				redirect('user');
+			} else {
+				$message = 'User Berhasil Diubah';
+				$this->UserModel->update_user($process);
+			}
+		} else if(isset($_POST['edit_supervisor'])) {
+			$message = 'Supervisor Berhasil Diubah';
+			$this->UserModel->update_supervisor($process);
+		} else if(isset($_POST['edit_koordinator'])) {
+			$message = 'Koordinator Berhasil Diubah';
+			$this->UserModel->update_koordinator($process);
 		}
 
 		if ($this->db->affected_rows() > 0) {
 			$this->session->set_flashdata(
 				'message',
 				'<div class="alert alert-success alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<span><i class="fas fa-check-circle mx-1"></i> '.$message.' Berhasil Ditambah</span>
-					</div>'
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-check-circle mx-1"></i> '.$message.'</span>
+				</div>'
 			);
-			redirect('admin/user');
+			redirect('user');
 		}
 	}
 
@@ -85,15 +117,27 @@ class User extends CI_Controller
 	{
 		$this->UserModel->delete_user($id);
 
-		if ($this->db->affected_rows() > 0) {
+		$error = $this->db->error();
+		if($error['code'] != 0) {
 			$this->session->set_flashdata(
 				'message',
-				'<div class="alert alert-danger alert-dismissible">
+				'<div class="alert alert-warning alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-times-circle mx-1"></i> User Dihapus</span>
+					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> User Tidak Dapat Dihapus, User Telah Melakukan Survey</span>
 				</div>'
 			);
-			redirect('admin/user');
+			redirect('user');
+		} else {
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-times-circle mx-1"></i> User Dihapus</span>
+					</div>'
+				);
+				redirect('user');
+			}
 		}
 	}
 
@@ -101,15 +145,27 @@ class User extends CI_Controller
 	{
 		$this->UserModel->delete_supervisor($id);
 
-		if ($this->db->affected_rows() > 0) {
+		$error = $this->db->error();
+		if($error['code'] != 0) {
 			$this->session->set_flashdata(
 				'message',
-				'<div class="alert alert-danger alert-dismissible">
+				'<div class="alert alert-warning alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-times-circle mx-1"></i> Supervisor Dihapus</span>
+					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> Supervisi Tidak Dapat Dihapus, Nama Telah Digunakan Untuk Survey</span>
 				</div>'
 			);
-			redirect('admin/user');
+			redirect('user');
+		} else {
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-times-circle mx-1"></i> Supervisi Dihapus</span>
+					</div>'
+				);
+				redirect('user');
+			}
 		}
 	}
 	
@@ -117,15 +173,27 @@ class User extends CI_Controller
 	{
 		$this->UserModel->delete_koordinator($id);
 
-		if ($this->db->affected_rows() > 0) {
+		$error = $this->db->error();
+		if($error['code'] != 0) {
 			$this->session->set_flashdata(
 				'message',
-				'<div class="alert alert-danger alert-dismissible">
+				'<div class="alert alert-warning alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<span><i class="fas fa-times-circle mx-1"></i> Koordinator Dihapus</span>
+					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> Koordinator Tidak Dapat Dihapus, Nama Telah Digunakan Untuk Survey</span>
 				</div>'
 			);
-			redirect('admin/user');
+			redirect('user');
+		} else {
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata(
+					'message',
+					'<div class="alert alert-danger alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<span><i class="fas fa-times-circle mx-1"></i> Koordinator Dihapus</span>
+					</div>'
+				);
+				redirect('user');
+			}
 		}
 	}
 }

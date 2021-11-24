@@ -33,12 +33,12 @@ class UserModel extends CI_Model
 		return $query->row();
 	}
 
-	function get_user($level = null)
+	function get_user($id = null)
 	{
 		$this->db->join('levels', 'levels.id = users.level_id');
 		$this->db->join('puskesmas', 'puskesmas.id = users.puskesmas_id', 'left');
-		if ($level != null) {
-			$this->db->where('level_id', $level);
+		if ($id != null) {
+			$this->db->where('user_id', $id);
 		}
 		$this->db->order_by('users.created_at', 'asc');
 		$query = $this->db->get('users');
@@ -62,7 +62,6 @@ class UserModel extends CI_Model
 
 	public function validate_puskesmas($puskesmas, $level, $id = null)
 	{
-		$this->db->select('*');
 		$this->db->where('level_id', $level);
 		$this->db->where('puskesmas_id', $puskesmas);
 		if ($id != null) {
@@ -75,7 +74,6 @@ class UserModel extends CI_Model
 
 	public function validate_username($username, $id = null)
 	{
-		$this->db->select('*');
 		$this->db->where('username', $username);
 		if ($id != null) {
 			$this->db->where('user_id !=', $id);
@@ -83,6 +81,22 @@ class UserModel extends CI_Model
 		$query = $this->db->get('users');
 
 		return $query->num_rows();
+	}
+
+	public function update_user($edit) {
+		$data = [
+			'username' => $edit['username'],
+			'name' => $edit['user_name'],
+			'level_id' => $edit['level'],
+			'puskesmas_id' => $edit['puskesmas'] == '' ? null : $edit['puskesmas'],
+			'updated_at' => date('Y-m-d'),
+		];
+
+		if($edit['password'] != null) {
+			$data['password'] = password_hash($edit['password'], PASSWORD_DEFAULT);
+		}
+		$this->db->where('user_id', $edit['user_id']);
+		$this->db->update('users', $data);
 	}
 
 	public function delete_user($id)
@@ -102,12 +116,22 @@ class UserModel extends CI_Model
 	public function insert_supervisor($insert)
 	{
 		$data = [
-			'supervisor_name' => $insert['supervisor_name'],
-			'created_at' => date('Y-m-d'),
-			'updated_at' => date('Y-m-d'),
+			'supervisor_name'	=> $insert['supervisor_name'],
+			'created_at' 		=> date('Y-m-d'),
+			'updated_at' 		=> date('Y-m-d'),
 		];
 
 		$this->db->insert('supervisors', $data);
+	}
+
+	public function update_supervisor($edit) {
+		$data = [
+			'supervisor_name'	=> $edit['supervisor_name'],
+			'updated_at'		=> date('Y-m-d')
+		];
+
+		$this->db->where('id', $edit['supervisor_id']);
+		$this->db->update('supervisors', $data);
 	}
 
 	public function delete_supervisor($id)
@@ -135,6 +159,17 @@ class UserModel extends CI_Model
 		];
 
 		$this->db->insert('coordinators', $data);
+	}
+
+	public function update_koordinator($edit) {
+		$data = [
+			'coordinator_name'	=> $edit['koordinator_name'],
+			'district_id'		=> $edit['kecamatan'],
+			'updated_at'		=> date('Y-m-d')
+		];
+
+		$this->db->where('id', $edit['koordinator_id']);
+		$this->db->update('coordinators', $data);	
 	}
 
 	public function delete_koordinator($id)

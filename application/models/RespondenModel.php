@@ -65,13 +65,17 @@ class RespondenModel extends CI_Model
 		];
 
 		$this->db->insert('respondent', $data);
+
+		$get_id = $this->db->insert_id();
+
+		return $get_id;
 	}
 
 	function insert_survey($survey)
 	{
 		$data = [
 			'no_survey'				=> $survey['no_survey'],
-			'nik'					=> $survey['nik'],
+			'respondent_id'			=> $this->insert_responden($survey),
 			'survey_date'			=> $survey['tanggal_survey'],
 			'survey_time'			=> $survey['jam_survey'],
 			'puskesmas_id'			=> $survey['puskesmas_id'],

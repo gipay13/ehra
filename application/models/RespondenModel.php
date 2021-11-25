@@ -44,7 +44,7 @@ class RespondenModel extends CI_Model
 			$no = "01";
 		}
 
-		$no_survey = "EHRA".date('ymd').substr(str_shuffle($permitted_chars), 0, 10).$no;
+		$no_survey = "EHRA" . date('ymd') . substr(str_shuffle($permitted_chars), 0, 10) . $no;
 		return $no_survey;
 	}
 
@@ -85,9 +85,9 @@ class RespondenModel extends CI_Model
 			'district_id'			=> $survey['kecamatan'],
 			'village_id'			=> $survey['kelurahan'],
 			'village_id'			=> $survey['kelurahan'],
-			'lat'					=> $survey['latitude'],
-			'lng'					=> $survey['longitude'],
-			'image'					=> $survey['foto_responden'],
+			// 'lat'					=> $survey['latitude'],
+			// 'lng'					=> $survey['longitude'],
+			'image'					=> $survey['image'],
 		];
 
 		$this->db->insert('survey', $data);

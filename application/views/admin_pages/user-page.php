@@ -186,8 +186,8 @@
 								<input type="text" name="username" class="form-control" id="username" required>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Nama</label>
-								<input type="text" name="user_name" class="form-control" id="user_name" required>
+								<label for="name">Nama</label>
+								<input type="text" name="name" class="form-control" id="name" required>
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
@@ -268,8 +268,8 @@
 								<input type="text" name="koordinator_name" class="form-control" id="koordinator_name" required>
 							</div>
 							<div class="form-group">
-								<label for="kecamatan">Kecamatan</label>
-								<select name="kecamatan" id="kecamatan" class="form-control" required>
+								<label for="district">Kecamatan</label>
+								<select name="district" id="district" class="form-control" required>
 									<option value="">--Pilih Kecamatan--</option>
 									<?php foreach ($kecamatan as $ke) { ?>
 										<option value="<?= $ke->id ?>"><?= $ke->district_name ?></option>
@@ -307,8 +307,8 @@
 								<input type="text" name="username" class="form-control" id="username" value="<?= $u->username ?>" required>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Nama</label>
-								<input type="text" name="user_name" class="form-control" id="user_name" value="<?= $u->name ?>" required>
+								<label for="name">Nama</label>
+								<input type="text" name="name" class="form-control" id="name" value="<?= $u->name ?>" required>
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
@@ -395,8 +395,8 @@
 								<input type="text" name="koordinator_name" class="form-control" id="koordinator_name" value="<?= $k->coordinator_name ?>" required>
 							</div>
 							<div class="form-group">
-								<label for="kecamatan">Kecamatan</label>
-								<select name="kecamatan" id="kecamatan" class="form-control" required>
+								<label for="district">Kecamatan</label>
+								<select name="district" id="district" class="form-control" required>
 									<option value="">--Pilih Kecamatan--</option>
 									<?php foreach ($kecamatan as $ke) { ?>
 										<option <?= $k->district_id == $ke->id ? 'selected' : '' ?> value="<?= $ke->id ?>"><?= $ke->district_name ?></option>

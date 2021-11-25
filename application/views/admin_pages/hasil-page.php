@@ -55,18 +55,18 @@
 										<td><?= $s->rw ?></td>
 										<td><?= $s->rt ?></td>
 										<td>
-											<?php if($s->image != null) { ?>
-												<img src="<?= base_url('uploads/'.$s->image)?>" alt="" style="width: 50px;">
+											<?php if ($s->image != null) { ?>
+												<img src="<?= base_url('uploads/' . $s->image) ?>" alt="" style="width: 50px;">
 											<?php } ?>
 										</td>
 										<td>
-											<?php if ($this->session->userdata('level') == 3) { ?>
-											<div class="">
-												<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->respondent_id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i> DELETE</a>
-											</div>
+											<?php if ($this->session->userdata('level') == 2 || $this->session->userdata('level') == 3) { ?>
+												<div class="">
+													<a href="<?= base_url('hasil/delete/' . $s->no_survey . '/' . $s->respondent_id) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin?')"><i class="fas fa-trash mx-1"></i> DELETE</a>
+												</div>
 											<?php } ?>
 											<div class="">
-												<a href="<?= base_url('hasil/hasil_survey_ehra/'.$s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> EHRA</a>
+												<a href="<?= base_url('hasil/hasil_survey_ehra/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> EHRA</a>
 											</div>
 											<div class="">
 												<a href="<?= base_url('hasil/hasil_survey_rs/' . $s->no_survey) ?>" class="btn btn-danger btn-xs"><i class="fas fa-file-pdf mx-1"></i> RS</a>

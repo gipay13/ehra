@@ -12,7 +12,7 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('id')) {
-			redirect('dashboard');
+			redirect('dashboard', 'refresh');
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -42,7 +42,7 @@ class Auth extends CI_Controller
 					'id'		=> $user['user_id']
 				];
 				$this->session->set_userdata($data);
-				redirect('dashboard');
+				redirect('dashboard', 'refresh');
 			} else {
 				$this->session->set_flashdata(
 					'message',
@@ -51,7 +51,7 @@ class Auth extends CI_Controller
 						<span>Username atau Password salah</span>
 					</div>'
 				);
-				redirect('');
+				redirect('', 'refresh');
 			}
 		} else {
 			$this->session->set_flashdata(
@@ -61,13 +61,13 @@ class Auth extends CI_Controller
 					<span>Username atau Password salah</span>
 				</div>'
 			);
-			redirect('');
+			redirect('', 'refresh');
 		}
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('');
+		redirect('', 'refresh');
 	}
 }

@@ -12,7 +12,7 @@ class Laporan extends CI_Controller
 		$this->load->library('pdf');
 		$this->CI = &get_instance();
 		if($this->session->userdata('level') == 2)
-			redirect('dashboard');
+			redirect('dashboard','refresh');
 		if (!$this->session->userdata('id'))
 			redirect('');
 	}

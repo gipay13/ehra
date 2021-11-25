@@ -20,6 +20,12 @@ class HasilModel extends CI_Model
 		return $query;
 	}
 
+	function get_image($id) {
+		$this->db->where('id', $id);
+		$query = $this->db->get('survey');
+		return $query;
+	}
+
 	function get_pdf_survey($no_survey)
 	{
 		$this->db->join('respondent', 'respondent.id = survey.respondent_id');

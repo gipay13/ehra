@@ -49,7 +49,7 @@ class UserModel extends CI_Model
 	{
 		$data = [
 			'username' => $insert['username'],
-			'name' => $insert['user_name'],
+			'name' => $insert['name'],
 			'password' => password_hash($insert['password'], PASSWORD_DEFAULT),
 			'level_id' => $insert['level'],
 			'puskesmas_id' => $insert['puskesmas'] == '' ? null : $insert['puskesmas'],
@@ -60,9 +60,9 @@ class UserModel extends CI_Model
 		$this->db->insert('users', $data);
 	}
 
-	public function validate_puskesmas($puskesmas, $level, $id = null)
+	public function validate_puskesmas($puskesmas, $id = null)
 	{
-		$this->db->where('level_id', $level);
+		$this->db->where('level_id', 3);
 		$this->db->where('puskesmas_id', $puskesmas);
 		if ($id != null) {
 			$this->db->where('user_id !=', $id);
@@ -86,7 +86,7 @@ class UserModel extends CI_Model
 	public function update_user($edit) {
 		$data = [
 			'username' => $edit['username'],
-			'name' => $edit['user_name'],
+			'name' => $edit['name'],
 			'level_id' => $edit['level'],
 			'puskesmas_id' => $edit['puskesmas'] == '' ? null : $edit['puskesmas'],
 			'updated_at' => date('Y-m-d'),
@@ -153,7 +153,7 @@ class UserModel extends CI_Model
 	{
 		$data = [
 			'coordinator_name' => $insert['koordinator_name'],
-			'district_id' => $insert['kecamatan'],
+			'district_id' => $insert['district'],
 			'created_at' => date('Y-m-d'),
 			'updated_at' => date('Y-m-d'),
 		];
@@ -164,7 +164,7 @@ class UserModel extends CI_Model
 	public function update_koordinator($edit) {
 		$data = [
 			'coordinator_name'	=> $edit['koordinator_name'],
-			'district_id'		=> $edit['kecamatan'],
+			'district_id'		=> $edit['district'],
 			'updated_at'		=> date('Y-m-d')
 		];
 

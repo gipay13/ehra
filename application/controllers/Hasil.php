@@ -11,7 +11,7 @@ class Hasil extends CI_Controller
 		$this->load->model('HasilModel');
 		$this->CI = &get_instance();
 		if (!$this->session->userdata('id'))
-			redirect('');
+			redirect('', 'refresh');
 	}
 
 	public function index()
@@ -72,6 +72,11 @@ class Hasil extends CI_Controller
 
 	public function delete($no_survey, $id)
 	{
+		$image = $this->HasilModel->get_image($id)->row();
+		if($image->image != null) {
+			$target_image = './uploads/'.$image->image;
+			unlink($target_image);
+		}
 		$this->db->trans_start();
 		$this->HasilModel->delete_survey($no_survey);
 		$this->HasilModel->delete_respondent($id);
@@ -86,18 +91,16 @@ class Hasil extends CI_Controller
 					<span><i class="fas fa-times-circle mx-1"></i> Something Wrong, Please Try Again</span>
 				</div>'
 			);
-			redirect('hasil');	
+			redirect('hasil', 'refresh');	
 		} else {
-			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata(
-					'message',
-					'<div class="alert alert-danger alert-dismissible">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<span><i class="fas fa-times-circle mx-1"></i> Hasil Survey Dihapus</span>
-					</div>'
-				);
-				redirect('hasil');
-			}
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<span><i class="fas fa-times-circle mx-1"></i> Hasil Survey Dihapus</span>
+				</div>'
+			);
+			redirect('hasil', 'refresh');
 		}
 		
 	}

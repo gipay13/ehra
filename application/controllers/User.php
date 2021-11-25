@@ -10,12 +10,12 @@ class User extends CI_Controller
 		$this->load->model('UserModel');
 		$this->load->library('form_validation');
 		if (!$this->session->userdata('id'))
-			redirect('auth');
+			redirect('auth', 'refresh');
 		if (
 			$this->session->userdata('level') == 2 ||
 			$this->session->userdata('level') == 3
 		)
-			redirect('dashboard');
+			redirect('dashboard', 'refresh');
 	}
 
 	public function index()
@@ -39,7 +39,7 @@ class User extends CI_Controller
 
 		if (isset($_POST['add_user'])) {
 			$username = $this->UserModel->validate_username($process['username']);
-			$puskesmas = $this->UserModel->validate_puskesmas($process['puskesmas'], $process['level']);
+			$puskesmas = $this->UserModel->validate_puskesmas($process['puskesmas']);
 			if ($username > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -48,7 +48,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-exclamation-triangle mx-1"></i> Username Sudah Terpakai</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			} else if ($puskesmas > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -57,7 +57,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-exclamation-triangle mx-1"></i> Kepala Puskesmas Sudah Terdaftar</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			} else {
 				$message = 'User Berhasil Ditambah';
 				$this->UserModel->insert_user($process);
@@ -70,7 +70,7 @@ class User extends CI_Controller
 			$this->UserModel->insert_koordinator($process);
 		} else if(isset($_POST['edit_user'])) {
 			$username = $this->UserModel->validate_username($process['username'], $process['user_id']);
-			$puskesmas = $this->UserModel->validate_puskesmas($process['puskesmas'], $process['level'], $process['user_id']);
+			$puskesmas = $this->UserModel->validate_puskesmas($process['puskesmas'], $process['user_id']);
 			if ($username > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -79,7 +79,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-exclamation-triangle mx-1"></i> Username Sudah Terpakai</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			} else if ($puskesmas > 0) {
 				$this->session->set_flashdata(
 					'message',
@@ -88,7 +88,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-exclamation-triangle mx-1"></i> Kepala Puskesmas Sudah Terdaftar</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			} else {
 				$message = 'User Berhasil Diubah';
 				$this->UserModel->update_user($process);
@@ -109,7 +109,7 @@ class User extends CI_Controller
 					<span><i class="fas fa-check-circle mx-1"></i> '.$message.'</span>
 				</div>'
 			);
-			redirect('user');
+			redirect('user', 'refresh');
 		}
 	}
 
@@ -126,7 +126,7 @@ class User extends CI_Controller
 					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> User Tidak Dapat Dihapus, User Telah Melakukan Survey</span>
 				</div>'
 			);
-			redirect('user');
+			redirect('user', 'refresh');
 		} else {
 			if ($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata(
@@ -136,7 +136,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-times-circle mx-1"></i> User Dihapus</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			}
 		}
 	}
@@ -154,7 +154,7 @@ class User extends CI_Controller
 					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> Supervisi Tidak Dapat Dihapus, Nama Telah Digunakan Untuk Survey</span>
 				</div>'
 			);
-			redirect('user');
+			redirect('user', 'refresh');
 		} else {
 			if ($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata(
@@ -164,7 +164,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-times-circle mx-1"></i> Supervisi Dihapus</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			}
 		}
 	}
@@ -182,7 +182,7 @@ class User extends CI_Controller
 					<span class="text-white"><i class="fas fa-times-circle mx-1"></i> Koordinator Tidak Dapat Dihapus, Nama Telah Digunakan Untuk Survey</span>
 				</div>'
 			);
-			redirect('user');
+			redirect('user', 'refresh');
 		} else {
 			if ($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata(
@@ -192,7 +192,7 @@ class User extends CI_Controller
 						<span><i class="fas fa-times-circle mx-1"></i> Koordinator Dihapus</span>
 					</div>'
 				);
-				redirect('user');
+				redirect('user', 'refresh');
 			}
 		}
 	}

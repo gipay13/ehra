@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->model(['PertanyaanModel', 'HasilModel', 'UserModel']);
 		if (!$this->session->userdata('id'))
-			redirect('');
+			redirect('', 'refresh');
 	}
 
 	public function index()
